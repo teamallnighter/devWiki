@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
@@ -67,22 +66,7 @@
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
-<link rel="manifest" href="../manifest.json">
-<script>
-  if ("serviceWorker" in navigator) {
-  if (navigator.serviceWorker.controller) {
-    console.log("An active service worker found, no need to register");
-  } else {
-    // Register the service worker
-    navigator.serviceWorker
-      .register("/serviceworker.js", {
-        scope: "./"
-      })
-      .then(function (reg) {
-        console.log("Service worker has been registered for scope: " + reg.scope);
-      });
-  }
-}
+
 
 </script>
 
@@ -91,7 +75,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
-<script src="/assets/js/showdown-xss-filter.js"></script>
 <script src="/assets/js/comment.js"></script>
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -118,13 +101,12 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/uikit.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/devwiki.css">
-<link rel="stylesheet" href="../../assets/css/custom.css">
+<link rel="stylesheet" href="/assets/css/custom.css">
 <!-- end custom head snippets -->
 
   </head>
-
   <body class="layout--post">
-      
+      <div class="page-wrapper">
         <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -174,9 +156,7 @@
   </div>
 </div>
 
-
-    
-    <div class="initial-content">
+      <div class="initial-content">
         <div class="container" id="post-content-wrapper">
         <h1 id="html-text-fundamentals">HTML text fundamentals</h1>
 
@@ -426,9 +406,8 @@ if you drink it, &lt;strong&gt;you may &lt;em&gt;die&lt;/em&gt;&lt;/strong&gt;.&
 <p><strong>Note</strong>: A chart of all the available HTML character entity references can be found on Wikipedia: <a href="http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references">List of XML and HTML character entity references</a>. Note that you don’t need to use entity references for any other symbols, as modern browsers will handle the actual symbols just fine as long, as your HTML’s <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Specifying_your_document's_character_encoding">character encoding is set to UTF-8</a>.</p>
 
         </div>
-    </div>
-
-    
+      </div>
+      
       <div class="search-content">
         <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
     <label class="sr-only" for="search">
@@ -439,9 +418,9 @@ if you drink it, &lt;strong&gt;you may &lt;em&gt;die&lt;/em&gt;&lt;/strong&gt;.&
   <div id="results" class="results"></div></div>
 
       </div>
-    
-    
-    <section class="page__share">
+      
+      
+      <section class="page__share">
   
     <h4 class="page__share-title">Share on</h4>
   
@@ -453,8 +432,8 @@ if you drink it, &lt;strong&gt;you may &lt;em&gt;die&lt;/em&gt;&lt;/strong&gt;.&
   <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fhtml-text-fundamentals%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
-
-    <div id="footer" class="page__footer">
+    </div>
+      <div id="footer" class="page__footer">
       <footer>
         <!-- start custom footer snippets -->
 
@@ -488,8 +467,7 @@ if you drink it, &lt;strong&gt;you may &lt;em&gt;die&lt;/em&gt;&lt;/strong&gt;.&
 <div class="page__footer-copyright">&copy; 2020 Chris Connelly. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
-    </div>
-
+      </div>
     
   <script src="/assets/js/main.min.js"></script>
   <script src="https://kit.fontawesome.com/4eee35f757.js"></script>

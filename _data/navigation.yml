@@ -4,3 +4,5 @@ main:
     url: categories/
   - title: "News"
     url: news/
+  - title: "Cheatsheets"
+    url: cheat-sheet-archive/

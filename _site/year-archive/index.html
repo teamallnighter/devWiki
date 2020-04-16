@@ -63,22 +63,7 @@
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
-<link rel="manifest" href="../manifest.json">
-<script>
-  if ("serviceWorker" in navigator) {
-  if (navigator.serviceWorker.controller) {
-    console.log("An active service worker found, no need to register");
-  } else {
-    // Register the service worker
-    navigator.serviceWorker
-      .register("/serviceworker.js", {
-        scope: "./"
-      })
-      .then(function (reg) {
-        console.log("Service worker has been registered for scope: " + reg.scope);
-      });
-  }
-}
+
 
 </script>
 
@@ -87,7 +72,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
-<script src="/assets/js/showdown-xss-filter.js"></script>
 <script src="/assets/js/comment.js"></script>
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -114,12 +98,13 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/uikit.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/devwiki.css">
-<link rel="stylesheet" href="../../assets/css/custom.css">
+<link rel="stylesheet" href="/assets/css/custom.css">
 <!-- end custom head snippets -->
 
   </head>
 
   <body class="layout--posts">
+    <div class="page-wrapper">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -140,7 +125,7 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+          <a class="site-logo" href="/"><img src="https://github.com/teamallnighter/ghcdn/blob/master/devWiki/Untitled%20copy%207@0.5x.png?raw=true" alt=""></a>
         
         <a class="site-title" href="/">
           devWiki
@@ -150,6 +135,8 @@
               <a href="/categories/">Categories</a>
             </li><li class="masthead__menu-item">
               <a href="/news/">News</a>
+            </li><li class="masthead__menu-item">
+              <a href="/cheat-sheet-archive/">Cheatsheets</a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -171,7 +158,8 @@
 
 
     <div class="initial-content">
-      
+      <div class="page-wrapper">
+
 
 
 
@@ -851,6 +839,7 @@ See Winter 2020 Assignments
 
   </div>
 </div>
+</div>
     </div>
 
     
@@ -865,7 +854,7 @@ See Winter 2020 Assignments
 
       </div>
     
-
+  </div>
     <div id="footer" class="page__footer">
       <footer>
         <!-- start custom footer snippets -->

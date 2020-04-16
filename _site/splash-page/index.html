@@ -22,8 +22,6 @@
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/unsplash-image-1.jpg">
-
 
 
 
@@ -67,22 +65,7 @@
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
-<link rel="manifest" href="../manifest.json">
-<script>
-  if ("serviceWorker" in navigator) {
-  if (navigator.serviceWorker.controller) {
-    console.log("An active service worker found, no need to register");
-  } else {
-    // Register the service worker
-    navigator.serviceWorker
-      .register("/serviceworker.js", {
-        scope: "./"
-      })
-      .then(function (reg) {
-        console.log("Service worker has been registered for scope: " + reg.scope);
-      });
-  }
-}
+
 
 </script>
 
@@ -91,7 +74,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
-<script src="/assets/js/showdown-xss-filter.js"></script>
 <script src="/assets/js/comment.js"></script>
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
@@ -118,12 +100,13 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/uikit.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/devwiki.css">
-<link rel="stylesheet" href="../../assets/css/custom.css">
+<link rel="stylesheet" href="/assets/css/custom.css">
 <!-- end custom head snippets -->
 
   </head>
 
   <body class="layout--splash">
+    <div class="page-wrapper">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -144,7 +127,7 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+          <a class="site-logo" href="/"><img src="https://github.com/teamallnighter/ghcdn/blob/master/devWiki/Untitled%20copy%207%400.5x.png" alt=""></a>
         
         <a class="site-title" href="/">
           devWiki
@@ -185,7 +168,7 @@
 
 
 <div class="page__hero--overlay"
-  style="background-color: #000; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/unsplash-image-1.jpg');"
+  style="background-color: #000; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('');"
 >
   
     <div class="wrapper">
@@ -257,14 +240,6 @@
     <div class="feature__item">
       <div class="archive__item">
         
-          <div class="archive__item-teaser">
-            <img src="/assets/images/unsplash-gallery-image-1-th.jpg" alt="placeholder image 1" />
-            
-              <span class="archive__item-caption">Image courtesy of <a href="https://unsplash.com/">Unsplash</a>
-</span>
-            
-          </div>
-        
 
         <div class="archive__item-body">
           
@@ -285,11 +260,6 @@
   
     <div class="feature__item">
       <div class="archive__item">
-        
-          <div class="archive__item-teaser">
-            <img src="/assets/images/unsplash-gallery-image-2-th.jpg" alt="placeholder image 2" />
-            
-          </div>
         
 
         <div class="archive__item-body">
@@ -313,11 +283,6 @@
   
     <div class="feature__item">
       <div class="archive__item">
-        
-          <div class="archive__item-teaser">
-            <img src="/assets/images/unsplash-gallery-image-3-th.jpg" alt="" />
-            
-          </div>
         
 
         <div class="archive__item-body">
@@ -345,11 +310,6 @@
   
     <div class="feature__item--left">
       <div class="archive__item">
-        
-          <div class="archive__item-teaser">
-            <img src="/assets/images/unsplash-gallery-image-2-th.jpg" alt="placeholder image 2" />
-            
-          </div>
         
 
         <div class="archive__item-body">
@@ -380,11 +340,6 @@
     <div class="feature__item--right">
       <div class="archive__item">
         
-          <div class="archive__item-teaser">
-            <img src="/assets/images/unsplash-gallery-image-2-th.jpg" alt="placeholder image 2" />
-            
-          </div>
-        
 
         <div class="archive__item-body">
           
@@ -413,11 +368,6 @@
   
     <div class="feature__item--center">
       <div class="archive__item">
-        
-          <div class="archive__item-teaser">
-            <img src="/assets/images/unsplash-gallery-image-2-th.jpg" alt="placeholder image 2" />
-            
-          </div>
         
 
         <div class="archive__item-body">
@@ -460,7 +410,7 @@
 
       </div>
     
-
+  </div>
     <div id="footer" class="page__footer">
       <footer>
         <!-- start custom footer snippets -->

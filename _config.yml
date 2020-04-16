@@ -17,7 +17,7 @@ baseurl                  : "/"
 url                      : "https://bible.chrisconnelly.dev" # the base hostname & protocol for your site, e.g. http://example.com
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/img/logos/dwsqr.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : "https://github.com/teamallnighter/ghcdn/blob/master/devWiki/Untitled%20copy%207@0.5x.png?raw=true" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 
 
 # breadcrumbs            : true # true, false (default)
