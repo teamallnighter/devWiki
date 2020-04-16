@@ -7,7 +7,6 @@
       <div id="output"></div>
     <script>
       document.getElementById('getPosts').addEventListener('click', getPosts);
-
       function getPosts(){
         fetch('https://dev.to/api/articles')
         .then((res) => res.json())
@@ -27,8 +26,6 @@
           document.getElementById('output').innerHTML = output;
         })
       }
-  
-     
     </script>
   <!-- Code injected by live-server -->
   <script type="text/javascript">
