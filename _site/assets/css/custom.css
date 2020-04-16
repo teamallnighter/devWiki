@@ -1,0 +1,62 @@
+body{
+    background-color:whitesmoke;
+    padding: 0;
+}
+
+nav{
+    background-color:rgba(245, 245, 245, 0);
+    width: 100%;
+}
+
+button{
+    height: 100px;
+}
+
+#dev-icon{
+    font-size: 4rem;
+}
+
+#dev-icon:hover{
+    box-shadow: 3px 5px 10px grey;
+}
+
+button{
+    background-color: transparent;
+}
+
+.page-wrapper{
+    padding:0vh 4vw;
+
+}
+
+footer{
+    margin-top:250px;
+    width:100%;
+    bottom: 0;
+}
+
+.card{
+    margin: 5vh 10vw;
+    padding: 2vh 4vw;
+
+    border: rgb(61, 60, 60);
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 15px;
+
+    box-shadow: 4px 8px 15px grey;
+    background-color: rgb(218, 210, 217);
+    color: white;
+    
+}
+
+.card a{
+    color: white;
+    text-decoration: none;
+}
+
+.card img{
+    border:transparent;
+    border-width: 2px;
+    border-style: solid;
+}
