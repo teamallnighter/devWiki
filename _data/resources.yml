@@ -1,0 +1,345 @@
+- Name: Self CSS
+  Tags: 'CSS, General, Generator'
+  Cost: Free
+  Rating: 9/10
+  Link: 'http://selfcss.org/'
+- Name: CSS Generator
+  Tags: 'CSS, General, Generator'
+  Cost: ''
+  Rating: ''
+  Link: 'http://css3generator.com/'
+- Name: Enjoy CSS
+  Tags: 'CSS, General, Generator'
+  Cost: ''
+  Rating: ''
+  Link: 'https://enjoycss.com/'
+- Name: Generate It
+  Tags: 'CSS, General, Generator'
+  Cost: ''
+  Rating: ''
+  Link: 'https://www.generateit.net/code-tools/'
+- Name: HTML Cheat Sheet
+  Tags: 'CSS, General, Generator'
+  Cost: ''
+  Rating: ''
+  Link: 'https://htmlcheatsheet.com/css/'
+- Name: CSS Portal
+  Tags: 'CSS, General, Generator'
+  Cost: ''
+  Rating: ''
+  Link: 'https://www.cssportal.com/css-generators.php'
+- Name: Loading.io
+  Tags: 'Backgrounds, CSS, General, Generator, Icons, Libraries'
+  Cost: 'Cheap, Free'
+  Rating: 10/10
+  Link: 'https://loading.io/button/generator/'
+- Name: CSS Playground
+  Tags: 'CSS, General, Generator'
+  Cost: ''
+  Rating: ''
+  Link: 'https://css3.mikeplate.com'
+- Name: Button Generator
+  Tags: 'Buttons, CSS, Generator'
+  Cost: ''
+  Rating: ''
+  Link: 'https://www.html-code-generator.com/css/button-generator.php'
+- Name: HTML Code Generator
+  Tags: 'Bootstrap, CSS, General, Generator, HTML, JavaScript, Jquery, PHP'
+  Cost: Free
+  Rating: 8/10
+  Link: 'https://www.html-code-generator.com'
+- Name: 'https://html-css-js.com/'
+  Tags: 'CSS, Cheat Sheet, Generator, HTML, JS, Templates'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://html-css-js.com/'
+- Name: mmmenu
+  Tags: 'CSS, JavaScript, Menu, Responsive'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://mmenujs.com/'
+- Name: Skeleton CSS
+  Tags: 'Boilerplate, CSS, Libraries'
+  Cost: Free
+  Rating: 10/10
+  Link: 'http://getskeleton.com/'
+- Name: Normalize.css
+  Tags: 'Boilerplate, CSS'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://necolas.github.io/normalize.css/'
+- Name: Tippy.js
+  Tags: 'JS, JavaScript, Libraries, Tool Tips'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://atomiks.github.io/tippyjs/'
+- Name: Anime.js
+  Tags: 'Animation, JS, JavaScript, Libraries'
+  Cost: Free
+  Rating: 8/10
+  Link: 'https://animejs.com'
+- Name: Animate.css
+  Tags: 'Animation, CSS, Libraries'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://daneden.github.io/animate.css/'
+- Name: Animista
+  Tags: 'Animation, CSS, Libraries'
+  Cost: Free
+  Rating: 9/10
+  Link: 'https://animista.net'
+- Name: Slideout.js
+  Tags: 'JS, JavaScript, Menu'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://slideout.js.org/'
+- Name: List.js
+  Tags: 'Framework, JavaScript, lists'
+  Cost: Free
+  Rating: ''
+  Link: 'https://listjs.com/overview/'
+- Name: Airbnb.io
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://airbnb.io/'
+- Name: MaterialUI
+  Tags: 'Componants, JS, JavaScript, Material, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://material-ui.com/getting-started/installation/'
+- Name: Code Sandbox
+  Tags: 'CSS, Code, HTML, JS, JavaScript, React, Sandbox'
+  Cost: Free
+  Rating: ''
+  Link: 'https://codesandbox.io/'
+- Name: Bootstrap React
+  Tags: 'Bootstrap, Componants, JS, JavaScript, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://react-bootstrap.github.io/'
+- Name: Blueprint.js
+  Tags: 'Componants, JS, JavaScript, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://blueprintjs.com/'
+- Name: Semantic UI
+  Tags: 'Componants, JS, JavaScript, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://react.semantic-ui.com/'
+- Name: React Toolbox
+  Tags: 'Componants, JS, JavaScript, React'
+  Cost: Free
+  Rating: ''
+  Link: 'http://react-toolbox.io/#/'
+- Name: Reactsstrap
+  Tags: 'Bootstrap, Componants, JS, JavaScript, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://reactstrap.github.io/'
+- Name: Rsuite
+  Tags: 'Componants, JS, JavaScript, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://rsuitejs.com/en/'
+- Name: Belle
+  Tags: 'Componants, JS, JavaScript, React'
+  Cost: Free
+  Rating: ''
+  Link: 'http://nikgraf.github.io/belle/#/?_k=6zqsr8'
+- Name: stateofjs.com
+  Tags: 'JS, JavaScript, Survey, Trends'
+  Cost: Free
+  Rating: 10/10
+  Link: 'http://www.stateofjs.com'
+- Name: 'http://stateofcss.com/'
+  Tags: 'CSS, Survey, Trends'
+  Cost: Free
+  Rating: 10/10
+  Link: 'http://www.stateofcss.com'
+- Name: DevDocs
+  Tags: 'Docs, Examples, Learning, Templates'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://devdocs.io/'
+- Name: MDN
+  Tags: 'Docs, Examples, Learning, Templates'
+  Cost: Free
+  Rating: ''
+  Link: 'https://developer.mozilla.org/'
+- Name: 'SASS-https://www.sassmeister.com/'
+  Tags: 'CSS, SASS, Sandbox'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://www.sassmeister.com/'
+- Name: Bourbon.scss
+  Tags: 'CSS, Mixin''s, SASS'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://github.com/thoughtbot/bourbon#installation'
+- Name: Family.scss
+  Tags: 'CSS, Libraries, Mixin''s, SASS'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://lukyvj.github.io/family.scss/'
+- Name: Rocket-propel.scss
+  Tags: 'CSS, Libraries, Mixin''s, SASS'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://github.com/chrishumboldt/rocket-propel'
+- Name: Oulu.scss
+  Tags: 'CSS, Libraries, Mixin''s, SASS'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://oulu.github.io/'
+- Name: cssowl.owl-stars.scss
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://cssowl.owl-stars.com/'
+- Name: Breakpoint.scss
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: 10/10
+  Link: 'http://breakpoint-sass.com/'
+- Name: davidTheClark.scss
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://davidtheclark.github.io/scut/'
+- Name: Buttons.scss
+  Tags: 'Buttons, CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: 10/10
+  Link: 'http://unicorn-ui.com/buttons/builder/'
+- Name: saffron.scss
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://colindresj.github.io/saffron/'
+- Name: Typesettings.scss
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: 10/10
+  Link: 'https://www.typesettings.io/'
+- Name: sassline.scss
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: ''
+  Link: 'https://sassline.com/'
+- Name: andy.scss
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: ''
+  Link: 'http://gillesbertaux.com/andy/'
+- Name: bi-app-sass
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: ''
+  Link: 'https://anasnakawa.github.io/bi-app-sass/'
+- Name: Sassy Input.scss
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: ''
+  Link: 'https://negomi.github.io/sassy-inputs/'
+- Name: rocks.scss
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: ''
+  Link: 'https://avdgaag.github.io/rocks/'
+- Name: Pineapple SASS
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: ''
+  Link: 'https://arunmichaeldsouza.github.io/pineapple-sass/'
+- Name: elliptical-sass
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: ''
+  Link: 'https://github.com/tachyon1337/elliptical-sass'
+- Name: sass-mixins
+  Tags: 'CSS, Libraries, Mixin''s, SCSS'
+  Cost: Free
+  Rating: ''
+  Link: 'https://github.com/BillieBobbel23/sass-mixins'
+- Name: Unsplash Source
+  Tags: 'API, Images'
+  Cost: Free
+  Rating: ''
+  Link: 'https://source.unsplash.com/'
+- Name: Rebass
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://rebassjs.org'
+- Name: Ant-design components
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://github.com/ant-design/ant-design'
+- Name: React bootstrap
+  Tags: 'Bootstrap, JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://react-bootstrap.github.io'
+- Name: Material UI
+  Tags: 'JS, JavaScript, Libraries, Material, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://material-ui.com'
+- Name: React Spinner
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://www.react-spinners.com'
+- Name: Semantic UI React
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://react.semantic-ui.com'
+- Name: 'Ghttps://v2.grommet.io/'
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://v2.grommet.io'
+- Name: Gestalt
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://www.npmjs.com/package/gestalt'
+- Name: Fabric React
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://github.com/OfficeDev/office-ui-fabric-react'
+- Name: OnsenUI
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://onsen.io'
+- Name: React Virtualized
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://bvaughn.github.io/react-virtualized/#/components/List'
+- Name: Blueprint
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'https://blueprintjs.com'
+- Name: React Desktop
+  Tags: 'JS, JavaScript, Libraries, React'
+  Cost: Free
+  Rating: ''
+  Link: 'http://reactdesktop.js.org'
+- Name: HTML5 Up
+  Tags: 'CSS, HTML, Templates'
+  Cost: Free
+  Rating: ''
+  Link: ''
+- Name: ''
+  Tags: ''
+  Cost: ''
+  Rating: ''
+  Link: ''

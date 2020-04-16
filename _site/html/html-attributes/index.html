@@ -1,0 +1,355 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>HTML Attributes - devWiki</title>
+<meta name="description" content="Attributes  ">
+
+
+  <meta name="author" content="Chris Connelly">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="devWiki">
+<meta property="og:title" content="HTML Attributes">
+<meta property="og:url" content="http://localhost:4000/html/html-attributes/">
+
+
+  <meta property="og:description" content="Attributes  ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/languages/html@3x.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-01-02T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/html/html-attributes/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Chris Connelly",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="feed.xml" type="application/atom+xml" rel="alternate" title="devWiki Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+<link rel="manifest" href="../manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("An active service worker found, no need to register");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker
+      .register("/serviceworker.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("Service worker has been registered for scope: " + reg.scope);
+      });
+  }
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
+<script src="/assets/js/showdown-xss-filter.js"></script>
+<script src="/assets/js/comment.js"></script>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--post">
+      
+        <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+        <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+        
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          devWiki
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+    <div class="initial-content">
+        <div class="container" id="post-content-wrapper">
+        <h1 id="attributes">Attributes</h1>
+
+<p>Elements can also have attributes, which look like this:</p>
+
+<p><img src="https://mdn.mozillademos.org/files/9345/grumpy-cat-attribute-small.png" alt="https://mdn.mozillademos.org/files/9345/grumpy-cat-attribute-small.png" /></p>
+
+<p>Attributes contain extra information about the element that you don’t want to appear in the actual content. In this case, the <strong><code class="highlighter-rouge">class</code></strong> attribute allows you to give the element an identifying name, that can be used later to target the element with style information and other things.</p>
+
+<p>An attribute should have:</p>
+
+<ul>
+  <li>A space between it and the element name (or the previous attribute, if the element already has one or more attributes).</li>
+  <li>The attribute name, followed by an equal sign.</li>
+  <li>An attribute value, with opening and closing quote marks wrapped around it.</li>
+</ul>
+
+<h2 id="adding-attributes-to-an-element">Adding attributes to an element</h2>
+
+<p>Another example of an element is <code class="highlighter-rouge">[&lt;a&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)</code> — this stands for “anchor” and will make the piece of text it wraps around into a hyperlink. This can take a number of attributes, but several are as follows:</p>
+
+<ul>
+  <li><strong><code class="highlighter-rouge">href</code></strong>: This attribute’s value specifies the web address that you want the link to point to; where the browser navigates to when the link is clicked. For example, <code class="highlighter-rouge">href="https://www.mozilla.org/"</code>.</li>
+  <li><strong><code class="highlighter-rouge">title</code></strong>: The <code class="highlighter-rouge">title</code> attribute specifies extra information about the link, such as what page is being linked to. For example, <code class="highlighter-rouge">title="The Mozilla homepage"</code>. This will appear as a tooltip when the element is hovered over.</li>
+  <li><strong><code class="highlighter-rouge">target</code></strong>: The <code class="highlighter-rouge">target</code> attribute specifies the browsing context that will be used to display the link. For example, <code class="highlighter-rouge">target="_blank"</code> will display the link in a new tab. If you want to display the link in the current tab, just omit this attribute.</li>
+</ul>
+
+<p>Edit the line below in the <em>Input</em> area to turn it into a link to your favorite website.</p>
+
+<ol>
+  <li>First, add the <code class="highlighter-rouge">&lt;a&gt;</code> element.</li>
+  <li>Second, add the <code class="highlighter-rouge">href</code> attribute and the <code class="highlighter-rouge">title</code> attribute.</li>
+  <li>Lastly, specify the <code class="highlighter-rouge">target</code> attribute to open the link in the new tab.</li>
+</ol>
+
+<p>You’ll be able to see your changes update live in the <em>Output</em> area. You should see a link that when hovered over displays the value of the <code class="highlighter-rouge">title</code> attribute, and when clicked, navigates to the web address in the <code class="highlighter-rouge">href</code> attribute. Remember that you need to include a space between the element name, and each attribute.</p>
+
+<p>If you make a mistake, you can always reset it using the <em>Reset</em> button. If you get really stuck, press the <em>Show solution</em> button to see the answer.</p>
+
+<h2 id="boolean-attributes">Boolean attributes</h2>
+
+<p>You’ll sometimes see attributes written without values — this is perfectly allowed. These are called Boolean attributes, and they can only have one value, which is generally the same as the attribute name. As an example, take the <code class="highlighter-rouge">[disabled](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-disabled)</code> attribute, which you can assign to form input elements, if you want them to be disabled (greyed out) so the user can’t enter any data in them.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;input type="text" disabled="disabled"&gt;
+</code></pre></div></div>
+
+<p>As shorthand, it is perfectly allowable to write this as follows (we’ve also included a non-disabled form input element for reference, to give you more of an idea what is going on):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- using the disabled attribute prevents the end user from entering text into the input box --&gt;
+&lt;input type="text" disabled&gt;&lt;!-- The user can enter text into the follow input, as it doesn't contain the disabled attribute --&gt;
+&lt;input type="text"&gt;
+</code></pre></div></div>
+
+<h2 id="omitting-quotes-around-attribute-values">Omitting quotes around attribute values</h2>
+
+<p>When you look around the World Wide Web, you’ll come across a number of strange markup styles, including attribute values without quotes. This is allowable in certain circumstances, but will break your markup in others. For example, if we revisit our link example from earlier, we could write a basic version with only the <code class="highlighter-rouge">href</code> attribute, like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href=https://www.mozilla.org/&gt;favorite website&lt;/a&gt;
+</code></pre></div></div>
+
+<p>However, as soon as we add the <code class="highlighter-rouge">title</code> attribute in this style, things will go wrong:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href=https://www.mozilla.org/ title=The Mozilla homepage&gt;favorite website&lt;/a&gt;
+</code></pre></div></div>
+
+<p>At this point the browser will misinterpret your markup, thinking that the <code class="highlighter-rouge">title</code> attribute is actually three attributes — a title attribute with the value “The”, and two Boolean attributes, <code class="highlighter-rouge">Mozilla</code> and <code class="highlighter-rouge">homepage</code>. This is obviously not what was intended, and will cause errors or unexpected behavior in the code, as seen in the live example below. Try hovering over the link to see what the title text is!</p>
+
+<p>Our advice is to always include the attribute quotes — it avoids such problems, and results in more readable code too.</p>
+
+<h2 id="single-or-double-quotes">Single or double quotes</h2>
+
+<p>In this article you’ll notice that the attributes are all wrapped in double quotes. You might however see single quotes in some people’s HTML code. This is purely a matter of style, and you can feel free to choose which one you prefer. Both the following lines are equivalent:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="http://www.example.com"&gt;A link to my example.&lt;/a&gt;&lt;a href='http://www.example.com'&gt;A link to my example.&lt;/a&gt;
+</code></pre></div></div>
+
+<p>You should however make sure you don’t mix them together. The following will go wrong!</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="http://www.example.com'&gt;A link to my example.&lt;/a&gt;
+</code></pre></div></div>
+
+<p>If you’ve used one type of quote in your HTML, you can include the other type of quote inside your attribute values without causing any problems:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="http://www.example.com" title="Isn't this fun?"&gt;A link to my example.&lt;/a&gt;
+</code></pre></div></div>
+
+<p>However if you want to include a quote, within the quotes where both the quotes are of the same type (single quote or double quote), you’ll have to <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#Entity_references_Including_special_characters_in_HTML">use HTML entities</a> for the quotes. For example, this will break:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href='http://www.example.com' title='Isn't this fun?'&gt;A link to my example.&lt;/a&gt;
+</code></pre></div></div>
+
+<p>So you need to do this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href='http://www.example.com' title='Isn&amp;#39;t this fun?'&gt;A link to my example.&lt;/a&gt;
+</code></pre></div></div>
+
+        </div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+    
+    <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=HTML+Attributes%20http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fhtml-attributes%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fhtml-attributes%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fhtml-attributes%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/teamallnighter_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Chris Connelly. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<p>in config/environments/development.rb:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Source maps for Sass
+config.sass.debug_info = true
+config.sass.line_comments = false
+
+# Don't break apart
+config.assets.debug = false
+</code></pre></div></div>
+
+<p>Partial locals</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;%= render 'article', full: true %&gt;
+&lt;%= render 'article' %&gt;
+
+&lt;% if local_assigns[:full] %&gt;
+  ...
+&lt;% end %&gt;
+</code></pre></div></div>
+
+<p>HTML in i18n</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>en:
+  read_more_html: "read &lt;b&gt;more&lt;/b&gt;..."
+</code></pre></div></div>
+
+<p>Exception handling:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># config/application.rb
+config.exceptions_app = self.routes
+
+get '/404', to: 'errors#not_found'
+get '/500', to: 'errors#server_error'
+
+class ErrorsController
+  def not_found
+    render status: :not_found
+  end
+ end
+</code></pre></div></div>
+
+<p>Rails updating:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rake rails:update
+</code></pre></div></div>
+
+<p>Distinct pluck:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Article.distinct.pluck('author')
+</code></pre></div></div>
+
+<p>Relation#merge</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scope :with_drafts, -&gt; {
+  uniq.joins(:articles).merge(Article.draft)
+}
+</code></pre></div></div>
+
+<p>Order</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scope :recent, -&gt; { order created_at: :desc }
+</code></pre></div></div>
+
+<p>Group by month</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.group("to_char(created_at, 'YYYY-MM')")
+.group("to_char(created_at, 'YYYY-MM')").count
+</code></pre></div></div>

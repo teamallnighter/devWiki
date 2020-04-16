@@ -1,0 +1,246 @@
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="p">(</span><span class="s1">'my.messages.hello'</span><span class="p">)</span>
+
+<span class="c1"># same as 'my.messages.hello'</span>
+<span class="n">t</span><span class="p">(</span><span class="ss">:hello</span><span class="p">,</span> <span class="ss">scope: </span><span class="s1">'my.messages'</span><span class="p">)</span>
+<span class="n">t</span><span class="p">(</span><span class="ss">:hello</span><span class="p">,</span> <span class="ss">scope: </span><span class="p">[</span><span class="ss">:my</span><span class="p">,</span> <span class="ss">:messages</span><span class="p">])</span>
+
+<span class="n">t</span><span class="p">(</span><span class="s1">'my.messages.hello'</span><span class="p">,</span> <span class="ss">default: </span><span class="s2">"Hello"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">en</span><span class="pi">:</span>
+  <span class="na">my</span><span class="pi">:</span>
+    <span class="na">messages</span><span class="pi">:</span>
+      <span class="na">hello</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Hello"</span>
+</code></pre></div></div>
+
+<h3 id="interpolation">Interpolation</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"John"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Hello</span><span class="nv"> </span><span class="s">%{name}"</span>
+</code></pre></div></div>
+
+<h3 id="lazy-lookup">Lazy lookup</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># from the 'books/index' view</span>
+<span class="n">t</span><span class="p">(</span><span class="s1">'.title'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">en</span><span class="pi">:</span>
+  <span class="na">books</span><span class="pi">:</span>
+    <span class="na">index</span><span class="pi">:</span>
+      <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Título"</span>
+</code></pre></div></div>
+
+<h3 id="plural">Plural</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="p">(</span><span class="ss">:inbox</span><span class="p">,</span> <span class="ss">count: </span><span class="mi">1</span><span class="p">)</span>  <span class="c1">#=&gt; 'one message'</span>
+<span class="n">t</span><span class="p">(</span><span class="ss">:inbox</span><span class="p">,</span> <span class="ss">count: </span><span class="mi">2</span><span class="p">)</span>  <span class="c1">#=&gt; '2 messages'</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">inbox</span><span class="pi">:</span>
+  <span class="na">one</span><span class="pi">:</span> <span class="s1">'</span><span class="s">one</span><span class="nv"> </span><span class="s">message'</span><span class="err">,</span>
+  <span class="na">other</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%{count}</span><span class="nv"> </span><span class="s">messages'</span>
+</code></pre></div></div>
+
+<h2 id="localizing">Localizing</h2>
+
+<h3 id="time">Time</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l</span><span class="p">(</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">)</span>
+<span class="n">l</span><span class="p">(</span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">,</span> <span class="ss">format: :short</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">en</span><span class="pi">:</span>
+  <span class="na">time</span><span class="pi">:</span>
+    <span class="na">formats</span><span class="pi">:</span>
+      <span class="na">default</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%a,</span><span class="nv"> </span><span class="s">%d</span><span class="nv"> </span><span class="s">%b</span><span class="nv"> </span><span class="s">%Y</span><span class="nv"> </span><span class="s">%H:%M:%S</span><span class="nv"> </span><span class="s">%z"</span>
+      <span class="na">long</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%B</span><span class="nv"> </span><span class="s">%d,</span><span class="nv"> </span><span class="s">%Y</span><span class="nv"> </span><span class="s">%H:%M"</span>
+      <span class="na">short</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%d</span><span class="nv"> </span><span class="s">%b</span><span class="nv"> </span><span class="s">%H:%M"</span>
+</code></pre></div></div>
+
+<h3 id="date">Date</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l</span><span class="p">(</span><span class="no">Date</span><span class="p">.</span><span class="nf">today</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">en</span><span class="pi">:</span>
+  <span class="na">date</span><span class="pi">:</span>
+    <span class="na">formats</span><span class="pi">:</span>
+      <span class="na">default</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%Y-%m-%d"</span> <span class="c1"># 2015-06-25</span>
+      <span class="na">long</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%B</span><span class="nv"> </span><span class="s">%d,</span><span class="nv"> </span><span class="s">%Y"</span>   <span class="c1"># June 25, 2015</span>
+      <span class="na">short</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%b</span><span class="nv"> </span><span class="s">%d"</span>      <span class="c1"># Jun 25</span>
+</code></pre></div></div>
+
+<h2 id="activerecord">ActiveRecord</h2>
+
+<h3 id="model-names">Model names</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">User</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">human</span>            <span class="c1">#=&gt; "User"</span>
+<span class="no">Child</span><span class="p">.</span><span class="nf">model_name</span><span class="p">.</span><span class="nf">human</span><span class="p">(</span><span class="ss">count: </span><span class="mi">2</span><span class="p">)</span> <span class="c1">#=&gt; "Children"</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">en</span><span class="pi">:</span>
+  <span class="na">activerecord</span><span class="pi">:</span>
+    <span class="na">models</span><span class="pi">:</span>
+      <span class="na">user</span><span class="pi">:</span> <span class="s2">"</span><span class="s">User"</span>
+      <span class="na">child</span><span class="pi">:</span>
+        <span class="na">one</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Child"</span>
+        <span class="na">other</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Children"</span>
+</code></pre></div></div>
+
+<h3 id="attributes">Attributes</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">User</span><span class="p">.</span><span class="nf">human_attribute_for</span> <span class="ss">:name</span>   <span class="c1">#=&gt; "Name"</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">en</span><span class="pi">:</span>
+  <span class="na">activerecord</span><span class="pi">:</span>
+    <span class="na">attributes</span><span class="pi">:</span>
+      <span class="na">user</span><span class="pi">:</span>
+        <span class="c1"># activerecord.attributes.&lt;model&gt;.&lt;field&gt;</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Name"</span>
+        <span class="na">email</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Email"</span>
+</code></pre></div></div>
+
+<h3 id="error-messages">Error messages</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">error_messages_for</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">activerecord</span><span class="pi">:</span>
+  <span class="na">errors</span><span class="pi">:</span>
+    <span class="na">models</span><span class="pi">:</span>
+      <span class="na">venue</span><span class="pi">:</span>
+        <span class="na">attributes</span><span class="pi">:</span>
+          <span class="na">name</span><span class="pi">:</span>
+            <span class="na">blank</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Please</span><span class="nv"> </span><span class="s">enter</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">name."</span>
+</code></pre></div></div>
+
+<p>Possible scopes (in order):</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">activerecord.errors.models.[model_name].attributes.[attribute_name].[error]</span>
+<span class="s">activerecord.errors.models.[model_name].[error]</span>
+<span class="s">activerecord.errors.messages.[error]</span>
+<span class="s">errors.attributes.[attribute_name].[error]</span>
+<span class="s">errors.messages.[error]</span>
+</code></pre></div></div>
+
+<p>Where <code class="highlighter-rouge">[error]</code> can be:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">validates</span>
+  <span class="s">confirmation - :confirmation</span>
+  <span class="s">acceptance   - :accepted</span>
+  <span class="s">presence     - :blank</span>
+  <span class="s">length       - :too_short (%{count})</span>
+  <span class="s">length       - :too_long (%{count})</span>
+  <span class="s">length       - :wrong_length (%{count})</span>
+  <span class="s">uniqueness   - :taken</span>
+  <span class="s">format       - :invalid</span>
+  <span class="s">numericality - :not_a_number</span>
+</code></pre></div></div>
+
+<h3 id="form-labels">Form labels</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">form_for</span> <span class="vi">@post</span> <span class="k">do</span>
+  <span class="n">f</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:body</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">helpers</span><span class="pi">:</span>
+  <span class="c1"># helpers.label.&lt;model&gt;.&lt;field&gt;</span>
+  <span class="na">label</span><span class="pi">:</span>
+    <span class="na">post</span><span class="pi">:</span>
+      <span class="na">body</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">body</span><span class="nv"> </span><span class="s">text"</span>
+</code></pre></div></div>
+
+<h3 id="submit-buttons">Submit buttons</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">form_for</span> <span class="vi">@post</span> <span class="k">do</span>
+  <span class="n">f</span><span class="p">.</span><span class="nf">submit</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">helpers</span><span class="pi">:</span>
+  <span class="na">submit</span><span class="pi">:</span>
+    <span class="c1"># helpers.submit.&lt;action&gt;</span>
+    <span class="na">create</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Create</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">%{model}"</span>
+    <span class="na">update</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Confirm</span><span class="nv"> </span><span class="s">changes</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">%{model}"</span>
+
+    <span class="c1"># helpers.submit.&lt;model&gt;.&lt;action&gt;</span>
+    <span class="na">article</span><span class="pi">:</span>
+      <span class="na">create</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Publish</span><span class="nv"> </span><span class="s">article"</span>
+      <span class="na">update</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Update</span><span class="nv"> </span><span class="s">article"</span>
+</code></pre></div></div>
+
+<h2 id="numbers">Numbers</h2>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number_to_delimited</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>             <span class="c1">#=&gt; "2,000"</span>
+<span class="n">number_to_currency</span><span class="p">(</span><span class="mf">12.3</span><span class="p">)</span>              <span class="c1">#=&gt; "$12.30"</span>
+<span class="n">number_to_percentage</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>             <span class="c1">#=&gt; "30%"</span>
+<span class="n">number_to_rounded</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span> <span class="ss">precision: </span><span class="mi">0</span><span class="p">)</span> <span class="c1">#=&gt; "3"</span>
+<span class="n">number_to_human</span><span class="p">(</span><span class="mi">12_000</span><span class="p">)</span>               <span class="c1">#=&gt; "12 Thousand"</span>
+<span class="n">number_to_human_size</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>           <span class="c1">#=&gt; "12.3 kb"</span>
+</code></pre></div></div>
+
+<h3 id="delimited">Delimited</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number_to_delimited</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">number</span><span class="pi">:</span>
+  <span class="na">format</span><span class="pi">:</span>
+    <span class="na">separator</span><span class="pi">:</span> <span class="s1">'</span><span class="s">.'</span>
+    <span class="na">delimiter</span><span class="pi">:</span> <span class="s1">'</span><span class="s">,'</span>
+    <span class="na">precision</span><span class="pi">:</span> <span class="m">3</span>
+    <span class="na">significant</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">strip_insignificant_zeroes</span><span class="pi">:</span> <span class="no">false</span>
+</code></pre></div></div>
+
+<h3 id="currencies">Currencies</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number_to_currency</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">number</span><span class="pi">:</span>
+  <span class="na">currency</span><span class="pi">:</span>
+    <span class="na">format</span><span class="pi">:</span>
+      <span class="na">format</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%u%n"</span> <span class="c1"># %u = unit, %n = number</span>
+      <span class="na">unit</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$"</span>
+      <span class="na">separator</span><span class="pi">:</span> <span class="s1">'</span><span class="s">.'</span>
+      <span class="na">delimiter</span><span class="pi">:</span> <span class="s1">'</span><span class="s">,'</span>
+      <span class="na">precision</span><span class="pi">:</span> <span class="m">3</span>
+      <span class="c1"># (see number.format)</span>
+</code></pre></div></div>
+
+<h3 id="percentage">Percentage</h3>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number_to_percentage</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">number</span><span class="pi">:</span>
+  <span class="na">percentage</span><span class="pi">:</span>
+    <span class="na">format</span><span class="pi">:</span>
+      <span class="na">format</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%n%"</span>
+      <span class="c1"># (see number.format)</span>
+</code></pre></div></div>
+
+<h2 id="programmatic-access">Programmatic access</h2>
+
+<div class="language-rb light highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">I18n</span><span class="p">.</span><span class="nf">backend</span><span class="p">.</span><span class="nf">store_translations</span> <span class="ss">:en</span><span class="p">,</span> <span class="ss">ok: </span><span class="s2">"Ok"</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">locale</span> <span class="o">=</span> <span class="ss">:en</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">default_locale</span> <span class="o">=</span> <span class="ss">:en</span>
+
+<span class="no">I18n</span><span class="p">.</span><span class="nf">available_locales</span>
+
+<span class="no">I18n</span><span class="p">.</span><span class="nf">translate</span> <span class="ss">:ok</span>   <span class="c1"># aka, I18n.t</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">localize</span> <span class="n">date</span>   <span class="c1"># aka, I18n.l</span>
+</code></pre></div></div>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+  <li>http://guides.rubyonrails.org/i18n.html</li>
+  <li>http://rails-i18n.org/wiki</li>
+  <li>https://github.com/svenfuchs/i18n</li>
+  <li>https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml</li>
+</ul>

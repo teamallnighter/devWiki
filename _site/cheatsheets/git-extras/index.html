@@ -1,0 +1,69 @@
+<h3 id="git-flow">Git-flow</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git feature myfeature
+  switched to branch 'feature/rofl'
+
+$ ...
+$ git checkout develop
+$ git feature finish myfeature
+  merging 'feature/rofl' into develop
+  deleted branch 'feature/rofl'
+</code></pre></div></div>
+
+<p>Also <code class="highlighter-rouge">git-bug</code> and <code class="highlighter-rouge">git-refactor</code>.</p>
+
+<h3 id="branches">Branches</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git delete-merged-branches
+  # hint: do `git remote prune origin` after
+
+$ git create-branch development
+$ git delete-branch development
+
+$ git fresh-branch gh-pages
+</code></pre></div></div>
+
+<h3 id="inspecting">Inspecting</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git summary   # repo age, commits, active days, etc
+$ git impact    # impact graph
+$ git effort    # commits per file
+</code></pre></div></div>
+
+<h3 id="github">Github</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git fork strongloop/express
+# sync your fork with the original repository:
+$ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+$ git fetch upstream; git merge upstream/master
+</code></pre></div></div>
+
+<h3 id="tags">Tags</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git release v1.0.0           # commit, tag, push-tags
+$ git delete-tag v1.0.0
+</code></pre></div></div>
+
+<h3 id="conveniences">Conveniences</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git ignore "*.log"
+</code></pre></div></div>
+
+<h3 id="locking">Locking</h3>
+
+<p>Assumes that changes will not be committed.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lock config/database.yml
+$ git unlock config/database.yml
+</code></pre></div></div>
+
+<h3 id="etc">Etc</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git obliterate secret.yml   # remove all references to it
+</code></pre></div></div>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li>https://github.com/visionmedia/git-extras</li>
+</ul>

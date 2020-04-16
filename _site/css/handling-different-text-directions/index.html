@@ -1,0 +1,344 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Handling different text directions - devWiki</title>
+<meta name="description" content="Handling different text directions  ">
+
+
+  <meta name="author" content="Chris Connelly">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="devWiki">
+<meta property="og:title" content="Handling different text directions">
+<meta property="og:url" content="http://localhost:4000/css/handling-different-text-directions/">
+
+
+  <meta property="og:description" content="Handling different text directions  ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/languages/html@3x.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-02-22T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/css/handling-different-text-directions/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Chris Connelly",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="feed.xml" type="application/atom+xml" rel="alternate" title="devWiki Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+<link rel="manifest" href="../manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("An active service worker found, no need to register");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker
+      .register("/serviceworker.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("Service worker has been registered for scope: " + reg.scope);
+      });
+  }
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
+<script src="/assets/js/showdown-xss-filter.js"></script>
+<script src="/assets/js/comment.js"></script>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--post">
+      
+        <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+        <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+        
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          devWiki
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+    <div class="initial-content">
+        <div class="container" id="post-content-wrapper">
+        <h1 id="handling-different-text-directions">Handling different text directions</h1>
+
+<h2 id="what-are-writing-modes">What are writing modes?</h2>
+
+<p>A writing mode in CSS refers to whether the text is running horizontally or vertically. The <code class="highlighter-rouge">[writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode)</code> property lets us switch from one writing mode to another. You don’t need to be working in a language which uses a vertical writing mode to want to do this — you could also change the writing mode of parts of your layout for creative purposes.</p>
+
+<p>In the example below we have a heading displayed using <code class="highlighter-rouge">writing-mode: vertical-rl</code>. The text now runs vertically. Vertical text is common in graphic design, and can be a way to add a more interesting look and feel to your web design.</p>
+
+<p>The three possible values for the <code class="highlighter-rouge">[writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode)</code> property are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">horizontal-tb</code>: Top-to-bottom block flow direction. Sentences run horizontally.</li>
+  <li><code class="highlighter-rouge">vertical-rl</code>: Right-to-left block flow direction. Sentences run vertically.</li>
+  <li><code class="highlighter-rouge">vertical-lr</code>: Left-to-right block flow direction. Sentences run vertically.</li>
+</ul>
+
+<p>So the <code class="highlighter-rouge">writing-mode</code> property is in reality setting the direction in which block-level elements are displayed on the page — either from top-to-bottom, right-to-left, or left-to-right. This then dictates the direction text flows in sentences.</p>
+
+<h2 id="writing-modes-and-block-and-inline-layout">Writing modes and block and inline layout</h2>
+
+<p>We have already discussed <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#Block_and_inline_boxes">block and inline layout</a>, and the fact that some things display as block elements and others as inline elements. As we have seen described above, block and inline is tied to the writing mode of the document, and not the physical screen. Blocks are only displayed from the top to the bottom of the page if you are using a writing mode that displays text horizontally, such as English.</p>
+
+<p>If we look at an example this will become clearer. In this next example I have two boxes that contain a heading and a paragraph. The first uses <code class="highlighter-rouge">writing-mode: horizontal-tb</code>, a writing mode that is written horizontally and from the top of the page to the bottom. The second uses <code class="highlighter-rouge">writing-mode: vertical-rl</code>; this is a writing mode that is written vertically and from right to left.</p>
+
+<p>When we switch the writing mode, we are changing which direction is block and which is inline. In a <code class="highlighter-rouge">horizontal-tb</code> writing mode the block direction runs from top to bottom; in a <code class="highlighter-rouge">vertical-rl</code> writing mode the block direction runs right-to-left horizontally. So the <strong>block dimension</strong> is always the direction blocks are displayed on the page in the writing mode in use. The <strong>inline dimension</strong> is always the direction a sentence flows.</p>
+
+<p>This figure shows the two dimensions when in a horizontal writing mode.</p>
+
+<p><img src="https://mdn.mozillademos.org/files/16574/horizontal-tb.png" alt="https://mdn.mozillademos.org/files/16574/horizontal-tb.png" /></p>
+
+<p>This figure shows the two dimensions in a vertical writing mode.</p>
+
+<p><img src="https://mdn.mozillademos.org/files/16575/vertical.png" alt="https://mdn.mozillademos.org/files/16575/vertical.png" /></p>
+
+<p>Once you start to look at CSS layout, and in particular the newer layout methods, this idea of block and inline becomes very important. We will revisit it later on.</p>
+
+<h3 id="direction">Direction</h3>
+
+<p>In addition to writing mode we also have text direction. As mentioned above, some languages such as Arabic are written horizontally, but right-to-left. This is not something you are likely to use in a creative sense — if you simply want to line something up on the right there are other ways to do so — however it is important to understand this as part of the nature of CSS. The web is not just for languages that are displayed left-to-right!</p>
+
+<p>Due to the fact that writing mode and direction of text can change, newer CSS layout methods do not refer to left and right, and top and bottom. Instead they will talk about <em>start</em> and <em>end</em>along with this idea of inline and block. Don’t worry too much about that right now, but keep these ideas in mind as you start to look at layout; you will find it really helpful in your understanding of CSS.</p>
+
+<h2 id="logical-properties-and-values">Logical properties and values</h2>
+
+<p>The reason to talk about writing modes and direction at this point in your learning however, is because of the fact we have already looked at a lot of properties which are tied to the physical dimensions of the screen, and make most sense when in a horizontal writing mode.</p>
+
+<p>Let’s take a look at our two boxes again — one with a <code class="highlighter-rouge">horizontal-tb</code> writing mode and one with <code class="highlighter-rouge">vertical-rl</code>. I have given both of these boxes a <code class="highlighter-rouge">[width](https://developer.mozilla.org/en-US/docs/Web/CSS/width)</code>. You can see that when the box is in the vertical writing mode, it still has a width, and this is causing the text to overflow.</p>
+
+<p>What we really want in this scenario, is to essentially swap height and width along with the writing mode. When we’re in a vertical writing mode we want the box to expand in the block dimension just like it does in the horizontal mode.</p>
+
+<p>To make this easier, CSS has recently developed a set of mapped properties. These essentially replace physical properties — things like <code class="highlighter-rouge">width</code> and <code class="highlighter-rouge">height</code> — with <strong>logical</strong>, or <strong>flow relative</strong>versions.</p>
+
+<p>The property mapped to <code class="highlighter-rouge">width</code> when in a horizontal writing mode is called <code class="highlighter-rouge">[inline-size](https://developer.mozilla.org/en-US/docs/Web/CSS/inline-size)</code> — it refers to the size in the inline dimension. The property for <code class="highlighter-rouge">height</code> is named <code class="highlighter-rouge">[block-size](https://developer.mozilla.org/en-US/docs/Web/CSS/block-size)</code>and is the size in the block dimension. You can see how this works in the example below where we have replaced <code class="highlighter-rouge">width</code> with <code class="highlighter-rouge">inline-size</code>.</p>
+
+<h3 id="logical-margin-border-and-padding-properties">Logical margin, border, and padding properties</h3>
+
+<p>In the last two lessons we have learned about the CSS box model, and CSS borders. In the margin, border, and padding properties you will find many instances of physical properties, for example <code class="highlighter-rouge">[margin-top](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top)</code>, <code class="highlighter-rouge">[padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left)</code>, and <code class="highlighter-rouge">[border-bottom](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom)</code>. In the same way that we have mappings for width and height there are mappings for these properties.</p>
+
+<p>The <code class="highlighter-rouge">margin-top</code> property is mapped to <code class="highlighter-rouge">[margin-block-start](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-block-start)</code> — this will always refer to the margin at the start of the block dimension.</p>
+
+<p>The <code class="highlighter-rouge">[padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left)</code> property maps to <code class="highlighter-rouge">[padding-inline-start](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-start)</code>, the padding that is applied to the start of the inline direction. This will be where sentences start in that writing mode. The <code class="highlighter-rouge">[border-bottom](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom)</code> property maps to <code class="highlighter-rouge">[border-block-end](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end)</code>, which is the border at the end of the block dimension.</p>
+
+<p>You can see a comparison between physical and logical properties below.</p>
+
+<p><strong>If you change the writing mode of the boxes by switching the <code class="highlighter-rouge">writing-mode</code> property on <code class="highlighter-rouge">.box</code> to <code class="highlighter-rouge">vertical-rl</code>, you will see how the physical properties stay tied to their physical direction, whereas the logical properties switch with the writing mode.</strong></p>
+
+<p><strong>You can also see that the <code class="highlighter-rouge">[&lt;h2&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2)</code> has a black <code class="highlighter-rouge">border-bottom</code>. Can you work out how to make that bottom border always go below the text in both writing modes?</strong></p>
+
+<p>There are a huge number of properties when you consider all of the individual border longhands, and you can see all of the mapped properties on the MDN page for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties">Logical Properties and Values</a>.</p>
+
+<h3 id="logical-values">Logical values</h3>
+
+<p>We have so far looked at logical property names. There are also some properties that take physical values of <code class="highlighter-rouge">top</code>, <code class="highlighter-rouge">right</code>, <code class="highlighter-rouge">bottom</code>, and <code class="highlighter-rouge">left</code>. These values also have mappings, to logical values — <code class="highlighter-rouge">block-start</code>, <code class="highlighter-rouge">inline-end</code>, <code class="highlighter-rouge">block-end</code>, and <code class="highlighter-rouge">inline-start</code>.</p>
+
+<p>For example, you can float an image left to cause text to wrap round the image. You could replace <code class="highlighter-rouge">left</code> with <code class="highlighter-rouge">inline-start</code> as shown in the example below.</p>
+
+<p><strong>Change the writing mode on this example to <code class="highlighter-rouge">vertical-rl</code> to see what happens to the image. Change <code class="highlighter-rouge">inline-start</code> to <code class="highlighter-rouge">inline-end</code> to change the float.</strong></p>
+
+<p>Here we are also using logical margin values to ensure the margin is in the correct place no matter what the writing mode is.</p>
+
+<h3 id="should-you-use-physical-or-logical-properties">Should you use physical or logical properties?</h3>
+
+<p>The logical properties and values are newer than their physical equivalents, and therefore have only recently been implemented in browsers. You can check any property page on MDN to see how far back the browser support goes. If you are not using multiple writing modes then for now you might prefer to use the physical versions. However, ultimately we expect that people will transition to the logical versions for most things, as they make a lot of sense once you start also dealing with layout methods such as flexbox and grid.</p>
+
+        </div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+    
+    <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Handling+different+text+directions%20http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fhandling-different-text-directions%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fhandling-different-text-directions%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fhandling-different-text-directions%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/teamallnighter_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Chris Connelly. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,295 @@
+<h2 class="-three-column" id="testing">Testing</h2>
+
+<h3 class="-prime" id="quick-start">Quick start</h3>
+
+<div data-line="1" class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">--save-dev</span> jest babel-jest
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Add to package.json */</span>
+<span class="dl">"</span><span class="s2">scripts</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">test</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">jest</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run your tests</span>
+npm <span class="nb">test</span> <span class="nt">--</span> <span class="nt">--watch</span>
+</code></pre></div></div>
+
+<p>See: <a href="http://facebook.github.io/jest/docs/en/getting-started.html">Getting started</a></p>
+
+<h3 id="writing-tests">Writing tests</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">My work</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">works</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>See: <a href="http://facebook.github.io/jest/docs/en/api.html#describename-fn">describe()</a>, <a href="http://facebook.github.io/jest/docs/en/api.html#testname-fn">test()</a>, <a href="http://facebook.github.io/jest/docs/en/expect.html#content">expect()</a></p>
+
+<h3 id="bdd-syntax">BDD syntax</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">My work</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">works</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="err">···</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">it</code> is an alias for <code class="highlighter-rouge">test</code>.
+See: <a href="http://facebook.github.io/jest/docs/en/api.html#testname-fn">test()</a></p>
+
+<h3 id="setup">Setup</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">beforeEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">})</span>
+<span class="nx">afterEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">beforeAll</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">})</span>
+<span class="nx">afterAll</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<p>See: <a href="http://facebook.github.io/jest/docs/en/api.html#afterallfn">afterAll() and more</a></p>
+
+<h3 id="focusing-tests">Focusing tests</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">describe</span><span class="p">.</span><span class="nx">only</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">only</span><span class="p">(</span><span class="err">···</span><span class="p">)</span> <span class="c1">// alias: fit()</span>
+</code></pre></div></div>
+
+<p>See: <a href="http://facebook.github.io/jest/docs/en/api.html#testonlyname-fn">test.only</a></p>
+
+<h3 id="skipping-tests">Skipping tests</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">describe</span><span class="p">.</span><span class="nx">skip</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">skip</span><span class="p">(</span><span class="err">···</span><span class="p">)</span> <span class="c1">// alias: xit()</span>
+</code></pre></div></div>
+
+<p>See: <a href="http://facebook.github.io/jest/docs/en/api.html#testskipname-fn">test.skip</a></p>
+
+<h2 class="-three-column" id="expect">Expect</h2>
+
+<h3 id="basic-expectations">Basic expectations</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">expect</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">not</span>
+  <span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toBeTruthy</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Note that <code class="highlighter-rouge">toEqual</code> is a deep equality check.
+See: <a href="http://facebook.github.io/jest/docs/en/expect.html#expectvalue">expect()</a></p>
+
+<h3 id="snapshots">Snapshots</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">expect</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toMatchSnapshot</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="errors">Errors</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">expect</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toThrow</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toThrowErrorMatchingSnapshot</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="booleans">Booleans</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">expect</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toBeFalsy</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">toBeNull</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">toBeTruthy</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">toBeUndefined</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">toBeDefined</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="numbers">Numbers</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">expect</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toBeCloseTo</span><span class="p">(</span><span class="nx">number</span><span class="p">,</span> <span class="nx">numDigits</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toBeGreaterThan</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toBeGreaterThanOrEqual</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toBeLessThan</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toBeLessThanOrEqual</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="objects">Objects</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">expect</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toBeInstanceOf</span><span class="p">(</span><span class="nx">Class</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toMatchObject</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="nx">keyPath</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="objects-1">Objects</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">expect</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toContain</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toContainEqual</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toHaveLength</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="strings">Strings</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">expect</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toMatch</span><span class="p">(</span><span class="nx">regexpOrString</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="others">Others</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">expect</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">matchers</span><span class="p">)</span>
+<span class="nx">expect</span><span class="p">.</span><span class="nx">any</span><span class="p">(</span><span class="kd">constructor</span><span class="p">)</span>
+<span class="nx">expect</span><span class="p">.</span><span class="nx">addSnapshotSerializer</span><span class="p">(</span><span class="nx">serializer</span><span class="p">)</span>
+
+<span class="nx">expect</span><span class="p">.</span><span class="nx">assertions</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="more-features">More features</h2>
+
+<h3 id="asynchronous-tests">Asynchronous tests</h3>
+
+<div data-line="2" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">works with promises</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="err">···</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<div data-line="2" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">works with async/await</span><span class="dl">'</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">hello</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">foo</span><span class="p">()</span>
+  <span class="err">···</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Return promises, or use async/await.
+See: <a href="http://facebook.github.io/jest/docs/en/tutorial-async.html">Async tutorial</a></p>
+
+<h3 id="snapshots-1">Snapshots</h3>
+
+<div data-line="3" class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">works</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">something</span><span class="p">()</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">output</span><span class="p">).</span><span class="nx">toMatchSnapshot</span><span class="p">()</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>First run creates a snapshot. Subsequent runs match the saved snapshot.
+See: <a href="http://facebook.github.io/jest/docs/en/snapshot-testing.html">Snapshot testing</a></p>
+
+<h3 id="react-test-renderer">React test renderer</h3>
+
+<div class="language-jsx -setup highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">renderer</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-test-renderer</span><span class="dl">'</span>
+</code></pre></div></div>
+
+<div data-line="2,3,4" class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">works</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">tree</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="p">&lt;</span><span class="nc">Link</span> <span class="na">page=</span><span class="s2">"http://www.facebook.com"</span><span class="p">&gt;</span>Facebook<span class="p">&lt;/</span><span class="nc">Link</span><span class="p">&gt;</span>
+  <span class="p">).</span><span class="nx">toJSON</span><span class="p">()</span>
+
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">tree</span><span class="p">).</span><span class="nx">toMatchSnapshot</span><span class="p">()</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>React’s test renderer can be used for Jest snapshots.
+See: <a href="http://facebook.github.io/jest/docs/en/tutorial-react-native.html#snapshot-test">Snapshot test</a></p>
+
+<h3 id="timers">Timers</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jest</span><span class="p">.</span><span class="nx">useFakeTimers</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">works</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">jest</span><span class="p">.</span><span class="nx">runOnlyPendingTimers</span><span class="p">()</span>
+  <span class="nx">jest</span><span class="p">.</span><span class="nx">runTimersToTime</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+  <span class="nx">jest</span><span class="p">.</span><span class="nx">runAllTimers</span><span class="p">()</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>See: <a href="http://facebook.github.io/jest/docs/en/timer-mocks.html">Timer Mocks</a></p>
+
+<h2 id="mock-functions">Mock functions</h2>
+
+<h3 id="mock-functions-1">Mock functions</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">(</span><span class="nx">n</span> <span class="o">=&gt;</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">n</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>See: <a href="http://facebook.github.io/jest/docs/en/mock-functions.html#using-a-mock-function">Mock functions</a></p>
+
+<h3 id="assertions">Assertions</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">expect</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toHaveBeenCalled</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">toHaveBeenCalledTimes</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="p">...)</span>
+  <span class="p">.</span><span class="nx">toHaveBeenLastCalledWith</span><span class="p">(</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">expect</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="nx">expect</span><span class="p">.</span><span class="nx">anything</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="nx">expect</span><span class="p">.</span><span class="nx">any</span><span class="p">(</span><span class="kd">constructor</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="nx">expect</span><span class="p">.</span><span class="nx">arrayContaining</span><span class="p">([</span> <span class="nx">values</span> <span class="p">]))</span>
+  <span class="p">.</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="nx">expect</span><span class="p">.</span><span class="nx">objectContaining</span><span class="p">({</span> <span class="nx">props</span> <span class="p">}))</span>
+  <span class="p">.</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="nx">expect</span><span class="p">.</span><span class="nx">stringContaining</span><span class="p">(</span><span class="nx">string</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="nx">expect</span><span class="p">.</span><span class="nx">stringMatching</span><span class="p">(</span><span class="nx">regexp</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="instances">Instances</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Fn</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">()</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Fn</span><span class="p">()</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Fn</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div data-line="1" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Fn</span><span class="p">.</span><span class="nx">mock</span><span class="p">.</span><span class="nx">instances</span>
+<span class="c1">// → [a, b]</span>
+</code></pre></div></div>
+
+<p>See: <a href="http://facebook.github.io/jest/docs/en/mock-functions.html#mock-property">.mock property</a></p>
+
+<h3 id="calls">Calls</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">()</span>
+<span class="nx">fn</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="nx">fn</span><span class="p">(</span><span class="mi">456</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div data-line="1,2,3" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fn</span><span class="p">.</span><span class="nx">mock</span><span class="p">.</span><span class="nx">calls</span><span class="p">.</span><span class="nx">length</span>   <span class="c1">// → 2</span>
+<span class="nx">fn</span><span class="p">.</span><span class="nx">mock</span><span class="p">.</span><span class="nx">calls</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>    <span class="c1">// → 123</span>
+<span class="nx">fn</span><span class="p">.</span><span class="nx">mock</span><span class="p">.</span><span class="nx">calls</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>    <span class="c1">// → 456</span>
+</code></pre></div></div>
+
+<p>See: <a href="http://facebook.github.io/jest/docs/en/mock-functions.html#mock-property">.mock property</a></p>
+
+<h3 id="return-values">Return values</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="or">or:</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">().</span><span class="nx">mockReturnValue</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">().</span><span class="nx">mockReturnValueOnce</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="mock-implementations">Mock implementations</h3>
+
+<div data-line="2,3" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">mockImplementationOnce</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">mockImplementationOnce</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fn</span><span class="p">()</span>    <span class="c1">// → 1</span>
+<span class="nx">fn</span><span class="p">()</span>    <span class="c1">// → 2</span>
+</code></pre></div></div>
+
+<h2 class="-one-column" id="references">References</h2>
+
+<ul class="-also-see">
+  <li><a href="http://facebook.github.io/jest/">http://facebook.github.io/jest/</a></li>
+</ul>

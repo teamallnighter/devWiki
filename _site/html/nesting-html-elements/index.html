@@ -1,0 +1,296 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Nesting HTML Elements - devWiki</title>
+<meta name="description" content="Nesting elements  ">
+
+
+  <meta name="author" content="Chris Connelly">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="devWiki">
+<meta property="og:title" content="Nesting HTML Elements">
+<meta property="og:url" content="http://localhost:4000/html/nesting-html-elements/">
+
+
+  <meta property="og:description" content="Nesting elements  ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/languages/html@3x.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-01-05T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/html/nesting-html-elements/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Chris Connelly",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="feed.xml" type="application/atom+xml" rel="alternate" title="devWiki Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+<link rel="manifest" href="../manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("An active service worker found, no need to register");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker
+      .register("/serviceworker.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("Service worker has been registered for scope: " + reg.scope);
+      });
+  }
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
+<script src="/assets/js/showdown-xss-filter.js"></script>
+<script src="/assets/js/comment.js"></script>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--post">
+      
+        <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+        <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+        
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          devWiki
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+    <div class="initial-content">
+        <div class="container" id="post-content-wrapper">
+        <h1 id="nesting-elements">Nesting elements</h1>
+
+<p>Elements can be placed within other elements too — this is called <strong>nesting</strong>. If we wanted to state that our cat is <strong>very</strong> grumpy, we could wrap the word “very” in a <code class="highlighter-rouge">[&lt;strong&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)</code> element, which means that the word is to be strongly emphasized:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;My cat is &lt;strong&gt;very&lt;/strong&gt; grumpy.&lt;/p&gt;
+</code></pre></div></div>
+
+<p>You do however need to make sure that your elements are properly nested: in the example above, we opened the <code class="highlighter-rouge">p</code> element first, then the <code class="highlighter-rouge">strong</code> element, therefore we have to close the <code class="highlighter-rouge">strong</code> element first, then the <code class="highlighter-rouge">p</code>. The following is incorrect:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;My cat is &lt;strong&gt;very grumpy.&lt;/p&gt;&lt;/strong&gt;
+</code></pre></div></div>
+
+<p>The elements have to open and close correctly, so they are clearly inside or outside one another. If they overlap like above, then your web browser will try to make a best guess at what you were trying to say, and you may well get unexpected results. So don’t do it!</p>
+
+<h3 id="block-versus-inline-elements">Block versus inline elements</h3>
+
+<p>There are two important categories of elements in HTML which you should know about. They are block-level elements and inline elements.</p>
+
+<ul>
+  <li>Block-level elements form a visible block on a page — they will appear on a new line from whatever content went before it, and any content that goes after it will also appear on a new line. Block-level elements tend to be structural elements on the page that represent, for example, paragraphs, lists, navigation menus, footers, and so on. A block-level element wouldn’t be nested inside an inline element, but it might be nested inside another block-level element.</li>
+  <li>Inline elements are those that are contained within block-level elements and surround only small parts of the document’s content, not entire paragraphs and groupings of content. An inline element will not cause a new line to appear in the document; they would normally appear inside a paragraph of text, for example an <code class="highlighter-rouge">[&lt;a&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)</code> element (hyperlink) or emphasis elements such as <code class="highlighter-rouge">[&lt;em&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)</code> or <code class="highlighter-rouge">[&lt;strong&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)</code>.</li>
+</ul>
+
+<p>Take the following example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;em&gt;first&lt;/em&gt;&lt;em&gt;second&lt;/em&gt;&lt;em&gt;third&lt;/em&gt;&lt;p&gt;fourth&lt;/p&gt;&lt;p&gt;fifth&lt;/p&gt;&lt;p&gt;sixth&lt;/p&gt;
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">[&lt;em&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)</code> is an inline element, so as you can see below, the first three elements sit on the same line as one another with no space in between. On the other hand, <code class="highlighter-rouge">[&lt;p&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)</code> is a block-level element, so each element appears on a new line, with space above and below each (the spacing is due to default <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS">CSS styling</a> that the browser applies to paragraphs).</p>
+
+<p><strong>Note</strong>: HTML5 redefined the element categories in HTML5: see <a href="https://html.spec.whatwg.org/multipage/indices.html#element-content-categories">Element content categories</a>. While these definitions are more accurate and less ambiguous than the ones that went before, they are a lot more complicated to understand than “block” and “inline”, so we will stick with these throughout this topic.</p>
+
+<p><strong>Note</strong>: The terms “block” and “inline”, as used in this topic, should not be confused with <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model#Types_of_CSS_boxes">the types of CSS boxes</a> with the same names. While they correlate by default, changing the CSS display type doesn’t change the category of the element and doesn’t affect which elements it can contain and which elements it can be contained in. One of the reasons why HTML5 dropped these terms was to prevent this rather common confusion.</p>
+
+<p><strong>Note</strong>: You can find useful reference pages that include lists of block and inline elements — see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">Block-level elements</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements">Inline elements</a>.</p>
+
+        </div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+    
+    <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Nesting+HTML+Elements%20http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fnesting-html-elements%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fnesting-html-elements%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fnesting-html-elements%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/teamallnighter_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Chris Connelly. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

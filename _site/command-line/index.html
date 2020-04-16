@@ -1,0 +1,142 @@
+<h1 id="cpnt-260-day-0">CPNT 260: Day 0</h1>
+
+<h2 id="command-line-navigating-the-file-system">Command Line: Navigating the file system</h2>
+
+<p><a href="https://www.git-tower.com/blog/command-line-cheat-sheet/">CLI (command line interface) Cheat Sheet</a></p>
+
+<h3 id="cli-anatomy">CLI Anatomy</h3>
+
+<h3 id="the-3-commands-you-will-use-80-of-the-time">The 3 commands you will use 80% of the time</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">pwd</code>: displays your ‘present working directory’. This will usually default to your home folder when you first open your terminal.</li>
+  <li><code class="highlighter-rouge">ls</code>: lists the contents of your current directory. The <code class="highlighter-rouge">-l</code> flag lists extra information and <code class="highlighter-rouge">-a</code> lists hidden files. <code class="highlighter-rouge">-la</code> will list extra information and also all hidden files.</li>
+  <li><code class="highlighter-rouge">cd</code>: changes your directory based on the path you provide after the command (separated by a space). Examples:
+    <ul>
+      <li><code class="highlighter-rouge">$ cd Documents/fast-track</code></li>
+      <li><code class="highlighter-rouge">$ cd /h/sait/fast-track</code></li>
+      <li><code class="highlighter-rouge">$ cd ../..</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Quality of life cli tips</p>
+
+<ul>
+  <li>tab: auto-completes file names and directories</li>
+  <li>up arrow: browse through command history</li>
+</ul>
+
+<h2 id="uris-urls-and-file-paths">URIs, URLs, and file paths</h2>
+
+<h3 id="naming-conventions">Naming conventions</h3>
+
+<ul>
+  <li>Files should be named consistently</li>
+  <li>File names should be short but descriptive (&lt;25 characters)</li>
+  <li>Avoid special characters or spaces in a file name</li>
+  <li>Underscores or hyphens instead of spaces</li>
+  <li>Use lower case characters when possible</li>
+  <li>Default file name for html: index.html</li>
+  <li>Default file name for css: styles.css or main.css</li>
+  <li>Default file name for js: app.js or index.js</li>
+  <li>Default file name for documentation README (located in the root directory of a project; extension can vary but is usually .txt. or .md)</li>
+</ul>
+
+<h2 id="activity-configuring-git">Activity: <a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Configuring Git</a></h2>
+
+<ul>
+  <li>Setting your name</li>
+  <li>Setting your email</li>
+  <li>Setting up your keys (optional)
+    <ul>
+      <li><a href="https://stackoverflow.com/questions/11041729/why-does-github-recommend-https-over-ssh">Why does GitHub recommend HTTPS over SSH?</a></li>
+      <li><a href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">Generating a new SSH key and adding it to the ssh-agent</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="cloning-a-repo">Cloning a repo</h2>
+
+<h3 id="option-1-upload-files-and-clone">Option 1: Upload files and clone</h3>
+
+<ol>
+  <li>Create empty GH repo with initialized README.md</li>
+  <li>Drag and drop files into your repo</li>
+  <li>Clone repo to your file system with <code class="highlighter-rouge">git clone</code></li>
+</ol>
+
+<h3 id="option-2-push-from-existing-local-repo">Option 2: Push from existing local repo</h3>
+
+<ol>
+  <li>Create empty GH repo WITHOUT initialized README.md</li>
+  <li>Follow listed instructions for “<em>…or push an existing repository from the command line</em>”</li>
+</ol>
+
+<p><strong>Important: Do not create a repo inside another repo</strong></p>
+
+<h3 id="activity-fork-and-clone-the-course-repo-to-your-system">Activity: Fork and clone the course repo to your system</h3>
+
+<ol>
+  <li>Clone repo to your filesystem</li>
+</ol>
+
+<h3 id="top-git-commands">Top Git commands</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">$ git status</code></li>
+  <li><code class="highlighter-rouge">$ git add</code></li>
+  <li><code class="highlighter-rouge">$ git commit</code></li>
+  <li><code class="highlighter-rouge">$ git push</code></li>
+  <li><code class="highlighter-rouge">$ git pull</code></li>
+</ul>
+
+<h2 id="dobbie">Dobbie</h2>
+
+<h2 id="anatomy-of-a-webpage">Anatomy of a webpage</h2>
+
+<ul>
+  <li>doctype</li>
+  <li>head</li>
+  <li>body</li>
+  <li>styles</li>
+  <li>scripts</li>
+</ul>
+
+<h2 id="web-analogues-and-horizontal-components">Web Analogues and horizontal components</h2>
+
+<ul>
+  <li>Docs</li>
+  <li>Photoshop</li>
+  <li>Illustrator</li>
+</ul>
+
+<h3 id="activity-creating-a-web-page-from-codepen">Activity: Creating a web page from Codepen</h3>
+
+<p>Create a single webpage from the HTML, CSS and JS listed in a Codepen of your choice. All styles and script should be embedded in the index.html page itself.</p>
+
+<h2 id="css-colour">CSS Colour</h2>
+
+<p>Overview of positive and negative colour models.</p>
+
+<ul>
+  <li>Poisitve: RBG</li>
+  <li>Negative: CMYK</li>
+</ul>
+
+<p>Overview of the four colour modes of CSS</p>
+
+<ul>
+  <li>colour names</li>
+  <li>hexcode</li>
+  <li>RBG</li>
+  <li>HSL</li>
+</ul>
+
+<h2 id="prep-for-tomorrow">Prep for Tomorrow</h2>
+
+<ul>
+  <li>Homework: Bring in a magazine or newspaper from the outside world.</li>
+  <li><a href="https://youtu.be/u00FY9vADfQ">Resilient CSS: Part 1 of 7</a></li>
+  <li><a href="https://youtu.be/WM_cKHH7bZ0">Resilient CSS: Part 2 of 7</a></li>
+</ul>

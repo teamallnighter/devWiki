@@ -1,0 +1,35 @@
+<h2 id="custom-domains">Custom domains</h2>
+
+<h3 id="custom-domains-1">Custom domains</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"foobar.com"</span> <span class="o">&gt;</span> CNAME
+<span class="nv">$ </span>git commit <span class="o">&amp;&amp;</span> git push
+</code></pre></div></div>
+
+<p>Create a <code class="highlighter-rouge">CNAME</code> file with your domain on it.</p>
+
+<p>See: <a href="https://help.github.com/articles/quick-start-setting-up-a-custom-domain/">Setting up a custom domain</a> <em>(github.com)</em></p>
+
+<h3 id="set-up-your-domain">Set up your domain</h3>
+
+<p class="-setup">Subdomain (like www):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> CNAME =&gt; username.github.io
+</code></pre></div></div>
+
+<p class="-setup">Apex domains:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ALIAS =&gt; username.github.io
+</code></pre></div></div>
+
+<p class="-setup">Apex domains (alternative):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A =&gt; 192.30.252.153
+A =&gt; 192.30.252.154
+</code></pre></div></div>
+
+<h2 class="-one-column" id="references">References</h2>
+
+<ul>
+  <li><a href="https://pages.github.com">https://pages.github.com</a></li>
+</ul>

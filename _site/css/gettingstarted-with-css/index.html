@@ -1,0 +1,407 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Getting Started with CSS - devWiki</title>
+<meta name="description" content="Getting Started with CSS  ">
+
+
+  <meta name="author" content="Chris Connelly">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="devWiki">
+<meta property="og:title" content="Getting Started with CSS">
+<meta property="og:url" content="http://localhost:4000/css/gettingstarted-with-css/">
+
+
+  <meta property="og:description" content="Getting Started with CSS  ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/languages/html@3x.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-02-03T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/css/gettingstarted-with-css/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Chris Connelly",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="feed.xml" type="application/atom+xml" rel="alternate" title="devWiki Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+<link rel="manifest" href="../manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("An active service worker found, no need to register");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker
+      .register("/serviceworker.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("Service worker has been registered for scope: " + reg.scope);
+      });
+  }
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
+<script src="/assets/js/showdown-xss-filter.js"></script>
+<script src="/assets/js/comment.js"></script>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--post">
+      
+        <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+        <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+        
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          devWiki
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+    <div class="initial-content">
+        <div class="container" id="post-content-wrapper">
+        <h1 id="getting-started-with-css">Getting Started with CSS</h1>
+
+<h1 id="adding-css-to-the-document">Adding CSS to the document</h1>
+
+<p>The very first thing we need to do is to tell the HTML document that we have some CSS rules we want it to use. There are three different ways to apply CSS to an HTML document that you’ll commonly come across, however, for now, we will look at the most usual and useful way of doing so — linking CSS from the head of your document.</p>
+
+<p>Create a file in the same folder as your HTML document and save it as <code class="highlighter-rouge">styles.css</code>. The <code class="highlighter-rouge">.css</code> extension shows that this is a CSS file.</p>
+
+<p>To link <code class="highlighter-rouge">styles.css</code> to <code class="highlighter-rouge">index.html</code> add the following line somewhere inside the <code class="highlighter-rouge">[&lt;head&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)</code> of the HTML document:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;link rel="stylesheet" href="styles.css"&gt;
+</code></pre></div></div>
+
+<p>This <code class="highlighter-rouge">[&lt;link&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)</code> element tells the browser that we have a stylesheet, using the <code class="highlighter-rouge">rel</code> attribute, and the location of that stylesheet as the value of the <code class="highlighter-rouge">href</code> attribute. You can test that the CSS works by adding a rule to <code class="highlighter-rouge">styles.css</code>. Using your code editor add the following to your CSS file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>h1 {
+  color: red;
+}
+</code></pre></div></div>
+
+<p>Save your HTML and CSS files and reload the page in a web browser. The level one heading at the top of the document should now be red. If that happens, congratulations — you have successfully applied some CSS to an HTML document. If that doesn’t happen, carefully check that you’ve typed everything correctly.</p>
+
+<p>You can continue to work in <code class="highlighter-rouge">styles.css</code> locally, or you can use our interactive editor below to continue with this tutorial. The interactive editor acts as if the CSS in the first panel is linked to the HTML document, just as we have with our document above.</p>
+
+<h1 id="styling-html-elements">Styling HTML elements</h1>
+
+<p>By making our heading red we have already demonstrated that we can target and style an HTML element. We do this by targeting an <em>element selector</em> — this is a selector that directly matches an HTML element name. To target all paragraphs in the document you would use the selector <code class="highlighter-rouge">p</code>. To turn all paragraphs green you would use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p {
+  color: green;
+}
+</code></pre></div></div>
+
+<p>You can target multiple selectors at once, by separating the selectors with a comma. If I want all paragraphs and all list items to be green my rule looks like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p, li {
+    color: green;
+}
+</code></pre></div></div>
+
+<p>Try this out in the interactive editor below (edit the code boxes), or in your local CSS document.</p>
+
+<h1 id="changing-the-default-behavior-of-elements">Changing the default behavior of elements</h1>
+
+<p>When we look at a well-marked up HTML document, even something as simple as our example, we can see how the browser is making the HTML readable by adding some default styling. Headings are large and bold and our list has bullets. This happens because browsers have internal stylesheets containing default styles, which they apply to all pages by default; without them all of the text would run together in a clump and we would have to style everything from scratch. All modern browsers display HTML content by default in pretty much the same way.</p>
+
+<p>However, you will often want something other than the choice the browser has made. This can be done by simply choosing the HTML element that you want to change, and using a CSS rule to change the way it looks. A good example is our <code class="highlighter-rouge">&lt;ul&gt;</code>, an unordered list. It has list bullets, and if I decide I don’t want those bullets I can remove them like so:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>li {
+  list-style-type: none;
+}
+</code></pre></div></div>
+
+<p>Try adding this to your CSS now.</p>
+
+<p>The <code class="highlighter-rouge">list-style-type</code> property is a good property to look at on MDN to see which values are supported. Take a look at the page for <code class="highlighter-rouge">[list-style-type](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type)</code> and you will find an interactive example at the top of the page to try some different values in, then all allowable values are detailed further down the page.</p>
+
+<p>Looking at that page you will discover that in addition to removing the list bullets you can change them — try changing them to square bullets by using a value of <code class="highlighter-rouge">square</code>.</p>
+
+<h1 id="adding-a-class">Adding a class</h1>
+
+<p>So far we have styled elements based on their HTML element names. This works as long as you want all of the elements of that type in your document to look the same. Most of the time that isn’t the case and so you will need to find a way to select a subset of the elements without changing the others. The most common way to do this is to add a class to your HTML element and target that class.</p>
+
+<p>In your HTML document, add a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class">class attribute</a> to the second list item. Your list will now look like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class="special"
+</code></pre></div></div>
+
+<p>In your CSS you can target the class of <code class="highlighter-rouge">special</code> by creating a selector that starts with a full stop character. Add the following to your CSS file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.special {
+  color: orange;
+  font-weight: bold;
+}
+</code></pre></div></div>
+
+<p>Save and refresh to see what the result is.</p>
+
+<p>You can apply the class of <code class="highlighter-rouge">special</code> to any element on your page that you want to have the same look as this list item. For example, you might want the <code class="highlighter-rouge">&lt;span&gt;</code> in the paragraph to also be orange and bold. Try adding a <code class="highlighter-rouge">class</code> of <code class="highlighter-rouge">special</code> to it, then reload your page and see what happens.</p>
+
+<p>Sometimes you will see rules with a selector that lists the HTML element selector along with the class:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>li.special {
+  color: orange;
+  font-weight: bold;
+}
+</code></pre></div></div>
+
+<p>This syntax means “target any <code class="highlighter-rouge">li</code> element that has a class of special”. If you were to do this then you would no longer be able to apply the class to a <code class="highlighter-rouge">&lt;span&gt;</code> or another element by simply adding the class to it; you would have to add that element to the list of selectors:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>li.special,
+span.special {
+  color: orange;
+  font-weight: bold;
+}
+</code></pre></div></div>
+
+<p>As you can imagine, some classes might be applied to many elements and you don’t want to have to keep editing your CSS every time something new needs to take on that style. Therefore it is sometimes best to bypass the element and simply refer to the class, unless you know that you want to create some special rules for one element alone, and perhaps want to make sure they are not applied to other things.</p>
+
+<h1 id="styling-things-based-on-their-location-in-a-document">Styling things based on their location in a document</h1>
+
+<p>There are times when you will want something to look different based on where it is in the document. There are a number of selectors that can help you here, but for now we will look at just a couple. In our document are two <code class="highlighter-rouge">&lt;em&gt;</code> elements — one inside a paragraph and the other inside a list item. To select only an <code class="highlighter-rouge">&lt;em&gt;</code> that is nested inside an <code class="highlighter-rouge">&lt;li&gt;</code> element I can use a selector called the <strong>descendant combinator</strong>, which simply takes the form of a space between two other selectors.</p>
+
+<p>Add the following rule to your stylesheet.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>li em {
+  color: rebeccapurple;
+}
+</code></pre></div></div>
+
+<p>This selector will select any <code class="highlighter-rouge">&lt;em&gt;</code> element that is inside (a descendant of) an <code class="highlighter-rouge">&lt;li&gt;</code>. So in your example document, you should find that the <code class="highlighter-rouge">&lt;em&gt;</code> in the third list item is now purple, but the one inside the paragraph is unchanged.</p>
+
+<p>Something else you might like to try is styling a paragraph when it comes directly after a heading at the same hierarchy level in the HTML. To do so place a <code class="highlighter-rouge">+</code> (an <strong>adjacent sibling combinator</strong>) between the selectors.</p>
+
+<p>Try adding this rule to your stylesheet as well:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>h1 + p {
+  font-size: 200%;
+}
+</code></pre></div></div>
+
+<p>The live example below includes the two rules above. Try adding a rule to make a span red, if it is inside a paragraph. You will know if you have it right as the span in the first paragraph will be red, but the one in the first list item will not change color.</p>
+
+<h1 id="styling-things-based-on-state">Styling things based on state</h1>
+
+<p>The final type of styling we shall take a look at in this tutorial is the ability to style things based on their state. A straightforward example of this is when styling links. When we style a link we need to target the <code class="highlighter-rouge">[&lt;a&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)</code> (anchor) element. This has different states depending on whether it is unvisited, visited, being hovered over, focused via the keyboard, or in the process of being clicked (activated). You can use CSS to target these different states — the CSS below styles unvisited links pink and visited links green.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a:link {
+  color: pink;
+}
+
+a:visited {
+  color: green;
+}
+</code></pre></div></div>
+
+<p>You can change the way the link looks when the user hovers over it, for example removing the underline, which is achieved by in the next rule:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a:hover {
+  text-decoration: none;
+}
+</code></pre></div></div>
+
+<p>In the live example below, you can play with different values for the various states of a link. I have added the rules above to it, and now realise that the pink color is quite light and hard to read — why not change that to a better color? Can you make the links bold?</p>
+
+<p>We have removed the underline on our link on hover. You could remove the underline from all states of a link. It is worth remembering however that in a real site, you want to ensure that visitors know that a link is a link. Leaving the underline in place, can be an important clue for people to realize that some text inside a paragraph can be clicked on — this is the behavior they are used to. As with everything in CSS, there is the potential to make the document less accessible with your changes — we will aim to highlight potential pitfalls in appropriate places.</p>
+
+        </div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+    
+    <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Getting+Started+with+CSS%20http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fgettingstarted-with-css%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fgettingstarted-with-css%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fgettingstarted-with-css%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/teamallnighter_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Chris Connelly. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

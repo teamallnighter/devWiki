@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-16T06:13:56-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">devWiki</title><subtitle>Everything you need to know about web dev</subtitle><author><name>Chris Connelly</name></author><entry><title type="html">Intro to web componants</title><link href="http://localhost:4000/html/intro-to-web-componants/" rel="alternate" type="text/html" title="Intro to web componants" /><published>2020-04-14T00:00:00-06:00</published><updated>2020-04-14T00:00:00-06:00</updated><id>http://localhost:4000/html/intro-to-web-componants</id><content type="html" xml:base="http://localhost:4000/html/intro-to-web-componants/">## TL;DR
+
+With Custom Elements, web developers can create new HTML tags, beef-up existing HTML tags, or extend the components other developers have authored. The API is the foundation of web components. It brings a web standards-based way to create reusable components using nothing more than vanilla JS/HTML/CSS. The result is less code, modular code, and more reuse in our apps.
+
+## Introduction
+
+The browser gives us an excellent tool for structuring web applications. It's called HTML. You may have heard of it! It's declarative, portable, well supported, and easy to work with. Great as HTML may be, its vocabulary and extensibility are limited. The HTML living standard has always lacked a way to automatically associate JS behavior with your markup... until now.
+
+Custom elements are the answer to modernizing HTML, filling in the missing pieces, and bundling structure with behavior. If HTML doesn't provide the solution to a problem, we can create a custom element that does. Custom elements teach the browser new tricks while preserving the benefits of HTML.
+
+## Defining a new element
+To define a new HTML element we need the power of JavaScript!
+
+The customElements global is used for defining a custom element and teaching the browser about a new tag. Call customElements.define() with the tag name you want to create and a JavaScript class that extends the base HTMLElement.
+
+Example - defining a mobile drawer panel, `&lt;app-drawer&gt;`:
+
+```
+class AppDrawer extends HTMLElement {...}
+window.customElements.define('app-drawer', AppDrawer);
+
+// Or use an anonymous class if you don't want a named constructor in current scope.
+window.customElements.define('app-drawer', class extends HTMLElement {...});
+```
+
+Example usage:
+
+```
+&lt;app-drawer&gt;&lt;/app-drawer&gt;
+```
+
+It's important to remember that using a custom element is no different than using a &lt;div&gt; or any other element. Instances can be declared on the page, created dynamically in JavaScript, event listeners can be attached, etc. Keep reading for more examples.
+
+## Defining an element's JavaScript API
+
+The functionality of a custom element is defined using an ES2015 class which extends HTMLElement. Extending HTMLElement ensures the custom element inherits the entire DOM API and means any properties/methods that you add to the class become part of the element's DOM interface. Essentially, use the class to create a public JavaScript API for your tag.
+
+Example - defining the DOM interface of `&lt;app-drawer&gt;`:
+
+```
+class AppDrawer extends HTMLElement {
+
+  // A getter/setter for an open property.
+  get open() {
+    return this.hasAttribute('open');
+  }
+
+  set open(val) {
+    // Reflect the value of the open property as an HTML attribute.
+    if (val) {
+      this.setAttribute('open', '');
+    } else {
+      this.removeAttribute('open');
+    }
+    this.toggleDrawer();
+  }
+
+  // A getter/setter for a disabled property.
+  get disabled() {
+    return this.hasAttribute('disabled');
+  }
+
+  set disabled(val) {
+    // Reflect the value of the disabled property as an HTML attribute.
+    if (val) {
+      this.setAttribute('disabled', '');
+    } else {
+      this.removeAttribute('disabled');
+    }
+  }
+
+  // Can define constructor arguments if you wish.
+  constructor() {
+    // If you define a constructor, always call super() first!
+    // This is specific to CE and required by the spec.
+    super();
+
+    // Setup a click listener on &lt;app-drawer&gt; itself.
+    this.addEventListener('click', e =&gt; {
+      // Don't toggle the drawer if it's disabled.
+      if (this.disabled) {
+        return;
+      }
+      this.toggleDrawer();
+    });
+  }
+
+  toggleDrawer() {
+    ...
+  }
+}
+
+customElements.define('app-drawer', AppDrawer);
+```
+
+In this example, we're creating a drawer that has an open property, disabled property, and a toggleDrawer() method. It also reflects properties as HTML attributes.
+
+A neat feature of custom elements is that this inside a class definition refers to the DOM element itself i.e. the instance of the class. In our example, this refers to &lt;app-drawer&gt;. This (😉) is how the element can attach a click listener to itself! And you're not limited to event listeners. The entire DOM API is available inside element code. Use this to access the element's properties, inspect its children (this.children), query nodes (this.querySelectorAll('.items')), etc.
+
+Rules on creating custom elements
+
+The name of a custom element must contain a dash (-). So &lt;x-tags&gt;, &lt;my-element&gt;, and &lt;my-awesome-app&gt; are all valid names, while &lt;tabs&gt; and &lt;foo_bar&gt; are not. This requirement is so the HTML parser can distinguish custom elements from regular elements. It also ensures forward compatibility when new tags are added to HTML.
+You can't register the same tag more than once. Attempting to do so will throw a DOMException. Once you've told the browser about a new tag, that's it. No take backs.
+Custom elements cannot be self-closing because HTML only allows a few elements to be self-closing. Always write a closing tag (&lt;app-drawer&gt;&lt;/app-drawer&gt;).
+Custom element reactions
+A custom element can define special lifecycle hooks for running code during interesting times of its existence. These are called custom element reactions.
+
+
+
+https://www.webcomponents.org/element/vanillawc/wc-social-link</content><author><name>Chris Connelly</name></author><category term="Web Componants" /><category term="HTML" /><summary type="html">TL;DR</summary></entry><entry><title type="html">Middleman Quickstart</title><link href="http://localhost:4000/middleman-quickstart/" rel="alternate" type="text/html" title="Middleman Quickstart" /><published>2020-04-02T00:00:00-06:00</published><updated>2020-04-02T00:00:00-06:00</updated><id>http://localhost:4000/middleman-quickstart</id><content type="html" xml:base="http://localhost:4000/middleman-quickstart/"># Middle Man
+
+## Getting Started
+
+### Installing Ruby and Middle Man
+
+macOS comes prepackaged with both Ruby and RubyGems, however, some of the Middleman's dependencies need to be compiled during installation and on macOS that requires Xcode Command Line Tools. Xcode can be installed from the terminal:
+
+```bash
+xcode-select --install
+```
+
+Once you have Ruby and RubyGems up and running, execute the following from the command line:
+
+```bash
+gem install middleman
+```
+
+This will install Middleman, its dependencies and the command-line tools for using Middleman.
+
+The installation process will add one new command to your environment, with three useful features:
+
+```bash
+$ middleman init
+$ middleman server
+middleman build
+```
+
+The uses of each of these commands will be covered in the next section, Start a New Site.
+
+### Setting up a new file
+
+To get started we will need to create a project folder for Middleman to work out of. You can do this using an existing folder or have Middleman create one for you using the middleman init command.
+
+```bash
+middleman init
+```
+
+builds a Middleman skeleton project in your current folder.
+
+```bash
+middleman init my_new_project
+```
+
+creates a subfolder my_new_project with the Middleman skeleton project.
+
+#### The Skeleton
+
+Every new project creates a basic web development skeleton for you. This automates the construction of a standard hierarchy of folders and files that you can use in all of your projects.
+
+A brand-new project will contain a source folder and a config.rb file. The source folder is where you will build your website. The skeleton project contains folders for JavaScript, CSS and images, but you can change these to match your own personal preferences.
+
+The config.rb file contains settings for Middleman.
+
+#### Gemfile
+
+Middleman will respect a Bundler Gemfile for specifying and controlling your gem dependencies. When creating a new project, Middleman will generate a Gemfile for you which specifies the same version of Middleman you are using. This will lock Middleman to this specific release series (the 4.0.x series, for example). All plugins and extra libraries you use in your project should be listed in your Gemfile, and Middleman will automatically require all of them when it starts.
+
+#### config.ru
+
+A config.ru file describes how the site should be loaded by a Rack-enabled web server. If you'd like to host your Middleman site in development mode on a Rack-based host such as Heroku, you can add a config.ru file at the root of your project with the following contents:
+
+```bash
+require 'middleman/rack'
+run Middleman.server
+```
+
+Remember that Middleman is built to generate static sites, though. This scenario is not a primary use-case.
+
+### Directory Structure
+
+The default Middleman installation consists of a directory structure which looks like this:
+
+mymiddlemansite/
++-- .gitignore
++-- Gemfile
++-- Gemfile.lock
++-- config.rb
++-- source
+    +-- images
+    ¦   +-- background.png
+    ¦   +-- middleman.png
+    +-- index.html.erb
+    +-- javascripts
+    ¦   +-- all.js
+    +-- layouts
+    ¦   +-- layout.erb
+    +-- stylesheets
+        +-- all.css
+        +-- normalize.css
+
+#### Main Directories
+
+Middleman makes use of the source, build, data and lib directories for specific purposes. Each of these directories are children of the main Middleman directory.
+
+#### source Directory
+
+The source directory contains your main website source files to be built, including your templates JavaScript, CSS and images.
+
+#### build Directory
+
+The build directory is where your static website files will be compiled and exported to.
+
+#### data Directory
+
+Local Data allows you to create YAML or JSON files in a folder called data and makes this information available in your templates. The data folder should be placed in the root of your project (i.e. in the same folder as your project's source folder). See the Data Files docs for more information.
+
+#### lib Directory
+
+The lib directory enables you to include external Ruby modules which contain helpers for building your application. If you use Rails then you will be familiar with this layout.
+
+![Middle Man has started image](bible.chrisconnelly.dev/articles/020-04-06-getting-started-middleman/middleman.png)
+
+For more information check out the [middle man cheatsheet]()
+
+Make sure you watch [THESE](videos) if you want to master this super fun framework</content><author><name>Chris Connelly</name></author><summary type="html">Middle Man</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/middleman.png" /><media:content medium="image" url="http://localhost:4000/assets/img/middleman.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll Quickstart</title><link href="http://localhost:4000/jekyll/jekyllquick/" rel="alternate" type="text/html" title="Jekyll Quickstart" /><published>2020-04-01T00:00:00-06:00</published><updated>2020-04-01T00:00:00-06:00</updated><id>http://localhost:4000/jekyll/jekyllquick</id><content type="html" xml:base="http://localhost:4000/jekyll/jekyllquick/"># Jekyll Quickstart
+
+Jekyll is a static site generator. You give it text written in your favorite markup language and it uses layouts to create a static website. You can tweak how you want the site URLs to look, what data gets displayed on the site, and more.
+
+PrerequisitesPermalink
+See requirements.
+
+Instructions Permalink
+Install a full Ruby development environment.
+
+Install Jekyll and bundler gems.
+
+```ruby
+gem install jekyll bundler
+```
+
+```ruby
+Create a new Jekyll site at ./myblog.
+```
+
+```ruby
+jekyll new myblog
+```
+
+Change into your new directory.
+
+```ruby
+cd myblog
+```
+
+Build the site and make it available on a local server.
+
+```ruby
+bundle exec jekyll serve
+```
+
+Browse to http://localhost:4000
+If you encounter any errors during this process, see the troubleshooting page. Also, make sure you’ve installed the development headers and other prerequisites as mentioned on the requirements page.</content><author><name>Chris Connelly</name></author><category term="jekyll" /><category term="quickstart" /><summary type="html">Jekyll Quickstart</summary></entry><entry><title type="html">README</title><link href="http://localhost:4000/readme/" rel="alternate" type="text/html" title="README" /><published>2020-04-01T00:00:00-06:00</published><updated>2020-04-01T00:00:00-06:00</updated><id>http://localhost:4000/readme</id><content type="html" xml:base="http://localhost:4000/readme/"># The Dev Bible
+
+The dev bible is a Jekyll powered knowledge base and API for web developers. I came up with the idea when learning web dev and trying to find resources all over the internet. I started by creating my own database in [notion](https://notion.io). This soon became my idea for my final project while taking the Web Developer prgoram at [SAIT](https://sait.ca)
+
+## Features
+
+- A dedicated blog with notes from SAIT
+- Everything I've learned about web dev so far
+- Cheat sheets
+- Quick reference search
+
+## Coming Soon
+
+- The API!
+  
+The page is created with most recent JAMSTACK principles and uses Jekyll and serverless technology to deliver information quickly and efficiantly.
+
+## Dependencies
+
+- Jekyll
+- Minimal Mistakes Theme
+
+### Installation
+
+This App is still in development</content><author><name>Chris Connelly</name></author><summary type="html">The Dev Bible</summary></entry><entry><title type="html">Jekyll from Scratch</title><link href="http://localhost:4000/cpnt200/jekyll/jekyll-from-scratch/" rel="alternate" type="text/html" title="Jekyll from Scratch" /><published>2020-03-23T08:00:00-06:00</published><updated>2020-03-23T08:00:00-06:00</updated><id>http://localhost:4000/cpnt200/jekyll/jekyll-from-scratch</id><content type="html" xml:base="http://localhost:4000/cpnt200/jekyll/jekyll-from-scratch/"># {{page.title}}
+## Morning Live Stream Agenda
+- Reminders for Tony
+    1. Hit Record
+    2. Turn on Chat
+    3. Put on mic
+- Static website
+  - Live code: What happens if we `jekyll build` inside a vanilla html web directory?
+- Pages
+  - Stack Overflow: [posts vs pages](https://stackoverflow.com/questions/15095625/what-are-the-differences-between-a-post-and-a-page-in-jekyll)
+    - We'll be covering posts tomorrow.
+  - Live code: Converting `index.html` to `index.md` using [Jekyll Layouts](https://jekyllrb.com/docs/step-by-step/04-layouts/)
+- Front Matter and Liquid
+  - See Resources below
+  - We'll be looking for at liquid tomorrow.
+- Recommended Practice: Installing Jekyll with Bundler
+  - Live code: Generate base scaffolded boilerplate, using this tutorial: [Using Jekyll with Bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/)
+    - Pro tip: use the `--blank` flag with `bundle exec jekyll new .` to generate an empty jekyll site with all the directories and minimal content.
+
+## Afternoon Check-in
+- Recap
+- Show and Tell
+  - 5 minutes for you to show off
+- Anything else?
+
+## Jekyll Best Practices
+- READ THIS: [An opinionated style guide](https://ben.balter.com/jekyll-style-guide/) by [Ben Balter](https://ben.balter.com/)
+- [Using Jekyll with Bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/)
+- [FAQ: Working with Github Pages](https://help.github.com/en/github/working-with-github-pages)
+
+## Jekyll Deep Dive
+- See: [Day 1 README](../ch01/README.md) for basic tutorials and reference links
+- [Command Line Usage](https://jekyllrb.com/docs/usage/)
+- [Configuration](https://jekyllrb.com/docs/configuration/)
+- [Resources](https://jekyllrb.com/resources/)
+- [Official Tutorials](https://jekyllrb.com/tutorials/home/)
+
+## Front Matter and Liquid
+- [Front Matter Docs](https://jekyllrb.com/docs/front-matter/)
+- [Official Liquid Docs](https://shopify.github.io/liquid/)
+
+## Activity 1: Finish converting the other Character Classes in the hello-jekyll example
+Using the finished index.md and _layouts code, convert the other pages to Jekyll pages.
+
+## Activity 2: Read this article beginning to end
+[An opinionated style guide](https://ben.balter.com/jekyll-style-guide/) by [Ben Balter](https://ben.balter.com/)
+
+## Activity 3: Includes
+Using the finished index.md and _layouts code, further separate repeated page elements into individual includes.
+
+See:
+- [Official Include Docs](https://jekyllrb.com/docs/includes/)
+- &quot;Includes&quot; tutorial on [the official Video Tutorials](https://jekyllrb.com/tutorials/video-walkthroughs/) list</content><author><name>Chris Connelly</name></author><summary type="html">Jekyll from Scratch Morning Live Stream Agenda Reminders for Tony Hit Record Turn on Chat Put on mic Static website Live code: What happens if we jekyll build inside a vanilla html web directory? Pages Stack Overflow: posts vs pages We’ll be covering posts tomorrow. Live code: Converting index.html to index.md using Jekyll Layouts Front Matter and Liquid See Resources below We’ll be looking for at liquid tomorrow. Recommended Practice: Installing Jekyll with Bundler Live code: Generate base scaffolded boilerplate, using this tutorial: Using Jekyll with Bundler Pro tip: use the --blank flag with bundle exec jekyll new . to generate an empty jekyll site with all the directories and minimal content.</summary></entry><entry><title type="html">Introduction to E-commerce</title><link href="http://localhost:4000/jekyll/intro-to-ecommerce/" rel="alternate" type="text/html" title="Introduction to E-commerce" /><published>2020-03-20T08:00:00-06:00</published><updated>2020-03-20T08:00:00-06:00</updated><id>http://localhost:4000/jekyll/intro-to-ecommerce</id><content type="html" xml:base="http://localhost:4000/jekyll/intro-to-ecommerce/">## Relevant Resources
+
+- Articles by Steve Chou
+  - [Private Label vs Retail Arbitrage vs Dropshipping vs Wholesale – 8 Ecommerce Business Models Compared](https://mywifequitherjob.com/8-ecommerce-business-models-compared/) by Steve Chou
+  - [AliExpress Dropshipping &amp; Oberlo Are Officially Dead – Here’s Why](https://mywifequitherjob.com/aliexpress-dropshipping-oberlo-epacket/)
+- Shopify
+  - dropshipping
+    - Wholesale Ted
+      - [Create a Dropshipping Store with Shopify &amp; Aliexpress (UPDATED Shopify Tutorial for 2019)](https://www.youtube.com/watch?v=Fsq6ohxLQX4)
+    - Sebastian Ghiorghiu
+      - [Dropshipping In 2019 - 2020 | Everything You Should Know](https://www.youtube.com/watch?v=7hpIRP8Nph8)
+    - Justin Painter
+      - shortcut: [Meme page and Influencer MArketing](https://youtu.be/1SAsQis-8eg?t=519)
+  - print on demand
+    - Shortcut: [T-shirt dropship breakdown](https://youtu.be/9vD7wkggBBs?t=174) by Joe Roberts
+      - cost of FB ads: $10/sale (very anecdotal stat)
+    - [10 Things To Do BEFORE You Start A Print On Demand Store... (Beginner Mistakes to AVOID)](https://www.youtube.com/watch?v=Y7jRSsr7qbQ)
+      - [120](https://youtu.be/Y7jRSsr7qbQ?t=120): Amazon Merch - darker shades (t-shirts) usually perform better with black being top selling colour
+      - [645](https://youtu.be/Y7jRSsr7qbQ?t=645): Placeit - lifestyle photo generator
+      - [750](https://youtu.be/Y7jRSsr7qbQ?t=750): Don't just opt for selling t-shirts
+      - [795](https://youtu.be/Y7jRSsr7qbQ?t=795): Principle of price anchoring
+      - [1095](https://youtu.be/Y7jRSsr7qbQ?t=1095): Principle of illusory superiority
+  - digital downloads
+    - [SHOPIFY - How To Make $1,000 A DAY With Digital Products](https://www.youtube.com/watch?v=yiWQqHQ-KcM) Keder Cormier
+      - [195](https://youtu.be/yiWQqHQ-KcM?t=195): Hire a designer (and get yourself out of the picture)
+      - [490](https://youtu.be/yiWQqHQ-KcM?t=490): e-books
+- Etsy
+  - [Etsy vs Shopify Pros and Cons | Which is right for you?](https://www.youtube.com/watch?v=_nMrGWkchgs) by Merch Lifestyle
+
+## Buying and selling products or services online Web
+
+- Email
+- Mobile applications
+- Products include physical or digital products, or services
+- Can involve complex chain of inventory control, warehouses, shipping, receiving, couriers, etc.
+- Or can be as simple as online payment and download of digital files.
+
+---
+
+## E-commerce vs E-business
+
+- Ecommerce is the sales subset of Ebusiness
+- Ebusiness covers all aspects of using electronic systems to conduct business
+- Purchasing Receiving Shipping
+- Order processing Customer service Accounting
+- more
+
+## Brick and Mortar Businesses
+
+- Existing business starting online sales
+- Has physical locations, infrastructure, customer, and supplier relationships
+
+### Questions to Ask
+
+- Will it improve customer support, or get good publicity? Will it bring more customers or sales?
+- Does the site support business goals or hurt them?
+
+---
+
+## Online Entrepreneur
+
+- New venture, strictly online
+- Doesn't need store-front locations and most infrastructure 
+- What is needed depends on type of product/service
+
+### Questions to Ask
+
+- How can we differentiate from competitors?
+- How should we handle orders, payments, returns, warranties, service, support?
+- Will suppliers be up to the job?
+- Is product easy/economical to deliver?
+- How will we build it? What size site? What will it cost?
+
+---
+
+## Advantages of Ecommerce
+
+- Market research indicates that it is needed Customers want it!
+- Makes businesses more efficient, profitable, etc. Makes the customer experience better
+- Helps to provide information/support to customers Products and services can reach a wider audience
+
+## Disadvantages of Ecommerce
+
+- Not all business plans support it
+- Products can be too difficult or expensive to ship globally Customers may prefer physical interaction with the product when shopping
+- Not useful for businesses that are locally focused
+- Need the staff, resources, and knowledge to do Ecommerce properly
+- Not useful for a customer demographic that isn't online
+
+## Site Essentials
+
+You can't just open an online store and expect customers to flock to
+it. You must have:
+
+- Products and services that customers need and want a solid delivery infrastructure
+- Order tracking
+- Customer service
+- Customer loyalty rewards
+- Relationship management
+- Support (files, technical help, information, etc.)
+
+## Ecommerce Models
+
+- There are 8 basic ecommerce models.
+- Many websites combine several models.
+- Each of the 8 basic models has unique characteristics that distinguish it from the other models.
+
+---
+
+### Brochureware Site
+
+- a marketing site that electronically aids in the buying and selling process
+- Sometimes provides additional information to support customers
+- online documentation software downloads FAQ
+- Generates revenue indirectly by creating awareness of the business' products and services
+- Transactions occur offline.
+
+---
+
+### Online Store
+
+- A website where customers can buy products or services. Customers browse an online catalog
+- You can add products to an online shopping cart 
+- Checkout process
+  - Payment processing
+  - Inventory update
+  - Shipping notification
+  - Capture customer information
+
+---
+
+### Subscription Site
+
+- Targets a specific niche market that places a value on expert information, service, or a digital product delivered in a timely manner.
+  - Technical newsletters
+  - Access to research information 
+  - Graphics
+  - Music
+  - Computer game downloads, etc. Removing ads
+- Selling for a monthly fee, an annual subscription, or a small per transation fee
+- An account login is important
+
+---
+
+### Advertising Site
+
+- Content-heavy site that gets revenue from banners, sponsorships, ads, and other advertising methods.
+- Traffic to the site is the measure of its value.
+- Very few sites can be supported entirely through advertising dollars.
+- Google and Facebook use an advertising model
+
+---
+
+### Online Store Ecosystem
+
+- Etsy, for example.
+- Simple and easy way to sell products/services online, especially when you're starting out
+- Offers turnkey solutions for store creation, payment processing, and site management.
+- The platform handles the marketing and all the technical requirements
+
+---
+
+### Business-to-Business
+
+- Built to serve other businesses
+- Selling directly to other businesses (wholesale operations) Integrating systems with vendors/suppliers for automated ordering
+
+---
+
+### Auction Sites
+
+- Person offers an item for sale and potential buyers bid on the item.
+- Bidder willing to pay the highest price for the item wins.
+- Can create your own auction site or use another to build a business
+- If you use an established auction site, they provide the site infrastructure, reputation tracking, notifications, etc.
+
+---
+
+### Blogging
+
+- Provides a news/editorial service to draw in customers
+- May be integrated with other models as a &quot;value added&quot; service 
+- May have advertising revenue
+- Could have a Patreon (or similar) component
+
+---
+
+## Implementing Your Website
+
+### Ecommerce Details
+
+- We've already covered designing websites, but lets talk about features needed for ecommerce
+  - Domain Name 
+  - Digital Certificates 
+  - Merchant Account
+
+### Domain Name
+
+- Catchy easy-to-remember name that makes people remember your business
+- Make sure it's actually available
+- Register your domain
+
+### Domain Name Registry
+
+- Governed by Internet Corporation for Assigned Names and Numbers (ICANN)
+- Registration conducted by registrars for an annual fee (1 to 10 years at a time)
+- For business use, choose a .com domain but also register the other top-level domains
+  - Prevents competitors or disreputable parties from hijacking your company name
+
+### Digital Certificates
+
+- aka SSL certificates
+- Key to providing customer transaction security 
+- Obtain a digital certificate from a &quot;Certificate Authority&quot;
+
+### SSL
+
+- Secure Socket Layer
+- Standardizes the way web browsers and web servers communicate with each other using encrypted data
+- Digital certificate is used to authenticate the server and initiate the encryption process
+- You can get certificates through your web hosting or obtain one directly through a certification authority
+- Must be installed on your server
+- Options include Verisign (paid) and Let's Encrypt (free)
+
+### Merchant Account
+
+- Allows you to process a credit card
+- A business account at a financial institution that functions as a clearing account for credit card transactions.
+- Transfers money to business bank account
+- May involve physical credit-card readers (Point-of-Sale – POS) and/or online payment gateway
+
+### Online Merchant Account
+
+Requires:
+
+- Application for account
+- Proof of the establishment of your company 
+- Setup fee
+- Transaction fees (depends on volume) 
+- Monthly and possibly annual fees
+
+Paypal offers some services that avoid the need for a merchant account as they are accepting the CC payment (however, you need a PayPal Business account instead)
+
+Issues to watch for:
+
+- Authorization fees Transaction fees Monthly fees
+- Annual fees
+- Equipment rental fees 
+- Chargeback or Bill Backs
+  - Customer cancels credit card transaction
+  - Customer claims goods or service not provided
+  - Merchant account provider takes money back from vendor 
+  - Six months in U.S., 3 months in Canada</content><author><name>Chris Connelly</name></author><summary type="html">Relevant Resources</summary></entry><entry><title type="html">Content Management with Jekyll</title><link href="http://localhost:4000/cpnt200/jekyll/content-management-with-jekyll/" rel="alternate" type="text/html" title="Content Management with Jekyll" /><published>2020-03-20T08:00:00-06:00</published><updated>2020-03-20T08:00:00-06:00</updated><id>http://localhost:4000/cpnt200/jekyll/content-management-with-jekyll</id><content type="html" xml:base="http://localhost:4000/cpnt200/jekyll/content-management-with-jekyll/"># {{page.title}}
+## Assignment 1
+See [Winter 2020 Assignments](../../assignments/README.md)
+
+## Morning Live Stream Agenda
+- Reminders for Tony
+    1. Hit Record
+    2. Turn on Chat
+    3. Put on mic
+- Ruby DevOps
+  - Ruby/Jekyll terms: see [Setup](https://jekyllrb.com/docs/step-by-step/01-setup/)
+    - Ruby
+    - Gem and RubyGem
+    - Gemfile
+    - Bundler/`bundle`
+  - Options for installing
+    - bare metal
+    - `rbv`: Ruby version manager
+    - docker
+  - Questions to ask
+    - How often do you use Ruby?
+    - Do you have multiple Ruby projects to maintain?
+    - Is your laptop close to death?
+  - installation
+    - Mac
+    - Windows
+- CRUD of content
+- Hagrid and Hermoine
+  - Hagrid CRUD
+    - Creating and Retrieve: 
+      - Request comes in
+      - Hagrid will assemble index.html using views and db info
+      - Respond with finished HTML
+  - Hermoine CRUD
+    - Create:
+      - parse markdown of the site from file database
+      - create every possible static page of the site ONCE
+    - Retrieve: 
+      - finds index.html in the file system
+      - returns it.
+- differences between WP and Jekyll (there are lots more)
+  - database
+    - WP -&gt; mysql
+    - Jekyll -&gt; file database
+- Live code: vanilla jekyll
+  - [Jekyll Documentation](https://jekyllrb.com/docs/)
+  - Basic jekyll structure
+    - [Great Jekyll Summary](http://jekyllbootstrap.com/lessons/jekyll-introduction.html)
+  - [YAML](https://yaml.org/)
+
+[20 min break]
+
+- Live code: try a couple [Top 10](https://jekyll-themes.com/blog/top-jekyll-themes/) installs
+  - pagination headaches
+  - localization
+  - skins
+
+### Afternoon Check-in
+- How far did we get installing Jekyll?
+- Update from Kim/Karen meeting
+- Overview of minimal mistakes theme
+- Anything else?
+
+### Q&amp;A
+- Q:
+  A:
+
+## Jekyll
+### [Requirements](https://jekyllrb.com/docs/installation/#requirements)
+- Ruby version 2.4.0 or above, including all development headers (ruby version can be checked by running ruby -v)
+- RubyGems (which you can check by running gem -v)
+- GCC and Make (in case your system doesn’t have them installed, which you can check by running gcc -v,g++ -v and make -v in your system’s command line interface)
+
+### [Installation](https://jekyllrb.com/docs/installation/#guides)
+- [macOS](https://jekyllrb.com/docs/installation/macos/)
+- [Ubuntu Linux](https://jekyllrb.com/docs/installation/ubuntu/)
+- [Other Linux distros](https://jekyllrb.com/docs/installation/other-linux)
+- [Windows](https://jekyllrb.com/docs/installation/windows/)
+- [Docker](https://hub.docker.com/r/jekyll/jekyll/)
+  - [README.md](https://github.com/envygeeks/jekyll-docker/blob/master/README.md)
+
+### Getting Started
+- [Jekyll Documentation](https://jekyllrb.com/docs/)
+  - [Step-by-step Tutorial](https://jekyllrb.com/docs/step-by-step/01-setup/)
+- [Great Jekyll Summary](http://jekyllbootstrap.com/lessons/jekyll-introduction.html)
+- [Jekyll Example Sites](https://talk.jekyllrb.com/t/jekyll-showcase-share-your-sites-built-with-jekyll/44/20)
+
+## Jekyll on GitHub Pages
+- GitHub
+  - [Setting up a GitHub Pages site with Jekyll](https://help.github.com/en/github/working-with-github-pages/setting-up-a-github-pages-site-with-jekyll)
+  - [Remote Themes on GitHub Pages](https://github.blog/2017-11-29-use-any-theme-with-github-pages/)
+- Search: [github pages jekyll](https://www.google.com/search?q=github+pages+jekyll)
+
+## Activity 1: Jekyll Setup
+1. Install Ruby, RubyGems (and possibly GCC and Make) on your system (See [Installation Guide](https://jekyllrb.com/docs/installation/#guides))
+2. [Install Jekyll](https://jekyllrb.com/docs/step-by-step/01-setup/)
+3. [Create Hello World site](https://jekyllrb.com/docs/step-by-step/01-setup/#create-a-site)
+4. Optional: [Continue with Jekyll Step-by-step](https://jekyllrb.com/docs/step-by-step/02-liquid/)
+
+## Activity 2: Try installing one or more 3rd party themes
+- Search: [top jekyll themes](https://www.google.com/search?q=top+jekyll+themes)
+  - [Top 10](https://jekyll-themes.com/blog/top-jekyll-themes/)
+  - [Free Themes on Jekyll Themes](https://jekyll-themes.com/free/)
+
+1. Pick a theme that speaks to you as a person.
+2. Install theme according to the theme's instructions (sometimes a bumpy road).
+3. Customize site as needed (hint: [Assignment 1](../../assignments/assignment-1/README.md)).
+
+## Activity 3: Install Jekyll Using the GitHub Pages Theme Chooser
+- [Theme Chooser Step-by-Step](https://help.github.com/en/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser#adding-a-theme-with-the-theme-chooser)
+- [List of all default GH Jekyll Themes](https://github.com/pages-themes)</content><author><name>Chris Connelly</name></author><summary type="html">Content Management with Jekyll Assignment 1 See Winter 2020 Assignments</summary></entry><entry><title type="html">Content Management with Jekyll</title><link href="http://localhost:4000/cpnt200/jekyll/intro-to-dev-biz/" rel="alternate" type="text/html" title="Content Management with Jekyll" /><published>2020-03-20T08:00:00-06:00</published><updated>2020-03-20T08:00:00-06:00</updated><id>http://localhost:4000/cpnt200/jekyll/intro-to-dev-biz</id><content type="html" xml:base="http://localhost:4000/cpnt200/jekyll/intro-to-dev-biz/">## Assigned Prep
+- Cheatsheet: [Markdown Basic Syntax](https://www.markdownguide.org/basic-syntax/)
+- Article: [Web design workflow: What to expect when starting a website project](https://blog.tbhcreative.com/2015/12/what-to-expect-website-design-workflow.html)
+- Video: [Storyboarding For People Who Can't Draw](https://youtu.be/ux_Em1lVsjI)
+- Article: [Agile philosophy: A summary](https://development.robinwinslow.uk/2014/01/10/agile-philosophy/)
+- Video: [AARRR](https://www.youtube.com/watch?v=CcDpxG_Wz-k)
+- Video: [Design Sprint Introduction](https://youtu.be/Z8MOwcqZuuU)
+- Article: [Lean Methodology](http://theleanstartup.com/principles)
+  - Video: [Lean Canvas](https://youtu.be/7o8uYdUaFR4)
+
+## Tool Time: Git and Cmder
+Install Git and Commandr onto your system if you already haven't. We'll need these tomorrow.
+
+## Search Tips Reviewed
+- convergent searches
+    1. Be brief: try to reduce your search query to four words or less.
+        - Note: there are many times you will break this rule such as when you search an error (you're searching errors, right?) or when you need extra terms to make your query domain-specific (see next step!).
+    2. Make your search domain-specific (aka industry specific). &quot;heading&quot; could mean a number of different things, depending on context. &quot;html heading&quot; focuses your search to the web design *domain*.
+    3. Qualify your search with terms specific to your needs and skill level. These terms are often reused for many searches. Examples:
+        - tutorial
+        - cheatsheet
+        - checklist
+        - review
+        - documentation
+- divergent searches
+    1. Access your engine's *suggestion* results by appending &quot;vs&quot; the end of your query. This is handy for finding alternatives to a specific tool/technique/philosophy.
+
+    If suggestions exist (ie you're using Google) but the results disappear for a search, you probably used too many words; Google seems to only index simple phrases.
+
+## Waterfall
+The article [Web design workflow: What to expect when starting a website project](https://blog.tbhcreative.com/2015/12/what-to-expect-website-design-workflow.html) is one of maaaany that breakdown the steps in a waterfall development workflow:
+- First contact
+- Discovery
+  - Are we supporting IE?
+  - Do you have analytics?
+- Content design
+  - content inventory
+  - Information Architecture
+  - Site map
+- Wireframing
+  - Two methods:
+      1. full page wireframe
+      2. storyboard wireframe (wireframing only what's in the viewport). See [Designing for a Viewport](https://www.youtube.com/watch?v=QY3lTBZnJmE) for the inspiration behind this method.
+- Mockups
+- Prototyping
+- Development
+- Testing
+- Launch
+- Fires
+- Long-term support
+
+### The 3 Elephants in the Room
+1. Budget
+2. Timeline
+3. Milestones
+
+## Assignment 2: Homepage wireframes
+See the [Assignment 2 readme](../../assignments/assignment-2/README.md) for details.
+
+**Due Friday @ 8PM**
+
+## Tool Time: Wireframe editor
+Assignment 2 is a research and self-learning assignment. This course is mostly tool agnostic. For example, you don't have to use VS Code; there are many professional alternatives available.
+
+The current industry-standard wireframe and mockup software package is Sketch (which as only [recently had a Windows version](https://uxplanet.org/the-long-awaited-sketch-for-windows-comes-from-an-indie-team-2fc94309399c), kinda) BUT there are two or three signifcant competitors. 
+
+Using your razor-sharp search skills, find the top three free-ish Sketch alternatives. Find system requirements, reviews and comparison articles to decide which you'll install and play around with (all of them?).
+
+### Top Alternatives
+- [Figma](https://www.figma.com/)
+- [Adobe XD](https://www.adobe.com/ca/products/xd.html)
+- [Framer X](https://www.framer.com/)
+
+## [agile](https://en.wikipedia.org/wiki/Agile_software_development)
+A professional alternative to waterfall development workflows. 
+
+### Core Principles
+- **Individuals and Interactions** over processes and tools
+- **Working Software over** comprehensive documentation
+- **Customer Collaboration** over contract negotiation
+- **Responding to Change** over following a plan
+
+Agile comes in many flavours but here are three we'll talk about:
+- [Scrum](https://www.scrum.org/)
+  - Core Principles
+    - Transparency
+    - Inspection
+    - Adaptation
+  - In practice
+    - Cycles are sprints
+    - Standup meetings
+    - Product Ownership
+- [Kanban](https://en.wikipedia.org/wiki/Kanban)
+  - Core Principles
+    - Understanding
+    - Agreement
+    - Respect
+    - Leadership
+    - Flow
+    - Customer Focus
+    - Transparency
+    - Balance
+    - Collaboration
+  - In practice:
+    - Each process issues requests (kanban) to its suppliers when it consumes its supplies.
+    - Each process produces according to the quantity and sequence of incoming requests.
+    - No items are made or transported without a request.
+    - The request associated with an item is always attached to it.
+    - Processes must not send out defective items, to ensure that the finished products will be defect-free.
+    - Limiting the number of pending requests makes the process more sensitive and reveals inefficiencies.
+- Lean
+  - Core Principles
+    - Define
+    - Learn
+    - Experiment
+  - In practice:
+    - Document your Plan A
+    - Identify the riskiest parts of your plan
+    - Systematically test your plan
+
+## Prep for Tomorrow
+- Article: [Git: forking vs cloning](http://bryanpendleton.blogspot.com/2014/07/git-clone-vs-fork.html)
+- Article: [The CSS Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
+- Video: [Reading Colour Hexcodes](https://www.youtube.com/watch?v=eqZqx6lRPe0)</content><author><name>Chris Connelly</name></author><summary type="html">Assigned Prep Cheatsheet: Markdown Basic Syntax Article: Web design workflow: What to expect when starting a website project Video: Storyboarding For People Who Can’t Draw Article: Agile philosophy: A summary Video: AARRR Video: Design Sprint Introduction Article: Lean Methodology Video: Lean Canvas</summary></entry><entry><title type="html">Getting Started with SASS</title><link href="http://localhost:4000/sass/getting-started-with-sass/" rel="alternate" type="text/html" title="Getting Started with SASS" /><published>2020-03-05T00:00:00-07:00</published><updated>2020-03-05T00:00:00-07:00</updated><id>http://localhost:4000/sass/getting-started-with-sass</id><content type="html" xml:base="http://localhost:4000/sass/getting-started-with-sass/"># Getting Started with SASS
+
+Before you can use Sass, you need to set it up on your project. If you want to just browse here, go ahead, but we recommend you go install Sass first. Go here if you want to learn how to get everything setup.
+
+## Preprocessing
+
+CSS on its own can be fun, but stylesheets are getting larger, more complex, and harder to maintain. This is where a preprocessor can help. Sass lets you use features that don't exist in CSS yet like variables, nesting, mixins, inheritance and other nifty goodies that make writing CSS fun again.
+
+Once you start tinkering with Sass, it will take your preprocessed Sass file and save it as a normal CSS file that you can use in your website.
+
+The most direct way to make this happen is in your terminal. Once Sass is installed, you can compile your Sass to CSS using the sass command. You'll need to tell Sass which file to build from, and where to output CSS to. For example, running sass input.scss output.css from your terminal would take a single Sass file, input.scss, and compile that file to output.css.
+
+You can also watch individual files or directories with the --watch flag. The watch flag tells Sass to watch your source files for changes, and re-compile CSS each time you save your Sass. If you wanted to watch (instead of manually build) your input.scss file, you'd just add the watch flag to your command, like so:
+
+sass --watch input.scss output.css
+You can watch and output to directories by using folder paths as your input and output, and separating them with a colon. In this example:
+
+sass --watch app/sass:public/stylesheets
+Sass would watch all files in the app/sass folder for changes, and compile CSS to the public/stylesheets folder.
+
+## Variables
+
+Think of variables as a way to store information that you want to reuse throughout your stylesheet. You can store things like colors, font stacks, or any CSS value you think you'll want to reuse. Sass uses the $ symbol to make something a variable. Here's an example:
+
+SCSSSassCSS
+SCSS SYNTAX
+
+```sass
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+CSS OUTPUT
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+```
+
+
+When the Sass is processed, it takes the variables we define for the $font-stack and $primary-color and outputs normal CSS with our variable values placed in the CSS. This can be extremely powerful when working with brand colors and keeping them consistent throughout the site.
+
+## Nesting
+
+When writing HTML you've probably noticed that it has a clear nested and visual hierarchy. CSS, on the other hand, doesn't.
+
+Sass will let you nest your CSS selectors in a way that follows the same visual hierarchy of your HTML. Be aware that overly nested rules will result in over-qualified CSS that could prove hard to maintain and is generally considered bad practice.
+
+With that in mind, here's an example of some typical styles for a site's navigation:
+
+```sass
+SCSSSassCSS
+SCSS SYNTAX
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+CSS OUTPUT
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+```
+
+
+You'll notice that the ul, li, and a selectors are nested inside the nav selector. This is a great way to organize your CSS and make it more readable.
+
+## Partials
+
+You can create partial Sass files that contain little snippets of CSS that you can include in other Sass files. This is a great way to modularize your CSS and help keep things easier to maintain. A partial is a Sass file named with a leading underscore. You might name it something like _partial.scss. The underscore lets Sass know that the file is only a partial file and that it should not be generated into a CSS file. Sass partials are used with the @use rule.
+
+
+Modules
+Compatibility:
+Dart Sass
+since 1.23.0
+LibSass
+✗
+Ruby Sass
+✗
+▶
+
+You don't have to write all your Sass in a single file. You can split it up however you want with the @use rule. This rule loads another Sass file as a module, which means you can refer to its variables, mixins, and functions in your Sass file with a namespace based on the filename. Using a file will also include the CSS it generates in your compiled output!
+
+```sass
+SCSSSassCSS
+SCSS SYNTAX
+// _base.scss
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+// styles.scss
+@use 'base';
+
+.inverse {
+  background-color: base.$primary-color;
+  color: white;
+}
+CSS OUTPUT
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+
+.inverse {
+  background-color: #333;
+  color: white;
+}
+
+```
+
+Notice we're using @use 'base'; in the styles.scss file. When you use a file you don't need to include the file extension. Sass is smart and will figure it out for you.
+
+## Mixins
+
+Some things in CSS are a bit tedious to write, especially with CSS3 and the many vendor prefixes that exist. A mixin lets you make groups of CSS declarations that you want to reuse throughout your site. You can even pass in values to make your mixin more flexible. A good use of a mixin is for vendor prefixes. Here's an example for transform.
+
+```sass
+SCSSSassCSS
+SCSS SYNTAX
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+.box { @include transform(rotate(30deg)); }
+CSS OUTPUT
+.box {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+```
+
+To create a mixin you use the @mixin directive and give it a name. We've named our mixin transform. We're also using the variable $property inside the parentheses so we can pass in a transform of whatever we want. After you create your mixin, you can then use it as a CSS declaration starting with @include followed by the name of the mixin.
+
+## Extend/Inheritance
+
+This is one of the most useful features of Sass. Using @extend lets you share a set of CSS properties from one selector to another. It helps keep your Sass very DRY. In our example we're going to create a simple series of messaging for errors, warnings and successes using another feature which goes hand in hand with extend, placeholder classes. A placeholder class is a special type of class that only prints when it is extended, and can help keep your compiled CSS neat and clean.
+
+```sass
+SCSSSassCSS
+SCSS SYNTAX
+/* This CSS will print because %message-shared is extended. */
+%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+// This CSS won't print because %equal-heights is never extended.
+%equal-heights {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.success {
+  @extend %message-shared;
+  border-color: green;
+}
+
+.error {
+  @extend %message-shared;
+  border-color: red;
+}
+
+.warning {
+  @extend %message-shared;
+  border-color: yellow;
+}
+```
+
+What the above code does is tells .message, .success, .error, and .warning to behave just like %message-shared. That means anywhere that %message-shared shows up, .message, .success, .error, &amp; .warning will too. The magic happens in the generated CSS, where each of these classes will get the same CSS properties as %message-shared. This helps you avoid having to write multiple class names on HTML elements.
+
+You can extend most simple CSS selectors in addition to placeholder classes in Sass, but using placeholders is the easiest way to make sure you aren't extending a class that's nested elsewhere in your styles, which can result in unintended selectors in your CSS.
+
+Note that the CSS in %equal-heights isn't generated, because %equal-heights is never extended.
+
+## Operators
+
+Doing math in your CSS is very helpful. Sass has a handful of standard math operators like +, -, *, /, and %. In our example we're going to do some simple math to calculate widths for an aside &amp; article.
+
+```sass
+SCSSSassCSS
+SCSS SYNTAX
+.container {
+  width: 100%;
+}
+
+article[role=&quot;main&quot;] {
+  float: left;
+  width: 600px / 960px * 100%;
+}
+
+aside[role=&quot;complementary&quot;] {
+  float: right;
+  width: 300px / 960px * 100%;
+}
+CSS OUTPUT
+.container {
+  width: 100%;
+}
+
+article[role=&quot;main&quot;] {
+  float: left;
+  width: 62.5%;
+}
+
+aside[role=&quot;complementary&quot;] {
+  float: right;
+  width: 31.25%;
+}
+```
+
+We've created a very simple fluid grid, based on 960px. Operations in Sass let us do something like take pixel values and convert them to percentages without much hassle.</content><author><name>Chris Connelly</name></author><category term="css" /><category term="sass" /><summary type="html">Getting Started with SASS</summary></entry><entry><title type="html">Handling different text directions</title><link href="http://localhost:4000/css/handling-different-text-directions/" rel="alternate" type="text/html" title="Handling different text directions" /><published>2020-02-22T00:00:00-07:00</published><updated>2020-02-22T00:00:00-07:00</updated><id>http://localhost:4000/css/handling-different-text-directions</id><content type="html" xml:base="http://localhost:4000/css/handling-different-text-directions/"># Handling different text directions
+
+## What are writing modes?
+
+A writing mode in CSS refers to whether the text is running horizontally or vertically. The `[writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode)` property lets us switch from one writing mode to another. You don't need to be working in a language which uses a vertical writing mode to want to do this — you could also change the writing mode of parts of your layout for creative purposes.
+
+In the example below we have a heading displayed using `writing-mode: vertical-rl`. The text now runs vertically. Vertical text is common in graphic design, and can be a way to add a more interesting look and feel to your web design.
+
+The three possible values for the `[writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode)` property are:
+
+- `horizontal-tb`: Top-to-bottom block flow direction. Sentences run horizontally.
+- `vertical-rl`: Right-to-left block flow direction. Sentences run vertically.
+- `vertical-lr`: Left-to-right block flow direction. Sentences run vertically.
+
+So the `writing-mode` property is in reality setting the direction in which block-level elements are displayed on the page — either from top-to-bottom, right-to-left, or left-to-right. This then dictates the direction text flows in sentences.
+
+## Writing modes and block and inline layout
+
+We have already discussed [block and inline layout](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#Block_and_inline_boxes), and the fact that some things display as block elements and others as inline elements. As we have seen described above, block and inline is tied to the writing mode of the document, and not the physical screen. Blocks are only displayed from the top to the bottom of the page if you are using a writing mode that displays text horizontally, such as English.
+
+If we look at an example this will become clearer. In this next example I have two boxes that contain a heading and a paragraph. The first uses `writing-mode: horizontal-tb`, a writing mode that is written horizontally and from the top of the page to the bottom. The second uses `writing-mode: vertical-rl`; this is a writing mode that is written vertically and from right to left.
+
+When we switch the writing mode, we are changing which direction is block and which is inline. In a `horizontal-tb` writing mode the block direction runs from top to bottom; in a `vertical-rl` writing mode the block direction runs right-to-left horizontally. So the **block dimension** is always the direction blocks are displayed on the page in the writing mode in use. The **inline dimension** is always the direction a sentence flows.
+
+This figure shows the two dimensions when in a horizontal writing mode.
+
+![https://mdn.mozillademos.org/files/16574/horizontal-tb.png](https://mdn.mozillademos.org/files/16574/horizontal-tb.png)
+
+This figure shows the two dimensions in a vertical writing mode.
+
+![https://mdn.mozillademos.org/files/16575/vertical.png](https://mdn.mozillademos.org/files/16575/vertical.png)
+
+Once you start to look at CSS layout, and in particular the newer layout methods, this idea of block and inline becomes very important. We will revisit it later on.
+
+### Direction
+
+In addition to writing mode we also have text direction. As mentioned above, some languages such as Arabic are written horizontally, but right-to-left. This is not something you are likely to use in a creative sense — if you simply want to line something up on the right there are other ways to do so — however it is important to understand this as part of the nature of CSS. The web is not just for languages that are displayed left-to-right!
+
+Due to the fact that writing mode and direction of text can change, newer CSS layout methods do not refer to left and right, and top and bottom. Instead they will talk about *start* and *end*along with this idea of inline and block. Don't worry too much about that right now, but keep these ideas in mind as you start to look at layout; you will find it really helpful in your understanding of CSS.
+
+## Logical properties and values
+
+The reason to talk about writing modes and direction at this point in your learning however, is because of the fact we have already looked at a lot of properties which are tied to the physical dimensions of the screen, and make most sense when in a horizontal writing mode.
+
+Let's take a look at our two boxes again — one with a `horizontal-tb` writing mode and one with `vertical-rl`. I have given both of these boxes a `[width](https://developer.mozilla.org/en-US/docs/Web/CSS/width)`. You can see that when the box is in the vertical writing mode, it still has a width, and this is causing the text to overflow.
+
+What we really want in this scenario, is to essentially swap height and width along with the writing mode. When we're in a vertical writing mode we want the box to expand in the block dimension just like it does in the horizontal mode.
+
+To make this easier, CSS has recently developed a set of mapped properties. These essentially replace physical properties — things like `width` and `height` — with **logical**, or **flow relative**versions.
+
+The property mapped to `width` when in a horizontal writing mode is called `[inline-size](https://developer.mozilla.org/en-US/docs/Web/CSS/inline-size)` — it refers to the size in the inline dimension. The property for `height` is named `[block-size](https://developer.mozilla.org/en-US/docs/Web/CSS/block-size)`and is the size in the block dimension. You can see how this works in the example below where we have replaced `width` with `inline-size`.
+
+### Logical margin, border, and padding properties
+
+In the last two lessons we have learned about the CSS box model, and CSS borders. In the margin, border, and padding properties you will find many instances of physical properties, for example `[margin-top](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top)`, `[padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left)`, and `[border-bottom](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom)`. In the same way that we have mappings for width and height there are mappings for these properties.
+
+The `margin-top` property is mapped to `[margin-block-start](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-block-start)` — this will always refer to the margin at the start of the block dimension.
+
+The `[padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left)` property maps to `[padding-inline-start](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-start)`, the padding that is applied to the start of the inline direction. This will be where sentences start in that writing mode. The `[border-bottom](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom)` property maps to `[border-block-end](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end)`, which is the border at the end of the block dimension.
+
+You can see a comparison between physical and logical properties below.
+
+**If you change the writing mode of the boxes by switching the `writing-mode` property on `.box` to `vertical-rl`, you will see how the physical properties stay tied to their physical direction, whereas the logical properties switch with the writing mode.**
+
+**You can also see that the `[&lt;h2&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2)` has a black `border-bottom`. Can you work out how to make that bottom border always go below the text in both writing modes?**
+
+There are a huge number of properties when you consider all of the individual border longhands, and you can see all of the mapped properties on the MDN page for [Logical Properties and Values](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties).
+
+### Logical values
+
+We have so far looked at logical property names. There are also some properties that take physical values of `top`, `right`, `bottom`, and `left`. These values also have mappings, to logical values — `block-start`, `inline-end`, `block-end`, and `inline-start`.
+
+For example, you can float an image left to cause text to wrap round the image. You could replace `left` with `inline-start` as shown in the example below.
+
+**Change the writing mode on this example to `vertical-rl` to see what happens to the image. Change `inline-start` to `inline-end` to change the float.**
+
+Here we are also using logical margin values to ensure the margin is in the correct place no matter what the writing mode is.
+
+### Should you use physical or logical properties?
+
+The logical properties and values are newer than their physical equivalents, and therefore have only recently been implemented in browsers. You can check any property page on MDN to see how far back the browser support goes. If you are not using multiple writing modes then for now you might prefer to use the physical versions. However, ultimately we expect that people will transition to the logical versions for most things, as they make a lot of sense once you start also dealing with layout methods such as flexbox and grid.</content><author><name>Chris Connelly</name></author><category term="css" /><category term="rtl" /><category term="ltr" /><summary type="html">Handling different text directions</summary></entry></feed>

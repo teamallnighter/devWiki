@@ -1,0 +1,307 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>What is html - devWiki</title>
+<meta name="description" content="What is HTML  ">
+
+
+  <meta name="author" content="Chris Connelly">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="devWiki">
+<meta property="og:title" content="What is html">
+<meta property="og:url" content="http://localhost:4000/html/what-is-html/">
+
+
+  <meta property="og:description" content="What is HTML  ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/languages/html@3x.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-01-01T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/html/what-is-html/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Chris Connelly",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="feed.xml" type="application/atom+xml" rel="alternate" title="devWiki Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+<link rel="manifest" href="../manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("An active service worker found, no need to register");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker
+      .register("/serviceworker.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("Service worker has been registered for scope: " + reg.scope);
+      });
+  }
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
+<script src="/assets/js/showdown-xss-filter.js"></script>
+<script src="/assets/js/comment.js"></script>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--post">
+      
+        <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+        <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+        
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          devWiki
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+    <div class="initial-content">
+        <div class="container" id="post-content-wrapper">
+        <h1 id="what-is-html">What is HTML</h1>
+
+<h2 id="the-basics">The Basics</h2>
+
+<blockquote>
+  <p>Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.</p>
+</blockquote>
+
+<blockquote>
+  <p>Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.</p>
+</blockquote>
+
+<h2 id="the-html-document">The HTML Document</h2>
+
+<p>The standard lay out of the HTML Doc.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="nt">&lt;html&gt;</span>
+      <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>This is a title<span class="nt">&lt;/title&gt;</span>
+      <span class="nt">&lt;/head&gt;</span>
+      <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Hello world!<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/body&gt;</span>
+    <span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>The text between <code class="highlighter-rouge">&lt;**html**&gt;</code> and <code class="highlighter-rouge">&lt;/**html**&gt;</code> describes the web page, and the text between <code class="highlighter-rouge">&lt;**body**&gt;</code> and <code class="highlighter-rouge">&lt;/**body**&gt;</code> is the visible page content. The markup text <code class="highlighter-rouge">&lt;**title**&gt;This is a title&lt;/**title**&gt;</code> defines the browser page title.</p>
+
+<p>The Document Type Declaration <code class="highlighter-rouge"><span class="cp">&lt;!DOCTYPE html&gt;</span></code> is for HTML5. If a declaration is not included, various browsers will revert to “<a href="https://en.wikipedia.org/wiki/Quirks_mode">quirks mode</a>” for rendering</p>
+
+<h2 id="html-elements">HTML Elements</h2>
+
+<p>HTML documents imply a structure of nested <a href="https://en.wikipedia.org/wiki/HTML_element">HTML elements</a>. These are indicated in the document by HTML tags, enclosed in angle brackets thus: <code class="highlighter-rouge">&lt;**p**&gt;</code></p>
+
+<p>In the simple, general case, the extent of an element is indicated by a pair of tags: a “start tag” <code class="highlighter-rouge">&lt;**p**&gt;</code> and “end tag” <code class="highlighter-rouge">&lt;/**p**&gt;</code>. The text content of the element, if any, is placed between these tags.</p>
+
+<p>Tags may also enclose further tag markup between the start and end, including a mixture of tags and text. This indicates further (nested) elements, as children of the parent element.</p>
+
+<p>The start tag may also include attributes within the tag. These indicate other information, such as identifiers for sections within the document, identifiers used to bind style information to the presentation of the document, and for some tags such as the <code class="highlighter-rouge">&lt;**img**&gt;</code> used to embed images, the reference to the image resource.</p>
+
+<p>Some elements, such as the <a href="https://en.wikipedia.org/wiki/Line_breaking_character">line break</a> <code class="highlighter-rouge">&lt;**br**&gt;</code>, do not permit any embedded content, either text or further tags. These require only a single empty tag (akin to a start tag) and do not use an end tag.</p>
+
+<p>Many tags, particularly the closing end tag for the very commonly used paragraph element <code class="highlighter-rouge">&lt;**p**&gt;</code>, are optional. An HTML browser or other agent can infer the closure for the end of an element from the context and the structural rules defined by the HTML standard. These rules are complex and not widely understood by most HTML coders.</p>
+
+<p>The general form of an HTML element is therefore: <code class="highlighter-rouge">&lt;**tag** attribute1="value1" attribute2="value2"&gt;''content''&lt;/**tag**&gt;</code>. Some HTML elements are defined as empty elements and take the form <code class="highlighter-rouge">&lt;**tag** attribute1="value1" attribute2="value2"&gt;</code>. Empty elements may enclose no content, for instance, the <code class="highlighter-rouge">&lt;**br**&gt;</code> tag or the inline <code class="highlighter-rouge">&lt;**img**&gt;</code> tag. The name of an HTML element is the name used in the tags. Note that the end tag’s name is preceded by a slash character, <code class="highlighter-rouge">/</code>, and that in empty elements the end tag is neither required nor allowed. If attributes are not mentioned, default values are used in each case.</p>
+
+        </div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+    
+    <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=What+is+html%20http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fwhat-is-html%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fwhat-is-html%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fwhat-is-html%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/teamallnighter_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Chris Connelly. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<h3 id="general-workflow">General workflow</h3>
+
+<ul>
+  <li>Start a flynn cluster (on amazon or vagrant)</li>
+  <li><code class="highlighter-rouge">flynn cluster add</code> to add that cluster</li>
+  <li><code class="highlighter-rouge">flynn create NAME</code> in your app</li>
+  <li><code class="highlighter-rouge">git push flynn master</code> to deploy</li>
+</ul>
+
+<h3 id="creating-a-cluster-aws">Creating a cluster (AWS)</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flynn <span class="nb">install</span>  <span class="c"># (provisions AWS EC2 stuff)</span>
+flynn key add  <span class="c"># (adds your pubkey to AWS)</span>
+</code></pre></div></div>
+
+<h4 id="what-it-does">What it does</h4>
+
+<ul>
+  <li>This creates <code class="highlighter-rouge">XXXX.flynnhub.com</code></li>
+  <li>Dashboard in <code class="highlighter-rouge">dashboard.XXXX.flynnhub.com</code></li>
+  <li>Use <code class="highlighter-rouge">flynn -a dashboard env get LOGIN_TOKEN</code> to get login token</li>
+  <li>Apps live in <code class="highlighter-rouge">APP.XXXX.flynnhub.com</code></li>
+</ul>
+
+<h3 id="using-a-flynn-cluster">Using a flynn cluster</h3>
+
+<p class="-setup">Managed in <code class="highlighter-rouge">~/.flynnrc</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flynn cluster
+flynn cluster add <span class="o">[</span><span class="nt">-g</span> githost] <span class="o">[</span><span class="nt">-p</span> pin] NAME URL KEY
+flynn cluster remove NAME
+flynn cluster default NAME <span class="c"># use this current</span>
+</code></pre></div></div>
+
+<h3 id="setting-up-a-new-app">Setting up a new app</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/project
+flynn create example <span class="c"># adds the `flynn` remote</span>
+flynn route <span class="c"># prints http routes</span>
+git push flynn master
+</code></pre></div></div>
+
+<h2 id="commands">Commands</h2>
+
+<h3 id="environment-vars">Environment vars</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flynn <span class="nb">env
+</span>flynn <span class="nb">env set </span><span class="nv">FOO</span><span class="o">=</span>bar <span class="nv">BAZ</span><span class="o">=</span>foobar
+flynn <span class="nb">env unset </span>FOO
+</code></pre></div></div>
+
+<h3 id="scale">Scale</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flynn ps
+flynn scale <span class="nv">web</span><span class="o">=</span>3
+</code></pre></div></div>
+
+<h3 id="logs">Logs</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flynn log
+flynn log flynn-d55c7a...
+</code></pre></div></div>
+
+<h3 id="running-commands">Running commands</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flynn run rake db:migrate
+</code></pre></div></div>
+
+<h3 id="manage-routes">Manage routes</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flynn route
+flynn route add http example.com
+<span class="c"># then make a CNAME from example.com to myapp.xxxx.flynnhub.com</span>
+</code></pre></div></div>
+
+<h3 id="more">More</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flynn ps
+flynn <span class="nb">kill</span> &lt;job&gt;
+
+flynn meta
+flynn meta <span class="nb">set </span><span class="nv">foo</span><span class="o">=</span>baz
+</code></pre></div></div>
+
+<h2 id="also-see">Also see</h2>
+
+<ul>
+  <li><a href="https://flynn.io/">Flynn website</a> <em>(flynn.io)</em></li>
+</ul>

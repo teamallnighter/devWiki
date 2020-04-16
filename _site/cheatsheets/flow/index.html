@@ -1,0 +1,375 @@
+<h2 class="-three-column" id="getting-started">Getting started</h2>
+
+<h3 class="-prime" id="simple-example">Simple example</h3>
+
+<div data-line="1,2" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* @flow */</span>
+<span class="kd">function</span> <span class="nx">square</span> <span class="p">(</span><span class="nx">n</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">n</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">four</span> <span class="o">=</span> <span class="nx">square</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Most of what you need to do is to simply add annotations to function arguments!</p>
+
+<p>See: <a href="https://flow.org/en/docs/">flow.org docs</a></p>
+
+<h3 id="type-inference">Type inference</h3>
+
+<div data-line="2" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">square</span> <span class="p">(</span><span class="nx">n</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">n</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">result</code> is inferred to be a number because <code class="highlighter-rouge">number * number</code> will result in a number. There’s no need to give it annotations.</p>
+
+<h3 id="type-aliases">Type aliases</h3>
+
+<div data-line="1,2,3,4,5,6" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="na">isAdmin</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">,</span>
+  <span class="na">likes</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div data-line="1" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">greet</span><span class="p">(</span><span class="nx">user</span><span class="p">:</span> <span class="nx">Person</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">,</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">greet</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Miles Davis</span><span class="dl">'</span><span class="p">,</span> <span class="err">···</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<p>This is the typical way to define the shape of complex objects.</p>
+
+<h3 id="variables">Variables</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">count</span><span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">200</span>
+</code></pre></div></div>
+
+<p>You typically don’t need to do this, function args are often enough.</p>
+
+<p>See: <a href="https://flow.org/en/docs/types/variables/">Variable types</a></p>
+
+<h3 id="importing-and-exporting">Importing and exporting</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">type</span> <span class="p">{</span> <span class="nx">Person</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./types</span><span class="dl">'</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="nx">type</span> <span class="nx">Person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="err">···</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>See: <a href="https://flow.org/en/docs/types/modules">Module types</a></p>
+
+<h3 id="union-types">Union types</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Action</span> <span class="o">=</span> <span class="nx">number</span> <span class="o">|</span> <span class="nx">string</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Direction</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">left</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">right</span><span class="dl">'</span>
+</code></pre></div></div>
+
+<p>See: <a href="https://flow.org/en/docs/types/unions/">Unions</a></p>
+
+<h2 id="optionals">Optionals</h2>
+
+<h3 id="maybe-types">Maybe types</h3>
+
+<div data-line="2" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Album</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="p">?</span><span class="nx">string</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">Album</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span>                 <span class="c1">// ✗ Error</span>
+<span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">Album</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Blue</span><span class="dl">'</span> <span class="p">}</span>    <span class="c1">// ✓ OK</span>
+<span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">Album</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="kc">null</span> <span class="p">}</span>      <span class="c1">// ✓ OK</span>
+<span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">Album</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="kc">undefined</span> <span class="p">}</span> <span class="c1">// ✓ OK</span>
+</code></pre></div></div>
+
+<p>This makes <code class="highlighter-rouge">name</code> either a string or null.</p>
+
+<p>See: <a href="https://flow.org/en/docs/types/primitives/#toc-maybe-types">Maybe types</a></p>
+
+<h3 id="optional-properties">Optional properties</h3>
+
+<div data-line="2" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Album</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="p">?:</span> <span class="nx">string</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">Album</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// ✓ OK</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Blue</span><span class="dl">'</span>      <span class="c1">// ✓ OK</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="kc">null</span>        <span class="c1">// ✗ Error</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="kc">undefined</span>   <span class="c1">// ✓ OK</span>
+</code></pre></div></div>
+
+<p>This makes an <code class="highlighter-rouge">Album</code> valid even if <code class="highlighter-rouge">name</code> is not part of the keys. This is different from “maybe” types.</p>
+
+<p>See: <a href="https://flow.org/en/docs/types/primitives/#toc-optional-object-properties">Optional properties</a></p>
+
+<h2 class="-three-column" id="objects">Objects</h2>
+
+<h3 id="extra-object-fields">Extra object fields</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Artist</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="na">label</span><span class="p">:</span> <span class="nx">string</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div data-line="6" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">Artist</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Miguel Migs</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Naked Music</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">genre</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">House</span><span class="dl">'</span> <span class="c1">// ✓ OK</span>
+</code></pre></div></div>
+
+<p>You can add more fields to an object.</p>
+
+<p>See: <a href="https://flow.org/en/docs/lang/width-subtyping/">Width subtyping</a></p>
+
+<h3 id="exact-object-types">Exact object types</h3>
+
+<div data-line="1,4" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Artist</span> <span class="o">=</span> <span class="p">{</span><span class="o">|</span>
+  <span class="na">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="na">label</span><span class="p">:</span> <span class="nx">string</span>
+<span class="o">|</span><span class="p">}</span>
+</code></pre></div></div>
+
+<div data-line="2" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">Artist</span> <span class="o">=</span> <span class="p">{</span> <span class="err">···</span> <span class="p">}</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">genre</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">House</span><span class="dl">'</span> <span class="c1">// ✗ Error</span>
+</code></pre></div></div>
+
+<p>Exact object types prevent extra properties from being added to an object.</p>
+
+<p>See: <a href="https://flow.org/en/docs/types/objects/#toc-exact-object-types">Exact object types</a></p>
+
+<h3 id="dynamic-keys">Dynamic keys</h3>
+
+<div data-line="2" class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Items</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="na">key</span><span class="p">:</span> <span class="nx">string</span><span class="p">]:</span> <span class="nx">Item</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>See: <a href="https://flow.org/docs/objects.html#objects-as-maps">Dynamic object keys</a></p>
+
+<h2 id="advanced-features">Advanced features</h2>
+
+<h3 id="primitives">Primitives</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">any</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">boolean</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mixed</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">number</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">string</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">void</code></td>
+      <td>undefined</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">null</code></td>
+      <td>null (but not undefined)</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">{a: Number}</code></td>
+      <td>Object with a shape</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">[any, number]</code></td>
+      <td>Tuples (fixed-length arrays)</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Array&lt;T&gt;</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Class&lt;T&gt;</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Function</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Object</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">?number</code></td>
+      <td>Maybe (number, void, null)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">a | b</code></td>
+      <td>Union types</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enums">Enums</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Suit</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Diamonds</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">Clubs</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">Hearts</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">Spades</span><span class="dl">"</span>
+
+<span class="kd">const</span> <span class="nx">countries</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">US</span><span class="p">:</span> <span class="dl">"</span><span class="s2">United States</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">IT</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Italy</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">FR</span><span class="p">:</span> <span class="dl">"</span><span class="s2">France</span><span class="dl">"</span>
+<span class="p">}</span>
+
+<span class="nx">type</span> <span class="nx">Country</span> <span class="o">=</span> <span class="nx">$Keys</span><span class="o">&lt;</span><span class="k">typeof</span> <span class="nx">countries</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>See: <a href="https://flow.org/docs/utility-types.html#keyst">Enums</a></p>
+
+<h3 id="type-aliases-1">Type aliases</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Tree</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">foo</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="na">bar</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+  <span class="na">qux</span><span class="p">:</span> <span class="p">(</span><span class="na">foo</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="na">bar</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">boolean</span>
+<span class="p">}</span>
+
+<span class="nx">type</span> <span class="nx">Generic</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">foo</span><span class="p">:</span> <span class="nx">T</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>See: <a href="https://flow.org/docs/quick-reference.html#type-aliases">Type aliases</a></p>
+
+<h3 id="generic-classes">Generic classes</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">GenericClass</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="na">x</span><span class="p">:</span> <span class="nx">T</span>
+  <span class="kd">constructor</span> <span class="p">(</span><span class="na">x</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="na">n</span><span class="p">:</span> <span class="nx">GenericClass</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GenericClass</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>See: <a href="https://flow.org/docs/quick-reference.html#generics">Generic classes</a></p>
+
+<h3 id="interfaces">Interfaces</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Jsonable</span> <span class="p">{</span>
+  <span class="nx">toJSON</span><span class="p">():</span> <span class="nx">string</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Foo</span> <span class="p">{</span>
+  <span class="nx">toJSON</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="dl">'</span><span class="s1">{}</span><span class="dl">'</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">(</span><span class="k">new</span> <span class="nx">Foo</span><span class="p">:</span> <span class="nx">Jsonable</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>See: <a href="https://flow.org/docs/quick-reference.html#interfaces">Interfaces</a></p>
+
+<h3 id="functions">Functions</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">callback</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">filter</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">(</span>
+  <span class="nx">list</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="nx">callback</span><span class="p">:</span> <span class="p">(</span><span class="nx">item</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">boolean</span>
+<span class="p">):</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="err">···</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>See: <a href="https://flow.org/docs/functions.html">Functions</a></p>
+
+<h3 id="imports">Imports</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">type</span> <span class="p">{</span> <span class="nx">Person</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../person</span><span class="dl">'</span>
+<span class="k">import</span> <span class="k">typeof</span> <span class="nx">Config</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../config</span><span class="dl">'</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="nx">type</span> <span class="nx">Person</span> <span class="o">=</span> <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="nx">string</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="comment-syntax">Comment syntax</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*::
+  export type Foo = { ... }
+*/</span>
+
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">n</span> <span class="cm">/*: number */</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="react">React</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Props</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">bar</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="nx">type</span> <span class="nx">State</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">open</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">Foo</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="nx">Props</span><span class="p">,</span> <span class="nx">State</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="c1">// Component code</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="examples-1">Examples</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myNumbers</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">():</span> <span class="nx">any</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">42</span> <span class="p">}</span>
+<span class="kd">var</span> <span class="nx">b</span><span class="p">:</span> <span class="nx">boolean</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="kd">var</span> <span class="nx">b</span><span class="p">:</span> <span class="p">?</span><span class="nx">boolean</span> <span class="o">=</span> <span class="kc">false</span>  <span class="cm">/* maybe */</span>
+<span class="kd">var</span> <span class="nx">b</span><span class="p">:</span> <span class="nx">string</span> <span class="o">|</span> <span class="nx">boolean</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="kd">var</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">Class</span><span class="o">&lt;</span><span class="nx">MyClass</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">MyClass</span>
+<span class="kd">var</span> <span class="nx">b</span><span class="p">:</span> <span class="nx">MyClass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">a</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="function-signature">Function signature</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">Callback</span> <span class="o">=</span> <span class="p">(?</span><span class="nb">Error</span><span class="p">,</span> <span class="nx">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">any</span>
+
+<span class="kd">function</span> <span class="nx">fetch</span> <span class="p">(</span><span class="nx">callback</span><span class="p">:</span> <span class="nx">Callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="err">···</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://www.saltycrane.com/flow-type-cheat-sheet/latest/">Flow website</a> <em>(flow.org)</em></li>
+  <li><a href="https://flow.org/en/docs/getting-started/">Getting started with Flow</a> <em>(flow.org)</em></li>
+  <li><a href="https://www.saltycrane.com/flow-type-cheat-sheet/latest/">Flow type cheatsheet</a> <em>(saltycrane.com)</em></li>
+</ul>

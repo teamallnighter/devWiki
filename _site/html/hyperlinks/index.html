@@ -1,0 +1,521 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Hyperlinks - devWiki</title>
+<meta name="description" content="Hyperlinks  ">
+
+
+  <meta name="author" content="Chris Connelly">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="devWiki">
+<meta property="og:title" content="Hyperlinks">
+<meta property="og:url" content="http://localhost:4000/html/hyperlinks/">
+
+
+  <meta property="og:description" content="Hyperlinks  ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/languages/html@3x.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-01-04T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/html/hyperlinks/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Chris Connelly",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="feed.xml" type="application/atom+xml" rel="alternate" title="devWiki Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+<link rel="manifest" href="../manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("An active service worker found, no need to register");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker
+      .register("/serviceworker.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("Service worker has been registered for scope: " + reg.scope);
+      });
+  }
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
+<script src="/assets/js/showdown-xss-filter.js"></script>
+<script src="/assets/js/comment.js"></script>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--post">
+      
+        <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+        <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+        
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          devWiki
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+    <div class="initial-content">
+        <div class="container" id="post-content-wrapper">
+        <h1 id="hyperlinks">Hyperlinks</h1>
+
+<h2 id="anatomy-of-a-link">Anatomy of a link</h2>
+
+<p>A basic link is created by wrapping the text (or other content, see <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#Block_level_links">Block level links</a>) you want to turn into a link inside an <code class="highlighter-rouge">[&lt;a&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)</code> element, and giving it an <code class="highlighter-rouge">[href](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href)</code> attribute (also known as a <strong>Hypertext Reference</strong> , or <strong>target</strong>) that will contain the web address you want the link to point to.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;I'm creating a link to
+&lt;a href="https://www.mozilla.org/en-US/"&gt;the Mozilla homepage&lt;/a&gt;.
+&lt;/p&gt;
+</code></pre></div></div>
+
+<p>This gives us the following result:</p>
+
+<p>I’m creating a link to <a href="https://www.mozilla.org/en-US/">the Mozilla homepage</a>.</p>
+
+<h3 id="adding-supporting-information-with-the-title-attribute">Adding supporting information with the title attribute</h3>
+
+<p>Another attribute you may want to add to your links is <code class="highlighter-rouge">title</code>; this is intended to contain supplementary useful information about the link, such as what kind of information the page contains, or things to be aware of. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;I'm creating a link to
+&lt;a href="https://www.mozilla.org/en-US/"title="The best place to find more information about Mozilla's
+          mission and how to contribute"&gt;the Mozilla homepage&lt;/a&gt;.
+&lt;/p&gt;
+</code></pre></div></div>
+
+<p>This gives us the following result (the title will come up as a tooltip when the link is hovered over):</p>
+
+<p>I’m creating a link to <a href="https://www.mozilla.org/en-US/">the Mozilla homepage</a>.</p>
+
+<p><strong>Note</strong>: A link title is only revealed on mouse hover, which means that people relying on keyboard controls to navigate web pages will have difficulty accessing title information. If a title’s information is truly important to the usability of page, then you should present it in a manner that will be accessible to all users, for example by putting it in the regular text.</p>
+
+<h3 id="active-learning-creating-your-own-example-link">Active learning: creating your own example link</h3>
+
+<p>Active learning time: we’d like you to create an HTML document using your local code editor (our <a href="https://github.com/mdn/learning-area/blob/master/html/introduction-to-html/getting-started/index.html">getting started template</a> would do just fine.)</p>
+
+<ul>
+  <li>Inside the HTML body, try adding one or more paragraphs or other types of content you already know about.</li>
+  <li>Turn some of the content into links.</li>
+  <li>Include title attributes.</li>
+</ul>
+
+<h3 id="block-level-links">Block level links</h3>
+
+<p>As mentioned before, you can turn just about any content into a link, even <a href="https://developer.mozilla.org/en-US/Learn/HTML/Introduction_to_HTML/Getting_started#Block_versus_inline_elements">block level elements</a>. If you had an image you wanted to turn into a link, you could just put the image between <code class="highlighter-rouge">&lt;a&gt;&lt;/a&gt;</code> tags.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="https://www.mozilla.org/en-US/"&gt;&lt;img src="mozilla-image.png" alt="mozilla logo that links to the mozilla homepage"&gt;&lt;/a&gt;
+</code></pre></div></div>
+
+<p><strong>Note</strong>: You’ll find out a lot more about using images on the Web in a future article.</p>
+
+<h2 id="a-quick-primer-on-urls-and-paths">A quick primer on URLs and paths</h2>
+
+<p>To fully understand link targets, you need to understand URLs and file paths. This section gives you the information you need to achieve this.</p>
+
+<p>A URL, or Uniform Resource Locator is simply a string of text that defines where something is located on the Web. For example Mozilla’s English homepage is located at <code class="highlighter-rouge">https://www.mozilla.org/en-US/</code>.</p>
+
+<p>URLs use paths to find files. Paths specify where in the filesystem the file you are interested in is located. Let’s look at a simple example of a directory structure (see the <a href="https://github.com/mdn/learning-area/tree/master/html/introduction-to-html/creating-hyperlinks">creating-hyperlinks</a> directory.)</p>
+
+<p><img src="https://mdn.mozillademos.org/files/12409/simple-directory.png" alt="https://mdn.mozillademos.org/files/12409/simple-directory.png" /></p>
+
+<p>The <strong>root</strong> of this directory structure is called <code class="highlighter-rouge">creating-hyperlinks</code>. When working locally with a web site, you will have one directory that the whole site goes inside. Inside the root, we have an <code class="highlighter-rouge">index.html</code> file and a <code class="highlighter-rouge">contacts.html</code>. In a real website, <code class="highlighter-rouge">index.html</code> would be our home page or landing page (a web page that serves as the entry point for a website or a particular section of a website.).</p>
+
+<p>There are also two directories inside our root — <code class="highlighter-rouge">pdfs</code> and <code class="highlighter-rouge">projects</code>. These each have a single file inside them — a PDF (<code class="highlighter-rouge">project-brief.pdf</code>) and an <code class="highlighter-rouge">index.html</code> file, respectively. Note how you can quite happily have two <code class="highlighter-rouge">index.html</code> files in one project as long as they are in different locations in the filesystem. Many web sites do. The second <code class="highlighter-rouge">index.html</code> would perhaps be the main landing page for project-related information.</p>
+
+<ul>
+  <li>
+    <p><strong>Same directory</strong>: If you wanted to include a hyperlink inside <code class="highlighter-rouge">index.html</code> (the top level <code class="highlighter-rouge">index.html</code>) pointing to <code class="highlighter-rouge">contacts.html</code>, you would just need to specify the filename of the file you want to link to, as it is in the same directory as the current file. So the URL you would use is <code class="highlighter-rouge">contacts.html</code>:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;p&gt;Want to contact a specific staff member?
+  Find details on our &lt;a href="contacts.html"&gt;contacts page&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>Moving down into subdirectories</strong>: If you wanted to include a hyperlink inside <code class="highlighter-rouge">index.html</code> (the top level <code class="highlighter-rouge">index.html</code>) pointing to <code class="highlighter-rouge">projects/index.html</code>, you would need to go down into the <code class="highlighter-rouge">projects</code> directory before indicating the file you want to link to. This is done by specifying the directory’s name, then a forward slash, then the name of the file. so the URL you would use is <code class="highlighter-rouge">projects/index.html</code>:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;p&gt;Visit my &lt;a href="projects/index.html"&gt;project homepage&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>Moving back up into parent directories</strong>: If you wanted to include a hyperlink inside <code class="highlighter-rouge">projects/index.html</code> pointing to <code class="highlighter-rouge">pdfs/project-brief.pdf</code>, you’d have to go up a directory level, then back down into the <code class="highlighter-rouge">pdf</code> directory. “Go up a directory” is indicated using two dots — <code class="highlighter-rouge">..</code> — so the URL you would use is <code class="highlighter-rouge">../pdfs/project-brief.pdf</code>:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;p&gt;A link to my &lt;a href="../pdfs/project-brief.pdf"&gt;project brief&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><strong>Note</strong>: You can combine multiple instances of these features into complex URLs, if needed, e.g. <code class="highlighter-rouge">../../../complex/path/to/my/file.html</code>.</p>
+
+<h3 id="document-fragments">Document fragments</h3>
+
+<p>It is possible to link to a specific part of an HTML document (known as a <strong>document fragment</strong>), rather than just to the top of the document. To do this you first have to assign an <code class="highlighter-rouge">[id](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-id)</code> attribute to the element you want to link to. It normally makes sense to link to a specific heading, so this would look something like the following:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h2 id="Mailing_address"&gt;Mailing address&lt;/h2&gt;
+</code></pre></div></div>
+
+<p>Then to link to that specific <code class="highlighter-rouge">id</code>, you’d include it at the end of the URL, preceded by a hash/pound symbol, for example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;Want to write us a letter? Use our &lt;a href="contacts.html#Mailing_address"&gt;mailing address&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div></div>
+
+<p>You can even use the document fragment reference on its own to link to <em>another part of the same document</em>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;The &lt;a href="#Mailing_address"&gt;company mailing address&lt;/a&gt; can be found at the bottom of this page.&lt;/p&gt;
+</code></pre></div></div>
+
+<h3 id="absolute-versus-relative-urls">Absolute versus relative URLs</h3>
+
+<p>Two terms you’ll come across on the Web are <strong>absolute URL</strong> and <strong>relative URL:</strong></p>
+
+<p><strong>absolute URL</strong>: Points to a location defined by its absolute location on the web, including <a href="https://developer.mozilla.org/en-US/docs/Glossary/protocol">protocol</a> and <a href="https://developer.mozilla.org/en-US/docs/Glossary/domain_name">domain name</a>. So for example, if an <code class="highlighter-rouge">index.html</code> page is uploaded to a directory called <code class="highlighter-rouge">projects</code> that sits inside the root of a web server, and the web site’s domain is <code class="highlighter-rouge">http://www.example.com</code>, the page would be available at <code class="highlighter-rouge">http://www.example.com/projects/index.html</code> (or even just <code class="highlighter-rouge">http://www.example.com/projects/</code>, as most web servers just look for a landing page such as <code class="highlighter-rouge">index.html</code> to load if it is not specified in the URL.)</p>
+
+<p>An absolute URL will always point to the same location, no matter where it is used.</p>
+
+<p><strong>relative URL</strong>: Points to a location that is <em>relative</em> to the file you are linking from, more like what we looked at in the previous section. For example, if we wanted to link from our example file at <code class="highlighter-rouge">http://www.example.com/projects/index.html</code> to a PDF file in the same directory, the URL would just be the filename — e.g. <code class="highlighter-rouge">project-brief.pdf</code> — no extra information needed. If the PDF was available in a subdirectory inside <code class="highlighter-rouge">projects</code> called <code class="highlighter-rouge">pdfs</code>, the relative link would be <code class="highlighter-rouge">pdfs/project-brief.pdf</code> (the equivalent absolute URL would be <code class="highlighter-rouge">http://www.example.com/projects/pdfs/project-brief.pdf</code>.)</p>
+
+<p>A relative URL will point to different places depending on the actual location of the file you refer from — for example if we moved our <code class="highlighter-rouge">index.html</code> file out of the <code class="highlighter-rouge">projects</code> directory and into the root of the web site (the top level, not in any directories), the <code class="highlighter-rouge">pdfs/project-brief.pdf</code> relative URL link inside it would now point to a file located at <code class="highlighter-rouge">http://www.example.com/pdfs/project-brief.pdf</code>, not a file located at <code class="highlighter-rouge">http://www.example.com/projects/pdfs/project-brief.pdf</code>.</p>
+
+<p>Of course, the location of the <code class="highlighter-rouge">project-brief.pdf</code> file and <code class="highlighter-rouge">pdfs</code> folder won’t suddenly change because you moved the <code class="highlighter-rouge">index.html</code> file — this would make your link point to the wrong place, so it wouldn’t work if clicked on. You need to be careful!</p>
+
+<h2 id="link-best-practices">Link best practices</h2>
+
+<p>There are some best practices to follow when writing links. Let’s look at these now.</p>
+
+<h3 id="use-clear-link-wording">Use clear link wording</h3>
+
+<p>It’s easy to throw links up on your page. That’s not enough. We need to make our links <em>accessible</em> to all readers, regardless of their current context and which tools they prefer. For example:</p>
+
+<ul>
+  <li>Screenreader users like jumping around from link to link on the page, and reading links out of context.</li>
+  <li>Search engines use link text to index target files, so it is a good idea to include keywords in your link text to effectively describe what is being linked to.</li>
+  <li>Visual readers skim over the page rather than reading every word, and their eyes will be drawn to page features that stand out, like links. They will find descriptive link text useful.</li>
+</ul>
+
+<p>Let’s look at a specific example:</p>
+
+<p><em><strong>Good</strong> link text:</em> <a href="https://firefox.com/">Download Firefox</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;&lt;a href="https://firefox.com/"&gt;
+  Download Firefox
+&lt;/a&gt;&lt;/p&gt;
+</code></pre></div></div>
+
+<p><em><strong>Bad</strong> link text:</em> <a href="https://firefox.com/">Click here</a> to download Firefox</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;&lt;a href="https://firefox.com/"&gt;
+  Click here
+&lt;/a&gt;
+to download Firefox&lt;/p&gt;
+</code></pre></div></div>
+
+<p>Other tips:</p>
+
+<ul>
+  <li>Don’t repeat the URL as part of the link text — URLs look ugly, and sound even uglier when a screen reader reads them out letter by letter.</li>
+  <li>Don’t say “link” or “links to” in the link text — it’s just noise. Screen readers tell people there’s a link. Visual users will also know there’s a link, because links are generally styled in a different colour and underlined (this convention generally shouldn’t be broken, as users are so used to it.)</li>
+  <li>Keep your link label as short as possible — long links especially annoy screen reader users, who have to hear the whole thing read out.</li>
+  <li>Minimize instances where multiple copies of the same text are linked to different places. This can cause problems for screenreader users, who will often bring up a list of the links out of context — several links all labelled “click here”, “click here”, “click here” would be confusing.</li>
+</ul>
+
+<h3 id="use-relative-links-wherever-possible">Use relative links wherever possible</h3>
+
+<p>From the description above, you might think that it is a good idea to just use absolute links all the time; after all, they don’t break when a page is moved like relative links. However, you should use relative links wherever possible when linking to other locations within the <em>same website</em> (when linking to <em>another website</em>, you will need to use an absolute link):</p>
+
+<ul>
+  <li>For a start, it is a lot easier to scan your code — relative URLs are generally a lot shorter than absolute URLs, which makes reading code much easier.</li>
+  <li>Second, it is more efficient to use relative URLs wherever possible. When you use an absolute URL, the browser starts by looking up the real location of the server on the Domain Name System (<a href="https://developer.mozilla.org/en-US/docs/Glossary/DNS">DNS</a>; see <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works">How the web works</a> for more information), then it goes to that server and finds the file that is being requested. With a relative URL on the other hand, the browser just looks up the file that is being requested, on the same server. So if you use absolute URLs where relative URLs would do, you are constantly making your browser do extra work, meaning that it will perform less efficiently.</li>
+</ul>
+
+<h3 id="linking-to-non-html-resources--leave-clear-signposts">Linking to non-HTML resources — leave clear signposts</h3>
+
+<p>When linking to a resource that will be downloaded (like a PDF or Word document) or streamed (like video or audio) or has another potentially unexpected effect (opens a popup window, or loads a Flash movie), you should add clear wording to reduce any confusion. It can be quite annoying for example:</p>
+
+<ul>
+  <li>If you are on a low bandwidth connection, click a link and then a multiple megabyte download starts unexpectedly.</li>
+  <li>If you haven’t got the Flash player installed, click a link and then suddenly get taken to a page that requires Flash.</li>
+</ul>
+
+<p>Let’s look at some examples, to see what kind of text can be used here:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;&lt;a href="http://www.example.com/large-report.pdf"&gt;
+  Download the sales report (PDF, 10MB)
+&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.example.com/video-stream/" target="_blank"&gt;
+  Watch the video (stream opens in separate tab, HD quality)
+&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.example.com/car-game"&gt;
+  Play the car game (requires Flash)
+&lt;/a&gt;&lt;/p&gt;
+</code></pre></div></div>
+
+<h3 id="use-the-download-attribute-when-linking-to-a-download">Use the download attribute when linking to a download</h3>
+
+<p>When you are linking to a resource that is to be downloaded rather than opened in the browser, you can use the <code class="highlighter-rouge">download</code> attribute to provide a default save filename. Here’s an example with a download link to the latest Windows version of Firefox:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="https://download.mozilla.org/?product=firefox-latest-ssl&amp;os=win64&amp;lang=en-US"download="firefox-latest-64bit-installer.exe"&gt;
+  Download Latest Firefox for Windows (64-bit) (English, US)
+&lt;/a&gt;
+</code></pre></div></div>
+
+<h2 id="active-learning-creating-a-navigation-menu">Active learning: creating a navigation menu</h2>
+
+<p>For this exercise, we’d like you to link some pages together with a navigation menu to create a multi-page website. This is one common way in which a website is created — the same page structure is used on every page, including the same navigation menu, so when links are clicked it gives the impression that you are staying in the same place, and different content is being brought up.</p>
+
+<p>You’ll need to make local copies of the following four pages, all in the same directory (see also the <a href="https://github.com/mdn/learning-area/tree/master/html/introduction-to-html/navigation-menu-start">navigation-menu-start</a> directory for a full file listing):</p>
+
+<ul>
+  <li><a href="https://github.com/mdn/learning-area/blob/master/html/introduction-to-html/navigation-menu-start/index.html">index.html</a></li>
+  <li><a href="https://github.com/mdn/learning-area/blob/master/html/introduction-to-html/navigation-menu-start/projects.html">projects.html</a></li>
+  <li><a href="https://github.com/mdn/learning-area/blob/master/html/introduction-to-html/navigation-menu-start/pictures.html">pictures.html</a></li>
+  <li><a href="https://github.com/mdn/learning-area/blob/master/html/introduction-to-html/navigation-menu-start/social.html">social.html</a></li>
+</ul>
+
+<p>You should:</p>
+
+<ol>
+  <li>Add an unordered list in the indicated place on one page, containing the names of the pages to link to. A navigation menu is usually just a list of links, so this is semantically ok.</li>
+  <li>Turn each page name into a link to that page.</li>
+  <li>Copy the navigation menu across to each page.</li>
+  <li>On each page, remove just the link to that same page — it is confusing and pointless for a page to include a link to itself, and the lack of a link acts a good visual reminder of what page you are currently on.</li>
+</ol>
+
+<p>The finished example should end up looking something like this:</p>
+
+<p><img src="https://mdn.mozillademos.org/files/12411/navigation-example.png" alt="https://mdn.mozillademos.org/files/12411/navigation-example.png" /></p>
+
+<p><strong>Note</strong>: If you get stuck, or are not sure if you have got it right, you can check the <a href="https://github.com/mdn/learning-area/tree/master/html/introduction-to-html/navigation-menu-marked-up">navigation-menu-marked-up</a> directory to see the correct answer.</p>
+
+<h2 id="e-mail-links">E-mail links</h2>
+
+<p>It is possible to create links or buttons that, when clicked, open a new outgoing email message rather than linking to a resource or page. This is done using the <code class="highlighter-rouge">[&lt;a&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)</code> element and the <code class="highlighter-rouge">mailto:</code> URL scheme.</p>
+
+<p>In its most basic and commonly used form, a <code class="highlighter-rouge">mailto:</code> link simply indicates the email address of the intended recipient. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="mailto:nowhere@mozilla.org"&gt;Send email to nowhere&lt;/a&gt;
+</code></pre></div></div>
+
+<p>This results in a link that looks like this: <a href="mailto:nowhere@mozilla.org">Send email to nowhere</a>.</p>
+
+<p>In fact, the email address is even optional. If you leave it out (that is, your <code class="highlighter-rouge">[href](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href)</code> is simply “mailto:”), a new outgoing email window will be opened by the user’s mail client that has no destination address specified yet. This is often useful as “Share” links that users can click to send an email to an address of their choosing.</p>
+
+<h3 id="specifying-details">Specifying details</h3>
+
+<p>In addition to the email address, you can provide other information. In fact, any standard mail header fields can be added to the <code class="highlighter-rouge">mailto</code> URL you provide. The most commonly used of these are “subject”, “cc”, and “body” (which is not a true header field, but allows you to specify a short content message for the new email). Each field and its value is specified as a query term.</p>
+
+<p>Here’s an example that includes a cc, bcc, subject and body:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="mailto:nowhere@mozilla.org?cc=name2@rapidtables.com&amp;bcc=name3@rapidtables.com&amp;subject=The%20subject%20of%20the%20email&amp;body=The%20body%20of%20the%20email"&gt;
+  Send mail with cc, bcc, subject and body
+&lt;/a&gt;
+</code></pre></div></div>
+
+<p><strong>Note:</strong> The values of each field must be URL-encoded, that is with non-printing characters (invisible characters like tabs, carriage returns, and page breaks) and spaces <a href="http://en.wikipedia.org/wiki/Percent-encoding">percent-escaped</a>. Also note the use of the question mark (<code class="highlighter-rouge">?</code>) to separate the main URL from the field values, and ampersands (&amp;) to separate each field in the <code class="highlighter-rouge">mailto:</code> URL. This is standard URL query notation. Read <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data#The_GET_method">The GET method</a> to understand what URL query notation is more comonly used for.</p>
+
+<p>Here are a few other sample <code class="highlighter-rouge">mailto</code> URLs:</p>
+
+<ul>
+  <li><a href="mailto:">mailto:</a></li>
+  <li><a href="mailto:nowhere@mozilla.org">mailto:nowhere@mozilla.org</a></li>
+  <li><a href="mailto:nowhere@mozilla.org,nobody@mozilla.org">mailto:nowhere@mozilla.org,nobody@mozilla.org</a></li>
+  <li><a href="mailto:nowhere@mozilla.org?cc=nobody@mozilla.org">mailto:nowhere@mozilla.org?cc=nobody@mozilla.org</a></li>
+  <li><a href="mailto:nowhere@mozilla.org?cc=nobody@mozilla.org&amp;subject=This%20is%20the%20subject">mailto:nowhere@mozilla.org?cc=nobody@mozilla.org&amp;subject=This%20is%20the%20subject</a></li>
+</ul>
+
+        </div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+    
+    <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Hyperlinks%20http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fhyperlinks%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fhyperlinks%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhtml%2Fhyperlinks%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/teamallnighter_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Chris Connelly. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

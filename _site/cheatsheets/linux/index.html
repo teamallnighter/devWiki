@@ -1,0 +1,29 @@
+<h3 id="mounting-a-ram-drive">Mounting a RAM drive</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mount -t tmpfs -o size=5G,nr_inodes=5k,mode=700 tmpfs /tmp
+</code></pre></div></div>
+
+<h3 id="visudo">Visudo</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo visudo
+
+username ALL=(ALL) NOPASSWD:/sbin/restart whatever
+</code></pre></div></div>
+
+<h3 id="display-the-amount-of-available-disk-space">Display the amount of available disk space</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">df
+df</span> <span class="nt">-h</span>   <span class="c"># human-readable format</span>
+<span class="nb">df</span> <span class="nt">-a</span>   <span class="c"># all filesystems</span>
+</code></pre></div></div>
+
+<h3 id="display-disk-usage">Display disk usage</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">du
+du</span> <span class="nt">-hsx</span> <span class="k">*</span> | <span class="nb">sort</span> <span class="nt">-rh</span> | <span class="nb">head</span> <span class="nt">-10</span>    <span class="c"># largest 10 folders</span>
+</code></pre></div></div>
+
+<h3 id="answer-yes-in-a-bash-script">Answer yes in a bash script</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">yes</span> | /your/command
+</code></pre></div></div>

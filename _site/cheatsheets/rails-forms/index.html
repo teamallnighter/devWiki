@@ -1,0 +1,128 @@
+<h2 id="form-builder">Form builder</h2>
+
+<div class="language-haml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-</span> <span class="n">form_for</span> <span class="vi">@post</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
+</code></pre></div></div>
+
+<p>Field names will be prefixed with <code class="highlighter-rouge">post</code> (the class name), and values will be derived from this object (eg, <code class="highlighter-rouge">f.text_field :name</code> from <code class="highlighter-rouge">@post.name</code>).</p>
+
+<h3 id="options">Options</h3>
+
+<div class="language-haml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-</span> <span class="n">form_for</span> <span class="vi">@post</span><span class="p">,</span><span class="se"> |
+</span>  <span class="ss">url: </span><span class="p">{</span> <span class="ss">method: </span><span class="s1">'put'</span><span class="p">,</span> <span class="ss">action: </span><span class="s1">'create'</span> <span class="p">},</span><span class="se"> |
+</span>  <span class="ss">html: </span><span class="p">{</span> <span class="ss">class: </span><span class="s1">'nifty_form'</span> <span class="p">}</span><span class="se"> |
+</span>  <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
+</code></pre></div></div>
+
+<h2 id="fields">Fields</h2>
+
+<h3 id="text">Text</h3>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:title</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">text_area</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">size: </span><span class="s1">'60x12'</span>
+</code></pre></div></div>
+
+<h3 id="checkbox">Checkbox</h3>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">.</span><span class="nf">check_box</span> <span class="ss">:remember_me</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:remember_me</span><span class="p">,</span> <span class="s2">"Remember me"</span>
+</code></pre></div></div>
+
+<h3 id="radio">Radio</h3>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">.</span><span class="nf">radio_button</span> <span class="ss">:gender</span><span class="p">,</span> <span class="s1">'male'</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:gender_male</span><span class="p">,</span> <span class="s2">"Male"</span>
+
+<span class="n">f</span><span class="p">.</span><span class="nf">radio_button</span> <span class="ss">:gender</span><span class="p">,</span> <span class="s1">'female'</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:gender_female</span><span class="p">,</span> <span class="s2">"Female"</span>
+</code></pre></div></div>
+
+<h3 id="label">Label</h3>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:title</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:title</span><span class="p">,</span> <span class="s2">"Title"</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">label</span> <span class="ss">:title</span><span class="p">,</span> <span class="s2">"Title"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"title"</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">label</span><span class="p">(</span><span class="ss">:post</span><span class="p">,</span> <span class="ss">:terms</span><span class="p">)</span> <span class="p">{</span> <span class="s2">"Accept terms"</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="submit-button">Submit button</h3>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">.</span><span class="nf">submit</span> <span class="s2">"Create"</span>
+</code></pre></div></div>
+
+<h3 id="hidden-fields">Hidden fields</h3>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">.</span><span class="nf">hidden_field</span> <span class="ss">:id</span>
+</code></pre></div></div>
+
+<h2 id="misc">Misc</h2>
+
+<h3 id="the-model">The model</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">.</span><span class="nf">object</span>
+</code></pre></div></div>
+
+<h3 id="fields-for">Fields for</h3>
+
+<div class="language-haml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">=</span> <span class="n">form_for</span> <span class="vi">@post</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
+  <span class="p">=</span> <span class="n">fields_for</span> <span class="ss">:author</span><span class="p">,</span> <span class="vi">@post</span><span class="p">.</span><span class="nf">author</span> <span class="k">do</span> <span class="o">|</span><span class="n">ff</span><span class="o">|</span>
+    <span class="p">=</span> <span class="n">ff</span><span class="p">.</span><span class="nf">text_field</span> <span class="ss">:name</span>
+</code></pre></div></div>
+
+<h3 id="select-dropdowns">Select dropdowns</h3>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">.</span><span class="nf">select</span> <span class="ss">:city_id</span><span class="p">,</span> <span class="p">[[</span><span class="s1">'Lisbon'</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">'Madrid'</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="o">...</span><span class="p">],</span> <span class="mi">4</span>
+<span class="c1"># (4 = selected)</span>
+
+<span class="n">options_for_select</span> <span class="p">[[</span><span class="s1">'Lisbon'</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">'Madrid'</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="o">...</span><span class="p">],</span> <span class="mi">4</span>
+<span class="c1"># Just makes &lt;option&gt; tags</span>
+</code></pre></div></div>
+
+<h3 id="collections">Collections</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>f.collection_radio_buttons :author_id, Author.all, :id, :name_with_initial
+f.collection_select :city_id, City.all, :id, :name
+# (field, collection, value_key, label_key)
+</code></pre></div></div>
+
+<h3 id="time-select">Time select</h3>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">.</span><span class="nf">time_zone_select</span> <span class="ss">:time_zone</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">date_select</span> <span class="ss">:birthday</span>
+</code></pre></div></div>
+<h3 id="i18n">I18n</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">helpers</span><span class="pi">:</span>
+  <span class="na">submit</span><span class="pi">:</span>
+    <span class="c1"># helpers.submit.&lt;action&gt;</span>
+    <span class="na">create</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Create</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">%{model}"</span>
+    <span class="na">update</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Confirm</span><span class="nv"> </span><span class="s">changes</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">%{model}"</span>
+
+    <span class="c1"># helpers.submit.&lt;model&gt;.&lt;action&gt;</span>
+    <span class="na">article</span><span class="pi">:</span>
+      <span class="na">create</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Publish</span><span class="nv"> </span><span class="s">article"</span>
+      <span class="na">update</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Update</span><span class="nv"> </span><span class="s">article"</span>
+
+  <span class="c1"># helpers.label.&lt;model&gt;.&lt;field&gt;</span>
+  <span class="na">label</span><span class="pi">:</span>
+    <span class="na">post</span><span class="pi">:</span>
+      <span class="na">body</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">body</span><span class="nv"> </span><span class="s">text"</span>
+</code></pre></div></div>
+
+<h3 id="outside-f">Outside <code class="highlighter-rouge">f</code></h3>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">radio_button</span><span class="p">(</span><span class="s2">"post"</span><span class="p">,</span> <span class="s2">"category"</span><span class="p">,</span> <span class="s2">"rails"</span><span class="p">)</span>
+<span class="n">radio_button</span><span class="p">(</span><span class="s2">"post"</span><span class="p">,</span> <span class="s2">"category"</span><span class="p">,</span> <span class="s2">"java"</span><span class="p">)</span>
+
+<span class="c1"># picks from @post.category</span>
+<span class="c1"># &lt;input type="radio" id="post_category_rails" name="post[category]"</span>
+<span class="c1">#  value="rails" checked="checked" /&gt;</span>
+</code></pre></div></div>
+
+<h3 id="reference">Reference</h3>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">select</span><span class="p">(</span><span class="nb">method</span><span class="p">,</span> <span class="n">choices</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">html_options</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+  <span class="n">choices</span> <span class="o">==</span> <span class="p">[</span> <span class="p">[</span><span class="s1">'label'</span><span class="p">,</span> <span class="nb">id</span><span class="p">],</span> <span class="o">...</span> <span class="p">]</span>
+
+<span class="n">submit</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kp">nil</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{})</span>
+</code></pre></div></div>
+

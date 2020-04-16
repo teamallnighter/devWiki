@@ -1,0 +1,499 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Getting Started with SASS - devWiki</title>
+<meta name="description" content="Getting Started with SASS  ">
+
+
+  <meta name="author" content="Chris Connelly">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="devWiki">
+<meta property="og:title" content="Getting Started with SASS">
+<meta property="og:url" content="http://localhost:4000/sass/getting-started-with-sass/">
+
+
+  <meta property="og:description" content="Getting Started with SASS  ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/languages/html@3x.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-03-05T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/sass/getting-started-with-sass/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Chris Connelly",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="feed.xml" type="application/atom+xml" rel="alternate" title="devWiki Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+<link rel="manifest" href="../manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("An active service worker found, no need to register");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker
+      .register("/serviceworker.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("Service worker has been registered for scope: " + reg.scope);
+      });
+  }
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
+<script src="/assets/js/showdown-xss-filter.js"></script>
+<script src="/assets/js/comment.js"></script>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--post">
+      
+        <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+        <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+        
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          devWiki
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+    <div class="initial-content">
+        <div class="container" id="post-content-wrapper">
+        <h1 id="getting-started-with-sass">Getting Started with SASS</h1>
+
+<p>Before you can use Sass, you need to set it up on your project. If you want to just browse here, go ahead, but we recommend you go install Sass first. Go here if you want to learn how to get everything setup.</p>
+
+<h2 id="preprocessing">Preprocessing</h2>
+
+<p>CSS on its own can be fun, but stylesheets are getting larger, more complex, and harder to maintain. This is where a preprocessor can help. Sass lets you use features that don’t exist in CSS yet like variables, nesting, mixins, inheritance and other nifty goodies that make writing CSS fun again.</p>
+
+<p>Once you start tinkering with Sass, it will take your preprocessed Sass file and save it as a normal CSS file that you can use in your website.</p>
+
+<p>The most direct way to make this happen is in your terminal. Once Sass is installed, you can compile your Sass to CSS using the sass command. You’ll need to tell Sass which file to build from, and where to output CSS to. For example, running sass input.scss output.css from your terminal would take a single Sass file, input.scss, and compile that file to output.css.</p>
+
+<p>You can also watch individual files or directories with the –watch flag. The watch flag tells Sass to watch your source files for changes, and re-compile CSS each time you save your Sass. If you wanted to watch (instead of manually build) your input.scss file, you’d just add the watch flag to your command, like so:</p>
+
+<p>sass –watch input.scss output.css
+You can watch and output to directories by using folder paths as your input and output, and separating them with a colon. In this example:</p>
+
+<p>sass –watch app/sass:public/stylesheets
+Sass would watch all files in the app/sass folder for changes, and compile CSS to the public/stylesheets folder.</p>
+
+<h2 id="variables">Variables</h2>
+
+<p>Think of variables as a way to store information that you want to reuse throughout your stylesheet. You can store things like colors, font stacks, or any CSS value you think you’ll want to reuse. Sass uses the $ symbol to make something a variable. Here’s an example:</p>
+
+<p>SCSSSassCSS
+SCSS SYNTAX</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$font-stack</span><span class="p">:</span>    <span class="n">Helvetica</span><span class="o">,</span> <span class="nb">sans-serif</span><span class="err">;</span>
+<span class="nv">$primary-color</span><span class="p">:</span> <span class="mh">#333</span><span class="err">;</span>
+
+<span class="nt">body</span> <span class="err">{</span>
+  <span class="nl">font</span><span class="p">:</span> <span class="m">100%</span> <span class="nv">$font-stack</span><span class="err">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$primary-color</span><span class="err">;</span>
+<span class="err">}</span>
+<span class="nt">CSS</span> <span class="nt">OUTPUT</span>
+<span class="nt">body</span> <span class="err">{</span>
+  <span class="nl">font</span><span class="p">:</span> <span class="m">100%</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="nb">sans-serif</span><span class="err">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="mh">#333</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div></div>
+
+<p>When the Sass is processed, it takes the variables we define for the $font-stack and $primary-color and outputs normal CSS with our variable values placed in the CSS. This can be extremely powerful when working with brand colors and keeping them consistent throughout the site.</p>
+
+<h2 id="nesting">Nesting</h2>
+
+<p>When writing HTML you’ve probably noticed that it has a clear nested and visual hierarchy. CSS, on the other hand, doesn’t.</p>
+
+<p>Sass will let you nest your CSS selectors in a way that follows the same visual hierarchy of your HTML. Be aware that overly nested rules will result in over-qualified CSS that could prove hard to maintain and is generally considered bad practice.</p>
+
+<p>With that in mind, here’s an example of some typical styles for a site’s navigation:</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">SCSSSassCSS</span>
+<span class="nt">SCSS</span> <span class="nt">SYNTAX</span>
+<span class="nt">nav</span> <span class="err">{</span>
+  <span class="nt">ul</span> <span class="err">{</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="err">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="err">;</span>
+    <span class="nl">list-style</span><span class="p">:</span> <span class="nb">none</span><span class="err">;</span>
+  <span class="err">}</span>
+
+  <span class="na">li</span><span class="err"> { </span><span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="err">;</span> <span class="err">}</span>
+
+  <span class="nt">a</span> <span class="err">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="err">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">6px</span> <span class="m">12px</span><span class="err">;</span>
+    <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="err">;</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+<span class="nt">CSS</span> <span class="nt">OUTPUT</span>
+<span class="nt">nav</span> <span class="nt">ul</span> <span class="err">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="err">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="err">;</span>
+  <span class="nl">list-style</span><span class="p">:</span> <span class="nb">none</span><span class="err">;</span>
+<span class="err">}</span>
+<span class="nt">nav</span> <span class="nt">li</span> <span class="err">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="err">;</span>
+<span class="err">}</span>
+<span class="nt">nav</span> <span class="nt">a</span> <span class="err">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="err">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">6px</span> <span class="m">12px</span><span class="err">;</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div></div>
+
+<p>You’ll notice that the ul, li, and a selectors are nested inside the nav selector. This is a great way to organize your CSS and make it more readable.</p>
+
+<h2 id="partials">Partials</h2>
+
+<p>You can create partial Sass files that contain little snippets of CSS that you can include in other Sass files. This is a great way to modularize your CSS and help keep things easier to maintain. A partial is a Sass file named with a leading underscore. You might name it something like _partial.scss. The underscore lets Sass know that the file is only a partial file and that it should not be generated into a CSS file. Sass partials are used with the @use rule.</p>
+
+<p>Modules
+Compatibility:
+Dart Sass
+since 1.23.0
+LibSass
+✗
+Ruby Sass
+✗
+▶</p>
+
+<p>You don’t have to write all your Sass in a single file. You can split it up however you want with the @use rule. This rule loads another Sass file as a module, which means you can refer to its variables, mixins, and functions in your Sass file with a namespace based on the filename. Using a file will also include the CSS it generates in your compiled output!</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">SCSSSassCSS</span>
+<span class="nt">SCSS</span> <span class="nt">SYNTAX</span>
+<span class="c1">// _base.scss</span>
+<span class="nv">$font-stack</span><span class="p">:</span>    <span class="n">Helvetica</span><span class="o">,</span> <span class="nb">sans-serif</span><span class="err">;</span>
+<span class="nv">$primary-color</span><span class="p">:</span> <span class="mh">#333</span><span class="err">;</span>
+
+<span class="nt">body</span> <span class="err">{</span>
+  <span class="nl">font</span><span class="p">:</span> <span class="m">100%</span> <span class="nv">$font-stack</span><span class="err">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$primary-color</span><span class="err">;</span>
+<span class="err">}</span>
+<span class="c1">// styles.scss</span>
+<span class="k">@use</span> <span class="s1">'base'</span><span class="o">;</span>
+
+<span class="nc">.inverse</span> <span class="err">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="n">base</span><span class="o">.</span><span class="nv">$primary-color</span><span class="err">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="err">;</span>
+<span class="err">}</span>
+<span class="nt">CSS</span> <span class="nt">OUTPUT</span>
+<span class="nt">body</span> <span class="err">{</span>
+  <span class="nl">font</span><span class="p">:</span> <span class="m">100%</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="nb">sans-serif</span><span class="err">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="mh">#333</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nc">.inverse</span> <span class="err">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="mh">#333</span><span class="err">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="err">;</span>
+<span class="err">}</span>
+
+</code></pre></div></div>
+
+<p>Notice we’re using @use ‘base’; in the styles.scss file. When you use a file you don’t need to include the file extension. Sass is smart and will figure it out for you.</p>
+
+<h2 id="mixins">Mixins</h2>
+
+<p>Some things in CSS are a bit tedious to write, especially with CSS3 and the many vendor prefixes that exist. A mixin lets you make groups of CSS declarations that you want to reuse throughout your site. You can even pass in values to make your mixin more flexible. A good use of a mixin is for vendor prefixes. Here’s an example for transform.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">SCSSSassCSS</span>
+<span class="nt">SCSS</span> <span class="nt">SYNTAX</span>
+<span class="k">@mixin</span> <span class="nf">transform</span><span class="p">(</span><span class="nv">$property</span><span class="p">)</span> <span class="err">{</span>
+  <span class="na">-webkit-transform</span><span class="p">:</span> <span class="nv">$property</span><span class="err">;</span>
+  <span class="na">-ms-transform</span><span class="p">:</span> <span class="nv">$property</span><span class="err">;</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="nv">$property</span><span class="err">;</span>
+<span class="err">}</span>
+<span class="nc">.box</span> <span class="err">{</span> <span class="o">@</span><span class="nt">include</span> <span class="nt">transform</span><span class="o">(</span><span class="nt">rotate</span><span class="o">(</span><span class="nt">30deg</span><span class="o">));</span> <span class="err">}</span>
+<span class="nt">CSS</span> <span class="nt">OUTPUT</span>
+<span class="nc">.box</span> <span class="err">{</span>
+  <span class="na">-webkit-transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">30deg</span><span class="p">)</span><span class="err">;</span>
+  <span class="na">-ms-transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">30deg</span><span class="p">)</span><span class="err">;</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">30deg</span><span class="p">)</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div></div>
+
+<p>To create a mixin you use the @mixin directive and give it a name. We’ve named our mixin transform. We’re also using the variable $property inside the parentheses so we can pass in a transform of whatever we want. After you create your mixin, you can then use it as a CSS declaration starting with @include followed by the name of the mixin.</p>
+
+<h2 id="extendinheritance">Extend/Inheritance</h2>
+
+<p>This is one of the most useful features of Sass. Using @extend lets you share a set of CSS properties from one selector to another. It helps keep your Sass very DRY. In our example we’re going to create a simple series of messaging for errors, warnings and successes using another feature which goes hand in hand with extend, placeholder classes. A placeholder class is a special type of class that only prints when it is extended, and can help keep your compiled CSS neat and clean.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">SCSSSassCSS</span>
+<span class="nt">SCSS</span> <span class="nt">SYNTAX</span>
+<span class="cm">/* This CSS will print because %message-shared is extended. */
+</span><span class="nv">%message-shared</span> <span class="err">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="mh">#ccc</span><span class="err">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="err">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="mh">#333</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="c1">// This CSS won't print because %equal-heights is never extended.</span>
+<span class="nv">%equal-heights</span> <span class="err">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="err">;</span>
+  <span class="nl">flex-wrap</span><span class="p">:</span> <span class="n">wrap</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nc">.message</span> <span class="err">{</span>
+  <span class="k">@extend</span> <span class="nv">%message-shared</span><span class="o">;</span>
+<span class="err">}</span>
+
+<span class="nc">.success</span> <span class="err">{</span>
+  <span class="k">@extend</span> <span class="nv">%message-shared</span><span class="o">;</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="no">green</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nc">.error</span> <span class="err">{</span>
+  <span class="k">@extend</span> <span class="nv">%message-shared</span><span class="o">;</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="no">red</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nc">.warning</span> <span class="err">{</span>
+  <span class="k">@extend</span> <span class="nv">%message-shared</span><span class="o">;</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="no">yellow</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div></div>
+
+<p>What the above code does is tells .message, .success, .error, and .warning to behave just like %message-shared. That means anywhere that %message-shared shows up, .message, .success, .error, &amp; .warning will too. The magic happens in the generated CSS, where each of these classes will get the same CSS properties as %message-shared. This helps you avoid having to write multiple class names on HTML elements.</p>
+
+<p>You can extend most simple CSS selectors in addition to placeholder classes in Sass, but using placeholders is the easiest way to make sure you aren’t extending a class that’s nested elsewhere in your styles, which can result in unintended selectors in your CSS.</p>
+
+<p>Note that the CSS in %equal-heights isn’t generated, because %equal-heights is never extended.</p>
+
+<h2 id="operators">Operators</h2>
+
+<p>Doing math in your CSS is very helpful. Sass has a handful of standard math operators like +, -, *, /, and %. In our example we’re going to do some simple math to calculate widths for an aside &amp; article.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">SCSSSassCSS</span>
+<span class="nt">SCSS</span> <span class="nt">SYNTAX</span>
+<span class="nc">.container</span> <span class="err">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nt">article</span><span class="o">[</span><span class="nt">role</span><span class="o">=</span><span class="s2">"main"</span><span class="o">]</span> <span class="err">{</span>
+  <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="err">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">600px</span> <span class="o">/</span> <span class="m">960px</span> <span class="o">*</span> <span class="m">100%</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nt">aside</span><span class="o">[</span><span class="nt">role</span><span class="o">=</span><span class="s2">"complementary"</span><span class="o">]</span> <span class="err">{</span>
+  <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="err">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">300px</span> <span class="o">/</span> <span class="m">960px</span> <span class="o">*</span> <span class="m">100%</span><span class="err">;</span>
+<span class="err">}</span>
+<span class="nt">CSS</span> <span class="nt">OUTPUT</span>
+<span class="nc">.container</span> <span class="err">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nt">article</span><span class="o">[</span><span class="nt">role</span><span class="o">=</span><span class="s2">"main"</span><span class="o">]</span> <span class="err">{</span>
+  <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="err">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">62</span><span class="mi">.5%</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nt">aside</span><span class="o">[</span><span class="nt">role</span><span class="o">=</span><span class="s2">"complementary"</span><span class="o">]</span> <span class="err">{</span>
+  <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="err">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">31</span><span class="mi">.25%</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div></div>
+
+<p>We’ve created a very simple fluid grid, based on 960px. Operations in Sass let us do something like take pixel values and convert them to percentages without much hassle.</p>
+
+
+        </div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+    
+    <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Getting+Started+with+SASS%20http%3A%2F%2Flocalhost%3A4000%2Fsass%2Fgetting-started-with-sass%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fsass%2Fgetting-started-with-sass%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fsass%2Fgetting-started-with-sass%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/teamallnighter_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Chris Connelly. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
