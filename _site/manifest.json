@@ -1,0 +1,16 @@
+{
+    "name": "devWiki",
+    "short_name": "devWiki",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "rgba(245, 245, 245, 0)",
+    "description": "Web developer resources",
+    "theme_color": "#2A3443",
+    "icons": [
+      {
+        "src": "https://github.com/teamallnighter/ghcdn/blob/master/devWiki/Untitled%20copy%207@0.5x.png?raw=true",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
