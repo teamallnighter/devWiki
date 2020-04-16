@@ -1,0 +1,1340 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<!-- begin _includes/seo.html --><title>devWiki</title>
+<meta name="description" content="Everything you need to know about web dev ">
+
+
+  <meta name="author" content="Chris Connelly">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="devWiki">
+<meta property="og:title" content="devWiki">
+<meta property="og:url" content="http://localhost:4000/tag/media/">
+
+
+  <meta property="og:description" content="Everything you need to know about web dev ">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/tag/media/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Chris Connelly",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+<link href="feed.xml" type="application/atom+xml" rel="alternate" title="devWiki Feed">
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+<link rel="manifest" href="../manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("An active service worker found, no need to register");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker
+      .register("/serviceworker.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("Service worker has been registered for scope: " + reg.scope);
+      });
+  }
+}
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
+<script src="/assets/js/showdown-xss-filter.js"></script>
+<script src="/assets/js/comment.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/uikit.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/blob/master/devWiki/devWiki.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/uikit.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/devwiki.css">
+<link rel="stylesheet" href="/assets/css/custom.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-IIED/eyOkM6ihtOiQsX2zizxFBphgnv1zbe1bKA+njdFzkr6cDNy16jfIKWu4FNH" crossorigin="anonymous">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--archive">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          devWiki
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/news/">News</a>
+            </li><li class="masthead__menu-item">
+              <a href="/cheat-sheet-archive/">Cheatsheets</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Posts by Year</h1>
+    
+    
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2020">
+        <strong>2020</strong> <span class="taxonomy__count">30</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+  <section id="2020" class="taxonomy__section">
+    <h2 class="archive__subtitle">2020</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/html/intro-to-web-componants/" rel="permalink">Intro to web componants
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">TL;DR
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/middleman-quickstart/" rel="permalink">Middleman Quickstart
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Middle Man
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/readme/" rel="permalink">README
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">The Dev Bible
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/jekyll/jekyllquick/" rel="permalink">Jekyll Quickstart
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Jekyll Quickstart
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/cpnt200/jekyll/jekyll-from-scratch/" rel="permalink">Jekyll from Scratch
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Jekyll from Scratch
+Morning Live Stream Agenda
+
+  Reminders for Tony
+    
+      Hit Record
+      Turn on Chat
+      Put on mic
+    
+  
+  Static website
+    
+...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/jekyll/intro-to-ecommerce/" rel="permalink">Introduction to E-commerce
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Relevant Resources
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/cpnt200/jekyll/content-management-with-jekyll/" rel="permalink">Content Management with Jekyll
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Content Management with Jekyll
+Assignment 1
+See Winter 2020 Assignments
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/cpnt200/jekyll/intro-to-dev-biz/" rel="permalink">Content Management with Jekyll
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Assigned Prep
+
+  Cheatsheet: Markdown Basic Syntax
+  Article: Web design workflow: What to expect when starting a website project
+  Video: Storyboarding For ...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/sass/getting-started-with-sass/" rel="permalink">Getting Started with SASS
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Getting Started with SASS
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/handling-different-text-directions/" rel="permalink">Handling different text directions
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Handling different text directions
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/overflowing-content/" rel="permalink">Overflowing content
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Overflowing content
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/organizing-your-css/" rel="permalink">Organizing your CSS
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Organizing your CSS
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/how-css-is-structered/" rel="permalink">How CSS is structered
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">How CSS is structered
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/Images-media-and-form-elements/" rel="permalink">Images Media and Form Elements
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Images, media, and form elements
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/css-grid/" rel="permalink">Grid
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Grid
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/gettingstarted-with-css/" rel="permalink">Getting Started with CSS
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Getting Started with CSS
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/forms/" rel="permalink">How CSS Works
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Forms
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/fonts-and-text/" rel="permalink">How CSS Works
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Fonts and Text
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/how-css-works/" rel="permalink">How CSS Works
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">How CSS works
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/flex-box/" rel="permalink">Flex Box
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Flex Box
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/css/display/" rel="permalink">Display
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Display
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/html/html-text-fundamentals/" rel="permalink">HTML Text Fundamentals
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">HTML text fundamentals
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/html/empty-elements/" rel="permalink">Empty Elements
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Empty Elements
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/html/nesting-html-elements/" rel="permalink">Nesting HTML Elements
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Nesting elements
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/html/hyperlinks/" rel="permalink">Hyperlinks
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Hyperlinks
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/html/the-anatomy-of-an-html-element/" rel="permalink">The Anatomy of an HTML element
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">The Anatomy of an HTML element
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/html/all-head-elements/" rel="permalink">All Head Elements
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">🗿 HEAD
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/html/html-attributes/" rel="permalink">HTML Attributes
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Attributes
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/html/what-is-html/" rel="permalink">What is html
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">What is HTML
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/command-line/" rel="permalink">Command Line
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">CPNT 260: Day 0
+
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+
+<div class="entries-list">
+  
+</div>
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/teamallnighter_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Chris Connelly. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

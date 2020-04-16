@@ -1,7 +1,7 @@
   <html>
   <body>
       <div class="d-flex devto-wrapper">
-       <button class="btn" id="getPosts"><i class="fab fa-dev"></i></button>
+       <button class="btn" id="getPosts"><i class="fab fa-dev" id="dev-icon"></i></button>
       </div>
       <hr>
       <div id="output"></div>
@@ -18,8 +18,10 @@
                   <img class="post-img" src="${post.cover_image}">
                   <a href="${post.url}"><h3 class="post-title card-text">${post.title}</h3></a>
                   <p class="post-desc card-text">${post.description}</p>
-                 <small class="positive_reactions_count" card-text><i class="fad fa-heart"></i>${post.positive_reactions_count}</small>
-                </div>
+                  <small class="positive_reactions_count" card-text><i class="fad fa-pizza-slice"></i>${post.positive_reactions_count} | </small>
+                  <small class="tag_list" id="tag_list">${post.tag_list} | </small>
+                 <small class="website_url" id="website_url">${post.website_url} | </small>
+                 </div>
               </div>
             `;
           });
