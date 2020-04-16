@@ -1,0 +1,366 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>How CSS Works - devWiki</title>
+<meta name="description" content="How CSS works  ">
+
+
+  <meta name="author" content="Chris Connelly">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="devWiki">
+<meta property="og:title" content="How CSS Works">
+<meta property="og:url" content="http://localhost:4000/css/how-css-works/">
+
+
+  <meta property="og:description" content="How CSS works  ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/languages/html@3x.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-02-01T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/css/how-css-works/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Chris Connelly",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="feed.xml" type="application/atom+xml" rel="alternate" title="devWiki Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+<link rel="manifest" href="../manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("An active service worker found, no need to register");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker
+      .register("/serviceworker.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("Service worker has been registered for scope: " + reg.scope);
+      });
+  }
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
+<script src="/assets/js/showdown-xss-filter.js"></script>
+<script src="/assets/js/comment.js"></script>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/uikit.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/devwiki.css">
+<link rel="stylesheet" href="../../assets/css/custom.css">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--post">
+      
+        <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+        <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+        
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          devWiki
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/news/">News</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+    <div class="initial-content">
+        <div class="container" id="post-content-wrapper">
+        <h1 id="how-css-works">How CSS works</h1>
+
+<h2 id="how-does-css-actually-work">How does CSS actually work?</h2>
+
+<p>When a browser displays a document, it must combine the document’s content with its style information. It processes the document in a number of stages, which we’ve listed below. Bear in mind that this is a very simplified version of what happens when a browser loads a webpage, and that different browsers will handle the process in different ways. But this is roughly what happens.</p>
+
+<ol>
+  <li>The browser loads the HTML (e.g. receives it from the network).</li>
+  <li>It converts the <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML">HTML</a> into a <a href="https://developer.mozilla.org/en-US/docs/Glossary/DOM">DOM</a> (<em>Document Object Model</em>). The DOM represents the document in the computer’s memory. The DOM is explained in a bit more detail in the next section.</li>
+  <li>The browser then fetches most of the resources that are linked to by the HTML document, such as embedded images and videos … and linked CSS! JavaScript is handled a bit later on in the process, and we won’t talk about it here to keep things simpler.</li>
+  <li>The browser parses the fetched CSS, and sorts the different rules by their selector types into different “buckets”, e.g. element, class, ID, and so on. Based on the selectors it finds, it works out which rules should be applied to which nodes in the DOM, and attaches style to them as required (this intermediate step is called a render tree).</li>
+  <li>The render tree is laid out in the structure it should appear in after the rules have been applied to it.</li>
+  <li>The visual display of the page is shown on the screen (this stage is called painting).</li>
+</ol>
+
+<p>The following diagram also offers a simple view of the process.</p>
+
+<p><img src="https://mdn.mozillademos.org/files/11781/rendering.svg" alt="https://mdn.mozillademos.org/files/11781/rendering.svg" /></p>
+
+<h2 id="about-the-dom">About the DOM</h2>
+
+<p>A DOM has a tree-like structure. Each element, attribute, and piece of text in the markup language becomes a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Node/DOM">DOM node</a> in the tree structure. The nodes are defined by their relationship to other DOM nodes. Some elements are parents of child nodes, and child nodes have siblings.</p>
+
+<p>Understanding the DOM helps you design, debug and maintain your CSS because the DOM is where your CSS and the document’s content meet up. When you start working with browser DevTools you will be navigating the DOM as you select items in order to see which rules apply.</p>
+
+<h2 id="a-real-dom-representation">A real DOM representation</h2>
+
+<p>Rather than a long, boring explanation, let’s look at an example to see how a real HTML snippet is converted into a DOM.</p>
+
+<p>Take the following HTML code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;
+  Let's use:
+  &lt;span&gt;Cascading&lt;/span&gt;&lt;span&gt;Style&lt;/span&gt;&lt;span&gt;Sheets&lt;/span&gt;&lt;/p&gt;
+</code></pre></div></div>
+
+<p>In the DOM, the node corresponding to our <code class="highlighter-rouge">&lt;p&gt;</code> element is a parent. Its children are a text node and the three nodes corresponding to our <code class="highlighter-rouge">&lt;span&gt;</code> elements. The <code class="highlighter-rouge">SPAN</code> nodes are also parents, with text nodes as their children:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>P
+├─ "Let's use:"
+├─ SPAN
+|  └─ "Cascading"
+├─ SPAN
+|  └─ "Style"
+└─ SPAN
+   └─ "Sheets"
+</code></pre></div></div>
+
+<p>This is how a browser interprets the previous HTML snippet —it renders the above DOM tree and then outputs it in the browser like so:</p>
+
+<h2 id="applying-css-to-the-dom">Applying CSS to the DOM</h2>
+
+<p>Let’s say we added some CSS to our document, to style it. Again, the HTML is as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;
+  Let's use:
+  &lt;span&gt;Cascading&lt;/span&gt;&lt;span&gt;Style&lt;/span&gt;&lt;span&gt;Sheets&lt;/span&gt;&lt;/p&gt;
+</code></pre></div></div>
+
+<p>Let’s suppose we apply the following CSS to it:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>span {
+  border: 1px solid black;
+  background-color: lime;
+}
+</code></pre></div></div>
+
+<p>The browser will parse the HTML and create a DOM from it, then parse the CSS. Since the only rule available in the CSS has a <code class="highlighter-rouge">span</code> selector, the browser will be able to sort the CSS very quickly! It will apply that rule to each one of the three <code class="highlighter-rouge">&lt;span&gt;</code>s, then paint the final visual representation to the screen.</p>
+
+<p>The updated output is as follows:</p>
+
+<p>In our <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS">Debugging CSS</a> article in the next module we will be using browser DevTools to debug CSS problems, and will learn more about how the browser interprets CSS.</p>
+
+<h2 id="what-happens-if-a-browser-encounters-css-it-doesnt-understand">What happens if a browser encounters CSS it doesn’t understand?</h2>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS#Browser_support">In an earlier lesson</a> I mentioned that browsers do not all implement new CSS at the same time. In addition, many people are not using the latest version of a browser. Given that CSS is being developed all the time, and is therefore ahead of what browsers can recognise, you might wonder what happens if a browser encounters a CSS selector or declaration it doesn’t recognise.</p>
+
+<p>The answer is that it does nothing, and just moves on to the next bit of CSS!</p>
+
+<p>If a browser is parsing your rules, and encounters a property or value that it doesn’t understand, it ignores it and moves on to the next declaration. It will do this if you have made an error and misspelled a property or value, or if the property or value is just too new and the browser doesn’t yet support it.</p>
+
+<p>Similarly, if a browser encounters a selector that it doesn’t understand, it will just ignore the whole rule and move on to the next one.</p>
+
+<p>In the example below I have used the British English spelling for color, which makes that property invalid as it is not recognised. So my paragraph has not been colored blue. All of the other CSS have been applied however; only the invalid line is ignored.</p>
+
+<p><code class="highlighter-rouge">&lt;p&gt; I want this text to be large, bold and blue.&lt;/p&gt;p { font-weight: bold; colour: blue; /* incorrect spelling of the color property */ font-size: 200%;
+}</code></p>
+
+<p><strong>Open in CodePenOpen in JSFiddle</strong></p>
+
+<p>This behavior is very useful. It means that you can use new CSS as an enhancement, knowing that no error will occur if it is not understood — the browser will either get the new feature or not. Coupled with the way that the cascade works, and the fact that browsers will use the last CSS they come across in a stylesheet when you have two rules with the same specificity you can also offer alternatives for browsers that don’t support new CSS.</p>
+
+<p>This works particularly well when you want to use a value that is quite new and not supported everywhere. For example, some older browsers do not support <code class="highlighter-rouge">calc()</code> as a value. I might give a fallback width for a box in pixels, then go on to give a width with a <code class="highlighter-rouge">calc()</code> value of <code class="highlighter-rouge">100% - 50px</code>. Old browsers will use the pixel version, ignoring the line about <code class="highlighter-rouge">calc()</code> as they don’t understand it. New browsers will interpret the line using pixels, but then override it with the line using <code class="highlighter-rouge">calc()</code> as that line appears later in the cascade.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.box {
+  width: 500px;
+  width: calc(100% - 50px);
+}
+</code></pre></div></div>
+
+<p>We will look at many more ways to support varying browsers in later lessons.</p>
+
+        </div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+    
+    <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=How+CSS+Works%20http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fhow-css-works%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fhow-css-works%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fhow-css-works%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/teamallnighter_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Chris Connelly. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

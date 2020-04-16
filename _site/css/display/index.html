@@ -1,0 +1,505 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Display  - devWiki</title>
+<meta name="description" content="Display  ">
+
+
+  <meta name="author" content="Chris Connelly">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="devWiki">
+<meta property="og:title" content="Display">
+<meta property="og:url" content="http://localhost:4000/css/display/">
+
+
+  <meta property="og:description" content="Display  ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/languages/html@3x.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-02-01T00:00:00-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/css/display/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Chris Connelly",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="feed.xml" type="application/atom+xml" rel="alternate" title="devWiki Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+<link rel="manifest" href="../manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("An active service worker found, no need to register");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker
+      .register("/serviceworker.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("Service worker has been registered for scope: " + reg.scope);
+      });
+  }
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
+<script src="/assets/js/showdown-xss-filter.js"></script>
+<script src="/assets/js/comment.js"></script>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/uikit.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/teamallnighter/ghcdn/devwiki.css">
+<link rel="stylesheet" href="../../assets/css/custom.css">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--post">
+      
+        <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+        <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+        
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/img/logos/dwsqr.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          devWiki
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/news/">News</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+    <div class="initial-content">
+        <div class="container" id="post-content-wrapper">
+        <h1 id="display">Display</h1>
+
+<p>The <strong><code class="highlighter-rouge">display</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets whether an element is treated as a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout">block or inline element</a>and the layout used for its children, such as <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout">flow layout</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">grid</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">flex</a>.</p>
+
+<p>Formally, the <strong><code class="highlighter-rouge">display</code></strong> property sets an element’s inner and outer <em>display types</em>. The outer type sets an element’s participation in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout">flow layout</a>; the inner type sets the layout of children. Some values of <code class="highlighter-rouge">display</code> are fully defined in their own individual specifications; for example the detail of what happens when <code class="highlighter-rouge">display: flex</code> is declared is defined in the CSS Flexible Box Model specification. See the table at the end of this document for all of the individual specifications.</p>
+
+<h2 id="syntax">Syntax</h2>
+
+<p>The CSS <code class="highlighter-rouge">display</code> property is specified using keyword values. Keyword values are grouped into six value categories:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.container {
+  display:  [ &lt;display-outside&gt; || &lt;display-inside&gt; ] &lt;display-listitem&gt; | &lt;display-internal&gt; | &lt;display-box&gt; | &lt;display-legacy&gt; ;
+}
+</code></pre></div></div>
+
+<h3 id="outside">Outside</h3>
+
+<p><strong><code class="highlighter-rouge">[&lt;display-outside&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/display-outside)</code></strong>These keywords specify the element’s outer display type, which is essentially its role in flow layout.</p>
+
+<p>Valid <code class="highlighter-rouge">&lt;display-outside&gt;</code> values:</p>
+
+<p><strong><code class="highlighter-rouge">block</code></strong>The element generates a block element box, generating line breaks both before and after the element when in the normal flow.<strong><code class="highlighter-rouge">inline</code></strong>The element generates one or more inline element boxes that do not generate line breaks before or after themselves. In normal flow, the next element will be on the same line if there is space<strong><code class="highlighter-rouge">run-in</code></strong> The element generates a run-in box. If the adjacent sibling of the element defined as <code class="highlighter-rouge">display: run-in</code> box is a block box, the <code class="highlighter-rouge">run-in</code> box becomes the first inline box of the block box that follows it. Run-in elements act like inlines or blocks, depending on the surrounding elements. That is: If the run-in box contains a block box, same as block. If a block box follows the run-in box, the run-in box becomes the first inline box of the block box. If an inline box follows, the run-in box becomes a block box.</p>
+
+<p><strong>Note</strong>: Browsers that support the two value syntax, on finding the outer value only, such as when <code class="highlighter-rouge">display: block</code> or <code class="highlighter-rouge">display: inline</code> is specified, will set the inner value to <code class="highlighter-rouge">flow</code>. This will result in expected behavior; for example if you specify an element to be block, you would expect that the children of that element would participate in block and inline normal flow layout.</p>
+
+<h3 id="inside">Inside</h3>
+
+<p><strong><code class="highlighter-rouge">[&lt;display-inside&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/display-inside)</code></strong>These keywords specify the element’s inner display type, which defines the type of formatting context that its contents are laid out in (assuming it is a non-replaced element).</p>
+
+<p>Valid <code class="highlighter-rouge">&lt;display-inside&gt;</code> values:</p>
+
+<p><strong><code class="highlighter-rouge">flow</code></strong> The element lays out its contents using flow layout (block-and-inline layout).If its outer display type is <code class="highlighter-rouge">inline</code> or <code class="highlighter-rouge">run-in</code>, and it is participating in a block or inline formatting context, then it generates an inline box. Otherwise it generates a block container box.Depending on the value of other properties (such as <code class="highlighter-rouge">[position](https://developer.mozilla.org/en-US/docs/Web/CSS/position)</code>, <code class="highlighter-rouge">[float](https://developer.mozilla.org/en-US/docs/Web/CSS/float)</code>, or <code class="highlighter-rouge">[overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)</code>) and whether it is itself participating in a block or inline formatting context, it either establishes a new <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context">block formatting context</a> (BFC) for its contents or integrates its contents into its parent formatting context.<strong><code class="highlighter-rouge">flow-root</code></strong>The element generates a block element box that establishes a new <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context">block formatting context</a>, defining where the formatting root lies.<strong><code class="highlighter-rouge">table</code></strong>These elements behave like HTML <code class="highlighter-rouge">[&lt;table&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)</code> elements. It defines a block-level box.<strong><code class="highlighter-rouge">flex</code></strong>The element behaves like a block element and lays out its content according to the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">flexbox model</a>.<strong><code class="highlighter-rouge">grid</code></strong>The element behaves like a block element and lays out its content according to the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout">grid model</a>.<strong><code class="highlighter-rouge">ruby</code></strong> The element behaves like an inline element and lays out its content according to the ruby formatting model. It behaves like the corresponding HTML <code class="highlighter-rouge">[&lt;ruby&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)</code> elements.</p>
+
+<p><strong>Note</strong>: Browsers that support the two value syntax, on finding the inner value only, such as when <code class="highlighter-rouge">display: flex</code> or <code class="highlighter-rouge">display: grid</code> is specified, will set their outer value to <code class="highlighter-rouge">block</code>. This will result in expected behavior; for example if you specify an element to be <code class="highlighter-rouge">display: grid</code>, you would expect that the box created on the grid container would be a block level box.</p>
+
+<h3 id="list-item">List Item</h3>
+
+<p><strong><code class="highlighter-rouge">[&lt;display-listitem&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/display-listitem)</code></strong>The element generates a block box for the content and a separate list-item inline box.</p>
+
+<p>A single value of <code class="highlighter-rouge">list-item</code> will cause the element to behave like a list item. This can be used together with <code class="highlighter-rouge">[list-style-type](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type)</code> and <code class="highlighter-rouge">[list-style-position](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position)</code>.</p>
+
+<p><code class="highlighter-rouge">list-item</code> can also be combined with any <code class="highlighter-rouge">[&lt;display-outside&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/display-outside)</code> keyword and the <code class="highlighter-rouge">flow</code> or <code class="highlighter-rouge">flow-root</code> <code class="highlighter-rouge">[&lt;display-inside&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/display-inside)</code> keywords.</p>
+
+<p><strong>Note</strong>: In browsers that support the two-value syntax, if no inner value is specified it will default to <code class="highlighter-rouge">flow</code>. If no outer value is specified, the principal box will have an outer display type of <code class="highlighter-rouge">block</code>.</p>
+
+<h3 id="internal">Internal</h3>
+
+<p><strong><code class="highlighter-rouge">[&lt;display-internal&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/display-internal)</code></strong>Some layout models such as <code class="highlighter-rouge">table</code> and <code class="highlighter-rouge">ruby</code> have a complex internal structure, with several different roles that their children and descendants can fill. This section defines those “internal” display values, which only have meaning within that particular layout mode.</p>
+
+<p>Valid <code class="highlighter-rouge">&lt;display-internal&gt;</code> values:</p>
+
+<p><strong><code class="highlighter-rouge">table-row-group</code></strong>These elements behave like <code class="highlighter-rouge">[&lt;tbody&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody)</code> HTML elements.<strong><code class="highlighter-rouge">table-header-group</code></strong>These elements behave like <code class="highlighter-rouge">[&lt;thead&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead)</code> HTML elements.<strong><code class="highlighter-rouge">table-footer-group</code></strong>These elements behave like <code class="highlighter-rouge">[&lt;tfoot&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot)</code> HTML elements.<strong><code class="highlighter-rouge">table-row</code></strong>These elements behave like <code class="highlighter-rouge">[&lt;tr&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)</code> HTML elements.<strong><code class="highlighter-rouge">table-cell</code></strong>These elements behave like <code class="highlighter-rouge">[&lt;td&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)</code> HTML elements.<strong><code class="highlighter-rouge">table-column-group</code></strong>These elements behave like <code class="highlighter-rouge">[&lt;colgroup&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)</code> HTML elements.<strong><code class="highlighter-rouge">table-column</code></strong>These elements behave like <code class="highlighter-rouge">[&lt;col&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)</code> HTML elements.<strong><code class="highlighter-rouge">table-caption</code></strong>These elements behave like <code class="highlighter-rouge">[&lt;caption&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption)</code> HTML elements.<strong><code class="highlighter-rouge">ruby-base</code></strong> These elements behave like <code class="highlighter-rouge">[&lt;rb&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rb)</code> HTML elements.<strong><code class="highlighter-rouge">ruby-text</code></strong> These elements behave like <code class="highlighter-rouge">[&lt;rt&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)</code> HTML elements.<strong><code class="highlighter-rouge">ruby-base-container</code></strong> These elements behave like <code class="highlighter-rouge">&lt;rbc&gt;</code> HTML elements generated as anonymous boxes.<strong><code class="highlighter-rouge">ruby-text-container</code></strong> These elements behave like <code class="highlighter-rouge">[&lt;rtc&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc)</code> HTML elements.</p>
+
+<h3 id="box">Box</h3>
+
+<p><strong><code class="highlighter-rouge">[&lt;display-box&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/display-box)</code></strong>These values define whether an element generates display boxes at all.</p>
+
+<p>Valid <code class="highlighter-rouge">&lt;display-box&gt;</code> values:</p>
+
+<p><strong><code class="highlighter-rouge">contents</code></strong> </p>
+
+<p>These elements don’t produce a specific box by themselves. They are replaced by their pseudo-box and their child boxes. Please note that the CSS Display Level 3 spec defines how the <code class="highlighter-rouge">contents</code> value should affect “unusual elements” — elements that aren’t rendered purely by CSS box concepts such as replaced elements. See <a href="https://drafts.csswg.org/css-display/#unbox">Appendix B: Effects of display: contents on Unusual Elements</a> for more details.<em>Due to a bug in browsers this will currently remove the element from the accessibility tree — screen readers will not look at what’s inside. See the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#Accessibility_concerns">Accessibility concerns</a> section below for more details.</em><strong><code class="highlighter-rouge">none</code></strong>Turns off the display of an element so that it has no effect on layout (the document is rendered as though the element did not exist). All descendant elements also have their display turned off.To have an element take up the space that it would normally take, but without actually rendering anything, use the <code class="highlighter-rouge">[visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)</code> property instead.</p>
+
+<h3 id="legacy">Legacy</h3>
+
+<p><strong><code class="highlighter-rouge">[&lt;display-legacy&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/display-legacy)</code></strong>CSS 2 used a single-keyword syntax for the <code class="highlighter-rouge">display</code> property, requiring separate keywords for block-level and inline-level variants of the same layout mode.</p>
+
+<p>Valid <code class="highlighter-rouge">&lt;display-legacy&gt;</code> values:</p>
+
+<p><strong><code class="highlighter-rouge">inline-block</code></strong>The element generates a block element box that will be flowed with surrounding content as if it were a single inline box (behaving much like a replaced element would).It is equivalent to <code class="highlighter-rouge">inline flow-root</code>.<strong><code class="highlighter-rouge">inline-table</code></strong>The <code class="highlighter-rouge">inline-table</code> value does not have a direct mapping in HTML. It behaves like an HTML <code class="highlighter-rouge">[&lt;table&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)</code> element, but as an inline box, rather than a block-level box. Inside the table box is a block-level context.It is equivalent to <code class="highlighter-rouge">inline table</code>.<strong><code class="highlighter-rouge">inline-flex</code></strong>The element behaves like an inline element and lays out its content according to the flexbox model.It is equivalent to <code class="highlighter-rouge">inline flex</code>.<strong><code class="highlighter-rouge">inline-grid</code></strong>The element behaves like an inline element and lays out its content according to the grid model.It is equivalent to <code class="highlighter-rouge">inline grid</code>.</p>
+
+<h3 id="which-syntax-should-you-use-now">Which syntax should you use now?</h3>
+
+<p>The Level 3 specification details two values for the <code class="highlighter-rouge">display</code> property — enabling the specification of the outer and inner display type explicitly — but this is not yet well-supported by browsers.</p>
+
+<p>The <code class="highlighter-rouge">&lt;display-legacy&gt;</code> methods allow the same results with single keyword values, and should be favoured by developers until the two keyword values are better supported. For example, using two values you might specify an inline flex container as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.container {
+  display: inline flex;
+}
+</code></pre></div></div>
+
+<p>This can currently be specified using a single value.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.container {
+  display: inline-flex;
+}
+</code></pre></div></div>
+
+<p>For more information on these changes to the specification, see the article <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display/two-value_syntax_of_display">Adapting to the new two-value syntax of display</a>.</p>
+
+<h3 id="global">Global</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* Global values */
+display: inherit;
+display: initial;
+display: unset;
+</code></pre></div></div>
+
+<h2 id="guides-and-examples">Guides and Examples</h2>
+
+<p>The individual pages for the different types of value that <code class="highlighter-rouge">display</code> can have set on it feature multiple examples of those values in action — see the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#Syntax">Syntax</a> section. In addition, see the following material, which covers the various values of display in depth.</p>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display/two-value_syntax_of_display">Adapting to the new two-value syntax of display</a></li>
+</ul>
+
+<h3 id="css-flow-layout-display-blockdisplay-inline">CSS Flow Layout (<code class="highlighter-rouge">display: block</code>, <code class="highlighter-rouge">display: inline</code>)</h3>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Block_and_Inline_Layout_in_Normal_Flow">Block and Inline Layout in Normal Flow</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Flow_Layout_and_Overflow">Flow Layout and Overflow</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Flow_Layout_and_Writing_Modes">Flow Layout and Writing Modes</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Formatting_Contexts_Explained">Formatting Contexts Explained</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/In_Flow_and_Out_of_Flow">In Flow and Out of Flow</a></li>
+</ul>
+
+<h3 id="display-flex"><code class="highlighter-rouge">display: flex</code></h3>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">Basic concepts of flexbox</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container">Aligning Items in a Flex Container</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax">Controlling Ratios of Flex Items Along the Main Axis</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mixins">Cross-browser Flexbox mixins</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items">Mastering Wrapping of Flex Items</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items">Ordering Flex Items</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Relationship_of_Flexbox_to_Other_Layout_Methods">Relationship of flexbox to other layout methods</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Backwards_Compatibility_of_Flexbox">Backwards Compatibility of Flexbox</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Typical_Use_Cases_of_Flexbox">Typical use cases of Flexbox</a></li>
+</ul>
+
+<h3 id="display-grid"><code class="highlighter-rouge">display: grid</code></h3>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout">Basic Concepts of Grid Layout</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout">Relationship to other layout methods</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Line-based_Placement_with_CSS_Grid">Line-based placement</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Grid_Template_Areas">Grid template areas</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Layout_using_Named_Grid_Lines">Layout using named grid lines</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout">Auto-placement in grid layout</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout">Box alignment in grid layout</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid,_Logical_Values_and_Writing_Modes">Grids, logical values and writing modes</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility">CSS Grid Layout and Accessibility</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_and_Progressive_Enhancement">CSS Grid Layout and Progressive Enhancement</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Realizing_common_layouts_using_CSS_Grid_Layout">Realizing common layouts using grids</a></li>
+</ul>
+
+<h2 id="accessibility-concerns">Accessibility concerns</h2>
+
+<h3 id="display-none"><code class="highlighter-rouge">display: none</code></h3>
+
+<p>Using a <code class="highlighter-rouge">display</code> value of <code class="highlighter-rouge">none</code> on an element will remove it from the <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#Accessibility_APIs">accessibility tree</a>. This will cause the element and all its descendant elements to no longer be announced by screen reading technology.</p>
+
+<p>If you want to visually hide the element, a more accessible alternative is to use <a href="https://gomakethings.com/hidden-content-for-better-a11y/#hiding-the-link">a combination of properties</a> to remove it visually from the screen but keep it parseable by assistive technology such as screen readers.</p>
+
+<h3 id="display-contents"><code class="highlighter-rouge">display: contents</code></h3>
+
+<p>Current implementations in most browsers will remove from the <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#Accessibility_APIs">accessibility tree</a> any element with a <code class="highlighter-rouge">display</code> value of <code class="highlighter-rouge">contents</code> (but descendants will remain). This will cause the element itself to no longer be announced by screen reading technology. This is incorrect behavior according to the <a href="https://drafts.csswg.org/css-display/#valdef-display-contents">CSS specification</a>.</p>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[More accessible markup with display: contents</td>
+          <td>Hidde de Vries](https://hiddedevries.nl/en/blog/2018-04-21-more-accessible-markup-with-display-contents)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[Display: Contents Is Not a CSS Reset</td>
+          <td>Adrian Roselli](http://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="tables">Tables</h3>
+
+<p>Changing the <code class="highlighter-rouge">display</code> value of a <code class="highlighter-rouge">[&lt;table&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)</code> element to <code class="highlighter-rouge">block</code>, <code class="highlighter-rouge">grid</code>, or <code class="highlighter-rouge">flex</code> will alter its representation in the <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility#Accessibility_APIs">accessibility tree</a>. This will cause the table to no longer be announced properly by screen reading technology.</p>
+
+<ul>
+  <li><a href="https://developer.paciellogroup.com/blog/2018/03/short-note-on-what-css-display-properties-do-to-table-semantics/">Short note on what CSS display properties do to table semantics — The Paciello Group</a></li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[Hidden content for better a11y</td>
+          <td>Go Make Things](https://gomakethings.com/hidden-content-for-better-a11y/)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#Guideline_1.3_%E2%80%94_Create_content_that_can_be_presented_in_different_ways">MDN Understanding WCAG, Guideline 1.3 explanations</a></li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[Understanding Success Criterion 1.3.1</td>
+          <td>W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h2 id="specifications">Specifications</h2>
+
+<p><a href="Display/Untitled%20Database.csv">Untitled</a></p>
+
+<p><a href="Display/Untitled%20Database%201.csv">Untitled</a></p>
+
+<h2 id="browser-compatibility">Browser compatibility</h2>
+
+<p><a href="https://github.com/mdn/browser-compat-data">Update compatibility data on GitHub</a></p>
+
+<p><a href="Display/Untitled%20Database%202.csv">Untitled</a></p>
+
+<p>#</p>
+
+<p>#</p>
+
+<p>###</p>
+
+<p>###</p>
+
+<p>#</p>
+
+<p>###</p>
+
+<hr />
+
+<p><strong><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#">What are we missing?</a></strong></p>
+
+<p>Legend<strong>Full support</strong> Full support<strong>Partial support</strong> Partial support<strong>No support</strong> No support<strong>Experimental. Expect behavior to change in the future.</strong>Experimental. Expect behavior to change in the future.<strong>Non-standard. Expect poor cross-browser support.</strong>Non-standard. Expect poor cross-browser support.<strong>Deprecated. Not for use in new websites.</strong>Deprecated. Not for use in new websites.<strong>See implementation notes.</strong>See implementation notes.<strong>User must explicitly enable this feature.</strong>User must explicitly enable this feature.<strong>Uses a non-standard name.</strong>Uses a non-standard name.<strong>Requires a vendor prefix or different name for use.</strong>Requires a vendor prefix or different name for use.</p>
+
+        </div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+    
+    <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Display+%20http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fdisplay%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fdisplay%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcss%2Fdisplay%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/teamallnighter" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/teamallnighter_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Chris Connelly. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
