@@ -1,0 +1,88 @@
+<h1>WebAssembly.compileStreaming</h1> <p>The <code>WebAssembly.compileStreaming()</code> function compiles a <a href="module"><code>WebAssembly.Module</code></a> directly from a streamed underlying source. This function is useful if it is necessary to a compile a module before it can be instantiated (otherwise, the <a href="instantiatestreaming"><code>WebAssembly.instantiateStreaming()</code></a> function should be used).</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">Promise&lt;WebAssembly.Module&gt; WebAssembly.compileStreaming(<em>source</em>);</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><em>source</em></dt> <dd>A <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response"><code>Response</code></a> object or a promise that will fulfill with one, representing the underlying source of a .wasm module you want to stream and compile.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>A <code>Promise</code> that resolves to a <a href="module"><code>WebAssembly.Module</code></a> object representing the compiled module.</p> <h3 id="Exceptions">Exceptions</h3> <ul> <li>If <code>bufferSource</code> is not a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">typed array</a>, a <a href="../typeerror"><code>TypeError</code></a> is thrown.</li> <li>If compilation fails, the promise rejects with a <a href="compileerror"><code>WebAssembly.CompileError</code></a>.</li> </ul> <h2 id="Examples">Examples</h2> <p>The following example (see our <a href="https://github.com/mdn/webassembly-examples/blob/master/js-api-examples/compile-streaming.html">compile-streaming.html</a> demo on GitHub, and <a href="https://mdn.github.io/webassembly-examples/js-api-examples/compile-streaming.html">view it live</a> also) directly streams a .wasm module from an underlying source then compiles it to a <a href="module"><code>WebAssembly.Module</code></a> object. Because the <code>compileStreaming()</code> function accepts a promise for a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response"><code>Response</code></a> object, you can directly pass it a <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch"><code>WindowOrWorkerGlobalScope.fetch()</code></a> call, and it will pass the response into the function when it fulfills.</p> <pre data-language="js">var importObject = { imports: { imported_func: arg =&gt; console.log(arg) } };
+
+WebAssembly.compileStreaming(fetch('simple.wasm'))
+.then(module =&gt; WebAssembly.instantiate(module, importObject))
+.then(instance =&gt; instance.exports.exported_func());</pre> <p>The resulting module instance is then instantiated using <a href="instantiate"><code>WebAssembly.instantiate()</code></a>, and the exported function invoked.</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://github.com/WebAssembly/design/blob/master/Web.md#webassemblycompilestreaming" hreflang="en">WebAssembly features for web embedding<br><small>The definition of 'compileStreaming()' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td>Initial draft definition.</td> </tr> </tbody> </table></div> <h2 name="Browser_compatibility" id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-yes"> 16</td>
+<td class="bc-supports-yes"> 58</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 58</td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li>
+<a href="https://developer.mozilla.org/en-US/docs/WebAssembly">WebAssembly</a> overview page</li> <li><a href="https://developer.mozilla.org/en-US/docs/WebAssembly/Concepts">WebAssembly concepts</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API">Using the WebAssembly JavaScript API</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compileStreaming$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compileStreaming" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compileStreaming</a>
+  </p>
+</div>

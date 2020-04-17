@@ -1,0 +1,151 @@
+<h1>display-internal</h1> <p class="summary">Some layout models such as <code>table</code> and <code>ruby</code> have a complex internal structure, with several different roles that their children and descendants can fill. This page defines those "internal" display values, which only have meaning within that particular layout mode.</p> <h2 id="Syntax">Syntax</h2> <p>Unless otherwise specified, both the inner display type and the outer display type of elements using these display values are set to the given keyword.</p> <dl> <dt><code>table-row-group</code></dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody"><code>&lt;tbody&gt;</code></a> HTML elements.</dd> <dt><code>table-header-group</code></dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead"><code>&lt;thead&gt;</code></a> HTML elements.</dd> <dt><code>table-footer-group</code></dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot"><code>&lt;tfoot&gt;</code></a> HTML elements.</dd> <dt><code>table-row</code></dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a> HTML elements.</dd> <dt><code>table-cell</code></dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td"><code>&lt;td&gt;</code></a> HTML elements.</dd> <dt><code>table-column-group</code></dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup"><code>&lt;colgroup&gt;</code></a> HTML elements.</dd> <dt><code>table-column</code></dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col"><code>&lt;col&gt;</code></a> HTML elements.</dd> <dt><code>table-caption</code></dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption"><code>&lt;caption&gt;</code></a> HTML elements.</dd> <dt>
+<code>ruby-base</code> 
+</dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> HTML elements.</dd> <dt>
+<code>ruby-text</code> 
+</dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a> HTML elements.</dd> <dt>
+<code>ruby-base-container</code> 
+</dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rbc"><code>&lt;rbc&gt;</code></a> HTML elements generated as anonymous boxes.</dd> <dt>
+<code>ruby-text-container</code> 
+</dt> <dd>These elements behave like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc"><code>&lt;rtc&gt;</code></a> HTML elements.</dd> </dl> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a><a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <h3 id="Support_of_table_values">Support of table values</h3> <p><code>table</code>, <code>table-cell</code>, <code>table-column</code>, <code>table-column-group</code>, <code>table-footer-group</code>, <code>table-header-group</code>, <code>table-row</code>, and <code>table-row-group</code></p> <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 8</td>
+<td class="bc-supports-yes"> 7</td>
+<td class="bc-supports-yes"> 1</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h3 id="Support_of_ruby_values">Support of ruby values</h3> <p><code>ruby</code>, <code>ruby-base</code>, <code>ruby-base-container</code>, <code>ruby-text</code>, and <code>ruby-text-container</code></p> <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td> ? </td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes bc-has-history"> 38
+<section class="bc-history" id="sect2"><dl>
+<dt class="bc-supports-yes bc-supports"> 38
+</dt>
+
+<dt class="bc-supports-no bc-supports">34 — 38<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 34 until version 38 (exclusive): this feature is behind the <code>layout.css.ruby.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl></section>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes bc-has-history"> 38
+<section class="bc-history" id="sect3"><dl>
+<dt class="bc-supports-yes bc-supports"> 38
+</dt>
+
+<dt class="bc-supports-no bc-supports">34 — 38<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 34 until version 38 (exclusive): this feature is behind the <code>layout.css.ruby.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl></section>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li>
+<a href="display"><code>display</code></a> <ul> <li><a href="display-outside"><code>&lt;display-outside&gt;</code></a></li> <li><a href="display-inside"><code>&lt;display-inside&gt;</code></a></li> <li><a href="display-listitem"><code>&lt;display-listitem&gt;</code></a></li> <li><a href="display-box"><code>&lt;display-box&gt;</code></a></li> <li><a href="display-legacy"><code>&lt;display-legacy&gt;</code></a></li> </ul> </li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-internal$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-internal" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/display-internal</a>
+  </p>
+</div>

@@ -1,0 +1,95 @@
+<h1>DataTransferItem.getAsString</h1> <p>The <code>DataTransferItem.getAsString()</code> method invokes the given callback with the drag data item's string data as the argument if the item's <a href="kind"><code>kind</code></a> is a <em>Plain unicode string</em> (i.e. <code>kind</code> is <code>string</code>).</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><em>dataTransferItem</em>.getAsString(callback);
+</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>callback</code></dt> <dd>A callback function that has access to the <a href="../datatransferitem"><code>data transfer item's</code></a> string data. See <a href="#Callback">Callback</a> below for details.</dd> </dl> <h3 id="Return_value">Return value</h3> <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a></p> <h2 id="Callback">Callback</h2> <p>The callback parameter is a callback function which accepts one parameter:</p> <dl> <dt><a href="../domstring"><code>DOMString</code></a></dt> <dd>The drag data item's string data.</dd> </dl> <p>The callback return value is <code>undefined</code>.</p> <h2 id="Example">Example</h2> <p>This example shows the use of the <code>getAsString()</code> method as an <em>inline function</em> in a <code><a href="https://developer.mozilla.org/en-US/docs/Web/Events/drop">drop</a></code> event handler.</p> <pre data-language="js">function drop_handler(ev) {
+ console.log("Drop");
+ ev.preventDefault();
+ var data = ev.dataTransfer.items;
+ for (var i = 0; i &lt; data.length; i += 1) {
+   if ((data[i].kind == 'string') &amp;&amp; 
+       (data[i].type.match('^text/plain'))) {
+     // This item is the target node
+     data[i].getAsString(function (s){
+       ev.target.appendChild(document.getElementById(s)); 
+     });
+   } else if ((data[i].kind == 'string') &amp;&amp; 
+              (data[i].type.match('^text/html'))) {
+     // Drag data item is HTML
+     console.log("... Drop: HTML");
+   } else if ((data[i].kind == 'string') &amp;&amp; 
+              (data[i].type.match('^text/uri-list'))) {
+     // Drag data item is URI
+     console.log("... Drop: URI");
+   } else if ((data[i].kind == 'file') &amp;&amp; 
+              (data[i].type.match('^image/'))) {
+     // Drag data item is an image file
+     var f = data[i].getAsFile();
+     console.log("... Drop: File ");
+   }
+ }
+}
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://html.spec.whatwg.org/multipage/interaction.html#dom-datatransferitem-getasstring" hreflang="en">HTML Living Standard<br><small>The definition of 'getAsString()' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Initial definition.</td> </tr> <tr> <td><a href="https://www.w3.org/TR/html51/editing.html#dom-datatransferitem-getasstring" hreflang="en">HTML 5.1<br><small>The definition of 'getAsString()' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td>Snapshot fo HTML WHATWG document</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 50</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 50</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../datatransfer/getdata"><code>DataTransfer.getData()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/DataTransferItem/getAsString$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/DataTransferItem/getAsString" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/DataTransferItem/getAsString</a>
+  </p>
+</div>

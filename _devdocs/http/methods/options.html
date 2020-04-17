@@ -1,0 +1,99 @@
+<h1>OPTIONS</h1> <p>The <code>OPTIONS</code> is used to describe the communication options for the target resource. The client can specify a URL for the OPTIONS method, or an asterisk (*) to refer to the entire server.</p> <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row">Request has body</th> <td>No</td> </tr> <tr> <th scope="row">Successful response has body</th> <td>Yes</td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Safe">Safe</a></th> <td>Yes</td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Idempotent">Idempotent</a></th> <td>Yes</td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Cacheable">Cacheable</a></th> <td>No</td> </tr> <tr> <th scope="row">Allowed in HTML forms</th> <td>No</td> </tr> </tbody> </table></div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">OPTIONS /index.html HTTP/1.1
+OPTIONS * HTTP/1.1
+</pre> <h2 id="Examples">Examples</h2> <h3 id="Identifying_allowed_request_methods">Identifying allowed request methods</h3> <p>To find out which request methods a server supports, one can use curl and issue an OPTIONS request:</p> <pre>curl -X OPTIONS http://example.org -i</pre> <p>The response then contains an <a href="../headers/allow"><code>Allow</code></a> header with the allowed methods:</p> <pre>HTTP/1.1 200 OK
+Allow: OPTIONS, GET, HEAD, POST
+Cache-Control: max-age=604800
+Date: Thu, 13 Oct 2016 11:45:00 GMT
+Expires: Thu, 20 Oct 2016 11:45:00 GMT
+Server: EOS (lax004/2813)
+x-ec-custom-error: 1
+Content-Length: 0
+</pre> <h3 id="Preflighted_requests_in_CORS">Preflighted requests in CORS</h3> <p>In <a href="../cors">CORS</a>, a preflight request with the <code>OPTIONS</code> method is sent, so that the server can respond whether it is acceptable to send the request with these parameters. The <a href="../headers/access-control-request-method"><code>Access-Control-Request-Method</code></a> header notifies the server as part of a preflight request that when the actual request is sent, it will be sent with a <code>POST</code> request method. The <a href="../headers/access-control-request-headers"><code>Access-Control-Request-Headers</code></a> header notifies the server that when the actual request is sent, it will be sent with a <code>X-PINGOTHER</code> and <code>Content-Type</code> custom headers. The server now has an opportunity to determine whether it wishes to accept a request under these circumstances.</p> <pre>OPTIONS /resources/post-here/ HTTP/1.1 
+Host: bar.other 
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 
+Accept-Language: en-us,en;q=0.5 
+Accept-Encoding: gzip,deflate 
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7 
+Connection: keep-alive 
+Origin: http://foo.example 
+Access-Control-Request-Method: POST 
+Access-Control-Request-Headers: X-PINGOTHER, Content-Type</pre> <p>The server responds with <a href="../headers/access-control-allow-methods"><code>Access-Control-Allow-Methods</code></a> and says that <code>POST</code>, <code>GET</code>, and <code>OPTIONS</code> are viable methods to query the resource in question. This header is similar to the <a href="../headers/allow"><code>Allow</code></a> response header, but used strictly within the context of CORS.</p> <pre>HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2008 01:15:39 GMT 
+Server: Apache/2.0.61 (Unix) 
+Access-Control-Allow-Origin: http://foo.example 
+Access-Control-Allow-Methods: POST, GET, OPTIONS 
+Access-Control-Allow-Headers: X-PINGOTHER, Content-Type 
+Access-Control-Max-Age: 86400 
+Vary: Accept-Encoding, Origin 
+Content-Encoding: gzip 
+Content-Length: 0 
+Keep-Alive: timeout=2, max=100 
+Connection: Keep-Alive 
+Content-Type: text/plain</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Title</th> </tr> <tr> <td><a href="https://tools.ietf.org/html/rfc7231#section-4.3.7">RFC 7231, section 4.3.7: OPTIONS</a></td> <td>Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li>
+<a href="../headers/allow"><code>Allow</code></a> header</li> <li><a href="../cors">CORS</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS</a>
+  </p>
+</div>

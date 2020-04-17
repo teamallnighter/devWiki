@@ -1,0 +1,105 @@
+<h1>Symbol.toPrimitive</h1> <p>The <code><strong>Symbol.toPrimitive</strong></code> is a symbol that specifies a function valued property that is called to convert an object to a corresponding primitive value.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/symbol-toprimitive.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <div class="_table"><table class="standard-table"> <thead> <tr> <th colspan="2" class="header">Property attributes of <code>Symbol.toPrimitive</code>
+</th> </tr> </thead> <tbody> <tr> <td>Writable</td> <td>no</td> </tr> <tr> <td>Enumerable</td> <td>no</td> </tr> <tr> <td>Configurable</td> <td>no</td> </tr> </tbody> </table></div> <h2 id="Description">Description</h2> <p>With the help of the <code>Symbol.toPrimitive</code> property (used as a function value), an object can be converted to a primitive value. The function is called with a string argument <code>hint</code>, which specifies the preferred type of the result primitive value. The <code>hint</code> argument can be one of <code>"<em>number</em>"</code>, <code>"<em>string</em>"</code>, and <code>"<em>default</em>"</code>.</p> <h2 id="Examples">Examples</h2> <p>Following example describes how <code>Symbol.toPrimitive</code> property can modify the primitive value converted from an object.</p> <pre data-language="js">// An object without Symbol.toPrimitive property.
+var obj1 = {};
+console.log(+obj1);     // NaN
+console.log(`${obj1}`); // "[object Object]"
+console.log(obj1 + ''); // "[object Object]"
+
+// An object with Symbol.toPrimitive property.
+var obj2 = {
+  [Symbol.toPrimitive](hint) {
+    if (hint == 'number') {
+      return 10;
+    }
+    if (hint == 'string') {
+      return 'hello';
+    }
+    return true;
+  }
+};
+console.log(+obj2);     // 10        -- hint is "number"
+console.log(`${obj2}`); // "hello"   -- hint is "string"
+console.log(obj2 + ''); // "true"    -- hint is "default"
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-symbol.toprimitive" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'Symbol.toPrimitive' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition.</td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-symbol.toprimitive" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'Symbol.toPrimitive' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 48</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes"> 44</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 44</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 6.0.0</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../date/@@toprimitive"><code>Date.prototype[@@toPrimitive]</code></a></li> <li><a href="@@toprimitive"><code>Symbol.prototype[@@toPrimitive]</code></a></li> <li><a href="../object/tostring"><code>Object.prototype.toString()</code></a></li> <li><a href="../object/valueof"><code>Object.prototype.valueOf()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive</a>
+  </p>
+</div>

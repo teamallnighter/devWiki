@@ -1,0 +1,46 @@
+<h1>deviceorientation</h1><p>The <code>deviceorientation</code> event is fired when fresh data is available from an orientation sensor about the current orientation of the device as compared to the Earth coordinate frame. This data is gathered from a magnetometer inside the device. See <a href="https://developer.mozilla.org/en-US/docs/DOM/Orientation_and_motion_data_explained">Orientation and motion data explained</a> for details.</p> <h2 id="General_info">General info</h2> <dl class="eventinfo"> <dt style="float: left; text-align: right; width: 120px;">Specification</dt> <dd style="margin: 0 0 0 120px;"><a href="http://www.w3.org/TR/orientation-event/#deviceorientation">DeviceOrientation Event</a></dd> <dt style="float: left; text-align: right; width: 120px;">Interface</dt> <dd style="margin: 0 0 0 120px;">DeviceOrientationEvent</dd> <dt style="float: left; text-align: right; width: 120px;">Bubbles</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Cancelable</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Target</dt> <dd style="margin: 0 0 0 120px;">DefaultView (<code>window</code>)</dd> <dt style="float: left; text-align: right; width: 120px;">Default Action</dt> <dd style="margin: 0 0 0 120px;">None</dd> </dl> <h2 id="Properties">Properties</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Property</th> <th scope="col">Type</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <td>
+<code>target</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget"><code>EventTarget</code></a></td> <td>The event target (the topmost target in the DOM tree).</td> </tr> <tr> <td>
+<code>type</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMString"><code>DOMString</code></a></td> <td>The type of event.</td> </tr> <tr> <td>
+<code>bubbles</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"><code>Boolean</code></a></td> <td>Whether the event normally bubbles or not</td> </tr> <tr> <td>
+<code>cancelable</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"><code>Boolean</code></a></td> <td>Whether the event is cancellable or not?</td> </tr> <tr> <td>
+<code>alpha</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>double (float)</td> <td>The current orientation of the device around the Z axis; that is, how far the device is rotated around a line perpendicular to the device.</td> </tr> <tr> <td>
+<code>beta</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>double (float)</td> <td>The current orientation of the device around the X axis; that is, how far the device is tipped forward or backward.</td> </tr> <tr> <td>
+<code>gamma</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>double (float)</td> <td>The current orientation of the device around the Y axis; that is, how far the device is turned left or right.</td> </tr> <tr> <td>
+<code>absolute</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean"><code>boolean</code></a></td> <td>This value is <code>true</code> if the orientation is provided as a difference between the device coordinate frame and the Earth coordinate frame; if the device can't detect the Earth coordinate frame, this value is <code>false</code>.</td> </tr> </tbody> </table></div> <h2 id="Example">Example</h2> <pre class="pass: js">if (window.DeviceOrientationEvent) {
+    window.addEventListener("deviceorientation", function(event) {
+        // alpha: rotation around z-axis
+        var rotateDegrees = event.alpha;
+        // gamma: left to right
+        var leftToRight = event.gamma;
+        // beta: front back motion
+        var frontToBack = event.beta;
+
+        handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+    }, true);
+}
+
+var handleOrientationEvent = function(frontToBack, leftToRight, rotateDegrees) {
+    // do something amazing
+};
+</pre> <h2 id="Browser_Compatibility">Browser Compatibility</h2> <p class="warning"><strong><a href="https://github.com/mdn/browser-compat-data">We're converting our compatibility data into a machine-readable JSON format</a></strong>. This compatibility table still uses the old format, because we haven't yet converted the data it contains. <strong><a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Structures/Compatibility_tables">Find out how you can help!</a></strong></p>   <div class="_table"><table class="compat-table"> <tbody> <tr> <th>Feature</th> <th>Chrome</th> <th>Edge</th> <th>Firefox (Gecko)</th> <th>Internet Explorer</th> <th>Opera</th> <th>Safari (WebKit)</th> </tr> <tr> <td>Basic support</td> <td>7.0</td> <td><span style="color: #888;">(Yes)</span></td> <td>3.6<sup>[1]</sup>
+</td> <td><span style="color: rgb(255, 153, 0);">?</span></td> <td><span style="color: rgb(255, 153, 0);">?</span></td> <td><span style="color: rgb(255, 153, 0);">?</span></td> </tr> </tbody> </table></div>   <div class="_table"><table class="compat-table"> <tbody> <tr> <th>Feature</th> <th>Android</th> <th>Edge</th> <th>Firefox Mobile (Gecko)</th> <th>IE Phone</th> <th>Opera Mobile</th> <th>Safari Mobile</th> </tr> <tr> <td>Basic support</td> <td>3.0</td> <td><span style="color: #888;">(Yes)</span></td> <td>3.6<sup>[1]</sup>
+</td> <td><span style="color: #f00;">No support</span></td> <td>12</td> <td>4.2</td> </tr> </tbody> </table></div>  <p>[1] Firefox 3.6, 4, and 5 supported <a href="https://developer.mozilla.org/en-US/docs/Web/Events/MozOrientation">mozOrientation</a> versus the standard <code>DeviceOrientation</code> event.</p> <h2 id="Related_Events">Related Events</h2> <ul> <li><a href="devicemotion"><code>devicemotion</code></a></li> </ul> <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent"><code>DeviceMotionEvent</code></a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/ondeviceorientation"><code>window.ondeviceorientation</code></a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation">Detecting device orientation</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Orientation_and_motion_data_explained">Orientation and motion data explained</a></li> <li>Simulating orientation events on desktop browsers with the <a href="http://louisremi.github.com/orientation-devtool/">orientation-devtool</a>
+</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/deviceorientation$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/deviceorientation" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/Events/deviceorientation</a>
+  </p>
+</div>

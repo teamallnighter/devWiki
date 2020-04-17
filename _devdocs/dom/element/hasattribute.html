@@ -1,0 +1,84 @@
+<h1>element.hasAttribute</h1> <p>The <code>Element.hasAttribute()</code> method returns a <strong>Boolean</strong> value indicating whether the specified element has the specified attribute or not.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><var>var <em>result</em></var> = <em><var>element</var></em>.hasAttribute(<em><var>name</var></em>);
+</pre> <dl> <dt><code>result</code></dt> <dd>holds the return value <code>true</code> or <code>false</code>.</dd> <dt><code>name</code></dt> <dd>is a string representing the name of the attribute.</dd> </dl> <h2 id="Example">Example</h2> <pre data-language="js">var foo = document.getElementById("foo"); 
+if (foo.hasAttribute("bar")) { 
+    // do something
+}
+</pre> <h2 id="Polyfill">Polyfill</h2> <pre data-language="js">;(function(prototype) {
+    prototype.hasAttribute = prototype.hasAttribute || function(name) {
+        return !!(this.attributes[name] &amp;&amp; 
+                  this.attributes[name].specified);
+    }
+})(Element.prototype);
+</pre> <h2 id="Notes">Notes</h2> <p>DOM methods dealing with element's attributes:</p> <div class="_table"><table class="standard-table"> <thead> <tr> <th>Not namespace-aware, most commonly used methods</th> <th>Namespace-aware variants (DOM Level 2)</th> <th>DOM Level 1 methods for dealing with <code>Attr</code> nodes directly (seldom used)</th> <th>DOM Level 2 namespace-aware methods for dealing with <code>Attr</code> nodes directly (seldom used)</th> </tr> </thead> <tbody> <tr> <td>
+<a href="setattribute"><code>setAttribute</code></a> (DOM 1)</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/element/setAttributeNS"><code>setAttributeNS</code></a></td> <td><a href="setattributenode"><code>setAttributeNode</code></a></td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/element/setAttributeNodeNS"><code>setAttributeNodeNS</code></a></td> </tr> <tr> <td>
+<a href="getattribute"><code>getAttribute</code></a> (DOM 1)</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/element/getAttributeNS"><code>getAttributeNS</code></a></td> <td><a href="getattributenode"><code>getAttributeNode</code></a></td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/element/getAttributeNodeNS"><code>getAttributeNodeNS</code></a></td> </tr> <tr> <td>
+<a href="hasattribute"><code>hasAttribute</code></a> (DOM 2)</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/element/hasAttributeNS"><code>hasAttributeNS</code></a></td> <td>-</td> <td>-</td> </tr> <tr> <td>
+<a href="removeattribute"><code>removeAttribute</code></a> (DOM 1)</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/element/removeAttributeNS"><code>removeAttributeNS</code></a></td> <td><a href="removeattributenode"><code>removeAttributeNode</code></a></td> <td>-</td> </tr> </tbody> </table></div> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://dom.spec.whatwg.org/#dom-element-hasattribute" hreflang="en">DOM<br><small>The definition of 'Element.hasAttribute()' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>From <a href="https://www.w3.org/TR/DOM-Level-3-Core/" hreflang="en">Document Object Model (DOM) Level 3 Core Specification</a>, moved from <a href="../node"><code>Node</code></a> to <a href="../element"><code>Element</code></a>
+</td> </tr> <tr> <td><a href="https://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-ElHasAttr" hreflang="en">Document Object Model (DOM) Level 3 Core Specification<br><small>The definition of 'Element.hasAttribute()' in that specification.</small></a></td> <td><span class="spec-Obsolete">Obsolete</span></td> <td>No change from <a href="https://www.w3.org/TR/DOM-Level-2-Core/" hreflang="en">Document Object Model (DOM) Level 2 Core Specification</a>
+</td> </tr> <tr> <td><a href="https://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-ElHasAttr" hreflang="en">Document Object Model (DOM) Level 2 Core Specification<br><small>The definition of 'Element.hasAttribute()' in that specification.</small></a></td> <td><span class="spec-Obsolete">Obsolete</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/element/hasAttribute$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/element/hasAttribute" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/element/hasAttribute</a>
+  </p>
+</div>

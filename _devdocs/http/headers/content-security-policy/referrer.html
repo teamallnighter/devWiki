@@ -1,0 +1,71 @@
+<h1>CSP: referrer</h1> <div class="blockIndicator obsolete obsoleteHeader"><p><strong> Obsolete</strong><br>This feature is obsolete. Although it may still work in some browsers, its use is discouraged since it could be removed at any time. Try to avoid using it.</p></div> <p>The HTTP <a href="../content-security-policy"><code>Content-Security-Policy</code></a> (CSP) <code><strong>referrer</strong></code> directive used to specify information in the <a href="../referer"><code>Referer</code></a> header (with a single <code>r</code> as this was a typo in the original spec) for links away from a page. This API is deprecated and removed from browsers.</p> <div class="note"> <p>Use the <a href="../referrer-policy"><code>Referrer-Policy</code></a> header instead.</p> </div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">Content-Security-Policy: referrer &lt;referrer-policy&gt;;</pre> <p>where <code>&lt;referrer-policy&gt;</code> can be one of the following values:</p> <dl> <dt>"no-referrer"</dt> <dd>The <a href="../referer"><code>Referer</code></a> header will be omitted entirely. No referrer information is sent along with requests.</dd> <dt>"none-when-downgrade"</dt> <dd>This is the user agent's default behavior if no policy is specified. The origin is sent as referrer to a-priori as-much-secure destination (HTTPS-&gt;HTTPS), but isn't sent to a less secure destination (HTTPS-&gt;HTTP).</dd> <dt>"origin"</dt> <dd>Only send the origin of the document as the referrer in all cases.<br> The document <code>https://example.com/page.html</code> will send the referrer <code>https://example.com/</code>.</dd> <dt>"origin-when-cross-origin" / "origin-when-crossorigin"</dt> <dd>Send a full URL when performing a same-origin request, but only send the origin of the document for other cases.</dd> <dt>"unsafe-url"</dt> <dd>Send a full URL (stripped from parameters) when performing a a same-origin or cross-origin request. This policy will leak origins and paths from TLS-protected resources to insecure origins. Carefully consider the impact of this setting.</dd> </dl> <h2 id="Examples">Examples</h2> <pre data-language="bash">Content-Security-Policy: referrer "none";</pre> <h2 id="Specifications">Specifications</h2> <p>Not part of any specification.</p> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-no">33 — 56</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no">37 — 62</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no">? — 43</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-no">37 — 56</td>
+<td class="bc-supports-no">33 — 56</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no">37 — 62</td>
+<td class="bc-supports-no">? — 43</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../content-security-policy"><code>Content-Security-Policy</code></a></li> <li>
+<a href="../referrer-policy"><code>Referrer-Policy</code></a> header</li> <li>
+<a href="../referer"><code>Referer</code></a> header</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/referrer$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/referrer" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/referrer</a>
+  </p>
+</div>

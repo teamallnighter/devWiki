@@ -1,0 +1,74 @@
+<h1>Feature-Policy: microphone</h1> <div class="blockIndicator experimental indicator-warning"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p>The HTTP <a href="../feature-policy"><code>Feature-Policy</code></a> header <code>microphone</code> directive controls whether the current document is allowed to use audio input devices. When this policy is enabled, the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"><code>Promise</code></a> returned by <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia"><code>MediaDevices.getUserMedia()</code></a> will reject with a <code>NotAllowedError</code>.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">Feature-Policy: microphone &lt;allowlist&gt;;</pre> <dl> <dt>&lt;allowlist&gt;</dt> <dd>
+<p>The allowlist is a list of origins that takes one of the following values:</p> <ul> <li>
+<code>*</code>: The feature is allowed by default in top-level browsing contexts and all nested browsing contexts (iframes).</li> <li>
+<code>'self'</code>: (Default) The feature is allowed by default in top-level browsing contexts and in nested browsing contexts (iframes) in the same origin. The feature is not allowed in cross-origin documents in nested browsing contexts.</li> <li>
+<code>'none'</code>: The feature is disabled in top-level and nested browsing contexts.</li> <li>&lt;origin(s)&gt;: The feature is allowed for specific origins (for example, https://example.com). Origins should be separated by a space.</li> </ul> <p>The values <code>*</code> (enable for all origins) or <code>'none'</code> (disable for all origins) may only be used alone, while <code>'self'</code> may be used with one or more origins.</p> The default value is <code>'self'</code>.</dd> </dl> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://wicg.github.io/feature-policy/" hreflang="en">Feature Policy</a></td> <td><span class="spec-Draft">Draft</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 59</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 48</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 59</td>
+<td class="bc-supports-yes"> 59</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 48</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li>
+<a href="../feature-policy"><code>Feature-Policy</code></a> header</li> <li><a href="../../feature_policy">Feature Policy</a></li> <li><a href="../../feature_policy/using_feature_policy">Using Feature Policy</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy/microphone$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy/microphone" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy/microphone</a>
+  </p>
+</div>

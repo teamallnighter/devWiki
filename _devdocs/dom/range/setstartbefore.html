@@ -1,0 +1,72 @@
+<h1>Range.setStartBefore</h1> <p>The <code>Range.setStartBefore()</code> method sets the start position of a <a href="../range"><code>Range</code></a> relative to another <a href="../node"><code>Node</code></a>. The parent <a href="../node"><code>Node</code></a> of the start of the <a href="../range"><code>Range</code></a> will be the same as that for the <code>referenceNode</code>.</p> <h2 name="Syntax" id="Syntax">Syntax</h2> <pre class="syntaxbox"><var>range</var>.setStartBefore(<em>referenceNode</em>);
+</pre> <h3 name="Parameters" id="Parameters">Parameters</h3> <dl> <dt><em>referenceNode</em></dt> <dd>The <a href="../node"><code>Node</code></a> before which the <a href="../range"><code>Range</code></a> should start.</dd> </dl> <h2 name="Example" id="Example">Example</h2> <pre data-language="js">var range = document.createRange();
+var referenceNode = document.getElementsByTagName("div").item(0);
+
+range.setStartBefore(referenceNode);
+</pre> <h2 name="Specifications" id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://dom.spec.whatwg.org/#dom-range-setstartbefore" hreflang="en">DOM<br><small>The definition of 'Range.setStartBefore()' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>No change.</td> </tr> <tr> <td><a href="https://www.w3.org/TR/DOM-Level-2-Traversal-Range/ranges.html#Level2-Range-setStartBefore" hreflang="en">Document Object Model (DOM) Level 2 Traversal and Range Specification<br><small>The definition of 'Range.setStartBefore()' in that specification.</small></a></td> <td><span class="spec-Obsolete">Obsolete</span></td> <td>Initial specification.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/DOM/DOM_Reference">The DOM interfaces index</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Range/setStartBefore$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Range/setStartBefore" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/Range/setStartBefore</a>
+  </p>
+</div>

@@ -1,0 +1,67 @@
+<h1>window.event</h1> <p>The read-only <a href="../window"><code>Window</code></a> property <code><strong>event</strong></code> returns the <a href="../event"><code>Event</code></a> which is currently being handled by the site's code. Outside the context of an event handler, the value is always <code>undefined</code>.</p> <p>You <em>should</em> avoid using this property in new code, and should instead use the <a href="../event"><code>Event</code></a> passed into the event handler function. This property is not universally supported and even when supported introduces potential fragility to your code.</p> <div class="note"> <p><strong>Note:</strong> This property can be fragile, in that there may be situations in which the returned <code>Event</code> is not the expected value. In addition, <code>Window.event</code> is not accurate for events dispatched within <a href="https://developer.mozilla.org/en-US/docs/Glossary/shadow_tree">shadow trees</a>.</p> </div> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://dom.spec.whatwg.org/#ref-for-dom-window-event" hreflang="en">DOM<br><small>The definition of 'Window.event' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 name="Browser_Compatibility" id="Browser_Compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 63</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 63</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../event/srcelement"><code>Event.srcElement</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/event$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/event" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/window/event</a>
+  </p>
+</div>

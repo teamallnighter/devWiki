@@ -1,0 +1,96 @@
+<h1>GlobalEventHandlers.onresize</h1> <p>The <code><strong>GlobalEventHandlers.onresize</strong></code> property contains an <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventHandler"><code>EventHandler</code></a> triggered when a <code><a href="https://developer.mozilla.org/en-US/docs/Web/Events/resize">resize</a></code> event is received.</p> <h2 name="Syntax" id="Syntax">Syntax</h2> <pre>window.onresize = funcRef;
+</pre> <h3 name="Parameters" id="Parameters">Parameters</h3> <ul> <li>
+<code>funcRef</code> is a reference to a function.</li> </ul> <h2 name="Example" id="Example">Example</h2> <pre>window.onresize = doFunc;
+</pre> <pre>&lt;html&gt;
+&lt;head&gt;
+
+&lt;title&gt;onresize test&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;p&gt;Resize the browser window to fire the resize event.&lt;/p&gt;
+
+&lt;p&gt;Window height: &lt;span id="height"&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Window width: &lt;span id="width"&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;script type="text/javascript"&gt;
+  var heightOutput = document.querySelector('#height');
+  var widthOutput = document.querySelector('#width');
+
+  function resize() { 
+    heightOutput.textContent = window.innerHeight;
+    widthOutput.textContent = window.innerWidth;
+  }
+
+  window.onresize = resize;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <h2 name="Notes" id="Notes">Notes</h2> <p>The resize event is fired after the window has been resized.</p> <h2 name="Specification" id="Specification">Specification</h2> <div class="_table"><table class="spectable standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://html.spec.whatwg.org/multipage/webappapis.html#handler-onresize" hreflang="en">HTML Living Standard<br><small>The definition of 'onresize' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 45</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 32</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 45</td>
+<td class="bc-supports-yes"> 45</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 32</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onresize$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onresize" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onresize</a>
+  </p>
+</div>

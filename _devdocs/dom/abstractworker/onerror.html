@@ -1,0 +1,71 @@
+<h1>AbstractWorker.onerror</h1> <p>The <code><strong>AbstractWorker</strong></code><code>.onerror</code> property of the <a href="../abstractworker"><code>AbstractWorker</code></a> interface represents an <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventHandler"><code>EventHandler</code></a>, that is a function to be called when the <code><a href="https://developer.mozilla.org/en-US/docs/Web/Events/error">error</a></code> event occurs and bubbles through the <a href="../worker"><code>Worker</code></a>.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">myWorker.onerror = function() { ... };</pre> <h2 id="Example">Example</h2> <p>The following code snippet shows creation of a <a href="../worker"><code>Worker</code></a> object using the <a href="../worker/worker"><code>Worker()</code></a> constructor and setting up of an <code>onerror</code> handler on the resulting object:</p> <pre data-language="js">var myWorker = new Worker('worker.js');
+
+myWorker.onerror = function() {
+  console.log('There is an error with your worker!');
+}</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://html.spec.whatwg.org/multipage/#handler-abstractworker-onerror" hreflang="en">HTML Living Standard<br><small>The definition of 'AbstractWorker.onerror' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 3.5</td>
+<td class="bc-supports-yes"> 10</td>
+<td class="bc-supports-yes"> 10.6</td>
+<td class="bc-supports-yes"> 4</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 4.4</td>
+<td class="bc-supports-yes"> 18</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> 11.5</td>
+<td class="bc-supports-yes"> 5.1</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div>  <h3 id="Cross-origin_worker_error_behaviour">Cross-origin worker error behaviour</h3> <p>In earlier browser versions, trying to load a cross-origin worker script threw a <code>SecurityError</code>; in newer browsers an <code><a href="https://developer.mozilla.org/en-US/docs/Web/Events/error">error</a></code> event is thrown instead due to a spec change. Find out more information on how to deal with this in <a href="https://www.fxsitecompat.com/en-CA/docs/2016/loading-cross-origin-worker-now-fires-error-event-instead-of-throwing-worker-in-sandboxed-iframe-no-longer-allowed/">Loading cross-origin worker now fires error event instead of throwing; worker in sandboxed iframe no longer allowed</a>.</p> <h2 id="See_also">See also</h2> <ul> <li>The <a href="../abstractworker"><code>AbstractWorker</code></a> interface it belongs to.</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/AbstractWorker/onerror$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/AbstractWorker/onerror" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/AbstractWorker/onerror</a>
+  </p>
+</div>

@@ -1,0 +1,32 @@
+<h1>track</h1> <p>The <code>track</code> event is sent to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/ontrack"><code>ontrack</code></a> event handler on <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection"><code>RTCPeerConnection</code></a>s after a new track has been added to an <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCRtpReceiver"><code>RTCRtpReceiver</code></a> which is part of the connection.</p> <p>By the time this event is delivered, the new track has been fully added to the peer connection. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCTrackEvent#Track_event_types">Track event types</a> in <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCTrackEvent">RTCTrackEvent</a> for details.</p> <h2 id="General_info">General info</h2> <dl class="eventinfo"> <dt style="float: left; text-align: right; width: 120px;">Specification</dt> <dd style="margin: 0 0 0 120px;"><a href="https://w3c.github.io/webrtc-pc/" hreflang="en">WebRTC 1.0: Real-time Communication Between Browsers</a></dd> <dt style="float: left; text-align: right; width: 120px;">Interface</dt> <dd style="margin: 0 0 0 120px;"><a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCTrackEvent"><code>RTCTrackEvent</code></a></dd> <dt style="float: left; text-align: right; width: 120px;">Bubbles</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Cancelable</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Target</dt> <dd style="margin: 0 0 0 120px;"><a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection"><code>RTCPeerConnection</code></a></dd> <dt style="float: left; text-align: right; width: 120px;">Default Action</dt> <dd style="margin: 0 0 0 120px;">undefined</dd> </dl> <h2 id="Properties">Properties</h2> <p><em>Since <code>RTCTrackEvent</code> is based on <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event"><code>Event</code></a>, its properties are also available.</em></p> <dl> <dt>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCTrackEvent/receiver"><code>receiver</code></a> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</dt> <dd>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCRtpReceiver"><code>RTCRtpReceiver</code></a> used by the track that's been added to the <code>RTCPeerConnection</code>.</dd> <dt>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCTrackEvent/streams"><code>streams</code></a> <span class="inlineIndicator readOnly readOnlyInline">Read only </span> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>An array of <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream"><code>MediaStream</code></a> objects, each representing one of the media streams which comprise the <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCTrackEvent/track"><code>track</code></a> that was added to the connection. By default, the array is empty.</dd> <dt>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCTrackEvent/track"><code>track</code></a> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</dt> <dd>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack"><code>MediaStreamTrack</code></a> which has been added to the connection.</dd> <dt>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCTrackEvent/transceiver"><code>transceiver</code></a> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</dt> <dd>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCRtpTransceiver"><code>RTCRtpTransceiver</code></a> being used by the new track.</dd> </dl> <h2 id="Examples">Examples</h2> <p>This example shows code that creates a new <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection"><code>RTCPeerConnection</code></a>, then adds a new <code>"track"</code> event handler.</p> <pre data-language="js">pc = new RTCPeerConnection({
+  iceServers: [
+    {
+      urls: "turn:fake.turnserver.url",
+      username: "someusername",
+      credential: "somepassword"
+    }
+  ]
+});
+
+pc.addEventHandler("track", e =&gt; {
+  videoElement.srcObject = e.streams[0];
+  hangupButton.disabled = false;
+}, false);</pre> <p>The event handler assigns the new track's first stream to an existing <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a> element, identified using the variable <code>videoElement</code>.</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://w3c.github.io/webrtc-pc/#dom-rtctrackevent" hreflang="en">WebRTC 1.0: Real-time Communication Between Browsers<br><small>The definition of 'RTCTrackEvent' in that specification.</small></a></td> <td><span class="spec-CR">Candidate Recommendation</span></td> <td>Initial specification.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility</h2>  <p>No compatibility data found. Please contribute data for "event.track" (depth: 1) to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.</p><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/track$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/track" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/Events/track</a>
+  </p>
+</div>

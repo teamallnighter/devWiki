@@ -1,0 +1,42 @@
+<h1>Errors: Deprecated toLocaleFormat</h1> <h2 id="Message">Message</h2> <pre class="syntaxbox">Warning: Date.prototype.toLocaleFormat is deprecated; consider using Intl.DateTimeFormat instead
+</pre> <h2 id="Error_Type">Error Type</h2> <p>Warning. JavaScript execution won't be halted.</p> <h2 id="What_went_wrong">What went wrong?</h2> <p>The non-standard <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleFormat"><code>Date.prototype.toLocaleFormat</code></a> method is deprecated and shouldn't be used anymore. It uses a format string in the same format expected by the <code>strftime()</code> function in C. <strong>The function is no longer available in Firefox 58+</strong>.</p> <h2 id="Examples">Examples</h2> <h3 id="Deprecated_syntax">Deprecated syntax</h3> <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleFormat"><code>Date.prototype.toLocaleFormat</code></a> method is deprecated and will be removed (no cross-browser support, available in Firefox only).</p> <pre data-language="js">var today = new Date(); 
+var date = today.toLocaleFormat('%A, %e. %B %Y');
+
+console.log(date);
+// In German locale
+// "Freitag, 10. März 2017"</pre> <h3 id="Alternative_standard_syntax_using_the_ECMAScript_Intl_API">Alternative standard syntax using the ECMAScript Intl API</h3> <p>The ECMA-402 (ECMAScript Intl API) standard specifies standard objects and methods that enable language sensitive date and time formatting (available in Chrome 24+, Firefox 29+, IE11+, Safari10+).</p> <p>You can now either use the <a href="../global_objects/date/tolocaledatestring"><code>Date.prototype.toLocaleDateString</code></a> method if you just want to format one date.</p> <pre data-language="js">var today = new Date();
+var options = { weekday: 'long', year: 'numeric',
+                month: 'long', day: 'numeric' };
+var date = today.toLocaleDateString('de-DE', options);
+
+console.log(date);
+// "Freitag, 10. März 2017"
+</pre> <p>Or, you can make use of the <a href="../global_objects/datetimeformat"><code>Intl.DateTimeFormat</code></a> object, which allows you to cache an object with most of the computations done so that formatting is fast. This is useful if you have a loop of dates to format.</p> <pre data-language="js">var options = { weekday: 'long', year: 'numeric', 
+                month: 'long', day: 'numeric' }; 
+var dateFormatter = new Intl.DateTimeFormat('de-DE', options)
+
+var dates = [Date.UTC(2012, 11, 20, 3, 0, 0), 
+             Date.UTC(2014, 04, 12, 8, 0, 0)]; 
+
+dates.forEach(date =&gt; console.log(dateFormatter.format(date)));
+
+// "Donnerstag, 20. Dezember 2012"
+// "Montag, 12. Mai 2014"
+</pre> <h3 id="Alternative_standard_syntax_using_Date_methods">Alternative standard syntax using Date methods</h3> <p>The <a href="../global_objects/date"><code>Date</code></a> object offers several methods to build a custom date string.</p> <pre data-language="js">(new Date()).toLocaleFormat("%Y%m%d");
+// "20170310"
+</pre> <p>Can be converted to:</p> <pre data-language="js">let now = new Date();
+let date = now.getFullYear() * 10000 + 
+          (now.getMonth() + 1) * 100 + now.getDate();
+
+console.log(date);
+// "20170310"</pre> <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleFormat"><code>Date.prototype.toLocaleFormat</code></a></li> <li><a href="../global_objects/date/tolocaledatestring"><code>Date.prototype.toLocaleDateString</code></a></li> <li><a href="../global_objects/datetimeformat"><code>Intl.DateTimeFormat</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Deprecated_toLocaleFormat$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Deprecated_toLocaleFormat" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Deprecated_toLocaleFormat</a>
+  </p>
+</div>

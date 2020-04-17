@@ -1,0 +1,87 @@
+<h1>typedArray.toString</h1> <p>The <code><strong>toString()</strong></code> method returns a string representing the specified array and its elements. This method has the same algorithm as <a href="../array/tostring"><code>Array.prototype.toString()</code></a><em>.</em> <em>TypedArray</em> is one of the <a href="../typedarray#TypedArray_objects">typed array types</a> here.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/typedarray-tostring.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><var>typedarray</var>.toString()</pre> <h3 id="Return_value">Return value</h3> <p>A string representing the elements of the typed array.</p> <h2 id="Description">Description</h2> <p>The <a href="../typedarray"><code>TypedArray</code></a> objects override the <code>toString</code> method of <a href="../object"><code>Object</code></a>. For TypedArray objects, the <code>toString</code> method joins the array and returns one string containing each typed array element separated by commas. For example, the following code creates a typed array and uses <code>toString</code> to convert the array to a string.</p> <pre data-language="js">var numbers = new Uint8Array([2, 5, 8, 1, 4])
+numbers.toString(); // "2,5,8,1,4"
+</pre> <p>JavaScript calls the <code>toString</code> method automatically when a typed array is to be represented as a text value or when an array is referred to in a string concatenation.</p> <h3 id="Compatibility">Compatibility</h3> <p>If a browser doesn't support the <code>TypedArray.prototype.toString()</code> method yet, JavaScript will call the <code>toString</code> method of <a href="../object"><code>Object</code></a>:</p> <pre data-language="js">var numbers = new Uint8Array([2, 5, 8, 1, 4])
+numbers.toString(); // "[object Uint8Array]"
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="#" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'TypedArray.prototype.toString' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition.</td> </tr> <tr> <td><a href="#" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'Array.prototype.toString' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 51</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 51</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li><a href="join"><code>TypedArray.prototype.join()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/toString$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/toString" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/toString</a>
+  </p>
+</div>

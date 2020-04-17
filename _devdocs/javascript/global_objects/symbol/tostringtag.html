@@ -1,0 +1,114 @@
+<h1>Symbol.toStringTag</h1> <p>The <code>Symbol.toStringTag</code> well-known symbol is a string valued property that is used in the creation of the default string description of an object. It is accessed internally by the <a href="../object/tostring"><code>Object.prototype.toString()</code></a> method.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/symbol-tostringtag.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <div class="_table"><table class="standard-table"> <thead> <tr> <th colspan="2" class="header">Property attributes of <code>Symbol.toStringTag</code>
+</th> </tr> </thead> <tbody> <tr> <td>Writable</td> <td>no</td> </tr> <tr> <td>Enumerable</td> <td>no</td> </tr> <tr> <td>Configurable</td> <td>no</td> </tr> </tbody> </table></div> <h2 id="Description">Description</h2> <p>Many JavaScript types have tags by default:</p> <pre data-language="js">Object.prototype.toString.call('foo');     // "[object String]"
+Object.prototype.toString.call([1, 2]);    // "[object Array]"
+Object.prototype.toString.call(3);         // "[object Number]"
+Object.prototype.toString.call(true);      // "[object Boolean]"
+Object.prototype.toString.call(undefined); // "[object Undefined]"
+Object.prototype.toString.call(null);      // "[object Null]"
+// ... and more
+</pre> <p>Others have a built-in <code>toStringTag</code> symbol defined:</p> <pre data-language="js">Object.prototype.toString.call(new Map());       // "[object Map]"
+Object.prototype.toString.call(function* () {}); // "[object GeneratorFunction]"
+Object.prototype.toString.call(Promise.resolve()); // "[object Promise]"
+// ... and more
+</pre> <p>When creating your own class, JavaScript defaults to the "Object" tag:</p> <pre data-language="js">class ValidatorClass {}
+
+Object.prototype.toString.call(new ValidatorClass()); // "[object Object]"
+</pre> <p>Now, with the help of <code>toStringTag</code>, you are able to set your own custom tag:</p> <pre data-language="js">class ValidatorClass {
+  get [Symbol.toStringTag]() {
+    return 'Validator';
+  }
+}
+
+Object.prototype.toString.call(new ValidatorClass()); // "[object Validator]"
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-symbol.tostringtag" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'Symbol.toStringTag' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition.</td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-symbol.tostringtag" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'Symbol.toStringTag' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes"> 51</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 51</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes bc-has-history"> 6.0.0
+<section class="bc-history" id="sect1"><dl>
+<dt class="bc-supports-yes bc-supports"> 6.0.0
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 4.0.0<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 4.0.0: this feature is behind the <code>--harmony</code> runtime flag.</dd>
+</dl></section>
+</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../object/tostring"><code>Object.prototype.toString()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag</a>
+  </p>
+</div>

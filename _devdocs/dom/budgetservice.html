@@ -1,0 +1,142 @@
+<h1>BudgetService</h1><div class="notice overheadIndicator experimental"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p>The <code>BudgetService</code> interface of the <a href="web_budget_api">Web Budget API</a> provides a programmatic interface to the user agent’s budget service. It is available in both document and worker environments.</p> <h2 id="Properties">Properties</h2> <p>None.</p> <h2 id="Methods">Methods</h2> <dl> <dt><a href="budgetservice/getcost"><code>BudgetService.getCost()</code></a></dt> <dd>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Promise"><code>Promise</code></a> that resolves to a double, indicating the worst-case background operation cost of the provided background operation.</dd> <dt><a href="budgetservice/getbudget"><code>BudgetService.getBudget()</code></a></dt> <dd>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Promise"><code>Promise</code></a> that resolves to an array of <a href="budgetstate"><code>BudgetState</code></a> objects, indicating the expected state of the budget at times in the future.</dd> <dt><a href="budgetservice/reserve"><code>BudgetService.reserve()</code></a></dt> <dd>Returns a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Promise"><code>Promise</code></a> that resolves to a boolean, indicating whether the requested budget operation can be reserved.</dd> </dl> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://wicg.github.io/budget-api/#budget-service-interface" hreflang="en">Web Budget API<br><small>The definition of 'BudgetService' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_Compatibility">Browser Compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 55</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 42</td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/BudgetService/getBudget"><code>getBudget</code></a> 
+</th>
+<td class="bc-supports-yes"> 55</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 42</td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/BudgetService/getCost"><code>getCost</code></a> 
+</th>
+<td class="bc-supports-yes"> 55</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 42</td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/BudgetService/reserve"><code>reserve</code></a> 
+</th>
+<td class="bc-supports-yes"> 55</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 42</td>
+<td> ? </td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 55</td>
+<td class="bc-supports-yes"> 55</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 42</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 6.0</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/BudgetService/getBudget"><code>getBudget</code></a> 
+</th>
+<td class="bc-supports-yes"> 55</td>
+<td class="bc-supports-yes"> 55</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 42</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 6.0</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/BudgetService/getCost"><code>getCost</code></a> 
+</th>
+<td class="bc-supports-yes"> 55</td>
+<td class="bc-supports-yes"> 55</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 42</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 6.0</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/BudgetService/reserve"><code>reserve</code></a> 
+</th>
+<td class="bc-supports-yes"> 55</td>
+<td class="bc-supports-yes"> 55</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 42</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 6.0</td>
+</tr>
+</tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/BudgetService$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/BudgetService" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/BudgetService</a>
+  </p>
+</div>

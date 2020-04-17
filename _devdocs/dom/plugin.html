@@ -1,0 +1,229 @@
+<h1>Plugin</h1> <p>The <code>Plugin</code> interface provides information about a browser <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/Plugins">plugin</a>.</p> <div class="note"> <p><strong>Note</strong>: Own properties of <code>Plugin</code> objects are no longer enumerable in the latest browser versions.</p> </div> <h2 name="Properties" id="Properties">Properties</h2> <dl> <dt>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Plugin/description"><code>Plugin.description</code></a> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</dt> <dd>A human readable description of the plugin.</dd> <dt>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Plugin/filename"><code>Plugin.filename</code></a> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</dt> <dd>The filename of the plugin file.</dd> <dt>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Plugin/name"><code>Plugin.name</code></a> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</dt> <dd>The name of the plugin.</dd> <dt>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Plugin/version"><code>Plugin.version</code></a> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</dt> <dd>The plugin's version number string.</dd> </dl> <h2 name="Methods" id="Methods">Methods</h2> <dl> <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Plugin/item"><code>Plugin.item</code></a></dt> <dd>Returns the MIME type of a supported content type, given the index number into a list of supported types.</dd> <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Plugin/namedItem"><code>Plugin.namedItem</code></a></dt> <dd>Returns the MIME type of a supported item.</dd> </dl> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://html.spec.whatwg.org/multipage/#dom-plugin" hreflang="en">HTML Living Standard<br><small>The definition of 'Plugin' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/description"><code>description</code></a></th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/filename"><code>filename</code></a></th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/item"><code>item</code></a></th>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Starting with version 59, method parameters are required instead of optional.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/name"><code>name</code></a></th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/namedItem"><code>namedItem</code></a></th>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Starting with version 59, method parameters are required instead of optional.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/version"><code>version</code></a></th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/description"><code>description</code></a></th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/filename"><code>filename</code></a></th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/item"><code>item</code></a></th>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Starting with version 59, method parameters are required instead of optional.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Starting with version 59, method parameters are required instead of optional.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/name"><code>name</code></a></th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/namedItem"><code>namedItem</code></a></th>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Starting with version 59, method parameters are required instead of optional.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Starting with version 59, method parameters are required instead of optional.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/Plugin/version"><code>version</code></a></th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+</tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Plugin$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Plugin" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/Plugin</a>
+  </p>
+</div>

@@ -1,0 +1,20 @@
+<h1>chargingchange</h1><div class="overheadIndicator obsolete obsoleteHeader"><p><strong> Obsolete</strong><br>This feature is obsolete. Although it may still work in some browsers, its use is discouraged since it could be removed at any time. Try to avoid using it.</p></div><p>The <code>chargingchange</code> event is fired when the <code>charging</code> attribute of the <a href="https://developer.mozilla.org/en-US/docs/DOM/window.navigator.battery">battery API</a> has changed.</p> <h2 id="General_info">General info</h2> <dl class="eventinfo"> <dt style="float: left; text-align: right; width: 120px;">Specification</dt> <dd style="margin: 0 0 0 120px;"><a href="http://www.w3.org/TR/battery-status/">Battery</a></dd> <dt style="float: left; text-align: right; width: 120px;">Interface</dt> <dd style="margin: 0 0 0 120px;">Event</dd> <dt style="float: left; text-align: right; width: 120px;">Bubbles</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Cancelable</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Target</dt> <dd style="margin: 0 0 0 120px;"><a href="https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager"><code>BatteryManager</code></a></dd> <dt style="float: left; text-align: right; width: 120px;">Default Action</dt> <dd style="margin: 0 0 0 120px;">None</dd> </dl> <h2 name="Properties" id="Properties">Properties</h2> <p>The event callback doesn't receive any event objects, but properties can be read from the <a href="https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager"><code>BatteryManager</code></a> object received from the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery"><code>navigator.getBattery</code></a> method.</p> <div class="_table"><table class="standard-table"> <tbody> <tr> <th class="header">Property</th> <th class="header">Type</th> <th class="header">Description</th> </tr> <tr> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager/charging"><code>BatteryManager.charging</code></a></td> <td>boolean</td> <td>The system's battery charging status. Returns <code>true</code> if the battery is charging, if the state of the system's battery is not determinable, or if no battery is attached to the system. Returns <code>false</code> if the battery is discharging. Read only.</td> </tr> </tbody> </table></div> <h2 name="Example" id="Example">Example</h2> <pre data-language="js">navigator.getBattery().then(function(battery) {
+
+  console.log("Battery charging? " + (battery.charging ? "Yes" : "No"));
+
+  battery.addEventListener('chargingchange', function() {
+    console.log("Battery charging? " + (battery.charging ? "Yes" : "No"));
+  });
+
+});
+</pre> <h2 id="Related_events">Related events</h2> <ul> <li><code><a href="chargingtimechange">chargingtimechange</a></code></li> <li><code><a href="dischargingtimechange">dischargingtimechange</a></code></li> <li><code><a href="levelchange">levelchange</a></code></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/chargingchange$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/chargingchange" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/Events/chargingchange</a>
+  </p>
+</div>

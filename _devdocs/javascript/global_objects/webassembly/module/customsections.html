@@ -1,0 +1,109 @@
+<h1>WebAssembly.module.customSections</h1> <p>The <code>WebAssembly.customSections()</code> function returns a copy of the contents of all custom sections in the given module with the given string name.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var custSec = WebAssembly.Module.customSections(<em>module</em>, <em>sectionName</em>);</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><em>module</em></dt> <dd>The <a href="../module"><code>WebAssembly.Module</code></a> object whose custom sections are being considered.</dd> <dt><em>sectionName</em></dt> <dd>The string name of the desired custom section.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>A (possibly empty) array containing <a href="https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer"><code>ArrayBuffer</code></a> copies of the contents of all custom sections matching <code>sectionName</code>.</p> <h3 id="Exceptions">Exceptions</h3> <p>If <code>module</code> is not a <a href="../module"><code>WebAssembly.Module</code></a> object instance, a <a href="../../typeerror"><code>TypeError</code></a> is thrown.</p> <h2 id="Custom_sections">Custom sections</h2> <p>A wasm module is comprised of a sequence of <strong>sections</strong>. Most of these sections are fully specified and validated by the wasm spec, but modules can also contain <strong>custom sections</strong> that are ignored and skipped over during validation. (Read <a href="https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md#high-level-structure">High level structure</a> for information on section structures, and how normal sections ("known sections") and custom sections are distinguished.)</p> <p>This provides developers with a way to include custom data inside wasm modules for other purposes, for example the <a href="https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md#name-section">name custom section</a>, which allows developers to provide names for all the functions and locals in the module (like "symbols" in a native build).</p> <p>Note that the WebAssembly text format currently doesn't have a syntax specified for adding new custom sections; you can however add a name section to your wasm during conversion from text format over to .wasm. The wast2wasm command available as part of the <a href="https://github.com/webassembly/wabt">wabt tool</a> has a <code>--debug-names</code> option — specify this during conversion to get a .wasm with a names custom section, for example:</p> <pre data-language="bash">wast2wasm simple-name-section.was -o simple-name-section.wasm --debug-names</pre> <h2 id="Example">Example</h2> <p>The following example (see the custom-section.html <a href="https://github.com/mdn/webassembly-examples/blob/master/other-examples/custom-section.html">source</a> and <a href="https://mdn.github.io/webassembly-examples/other-examples/custom-section.html">live example</a>) compiles the loaded simple-name-section.wasm byte code.</p> <p>We then do a check using <code>WebAssembly.Module.customSections</code>, looking to see whether the module instance contains a "name" custom section by checking that its <code>length</code> is more than 0. Since there is a "name" section in the example, an <code>ArrayBuffer</code> object is returned.</p> <pre data-language="js">WebAssembly.compileStreaming(fetch('simple-name-section.wasm'))
+.then(function(mod) {
+  var nameSections = WebAssembly.Module.customSections(mod, "name");
+  if (nameSections.length != 0) {
+    console.log("Module contains a name section");
+    console.log(nameSections[0]);
+  };
+});</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://webassembly.github.io/spec/js-api/#webassemblymodulecustomsections" hreflang="en">WebAssembly JavaScript Interface<br><small>The definition of 'customSections()' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Initial draft definition.</td> </tr> </tbody> </table></div> <h2 name="Browser_compatibility" id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 57</td>
+<td class="bc-supports-yes"> 16</td>
+<td class="bc-supports-yes bc-has-history"> 52
+<section class="bc-history" id="sect1"><dl>
+<dt class="bc-supports-yes bc-supports"> 52
+</dt>
+<dd> Disabled in the Firefox 52 Extended Support Release (ESR).</dd>
+</dl></section>
+</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 44</td>
+<td class="bc-supports-yes"> 11</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 57</td>
+<td class="bc-supports-yes"> 57</td>
+<td class="bc-supports-yes bc-has-history"> Yes<div class="bc-icons">Disabled </div>
+<section class="bc-history" id="sect2"><dl>
+<dt class="bc-supports-yes bc-supports"> Yes<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled This feature is behind the <code>Experimental JavaScript Features</code> preference.</dd>
+</dl></section>
+</td>
+<td class="bc-supports-yes bc-has-history"> 52
+<section class="bc-history" id="sect3"><dl>
+<dt class="bc-supports-yes bc-supports"> 52
+</dt>
+<dd> Disabled in the Firefox 52 Extended Support Release (ESR).</dd>
+</dl></section>
+</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 11</td>
+<td class="bc-supports-yes"> 7.0</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 8.0.0</td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li>
+<a href="https://developer.mozilla.org/en-US/docs/WebAssembly">WebAssembly</a> overview page</li> <li><a href="https://developer.mozilla.org/en-US/docs/WebAssembly/Concepts">WebAssembly concepts</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API">Using the WebAssembly JavaScript API</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module/customSections$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module/customSections" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module/customSections</a>
+  </p>
+</div>

@@ -1,0 +1,120 @@
+<h1>error.toString</h1> <p>The <code><strong>toString()</strong></code> method returns a string representing the specified <a href="../error"><code>Error</code></a> object.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><var>e</var>.toString()</pre> <h3 id="Return_value">Return value</h3> <p>A string representing the specified <a href="../error"><code>Error</code></a> object.</p> <h2 id="Description">Description</h2> <p>The <a href="../error"><code>Error</code></a> object overrides the <a href="../object/tostring"><code>Object.prototype.toString()</code></a> method inherited by all objects. Its semantics are as follows (assuming <a href="../object"><code>Object</code></a> and <a href="../string"><code>String</code></a> have their original values):</p> <pre data-language="js">Error.prototype.toString = function() {
+  'use strict';
+
+  var obj = Object(this);
+  if (obj !== this) {
+    throw new TypeError();
+  }
+
+  var name = this.name;
+  name = (name === undefined) ? 'Error' : String(name);
+
+  var msg = this.message;
+  msg = (msg === undefined) ? '' : String(msg);
+
+  if (name === '') {
+    return msg;
+  }
+  if (msg === '') {
+    return name;
+  }
+
+  return name + ': ' + msg;
+};
+</pre> <h2 id="Examples">Examples</h2> <pre data-language="js">var e = new Error('fatal error');
+console.log(e.toString()); // 'Error: fatal error'
+
+e.name = undefined;
+console.log(e.toString()); // 'Error: fatal error'
+
+e.name = '';
+console.log(e.toString()); // 'fatal error'
+
+e.message = undefined;
+console.log(e.toString()); // 'Error'
+
+e.name = 'hello';
+console.log(e.toString()); // 'hello'
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%201st%20edition,%20June%201997.pdf" hreflang="en">ECMAScript 1st Edition (ECMA-262)</a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition. Implemented in JavaScript 1.1.</td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/5.1/#sec-15.11.4.4" hreflang="en">ECMAScript 5.1 (ECMA-262)<br><small>The definition of 'Error.prototype.toString' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-error.prototype.tostring" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'Error.prototype.toString' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-error.prototype.tostring" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'Error.prototype.toString' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>    <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 6</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div>   <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/toSource"><code>Error.prototype.toSource()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/toString$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/toString" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/toString</a>
+  </p>
+</div>

@@ -1,0 +1,106 @@
+<h1>AudioTrackList.onaddtrack</h1> <p>The <strong><a href="../audiotracklist"><code>AudioTrackList</code></a></strong> property <code>onaddtrack</code> is an event handler which is called when the <code><a href="https://developer.mozilla.org/en-US/docs/Web/Events/addtrack">addtrack</a></code> event occurs, indicating that a new audio track has been added to the media element whose audio tracks the <code>AudioTrackList</code> represents.</p> <p>The event is passed into the event handler in the form of a <a href="../trackevent"><code>TrackEvent</code></a> object, whose <a href="../trackevent/track"><code>track</code></a> property identifies the newly-added track.</p> <div class="note"> <p><strong>Note:</strong> You can also add a handler for the <code>addtrack</code> event using <a href="../eventtarget/addeventlistener"><code>addEventListener()</code></a>.</p> </div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><em>AudioTrackList</em>.onaddtrack = <em>eventHandler</em>;</pre> <h3 id="Value">Value</h3> <p>Set <code>onaddtrack</code> to a function that accepts as input a <a href="../trackevent"><code>TrackEvent</code></a> object which indicates in its <a href="../trackevent/track"><code>track</code></a> property which audio track has been added to the media.</p> <h2 id="Usage_notes">Usage notes</h2> <p>The <code><a href="https://developer.mozilla.org/en-US/docs/Web/Events/addtrack">addtrack</a></code> event is called whenever a new track is added to the media element whose audio tracks are represented by the <code>AudioTrackList</code> object. This happens when tracks are added to the element when the media is first attached to the element; one <code>addtrack</code> event will occur for each audio track in the media resource.</p> <h2 id="Example">Example</h2> <p>This snippet establishes a handler for the <code><a href="https://developer.mozilla.org/en-US/docs/Web/Events/addtrack">addtrack</a></code> event that calls a function, <code>addToTrackList()</code>, passing in the <a href="../audiotrack"><code>AudioTrack</code></a> object representing the newly-added track. In this scenario, that function's role is to add the new track to a list of audio tracks available to choose from.</p> <pre data-language="js">document.querySelector("video").audioTracks.onaddtrack = function(event) {
+  addToTrackList(event.track);
+};
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://html.spec.whatwg.org/multipage/#handler-tracklist-onaddtrack" hreflang="en">HTML Living Standard<br><small>The definition of 'AudioTrackList.onaddtrack' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.w3.org/TR/html50/embedded-content-0.html#dom-audiotracklist-onaddtrack" hreflang="en">HTML5<br><small>The definition of 'AudioTrackList.onaddtrack' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes bc-has-history"> 45<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 45<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 45: this feature is behind the <code>enable-experimental-web-platform-features</code> preference (needs to be set to <code>enabled</code>). To change preferences in Chrome, visit chrome://flags.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes bc-has-history"> 33<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 33<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 33: this feature is behind the <code>media.track.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 10</td>
+<td class="bc-supports-yes bc-has-history"> 32<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 32<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 32: this feature is behind the <code>enable-experimental-web-platform-features</code> preference (needs to be set to <code>enabled</code>).</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 6.1</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 45</td>
+<td class="bc-supports-yes bc-has-history"> 45<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 45<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 45: this feature is behind the <code>enable-experimental-web-platform-features</code> preference (needs to be set to <code>enabled</code>). To change preferences in Chrome, visit chrome://flags.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 33<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 33<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 33: this feature is behind the <code>media.track.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> 32<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 32<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 32: this feature is behind the <code>enable-experimental-web-platform-features</code> preference (needs to be set to <code>enabled</code>).</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 7.1</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioTrackList/onaddtrack$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioTrackList/onaddtrack" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/AudioTrackList/onaddtrack</a>
+  </p>
+</div>

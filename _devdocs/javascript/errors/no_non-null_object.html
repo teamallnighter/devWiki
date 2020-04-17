@@ -1,0 +1,30 @@
+<h1>Errors: No non-null object</h1> <h2 id="Message">Message</h2> <pre class="syntaxbox">TypeError: Invalid descriptor for property {x} (Edge)
+TypeError: "x" is not a non-null object (Firefox)
+TypeError: Property description must be an object: "x" (Chrome)
+TypeError: Invalid value used in weak set (Chrome)
+</pre> <h2 id="Error_type">Error type</h2> <p><a href="../global_objects/typeerror"><code>TypeError</code></a></p> <h2 id="What_went_wrong">What went wrong?</h2> <p>An object is expected somewhere and wasn't provided. <a href="../global_objects/null"><code>null</code></a> is not an object and won't work. You must provide a proper object in the given situation.</p> <h2 id="Examples">Examples</h2> <h3 id="Property_descriptor_expected">Property descriptor expected</h3> <p>When methods like <a href="../global_objects/object/create"><code>Object.create()</code></a> or <a href="../global_objects/object/defineproperty"><code>Object.defineProperty()</code></a> and <a href="../global_objects/object/defineproperties"><code>Object.defineProperties()</code></a> are used, the optional descriptor parameter expects a property descriptor object. Providing no object (like just a number), will throw an error:</p> <pre data-language="js">Object.defineProperty({}, 'key', 1);
+// TypeError: 1 is not a non-null object
+
+Object.defineProperty({}, 'key', null);
+// TypeError: null is not a non-null object
+</pre> <p>A valid property descriptor object might look like this:</p> <pre data-language="js">Object.defineProperty({}, 'key', { value: 'foo', writable: false });
+</pre> <h3 id="WeakMap_and_WeakSet_objects_require_object_keys">
+<code>WeakMap</code> and <code>WeakSet</code> objects require object keys</h3> <p><a href="../global_objects/weakmap"><code>WeakMap</code></a> and <a href="../global_objects/weakset"><code>WeakSet</code></a> objects store object keys. You can't use other types as keys.</p> <pre data-language="js">var ws = new WeakSet();
+ws.add('foo');
+// TypeError: "foo" is not a non-null object</pre> <p>Use objects instead:</p> <pre data-language="js">ws.add({foo: 'bar'});
+ws.add(window);
+</pre> <h2 id="See_also">See also</h2> <ul> <li><a href="../global_objects/object/create"><code>Object.create()</code></a></li> <li>
+<a href="../global_objects/object/defineproperty"><code>Object.defineProperty()</code></a>, <a href="../global_objects/object/defineproperties"><code>Object.defineProperties()</code></a>
+</li> <li>
+<a href="../global_objects/weakmap"><code>WeakMap</code></a>, <a href="../global_objects/weakset"><code>WeakSet</code></a>
+</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/No_non-null_object$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/No_non-null_object" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/No_non-null_object</a>
+  </p>
+</div>

@@ -1,0 +1,92 @@
+<h1>EffectTiming.duration</h1><div class="notice overheadIndicator experimental"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p>The <code>duration</code> property of the dictionary <a href="../effecttiming"><code>EffectTiming</code></a> in the <a href="../web_animations_api">Web Animations API</a> specifies the duration in milliseconds that a single iteration (from beginning to end) the animation should take to complete.</p> <div class="note"> <p><a href="../element/animate"><code>Element.animate()</code></a>, <a href="../keyframeeffect/keyframeeffect"><code>KeyframeEffectReadOnly()</code></a>, and <a href="../keyframeeffect/keyframeeffect"><code>KeyframeEffect()</code></a> all accept an object of timing properties including <code>duration</code>. The value of <code>duration</code> corresponds directly to <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnimationEffectTimingReadOnly/duration"><code>AnimationEffectTimingReadOnly.duration</code></a> in <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnimationEffectReadOnly/timing"><code>timing</code></a> objects returned by <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnimationEffectReadOnly"><code>AnimationEffectReadOnly</code></a>, <a href="../keyframeeffect"><code>KeyframeEffectReadOnly</code></a>, and <a href="../keyframeeffect"><code>KeyframeEffect</code></a>.</p> </div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var <em>timingProperties</em> = {
+  duration: <em>durationInMilliseconds</em> | "auto"
+};
+
+<em>timingProperties</em>.duration = <em>durationInMilliseconds</em> | "auto";
+</pre> <h3 id="Value">Value</h3> <p>The number of milliseconds long a single beginning-to-end iteration of the animation should take. The default is <code>"auto"</code>. This value must not be negative; otherwise, it can have any value (including positive infinity).</p> <div class="note"> <p>Currently, a value of <code>"auto"</code> is the same as specifying 0.0. This is a forwards-compatiblity measure since in the future, "auto" will be expanded to take into account the duration of any child effects. Consider using <code>"auto"</code> rather than 0 if that makes sense.</p> </div> <h3 id="Exceptions">Exceptions</h3> <dl> <dt><code>TypeError</code></dt> <dd>The specified value is either a string other than <code>"auto"</code>, a number less than zero, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN"><code>NaN</code></a>, or some other type of object entirely.</dd> </dl> <h2 id="Examples">Examples</h2> <p>In the <a href="http://codepen.io/rachelnabors/pen/EPJdJx?editors=0010">Pool of Tears</a> example, each tear is passed a random <code>duration</code> via its timing object:</p> <pre data-language="js">// Randomizer function
+var getRandomMsRange = function(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+// Loop through each tear
+tears.forEach(function(el) { 
+
+  // Animate each tear
+  el.animate(
+    tearsFalling, 
+    {
+       delay: getRandomMsRange(-1000, 1000), // randomized for each tear
+       duration: getRandomMsRange(2000, 6000), // randomized for each tear
+       iterations: Infinity,
+       easing: "cubic-bezier(0.6, 0.04, 0.98, 0.335)"
+    });
+});</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://drafts.csswg.org/web-animations/#iteration-duration" hreflang="en">Web Animations<br><small>The definition of 'duration' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Editor's draft.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 63</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 63</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../web_animations_api">Web Animations API</a></li> <li>
+<a href="../element/animate"><code>Element.animate()</code></a>, <a href="../keyframeeffect/keyframeeffect"><code>KeyframeEffectReadOnly()</code></a>, and <a href="../keyframeeffect/keyframeeffect"><code>KeyframeEffect()</code></a> all accept an object of timing properties including this one.</li> <li>The value of this property corresponds to property of the same name in <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnimationEffectReadOnly/timing"><code>AnimationEffectReadOnly.timing</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffectReadOnly/timing"><code>KeyframeEffectReadOnly.timing</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/timing"><code>KeyframeEffect.timing</code></a>).</li> <li>CSS's <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration"><code>transition-duration</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration"><code>animation-duration</code></a> properties</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/EffectTiming/duration$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/EffectTiming/duration" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/EffectTiming/duration</a>
+  </p>
+</div>

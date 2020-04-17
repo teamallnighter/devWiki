@@ -1,0 +1,147 @@
+<h1>background-position-y</h1> <p>The <code>background-position-y</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property sets the initial vertical position, relative to the background position layer defined by <a href="background-origin"><code>background-origin</code></a>, for each defined background image.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/css/background-position-y.html" frameborder="0" width="100%" class="interactive" height="250"></iframe>  <p>The value of this property is overridden by any declaration of the <a href="background"><code>background</code></a> or <a href="background-position"><code>background-position</code></a> shorthand properties applied to the element after it.</p> <h2 name="Syntax" id="Syntax">Syntax</h2> <pre data-language="css">/* Keyword values */
+background-position-y: top;
+background-position-y: center;
+background-position-y: bottom;
+
+/* &lt;percentage&gt; values */
+background-position-y: 25%;
+
+/* &lt;length&gt; values */
+background-position-y: 0px;
+background-position-y: 1cm;
+background-position-y: 8em;
+
+/* Side-relative values */
+background-position-y: bottom 3px;
+background-position-y: bottom 10%;
+
+/* Multiple values */
+background-position-y: 0px, center;
+
+/* Global values */
+background-position-y: inherit;
+background-position-y: initial;
+background-position-y: unset;
+</pre> <p>The <code>background-position-y</code> property is specified as one or more values, separated by commas.</p> <h3 id="Values">Values</h3> <dl> <dt><code>top</code></dt> <dd>Aligns the top edge of the background image with the top edge of the background position layer.</dd> <dt><code>center</code></dt> <dd>Aligns the vertical center of the background image with the vertical center of the background position layer.</dd> <dt><code>bottom</code></dt> <dd>Aligns the bottom edge of the background image with the bottom edge of the background position layer.</dd> <dt><a href="length"><code>&lt;length&gt;</code></a></dt> <dd>The offset of the given background image's vertical edge from the corresponding background position layer's vertical edge. If no edge is given, it refers to the top edge.</dd> <dt><a href="percentage"><code>&lt;percentage&gt;</code></a></dt> <dd>The offset of the given background image's vertical edge from the corresponding background position layer's vertical edge relative to its height. If no edge is given, it refers to the top edge.</dd> </dl> <h3 id="Formal_syntax">Formal syntax</h3> <pre class="syntaxbox"><a href="value_definition_syntax#Brackets">[</a> center | <a href="value_definition_syntax#Brackets">[</a> top | bottom | y-start | y-end <a href="value_definition_syntax#Brackets">]</a><a href="value_definition_syntax#Question_mark_()">?</a> <a href="#length-percentage">&lt;length-percentage&gt;</a><a href="value_definition_syntax#Question_mark_()">?</a> <a href="value_definition_syntax#Brackets">]</a><a href="value_definition_syntax#Hash_mark_()">#</a><p>where <br><span id="length-percentage">&lt;length-percentage&gt;</span> = <a href="length">&lt;length&gt;</a> | <a href="percentage">&lt;percentage&gt;</a></p></pre> <h2 name="Specifications" id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands" hreflang="en">CSS Backgrounds and Borders Module Level 4<br><small>The definition of 'background-position-y' in that specification.</small></a></td> <td><span class="spec-ED">Editor's Draft</span></td> <td>Initial specification of longhand sub-properties of <a href="background-position"><code>background-position</code></a> to match longstanding implementations.</td> </tr> </tbody> </table></div> <div class="_table"><table class="properties"><tbody>
+<tr>
+<th scope="row"><a href="initial_value">Initial value</a></th>
+<td><code>top</code></td>
+</tr>
+<tr>
+<th scope="row">Applies to</th>
+<td>all elements</td>
+</tr>
+<tr>
+<th scope="row"><a href="inheritance">Inherited</a></th>
+<td>no</td>
+</tr>
+<tr>
+<th scope="row">Percentages</th>
+<td>refer to height of background positioning area minus height of background image</td>
+</tr>
+<tr>
+<th scope="row">Media</th>
+<td>visual</td>
+</tr>
+<tr>
+<th scope="row"><a href="computed_value">Computed value</a></th>
+<td>A list, each item consisting of: an offset given as a combination of an absolute length and a percentage, plus an origin keyword</td>
+</tr>
+<tr>
+<th scope="row">Animation type</th>
+<td>discrete</td>
+</tr>
+<tr>
+<th scope="row">Canonical order</th>
+<td>the unique non-ambiguous order defined by the formal grammar</td>
+</tr>
+</tbody></table></div> <h2 name="Browser_compatibility" id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-yes"> 6</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">Two-value syntax (support for offsets from any edge)</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 49</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">Two-value syntax (support for offsets from any edge)</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr>
+</tbody>
+</table>
+</div> <h2 name="See_also" id="See_also">See also</h2> <ul> <li><a href="background-position"><code>background-position</code></a></li> <li><a href="background-position-x"><code>background-position-x</code></a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-inline"><code>background-position-inline</code></a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-block"><code>background-position-block</code></a></li> <li><a href="multiple_backgrounds">Using multiple backgrounds</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-y$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-y" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-y</a>
+  </p>
+</div>

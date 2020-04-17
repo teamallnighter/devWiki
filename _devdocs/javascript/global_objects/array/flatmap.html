@@ -1,0 +1,121 @@
+<h1>array.flatMap</h1> <div class="blockIndicator experimental indicator-warning"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p>The <code><strong>flatMap()</strong></code> method first maps each element using a mapping function, then flattens the result into a new array. It is identical to a <a href="map">map</a> followed by a <a href="flat">flat</a> of depth 1, but <code>flatMap</code> is often quite useful, as merging both into one method is slightly more efficient.</p>   <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><var>var new_array = arr</var>.flatMap(function <var>callback(currentValue[, index[, array]]) {
+    // return element for new_array
+}</var>[, <var>thisArg</var>])</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>callback</code></dt> <dd>Function that produces an element of the new Array, taking three arguments: <dl>  <dt><code>currentValue</code></dt> <dd>The current element being processed in the array.</dd> <dt>
+<code>index</code><span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>The index of the current element being processed in the array.</dd> <dt>
+<code>array</code><span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>The array <code>map</code> was called upon.</dd> </dl> </dd> <dt>
+<code>thisArg</code><span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>Value to use as <code>this</code> when executing <code>callback</code>.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>A new array with each element being the result of the callback function and flattened to a depth of 1.</p> <h2 id="Description">Description</h2> <p>See <a href="map"><code>Array.prototype.map()</code></a> for a detailed description of the callback function. The <code>flatMap</code> method is identical to a <code><a href="map">map</a></code> followed by a call to <code><a href="flat">flat</a></code> of depth 1.</p> <h2 id="Examples">Examples</h2> <h3 id="map_and_flatMap">
+<code>map</code> and <code>flatMap</code>
+</h3> <pre data-language="js">let arr1 = <span class="js source"><span class="function-call js meta"><span class="js meta"><span class="brace js meta square"><span>[</span></span><span class="constant decimal js numeric"><span>1</span></span><span class="comma delimiter js meta object"><span>,</span></span><span class="brace js meta square"><span>2, 3, 4];
+
+arr1.map(</span></span></span></span></span>x =&gt; [x * 2]<span class="js source"><span class="function-call js meta"><span class="js meta"><span class="brace js meta square"><span>);</span></span></span></span></span> 
+// [[2], [4], [6], [8]]
+
+arr1.flatMap(x =&gt; [x * 2]<span class="js source"><span class="function-call js meta"><span class="js meta"><span class="brace js meta square"><span>);
+// [2, 4, 6, 8]</span></span></span></span></span>
+
+// only one level is flattened
+arr1.flatMap(x =&gt; [[x * 2]]);
+// [[2], [4], [6], [8]]
+</pre> <p>While the above could have been achieved by using map itself, here is an example showing usecase of <code>flatMap</code> better.</p> <p>Let's generate a list of words from a list of sentences.</p> <pre data-language="js">let arr1 = ["it's Sunny in", "", "California"];
+
+arr1.map(x =&gt; x.split(" "));
+// [["it's","Sunny","in"],[""],["California"]]
+
+arr1.flatMap(x =&gt; x.split(" ")<span class="js source"><span class="function-call js meta"><span class="js meta"><span class="brace js meta square"><span>);
+// ["it's","Sunny","in", "", "California"]</span></span></span></span></span></pre> <p>Notice, the output list length can be different from the input list length.</p> <div class="line"><span class="js source"><span class="comment double-slash js line"><span class="comment definition js punctuation"><span>//</span></span><span>=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span></span></div> <h2 id="Alternative">Alternative</h2> <h3 id="reduce_and_concat">
+<code>reduce</code> and <code>concat</code>
+</h3> <pre data-language="js">var arr1 = <span class="js source"><span class="function-call js meta"><span class="js meta"><span class="brace js meta square"><span>[</span></span><span class="constant decimal js numeric"><span>1</span></span><span class="comma delimiter js meta object"><span>,</span></span><span class="brace js meta square"><span>2, 3, 4];
+</span></span></span></span></span>
+arr1.flatMap(x =&gt; [x * 2]<span class="js source"><span class="function-call js meta"><span class="js meta"><span class="brace js meta square"><span>);</span></span></span></span></span>
+// is equivalent to
+arr1.reduce((acc, x) =&gt; acc.concat([x * 2]<span class="js source"><span class="function-call js meta"><span class="js meta"><span class="brace js meta square"><span>), []);</span></span></span></span></span>
+<span class="js source"><span class="function-call js meta"><span class="js meta"><span class="brace js meta square"><span>// [2, 4, 6, 8]</span></span></span></span></span>
+</pre> <div class="line"><span class="js source"><span class="comment double-slash js line"><span class="comment definition js punctuation"><span>//</span></span><span>=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span></span></div> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://tc39.github.io/proposal-flatMap/#sec-Array.prototype.flatMap"><code>Array.prototype.flatMap</code> proposal</a></td> <td>Candidate (3)</td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 69</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 62</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 56</td>
+<td class="bc-supports-yes"> 12</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 69</td>
+<td class="bc-supports-yes"> 69</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 62</td>
+<td class="bc-supports-yes"> 56</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li><a href="flat"><code>Array.prototype.flat()</code></a></li> <li><a href="map"><code>Array.prototype.map()</code></a></li> <li><a href="reduce"><code>Array.prototype.reduce()</code></a></li> <li><a href="concat"><code>Array.prototype.concat()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap</a>
+  </p>
+</div>

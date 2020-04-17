@@ -1,0 +1,135 @@
+<h1>BaseAudioContext.createAnalyser</h1> <p class="summary">The <code>createAnalyser()</code> method of the <a href="../baseaudiocontext"><code>BaseAudioContext</code></a> interface creates an <a href="../analysernode"><code>AnalyserNode</code></a>, which can be used to expose audio time and frequency data and create data visualisations.</p> <div class="note"> <p><strong>Note</strong>: For more on using this node, see the <a href="../analysernode"><code>AnalyserNode</code></a> page.</p> </div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var <var>analyserNode</var> = <var>baseAudioContext</var>.createAnalyser();</pre> <h3 name="Returns" id="Returns">Returns</h3> <p>An <a href="../analysernode"><code>AnalyserNode</code></a>.</p> <h2 name="Examples" id="Examples">Example</h2> <p>The following example shows basic usage of an AudioContext to create an Analyser node, then use requestAnimationFrame() to collect time domain data repeatedly and draw an "oscilloscope style" output of the current audio input. For more complete applied examples/information, check out our <a href="https://mdn.github.io/voice-change-o-matic/">Voice-change-O-matic</a> demo (see <a href="https://github.com/mdn/voice-change-o-matic/blob/gh-pages/scripts/app.js#L128-L205">app.js lines 128–205</a> for relevant code).</p> <pre data-language="js">var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+var analyser = audioCtx.createAnalyser();
+
+  ...
+
+analyser.fftSize = 2048;
+var bufferLength = analyser.fftSize;
+var dataArray = new Uint8Array(bufferLength);
+analyser.getByteTimeDomainData(dataArray);
+
+// draw an oscilloscope of the current audio source
+
+function draw() {
+
+      drawVisual = requestAnimationFrame(draw);
+
+      analyser.getByteTimeDomainData(dataArray);
+
+      canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+      canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+
+      canvasCtx.lineWidth = 2;
+      canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+
+      canvasCtx.beginPath();
+
+      var sliceWidth = WIDTH * 1.0 / bufferLength;
+      var x = 0;
+
+      for(var i = 0; i &lt; bufferLength; i++) {
+   
+        var v = dataArray[i] / 128.0;
+        var y = v * HEIGHT/2;
+
+        if(i === 0) {
+          canvasCtx.moveTo(x, y);
+        } else {
+          canvasCtx.lineTo(x, y);
+        }
+
+        x += sliceWidth;
+      }
+
+      canvasCtx.lineTo(canvas.width, canvas.height/2);
+      canvasCtx.stroke();
+    };
+
+    draw();</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://webaudio.github.io/web-audio-api/#dom-baseaudiocontext-createanalyser" hreflang="en">Web Audio API<br><small>The definition of 'createAnalyser()' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes bc-has-history"> 10<div class="bc-icons">Prefixed </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 10<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: webkit</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 25</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes bc-has-history"> 22
+<dl>
+<dt class="bc-supports-yes bc-supports"> 22
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 15<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: webkit</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> 6<div class="bc-icons">Prefixed </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 6<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: webkit</dd>
+</dl>
+</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 33</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 26</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/Web_Audio_API/Using_Web_Audio_API">Using the Web Audio API</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/createAnalyser$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/createAnalyser" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/createAnalyser</a>
+  </p>
+</div>

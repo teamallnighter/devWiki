@@ -1,0 +1,124 @@
+<h1>&lt;optgroup&gt;</h1> <p>The <code>&lt;optgroup&gt;</code> creates a grouping of options within a <a href="select"><code>&lt;select&gt;</code></a> element.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/optgroup.html" frameborder="0" width="100%" class="interactive tabbed-standard" height="250"></iframe>  <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/HTML/Content_categories">Content categories</a></th> <td>None.</td> </tr> <tr> <th scope="row">Permitted content</th> <td>Zero or more <a href="option"><code>&lt;option&gt;</code></a> elements.</td> </tr> <tr> <th scope="row">Tag omission</th> <td>The start tag is mandatory. The end tag is optional if this element is immediately followed by another <code>&lt;optgroup&gt;</code> element, or if the parent element has no more content.</td> </tr> <tr> <th scope="row">Permitted parents</th> <td>A <a href="select"><code>&lt;select&gt;</code></a> element.</td> </tr> <tr> <th scope="row">Permitted ARIA roles</th> <td>None</td> </tr> <tr> <th scope="row">DOM interface</th> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptGroupElement"><code>HTMLOptGroupElement</code></a></td> </tr> </tbody> </table></div> <div class="blockIndicator note">
+<strong>Note:</strong> Optgroup elements may not be nested.</div> <h2 id="Attributes">Attributes</h2> <p>This element includes the <a href="../global_attributes">global attributes</a>.</p> <dl> <dt><code>disabled</code></dt> <dd>If this Boolean attribute is set, none of the items in this option group is selectable. Often browsers grey out such control and it won't receive any browsing events, like mouse clicks or focus-related ones.</dd> <dt><code>label</code></dt> <dd>The name of the group of options, which the browser can use when labeling the options in the user interface. This attribute is mandatory if this element is used.</dd> </dl> <h2 id="Example">Example</h2> <pre data-language="html">&lt;select&gt;
+  &lt;optgroup label="Group 1"&gt;
+    &lt;option&gt;Option 1.1&lt;/option&gt;
+  &lt;/optgroup&gt; 
+  &lt;optgroup label="Group 2"&gt;
+    &lt;option&gt;Option 2.1&lt;/option&gt;
+    &lt;option&gt;Option 2.2&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label="Group 3" disabled&gt;
+    &lt;option&gt;Option 3.1&lt;/option&gt;
+    &lt;option&gt;Option 3.2&lt;/option&gt;
+    &lt;option&gt;Option 3.3&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;
+</pre> <h3 id="Result">Result</h3> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/HTML/Element/optgroup%24samples/Example?revision=1434186" frameborder="0" class="live-sample-frame sample-code-frame" id="frame_Example"></iframe></p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://html.spec.whatwg.org/multipage/forms.html#the-optgroup-element" hreflang="en">HTML Living Standard<br><small>The definition of '&lt;optgroup&gt;' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.w3.org/TR/html50/forms.html#the-optgroup-element" hreflang="en">HTML5<br><small>The definition of '&lt;optgroup&gt;' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td> </td> </tr> <tr> <td><a href="https://www.w3.org/TR/html401/interact/forms.html#h-17.6" hreflang="en">HTML 4.01 Specification<br><small>The definition of '&lt;optgroup&gt;' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr>
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 5.5</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row"><code>disabled</code></th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 8</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row"><code>label</code></th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 5.5</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr>
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row"><code>disabled</code></th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row"><code>label</code></th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+</tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li>Other form-related elements: <a href="form"><code>&lt;form&gt;</code></a>, <a href="legend"><code>&lt;legend&gt;</code></a>, <a href="label"><code>&lt;label&gt;</code></a>, <a href="button"><code>&lt;button&gt;</code></a>, <a href="select"><code>&lt;select&gt;</code></a>, <a href="datalist"><code>&lt;datalist&gt;</code></a>, <a href="option"><code>&lt;option&gt;</code></a>, <a href="fieldset"><code>&lt;fieldset&gt;</code></a>, <a href="textarea"><code>&lt;textarea&gt;</code></a>, <a href="keygen"><code>&lt;keygen&gt;</code></a>, <a href="input"><code>&lt;input&gt;</code></a>, <a href="output"><code>&lt;output&gt;</code></a>, <a href="progress"><code>&lt;progress&gt;</code></a> and <a href="meter"><code>&lt;meter&gt;</code></a>.</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup</a>
+  </p>
+</div>

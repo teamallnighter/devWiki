@@ -1,0 +1,132 @@
+<h1>URL.origin</h1> <p>The <code><strong>URL</strong></code><code>.origin</code> read-only property returns a <a href="../usvstring"><code>USVString</code></a> containing the Unicode serialization of the origin of the represented URL, that is:</p> <ul> <li>for URL using the <code>http</code> or <code>https</code>, the scheme followed by <code>'://'</code>, followed by the domain, followed by <code>':'</code>, followed by the port (the default port, <code>80</code> and <code>443</code> respectively, if explicitely specified);</li> <li>for URL using <code>file:</code> scheme, the value is browser dependant;</li> <li>for URL using the <code>blob:</code> scheme, the origin of the URL following <code>blob:</code>. E.g <code>"blob:https://mozilla.org"</code> will have <code>"https://mozilla.org".</code>
+</li> </ul> <div class="note">
+<strong>Note:</strong> This feature is available in <a href="../web_workers_api">Web Workers</a>.</div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><em>string</em> = <em>URLObject</em>.origin;
+</pre> <h2 id="Examples">Examples</h2> <pre data-language="js">var result = new URL("blob:https://mozilla.org:443/").origin;
+// Returns:'https://developer.mozilla.org:443'
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://url.spec.whatwg.org/#dom-url-origin" hreflang="en">URL<br><small>The definition of 'URL.origin' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 52</td>
+<td class="bc-supports-yes bc-has-history"> 12
+<dl>
+<dt class="bc-supports-yes bc-supports"> 12
+</dt>
+<dd> Defined in another interface but available to use from <code>URL</code>.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> 26
+<dl>
+<dt class="bc-supports-yes bc-supports"> 26
+</dt>
+
+<dt class="bc-supports-no bc-supports">26 — 44
+</dt>
+<dd> This property was on the <code>URLUtils</code> mixin. It has been moved either to the <code>HTMLHyperlinkElementUtils</code> mixin, or directly on the interface.</dd>
+<dt class="bc-supports-no bc-supports">26 — 49
+</dt>
+<dd> Results for <code>URL</code> using the <code>blob</code> scheme incorrectly returned <code>null</code>.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Defined in another interface but available to use from <code>URL</code>.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> 10
+<dl>
+<dt class="bc-supports-yes bc-supports"> 10
+</dt>
+<dd> Defined in another interface but available to use from <code>URL</code>.</dd>
+</dl>
+</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 52</td>
+<td class="bc-supports-yes"> 52</td>
+<td class="bc-supports-yes bc-has-history"> 12
+<dl>
+<dt class="bc-supports-yes bc-supports"> 12
+</dt>
+<dd> Defined in another interface but available to use from <code>URL</code>.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> 26
+<dl>
+<dt class="bc-supports-yes bc-supports"> 26
+</dt>
+
+<dt class="bc-supports-no bc-supports">26 — 44
+</dt>
+<dd> This property was on the <code>URLUtils</code> mixin. It has been moved either to the <code>HTMLHyperlinkElementUtils</code> mixin, or directly on the interface.</dd>
+<dt class="bc-supports-no bc-supports">26 — 49
+</dt>
+<dd> Results for <code>URL</code> using the <code>blob</code> scheme incorrectly returned <code>null</code>.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Defined in another interface but available to use from <code>URL</code>.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Defined in another interface but available to use from <code>URL</code>.</dd>
+</dl>
+</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li>The <a href="../htmlhyperlinkelementutils/origin"><code>HTMLHyperlinkElementUtils.origin</code></a> property</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/origin$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/origin" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/URL/origin</a>
+  </p>
+</div>

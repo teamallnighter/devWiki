@@ -1,0 +1,113 @@
+<h1>CSSNamespaceRule</h1> <div class="notice overheadIndicator experimental"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p>The <code>CSSNamespaceRule</code> interface describes an object representing a single CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@namespace"><code>@namespace</code></a> <a href="https://developer.mozilla.org/en-US/docs/CSS/At-rule">at-rule</a>. It implements the <a href="cssrule"><code>CSSRule</code></a> interface, with a type value of <code>10</code> (<code>CSSRule.NAMESPACE_RULE</code>).</p> <h2 name="Properties" id="Properties">Syntax</h2> <p>The syntax is described using the <a href="http://dev.w3.org/2006/webapi/WebIDL/">WebIDL</a> format.</p> <pre>interface CSSNamespaceRule : CSSRule {
+    readonly attribute DOMString namespaceURI;
+    readonly attribute DOMString? prefix;
+};
+</pre> <h2 name="Properties" id="Properties">Properties</h2> <p>As a <a href="cssrule"><code>CSSRule</code></a>, <code>CSSNamespaceRule</code> also implements the properties of that interface. It has some specific properties:</p> <dl> <dt id="cssRules"><a href="cssnamespacerule/namespaceuri"><code>CSSNamespaceRule.namespaceURI</code></a></dt> <dd>Returns a <a href="domstring"><code>DOMString</code></a> containing the text of the URI of the given namespace.</dd> <dt><a href="cssnamespacerule/prefix"><code>CSSNamespaceRule.prefix</code></a></dt> <dd>Returns a <a href="domstring"><code>DOMString</code></a> with the name of the prefix associated to this namespace. If there is no such prefix, returns <code>null</code>.</dd> </dl> <h2 name="Methods" id="Methods">Methods</h2> <p>As a <a href="cssrule"><code>CSSRule</code></a>, <code>CSSNamespaceRule</code> also implements the methods of that interface. It has <em>no </em>specific methods:</p>  <h2 name="Specification" id="Specification">Specification</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://drafts.csswg.org/cssom/#the-cssnamespacerule-interface" hreflang="en">CSS Object Model (CSSOM)<br><small>The definition of 'CSSNamespaceRule' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 59</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 36</td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/CSSNamespaceRule/namespaceURI"><code>namespaceURI</code></a></th>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 59</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 36</td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/CSSNamespaceRule/prefix"><code>prefix</code></a></th>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 59</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 36</td>
+<td> ? </td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 59</td>
+<td class="bc-supports-yes"> 36</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 5.0</td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/CSSNamespaceRule/namespaceURI"><code>namespaceURI</code></a></th>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 59</td>
+<td class="bc-supports-yes"> 36</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 5.0</td>
+</tr>
+<tr>
+<th scope="row"><a href="https://developer.mozilla.org/docs/Web/API/CSSNamespaceRule/prefix"><code>prefix</code></a></th>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 59</td>
+<td class="bc-supports-yes"> 36</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 5.0</td>
+</tr>
+</tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSNamespaceRule$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSNamespaceRule" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/CSSNamespaceRule</a>
+  </p>
+</div>

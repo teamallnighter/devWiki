@@ -1,0 +1,78 @@
+<h1>IntersectionObserver.observe</h1><div class="notice overheadIndicator experimental"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p>The <a href="../intersectionobserver"><code>IntersectionObserver</code></a> method <code><strong>observe()</strong></code> adds an element to the set of target elements being watched by the <code>IntersectionObserver</code>. One observer has one set of thresholds and one root, but can watch multiple target elements for visibility changes in keeping with those. To stop observing the element, call <a href="unobserve"><code>IntersectionObserver.unobserve()</code></a>.</p> <p>When the visibility of the specified element crosses over one of the observer's visibility thresholds (as listed in <a href="thresholds"><code>IntersectionObserver.thresholds</code></a>, the observer's callback is executed with an <a href="../intersectionobserverentry"><code>IntersectionObserverEntry</code></a> representing the intersection change which occurred. Note that this design allows multiple elements' intersection changes to be processed by a single call to the callback using an array of <code>IntersectionObserverEntry</code> objects.</p> <p>&lt;&lt;&lt;...&gt;&gt;&gt;</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><em>IntersectionObserver</em>.observe(<em>targetElement</em>);</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>targetElement</code></dt> <dd>An <a href="../element"><code>element</code></a> whose visibility within the root is to be monitored. This element must be a descendant of the root element (or contained wtihin the current document, if the root is the document's viewport).</dd> </dl> <h3 id="Return_value">Return value</h3> <p><code>undefined</code>.</p>  <h2 id="Examples">Examples</h2> <p>&lt;&lt;&lt;...&gt;&gt;&gt;</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://w3c.github.io/IntersectionObserver/#dom-intersectionobserver-observe" hreflang="en">Intersection Observer<br><small>The definition of 'IntersectionObserver.observe()' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div>  <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 51</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes bc-has-history"> 55
+<dl>
+<dt class="bc-supports-yes bc-supports"> 55
+</dt>
+
+<dt class="bc-supports-no bc-supports">53 — 55<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 53 until version 55 (exclusive): this feature is behind the <code>dom.IntersectionObserver.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 51</td>
+<td class="bc-supports-yes"> 51</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 5.0</td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li><a href="unobserve"><code>IntersectionObserver.unobserve()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/observe$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/observe" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/observe</a>
+  </p>
+</div>

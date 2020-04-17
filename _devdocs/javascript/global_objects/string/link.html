@@ -1,0 +1,92 @@
+<h1>string.link</h1> <div class="blockIndicator deprecated deprecatedHeader"> <p><strong> Deprecated</strong><br>This feature is no longer recommended. Though some browsers might still support it, it may have already been removed from the relevant web standards, may be in the process of being dropped, or may only be kept for compatibility purposes. Avoid using it, and update existing code if possible; see the <a href="#Browser_compatibility">compatibility table</a> at the bottom of this page to guide your decision. Be aware that this feature may cease to work at any time.</p> </div> <p>The <code>link()</code> method creates a string representing the code for an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> HTML element to be used as a hypertext link to another URL.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><var>str</var>.link(<var>url</var>)</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>url</code></dt> <dd>Any string that specifies the <code>href</code> attribute of the <code>&lt;a&gt;</code> tag; it should be a valid URL (relative or absolute), with any <code>&amp;</code> characters escaped as <code>&amp;amp;</code>, and any <code>"</code> characters escaped as <code>&amp;quot;</code>.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>A string containing an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> HTML element.</p> <h2 id="Description">Description</h2> <p>Use the <code>link()</code> method to create an HTML snippet for a hypertext link. The returned string can then be added to the document via <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/write"><code>document.write()</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML"><code>element.innerHTML</code></a>.</p> <p>Links created with the <code>link()</code> method become elements in the <code>links</code> array of the <code>document</code> object. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/links"><code>document.links</code></a>.</p> <h2 id="Examples">Examples</h2> <h3 id="Using_link()">Using <code>link()</code>
+</h3> <p>The following example displays the word "MDN" as a hypertext link that returns the user to the Mozilla Developer Network.</p> <pre data-language="js">var hotText = 'MDN';
+var URL = 'https://developer.mozilla.org/';
+
+console.log('Click to return to ' + hotText.link(URL));
+// Click to return to &lt;a href="https://developer.mozilla.org/"&gt;MDN&lt;/a&gt;
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-string.prototype.link" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'String.prototype.link' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition. Implemented in JavaScript 1.0. Defined in the (normative) Annex B for Additional ECMAScript Features for Web Browsers.</td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-string.prototype.link" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'String.prototype.link' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td>Defined in the (normative) Annex B for Additional ECMAScript Features for Web Browsers.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="anchor"><code>String.prototype.anchor()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/link$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/link" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/link</a>
+  </p>
+</div>

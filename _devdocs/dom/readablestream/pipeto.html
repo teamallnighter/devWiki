@@ -1,0 +1,90 @@
+<h1>ReadableStream.pipeTo</h1><div class="overheadIndicator draft"> <p><strong>Draft</strong><br> This page is not complete.</p> </div><div class="notice overheadIndicator experimental"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p class="summary">The <code>pipeTo()</code> method of the <a href="../readablestream"><code>ReadableStream</code></a> interface pipes the current <code>ReadableStream</code> to a given <a href="../writablestream"><code>WritableStream</code></a> and returns a promise that fulfills when the piping process completes successfully, or rejects if any errors were encountered.</p> <p>Piping a stream will generally lock it for the duration of the pipe, preventing other readers from locking it.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">Promise&lt;void&gt; readableStreamInstance.pipeTo(<em>destination</em>[, <em>options</em>]);</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt>destination</dt> <dd>A <a href="../writablestream"><code>WritableStream</code></a> that acts as the final destination for the <a href="../readablestream"><code>ReadableStream</code></a>.</dd> <dt>options <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>An options object containing properties that can define when cancellation, closing, or aborting of the stream is prevented (all optional). The options are: <ol> <li>
+<code>preventClose</code>: If this is set to <code>true</code>, the source <code>ReadableStream</code> closing will no longer cause the destination <code>WritableStream</code> to be closed. The method will return a fulfilled promise once this process completes, unless an error is encountered while closing the destination in which case it will be rejected with that error.</li> <li>
+<code>preventAbort</code>: If this is set to <code>true</code>, errors in the source <code>ReadableStream</code> will no longer abort the destination <code>WritableStream</code>. The method will return a promise rejected with the source’s error, or with any error that occurs during aborting the destination.</li> <li>
+<code>preventCancel</code>: If this is set to <code>true</code>, errors in the destination <code>WritableStream</code> will no longer cancel the source <code>ReadableStream</code>. In this case the method will return a promise rejected with the source’s error, or with any error that occurs during canceling the source. In addition, if the destination writable stream starts out closed or closing, the source readable stream will no longer be canceled. In this case the method will return a promise rejected with an error indicating piping to a closed stream failed, or with any error that occurs during canceling the source.</li> </ol> </dd> </dl> <h3 id="Return_value">Return value</h3> <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/API/Promise"><code>Promise</code></a> that resolves when the piping process has completed.</p> <h3 id="Exceptions">Exceptions</h3> <dl> <dt>TypeError</dt> <dd>The <code>writableStream</code> and/or <code>readableStream</code> objects are not a writable stream/readable stream, or one or both of the streams are locked.</dd> </dl> <h2 id="Examples">Examples</h2> <pre data-language="js">// Fetch the original image
+fetch('png-logo.png')
+// Retrieve its body as ReadableStream
+.then(response =&gt; response.body)
+.then(body =&gt; body.pipeThrough(new PNGTransformStream()))
+.then(rs =&gt; rs.pipeTo(new FinalDestinationStream()))</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://streams.spec.whatwg.org/#rs-pipe-to" hreflang="en">Streams<br><small>The definition of 'pipeTo()' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 59</td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 57<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 57<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 57: this feature is behind the <code>dom.streams.enabled</code> preference (needs to be set to <code>true</code>) and the <code>javascript.options.streams</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 46</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 59</td>
+<td class="bc-supports-yes"> 59</td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 57<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 57<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 57: this feature is behind the <code>dom.streams.enabled</code> preference (needs to be set to <code>true</code>) and the <code>javascript.options.streams</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 46</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 7.0</td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream/pipeTo$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream/pipeTo" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream/pipeTo</a>
+  </p>
+</div>

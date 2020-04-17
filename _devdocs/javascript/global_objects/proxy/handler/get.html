@@ -1,0 +1,113 @@
+<h1>Proxy.handler.get</h1> <p>The <code>handler.get()</code> method is a trap for getting a property value.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/proxyhandler-get.html" frameborder="0" width="100%" class="interactive interactive-js taller" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre data-language="js">var p = new Proxy(target, {
+  get: function(target, property, receiver) {
+  }
+});
+</pre> <h3 id="Parameters">Parameters</h3> <p>The following parameters are passed to the <code>get</code> method. <code>this</code> is bound to the handler.</p> <dl> <dt><code>target</code></dt> <dd>The target object.</dd> <dt><code>property</code></dt> <dd>The name or <a href="../../symbol"><code>Symbol</code></a> of the property to get. </dd> <dt><code>receiver</code></dt> <dd>Either the proxy or an object that inherits from the proxy.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>The <code>get</code> method can return any value.</p> <h2 id="Description">Description</h2> <p>The <code><strong>handler.get</strong></code> method is a trap for getting a property value.</p> <h3 id="Interceptions">Interceptions</h3> <p>This trap can intercept these operations:</p> <ul> <li>Property access: <code>proxy[foo]</code>and <code>proxy.bar</code>
+</li> <li>Inherited property access: <code>Object.create(proxy)[foo]</code>
+</li> <li><a href="../../reflect/get"><code>Reflect.get()</code></a></li> </ul> <h3 id="Invariants">Invariants</h3> <p>If the following invariants are violated, the proxy will throw a <a href="../../typeerror"><code>TypeError</code></a>:</p> <ul> <li>The value reported for a property must be the same as the value of the corresponding target object property if the target object property is a non-writable, non-configurable data property.</li> <li>The value reported for a property must be undefined if the corresponding target object property is non-configurable accessor property that has undefined as its [[Get]] attribute.</li> </ul> <h2 id="Examples">Examples</h2> <p>The following code traps getting a property value.</p> <pre data-language="js">var p = new Proxy({}, {
+  get: function(target, property, receiver) {
+    console.log('called: ' + property);
+    return 10;
+  }
+});
+
+console.log(p.a); // "called: a"
+                  // 10
+</pre> <p>The following code violates an invariant.</p> <pre data-language="js">var obj = {};
+Object.defineProperty(obj, 'a', { 
+  configurable: false, 
+  enumerable: false, 
+  value: 10, 
+  writable: false 
+});
+
+var p = new Proxy(obj, {
+  get: function(target, property) {
+    return 20;
+  }
+});
+
+p.a; // TypeError is thrown
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-proxy-object-internal-methods-and-internal-slots-get-p-receiver" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of '[[Get]]' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition.</td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-proxy-object-internal-methods-and-internal-slots-get-p-receiver" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of '[[Get]]' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 18</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 36</td>
+<td class="bc-supports-yes"> 10</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 18</td>
+<td class="bc-supports-yes"> 36</td>
+<td class="bc-supports-yes"> 10</td>
+<td class="bc-supports-yes"> 5.0</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 6.0.0</td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li><a href="../../proxy"><code>Proxy</code></a></li> <li><a href="../handler"><code>handler</code></a></li> <li><a href="../../reflect/get"><code>Reflect.get()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/get$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/get" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/get</a>
+  </p>
+</div>

@@ -1,0 +1,50 @@
+<h1>CSS Grid Layout</h1><p><strong>CSS Grid Layout</strong> excels at dividing a page into major regions or defining the relationship in terms of size, position, and layer, between parts of a control built from HTML primitives.</p> <p>Like tables, grid layout enables an author to align elements into columns and rows. However, many more layouts are either possible or easier with CSS grid than they were with tables. For example, a grid container's child elements could position themselves so they actually overlap and layer, similar to CSS positioned elements.</p> <h2 id="Basic_example">Basic example</h2> <p>The example below shows a three-column track grid with new rows created at a minimum of 100 pixels and a maximum of auto. Items have been placed onto the grid using line-based placement.</p>  <h3 id="HTML">HTML</h3> <pre data-language="html">&lt;div class="wrapper"&gt;
+  &lt;div class="one"&gt;One&lt;/div&gt;
+  &lt;div class="two"&gt;Two&lt;/div&gt;
+  &lt;div class="three"&gt;Three&lt;/div&gt;
+  &lt;div class="four"&gt;Four&lt;/div&gt;
+  &lt;div class="five"&gt;Five&lt;/div&gt;
+  &lt;div class="six"&gt;Six&lt;/div&gt;
+&lt;/div&gt;</pre> <h3 id="CSS">CSS</h3> <pre data-language="css">.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.one {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+.two { 
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+}
+.three {
+  grid-column: 1;
+  grid-row: 2 / 5;
+}
+.four {
+  grid-column: 3;
+  grid-row: 3;
+}
+.five {
+  grid-column: 2;
+  grid-row: 4;
+}
+.six {
+  grid-column: 3;
+  grid-row: 4;
+}
+</pre> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/CSS_Grid_Layout%24samples/Basic_example?revision=1436193" height="440" id="frame_Basic_example" width="100%" frameborder="0" class="live-sample-frame sample-code-frame"></iframe></p> <h2 id="Reference">Reference</h2> <h3 id="CSS_properties">CSS properties</h3> <div class="index"> <ul> <li><a href="grid-template-columns"><code>grid-template-columns</code></a></li> <li><a href="grid-template-rows"><code>grid-template-rows</code></a></li> <li><a href="grid-template-areas"><code>grid-template-areas</code></a></li> <li><a href="grid-template"><code>grid-template</code></a></li> <li><a href="grid-auto-columns"><code>grid-auto-columns</code></a></li> <li><a href="grid-auto-rows"><code>grid-auto-rows</code></a></li> <li><a href="grid-auto-flow"><code>grid-auto-flow</code></a></li> <li><a href="grid"><code>grid</code></a></li> <li><a href="grid-row-start"><code>grid-row-start</code></a></li> <li><a href="grid-column-start"><code>grid-column-start</code></a></li> <li><a href="grid-row-end"><code>grid-row-end</code></a></li> <li><a href="grid-column-end"><code>grid-column-end</code></a></li> <li><a href="grid-row"><code>grid-row</code></a></li> <li><a href="grid-column"><code>grid-column</code></a></li> <li><a href="grid-area"><code>grid-area</code></a></li> <li><a href="row-gap"><code>row-gap</code></a></li> <li><a href="column-gap"><code>column-gap</code></a></li> <li><a href="gap"><code>gap</code></a></li> </ul> </div> <h3 id="CSS_functions">CSS functions</h3> <div class="index"> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/repeat"><code>repeat()</code></a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/minmax"><code>minmax()</code></a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content"><code>fit-content()</code></a></li> </ul> </div> <h3 id="CSS_data_types">CSS data types</h3> <div class="index"> <ul> <li><a href="flex_value"><code>&lt;flex&gt;</code></a></li> </ul> </div> <h3 id="Glossary_entries">Glossary entries</h3> <div class="index"> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Grid">Grid</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Lines">Grid Lines</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Tracks">Grid Tracks</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Cell">Grid Cell</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Areas">Grid Area</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Gutters">Gutters</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Axis">Grid Axis</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Rows">Grid row</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Column">Grid column</a></li> </ul> </div> <h2 id="Guides">Guides</h2> <div class="index"> <ul> <li><a href="css_grid_layout/basic_concepts_of_grid_layout">Basic concepts of Grid Layout</a></li> <li><a href="css_grid_layout/relationship_of_grid_layout">Relationship of Grid Layout to other layout methods</a></li> <li><a href="css_grid_layout/line-based_placement_with_css_grid">Layout using line-based placement</a></li> <li><a href="css_grid_layout/grid_template_areas">Grid template areas</a></li> <li><a href="css_grid_layout/layout_using_named_grid_lines">Layout using named grid lines</a></li> <li><a href="css_grid_layout/auto-placement_in_css_grid_layout">Auto-placement in CSS Grid Layout</a></li> <li><a href="css_grid_layout/box_alignment_in_css_grid_layout">Box alignment in CSS Grid Layout</a></li> <li><a href="css_grid_layout/css_grid,_logical_values_and_writing_modes">CSS Grid, Logical Values and Writing Modes</a></li> <li><a href="css_grid_layout/css_grid_layout_and_accessibility">CSS Grid Layout and accessibility</a></li> <li><a href="css_grid_layout/css_grid_and_progressive_enhancement">CSS Grid and progressive enhancement</a></li> <li><a href="css_grid_layout/realising_common_layouts_using_css_grid_">Realising common layouts using CSS Grid</a></li> </ul> </div> <h2 id="External_resources">External resources</h2> <ul> <li><a href="http://labs.jensimmons.com/">Examples from Jen Simmons</a></li> <li><a href="http://gridbyexample.com/">Grid by Example - a collection of usage examples and video tutorials</a></li> <li><a href="https://tympanus.net/codrops/css_reference/grid/">Codrops Grid Reference</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts">Firefox DevTools CSS Grid Inspector</a></li> <li><a href="https://mozilladevelopers.github.io/playground/">CSS Grid Playground</a></li> <li>
+<a href="http://cssgridgarden.com">Grid Garden</a> - A game for learning CSS grid</li> <li>Pure-CSS <a href="https://www.sitepoint.com/understanding-masonry-layout/"><em>Masonry layout</em></a>: <a href="https://jsfiddle.net/denim2x/q5e20knd/340/">open JSFiddle</a>
+</li> </ul> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://www.w3.org/TR/css-grid-2/" hreflang="en">CSS Grid Layout Module Level 2</a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Added <a href="css_grid_layout/basic_concepts_of_grid_layout#Subgrid">subgrids</a>.</td> </tr> <tr> <td><a href="https://drafts.csswg.org/css-grid/" hreflang="en">CSS Grid Layout</a></td> <td><span class="spec-CR">Candidate Recommendation</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout</a>
+  </p>
+</div>

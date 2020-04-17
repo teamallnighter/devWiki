@@ -1,0 +1,26 @@
+<h1>deviceproximity</h1><p>The <code>deviceproximity</code> event is fired when fresh data is available from a proximity sensor.</p> <div class="note"> <p><strong>Note</strong>: This event has been disabled by default in Firefox 62, behind the device.sensors.proximity.enabled preference (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1462308">bug 1462308</a>).</p> </div> <h2 id="General_info">General info</h2> <dl class="eventinfo"> <dt style="float: left; text-align: right; width: 120px;">Specification</dt> <dd style="margin: 0 0 0 120px;"><a href="https://w3c.github.io/proximity/#event-handlers" hreflang="en">Proximity Sensor</a></dd> <dt style="float: left; text-align: right; width: 120px;">Interface</dt> <dd style="margin: 0 0 0 120px;"><a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceProximityEvent"><code>DeviceProximityEvent</code></a></dd> <dt style="float: left; text-align: right; width: 120px;">Bubbles</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Cancelable</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Target</dt> <dd style="margin: 0 0 0 120px;">DefaultView (<code>window</code>)</dd> <dt style="float: left; text-align: right; width: 120px;">Default Action</dt> <dd style="margin: 0 0 0 120px;">None</dd> </dl> <h2 id="Properties">Properties</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Property</th> <th scope="col">Type</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <td>
+<code>target</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget"><code>EventTarget</code></a></td> <td>The event target (the topmost target in the DOM tree).</td> </tr> <tr> <td>
+<code>type</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMString"><code>DOMString</code></a></td> <td>The type of event.</td> </tr> <tr> <td>
+<code>bubbles</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Boolean"><code>Boolean</code></a></td> <td>Whether the event normally bubbles or not.</td> </tr> <tr> <td>
+<code>cancelable</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Boolean"><code>Boolean</code></a></td> <td>Whether the event is cancellable or not.</td> </tr> <tr> <td>
+<code>value</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>Double (float)</td> <td>The sensor data for ambient light in Lux.</td> </tr> <tr> <td>
+<code>min</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>Double (float)</td> <td>The minimum value in the range the sensor detects (if available, 0 otherwise).</td> </tr> <tr> <td>
+<code>max</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>Double (float)</td> <td>The maximum value in the range the sensor detects (if available, 0 otherwise).</td> </tr> </tbody> </table></div> <h2 id="Related_Events">Related Events</h2> <ul> <li><code><a href="userproximity">userproximity</a></code></li> </ul> <h2 id="See_also">See also</h2> <ul> <li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceProximityEvent"><code>DeviceProximityEvent</code></a> Object definition</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/deviceproximity$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/deviceproximity" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/Events/deviceproximity</a>
+  </p>
+</div>

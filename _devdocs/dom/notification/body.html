@@ -1,0 +1,75 @@
+<h1>Notification.body</h1> <p>The <code>body</code> read-only property of the <a href="../notification"><code>Notification</code></a> interface indicates the body string of the notification, as specified in the <code>body</code> option of the <a href="notification"><code>Notification()</code></a> constructor.</p> <div class="note">
+<strong>Note:</strong> This feature is available in <a href="../web_workers_api">Web Workers</a>.</div> <h2 name="Syntax" id="Syntax">Syntax</h2> <pre>var body = Notification.body;
+</pre> <h3 name="Return_Value" id="Return_Value">Value</h3> <p>A <a href="../domstring"><code>DOMString</code></a>.</p> <h2 id="Examples">Examples</h2> <p>In our <a href="https://mdn.github.io/emogotchi/">Emogotchi demo</a> (<a href="https://github.com/mdn/emogotchi">see source code</a>), we run a simple <code>spawnNotification()</code> function when we want to fire a notification — this is passed arguments to specify the body, icon and title we want, then it creates the necessary <code>options</code> object and fires the notification using the <a href="notification"><code>Notification()</code></a> constructor.</p> <pre data-language="js">function spawnNotification(theBody,theIcon,theTitle) {
+  var options = {
+      body: theBody,
+      icon: theIcon
+  }
+  var n = new Notification(theTitle,options);
+}</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://notifications.spec.whatwg.org/#dom-notification-body" hreflang="en">Notifications API<br><small>The definition of 'body' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Living standard</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li><a href="../notifications_api/using_the_notifications_api">Using the Notifications API</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notification/body$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notification/body" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/Notification/body</a>
+  </p>
+</div>

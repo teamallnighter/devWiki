@@ -1,0 +1,102 @@
+<h1>&lt;br&gt;</h1> <p>The <code>&lt;br&gt;</code> produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/br.html" frameborder="0" width="100%" class="interactive tabbed-standard" height="250"></iframe>  <p>As you can see from the above example, a <code>&lt;br&gt;</code> element is included at each point where we want the text to break. The text after the <code>&lt;br&gt;</code> begins again at the start of the next line of the text block.</p> <div class="note"> <p><strong>Note</strong>: Do not use <code>&lt;br&gt;</code> to create margins between paragraphs; wrap them in <a href="p"><code>&lt;p&gt;</code></a> elements and use the <a href="https://developer.mozilla.org/en-US/docs/CSS">CSS</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin"><code>margin</code></a> property to control their size.</p> </div> <h2 id="Attributes">Attributes</h2> <p>This element's attributes include the <a href="../global_attributes">global attributes</a>.</p> <h3 id="Deprecated_attributes">Deprecated attributes</h3> <dl> <dt><code>clear</code></dt> <dd>Indicates where to begin the next line after the break.</dd> </dl> <h2 id="Styling_with_CSS">Styling with CSS</h2> <p>The <code>&lt;br&gt;</code> element has a single, well-defined purpose — to create a line break in a block of text. As such, it has no dimensions or visual output of its own, and there is very little you can do to style it.</p> <p>You can set a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin"><code>margin</code></a> on <code>&lt;br&gt;</code> elements themselves to increase the spacing between the lines of text in the block, but this is a bad practice — you should use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-height"><code>line-height</code></a> property that was designed for that purpose.</p> <h2 id="Examples">Examples</h2> <h3 id="Simple_br">Simple br</h3> <p>In the following example we use <code>&lt;br&gt;</code> elements to create line breaks between the different lines of a postal address:</p> <pre data-language="html">Mozilla&lt;br&gt;
+331 E. Evelyn Avenue&lt;br&gt;
+Mountain View, CA&lt;br&gt;
+94041&lt;br&gt;
+USA&lt;br&gt;
+</pre> <p>The result looks like so:</p> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/HTML/Element/br%24samples/Simple_br?revision=1395165" height="90" class="live-sample-frame sample-code-frame" width="100%" frameborder="0" id="frame_Simple_br"></iframe></p> <h2 id="Accessibility_concerns">Accessibility concerns</h2> <p>Creating separate paragraphs of text using <code>&lt;br&gt;</code> is not only bad practice, it is problematic for people who navigate with the aid of screen reading technology. Screen readers may announce the presence of the element, but not any content contained within <code>&lt;br&gt;</code>s. This can be a confusing and frustrating experience for the person using the screen reader.</p> <p>Use <code>&lt;p&gt;</code> elements, and use CSS properties like <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin"><code>margin</code></a> to control their spacing.</p> <h2 id="Technical_summary">Technical summary</h2> <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories">Content categories</a></th> <td>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#Flow_content">Flow content</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#Phrasing_content">phrasing content</a>.</td> </tr> <tr> <th scope="row">Permitted content</th> <td>None, it is an <a href="https://developer.mozilla.org/en-US/docs/Glossary/empty_element">empty element</a>.</td> </tr> <tr> <th scope="row">Tag omission</th> <td>Must have a start tag, and must not have an end tag. In XHTML documents, write this element as <code>&lt;br /&gt;</code>.</td> </tr> <tr> <th scope="row">Permitted parents</th> <td>Any element that accepts <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#Phrasing_content">phrasing content</a>.</td> </tr> <tr> <th scope="row">Permitted ARIA roles</th> <td>Any</td> </tr> <tr> <th scope="row">DOM interface</th> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLBRElement"><code>HTMLBRElement</code></a></td> </tr> </tbody> </table></div> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-br-element" hreflang="en">HTML Living Standard<br><small>The definition of '&lt;br&gt;' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.w3.org/TR/html50/text-level-semantics.html#the-br-element" hreflang="en">HTML5<br><small>The definition of '&lt;br&gt;' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td> </td> </tr> <tr> <td><a href="https://www.w3.org/TR/html401/struct/text.html#h-9.3.2.1" hreflang="en">HTML 4.01 Specification<br><small>The definition of '&lt;br&gt;' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr>
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">
+<code>clear</code> 
+</th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr>
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">
+<code>clear</code> 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+</tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li>
+<a href="address"><code>&lt;address&gt;</code></a> element</li> <li>
+<a href="p"><code>&lt;p&gt;</code></a> element</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br</a>
+  </p>
+</div>

@@ -1,0 +1,93 @@
+<h1>window.close</h1> <p>The <code><strong>Window.close()</strong></code> method closes the current window, or the window on which it was called.</p> <p>This method is only allowed to be called for windows that were opened by a script using the <a href="open"><code>window.open()</code></a> method. If the window was not opened by a script, an error similar to this one appears in the console: <code>Scripts may not close windows that were not opened by script.</code></p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">window.close();</pre> <h2 id="Examples">Examples</h2> <h3 name="Closing_a_window_opened_with_window.open.28.29" id="Closing_a_window_opened_with_window.open.28.29">Closing a window opened with <code>window.open()</code>
+</h3> <p>This example shows a method which opens a window and a second one which closes the window; this demonstrates how to use <code>Window.close()</code> to close a window opened by calling <a href="open"><code>window.open()</code></a>.</p> <pre data-language="js">//Global var to store a reference to the opened window
+var openedWindow;
+
+function openWindow() {
+  openedWindow = window.open('moreinfo.htm');
+}
+
+function closeOpenedWindow() {
+  openedWindow.close();
+}
+</pre> <h3 id="Closing_the_current_window">Closing the current window</h3> <p>In the past, when you called the <code>window</code> object's <code>close()</code> method directly, rather than calling <code>close()</code> on a <code>window</code> <strong>instance</strong>, the browser closed the frontmost window, whether your script created that window or not. This is no longer the case; for security reasons, scripts are no longer allowed to close windows they didn't open. (Firefox 46.0.1: scripts can not close windows, they had not opened)</p> <pre data-language="js">function closeCurrentWindow() {
+  window.close();
+}
+</pre> <h2 id="Specification">Specification</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://html.spec.whatwg.org/multipage/#dom-window-close" hreflang="en">HTML Living Standard<br><small>The definition of 'window.close()' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.w3.org/TR/html50/browsers.html#dom-window-close" hreflang="en">HTML5<br><small>The definition of 'Window.close()' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Starting in Firefox 46.0.1, <code>Window.close()</code> can no longer close windows that weren't opened by the same script. This is a security precaution.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Starting in Firefox 46.0.1, <code>Window.close()</code> can no longer close windows that weren't opened by the same script. This is a security precaution.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/close$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/close" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/window/close</a>
+  </p>
+</div>

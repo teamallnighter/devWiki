@@ -1,0 +1,91 @@
+<h1>while</h1> <p>The <strong>while statement</strong> creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/statement-while.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">while (<em>condition</em>)
+  <em>statement</em>
+</pre> <dl> <dt><code>condition</code></dt> <dd>An expression evaluated before each pass through the loop. If this condition evaluates to true, <code>statement</code> is executed. When condition evaluates to false, execution continues with the statement after the <code>while</code> loop.</dd> <dt><code>statement</code></dt> <dd>An optional statement that is executed as long as the condition evaluates to true. To execute multiple statements within the loop, use a <a href="block">block</a> statement (<code>{ ... }</code>) to group those statements.<br> <br> Note: Use the break statement to stop a loop before condition evaluates to true.</dd> </dl> <h2 id="Examples">Examples</h2> <p>The following <code>while</code> loop iterates as long as <code>n</code> is less than three.</p> <pre data-language="js">var n = 0;
+var x = 0;
+
+while (n &lt; 3) {
+  n++;
+  x += n;
+}</pre> <p>Each iteration, the loop increments <code>n</code> and adds it to <code>x</code>. Therefore, <code>x</code> and <code>n</code> take on the following values:</p> <ul> <li>After the first pass: <code>n</code> = 1 and <code>x</code> = 1</li> <li>After the second pass: <code>n</code> = 2 and <code>x</code> = 3</li> <li>After the third pass: <code>n</code> = 3 and <code>x</code> = 6</li> </ul> <p>After completing the third pass, the condition <code>n</code> &lt; 3 is no longer true, so the loop terminates.</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-while-statement" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'while statement' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-while-statement" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'while statement' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/5.1/#sec-12.6.2" hreflang="en">ECMAScript 5.1 (ECMA-262)<br><small>The definition of 'while statement' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%203rd%20edition,%20December%201999.pdf#sec-12.6.2" hreflang="en">ECMAScript 3rd Edition (ECMA-262)<br><small>The definition of 'while statement' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%201st%20edition,%20June%201997.pdf#sec-12.6.1" hreflang="en">ECMAScript 1st Edition (ECMA-262)<br><small>The definition of 'while statement' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="do...while"><code>do...while</code></a></li> <li><a href="for"><code>for</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while</a>
+  </p>
+</div>

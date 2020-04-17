@@ -1,0 +1,84 @@
+<h1>::cue</h1> <p>The <code>::cue</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="pseudo-elements">pseudo-element</a> matches <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API">WebVTT</a> cues within a selected element. This can be used to <a href="https://developer.mozilla.org/docs/Web/API/WebVTT_API#Styling_WebTT_cues">style captions and other cues</a> in media with VTT tracks.</p> <pre data-language="css">::cue {
+  color: yellow;
+  font-weight: bold;
+}</pre> <h2 id="Allowable_properties">Allowable properties</h2> <p>Only a small subset of CSS properties can be used in a rule with <code>::cue</code> in its selector:</p> <ul> <li><a href="color"><code>color</code></a></li> <li><a href="opacity"><code>opacity</code></a></li> <li><a href="visibility"><code>visibility</code></a></li> <li>
+<a href="text-decoration"><code>text-decoration</code></a> and its longhand properties</li> <li><a href="text-shadow"><code>text-shadow</code></a></li> <li>
+<a href="background"><code>background</code></a> and its longhand properties</li> <li>
+<a href="outline"><code>outline</code></a> and its longhand properties</li> <li>
+<a href="font"><code>font</code></a> and its longhand properties, including <a href="line-height"><code>line-height</code></a>
+</li> <li><a href="white-space"><code>white-space</code></a></li> <li><a href="text-combine-upright"><code>text-combine-upright</code></a></li> <li><a href="ruby-position"><code>ruby-position</code></a></li> </ul> <p>The properties are applied to the entire set of cues as if they were a single unit. The only exception is that <code>background</code> and its shorthand properties apply to each cue individually, to avoid creating boxes and obscuring unexpectedly large areas of the media.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">::cue | ::cue( &lt;selector&gt; )</pre> <h2 id="Example">Example</h2> <p>The following CSS sets the cue style so that the text is white and the background is a translucent black box.</p> <pre data-language="css">::cue {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th>Specification</th> <th>Status</th> <th>Comment</th> </tr> <tr> <td><a href="https://w3c.github.io/webvtt/#the-cue-pseudo-element" hreflang="en">WebVTT: The Web Video Text Tracks Format<br><small>The definition of '::cue' in that specification.</small></a></td> <td><span class="spec-CR">Candidate Recommendation</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes bc-has-history"> 55
+<section class="bc-history" id="sect1"><dl>
+<dt class="bc-supports-yes bc-supports"> 55
+</dt>
+<dd> Firefox currently does not support a parameter on <code>::cue</code>.</dd>
+</dl></section>
+</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 55</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API">Web Video Tracks Format (WebVTT)</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::cue$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::cue" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/::cue</a>
+  </p>
+</div>

@@ -1,0 +1,74 @@
+<h1>data-* (attribute)</h1> <p>The <strong>data-*</strong> <a href="../global_attributes">global attributes</a> form a class of attributes called <strong>custom data attributes</strong>, that allow proprietary information to be exchanged between the <a href="../index">HTML</a> and its <a href="https://developer.mozilla.org/en-US/docs/DOM">DOM</a> representation by scripts.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/attribute-data.html" frameborder="0" width="100%" class="interactive tabbed-standard" height="250"></iframe>  <p>All such custom data are available via the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.<br> The <code>*</code> may be replaced by any name following <a href="http://www.w3.org/TR/REC-xml/#NT-Name">the production rule of xml names</a> with the following restrictions:</p> <ul> <li>the name must not start with <code>xml</code>, whatever case is used for these letters;</li> <li>the name must not contain any semicolon (<code>U+003A</code>);</li> <li>the name must not contain capital <code>A</code> to <code>Z</code> letters.</li> </ul> <p>Note that the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMStringMap"><code>DOMStringMap</code></a>, and the name of the custom data attribute <em> data-test-value</em> will be accessible via <code>HTMLElement.dataset.testValue </code>( or<code> HTMLElement.dataset["<em>testValue</em>"] </code>) as any dash (<code>U+002D</code>) is replaced by the capitalization of the next letter, converting the name to camelcase.</p> <h3 id="Usage">Usage</h3> <p>By adding <strong>data-* </strong>attributes, even ordinary HTML elements can become rather complex and powerful program-objects. For example, a space-ship "<a href="https://en.wikipedia.org/wiki/Sprite_(computer_graphics)">sprite</a><em>"</em> in a game could be a simple <a href="../element/img"><code>&lt;img&gt;</code></a> element with a <a href="class">class</a> attribute and several data-* attributes:</p> <pre>&lt;img class="spaceship cruiserX3" src="shipX3.png"
+  data-ship-id="324" data-weapons="laserI laserII" data-shields="72%"
+  data-x="414354" data-y="85160" data-z="31940"
+  onclick="spaceships[this.dataset.shipId].blasted()"&gt;
+&lt;/img&gt;
+</pre> <p>For a more in-depth tutorial about using HTML data attributes, see <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes">Using data attributes</a>.</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://html.spec.whatwg.org/multipage/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes" hreflang="en">HTML Living Standard<br><small>The definition of 'data-*' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>No change from latest snapshot, <a href="https://www.w3.org/TR/html51/" hreflang="en">HTML 5.1</a>
+</td> </tr> <tr> <td><a href="https://www.w3.org/TR/html51/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes" hreflang="en">HTML 5.1<br><small>The definition of 'data-*' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td>Snapshot of <a href="https://html.spec.whatwg.org/multipage/" hreflang="en">HTML Living Standard</a>, no change from <a href="https://www.w3.org/TR/html50/" hreflang="en">HTML5</a>
+</td> </tr> <tr> <td><a href="https://www.w3.org/TR/html50/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes" hreflang="en">HTML5<br><small>The definition of 'data-*' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td>Snapshot of <a href="https://html.spec.whatwg.org/multipage/" hreflang="en">HTML Living Standard</a>, initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr>
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr>
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li>All <a href="../global_attributes">global attributes</a>.</li> <li>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property that allows to access and modify these values.</li> <li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes">Using data attributes</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*</a>
+  </p>
+</div>

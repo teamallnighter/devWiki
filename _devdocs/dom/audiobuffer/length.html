@@ -1,0 +1,90 @@
+<h1>AudioBuffer.length</h1>  <p>The <code>length</code> property of the <a href="../audiobuffer"><code>AudioBuffer</code></a> interface returns an integer representing the length, in sample-frames, of the PCM data stored in the buffer.</p>  <h2 id="Syntax">Syntax</h2> <pre data-language="js">var myArrayBuffer = audioCtx.createBuffer(2, frameCount, audioCtx.sampleRate);
+myArrayBuffer.length;</pre> <h3 id="Value">Value</h3> <p>An integer.</p> <h2 id="Example">Example</h2> <pre data-language="js">// Stereo
+var channels = 2;
+
+// Create an empty two second stereo buffer at the
+// sample rate of the AudioContext
+var frameCount = audioCtx.sampleRate * 2.0;
+var myArrayBuffer = audioCtx.createBuffer(2, frameCount, audioCtx.sampleRate);
+
+button.onclick = function() {
+  // Fill the buffer with white noise;
+  // just random values between -1.0 and 1.0
+  for (var channel = 0; channel &lt; channels; channel++) {
+    // This gives us the actual ArrayBuffer that contains the data
+    var nowBuffering = myArrayBuffer.getChannelData(channel);
+    for (var i = 0; i &lt; frameCount; i++) {
+      // Math.random() is in [0; 1.0]
+      // audio needs to be in [-1.0; 1.0]
+      nowBuffering[i] = Math.random() * 2 - 1;
+    }
+  }
+
+  console.log(myArrayBuffer.length);
+}</pre> <h2 id="Specification">Specification</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://webaudio.github.io/web-audio-api/#widl-AudioBuffer-length" hreflang="en">Web Audio API<br><small>The definition of 'length' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 14</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 25</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes"> 6</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 18</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 26</td>
+<td class="bc-supports-yes"> 15</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li><a href="../web_audio_api/using_web_audio_api">Using the Web Audio API</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer/length$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer/length" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer/length</a>
+  </p>
+</div>

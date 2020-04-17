@@ -1,0 +1,69 @@
+<h1>document.enableStyleSheetsForSet</h1> <p>Enables the style sheets matching the specified name in the current style sheet set, and disables all other style sheets (except those without a title, which are always enabled).</p> <h2 name="Syntax" id="Syntax">Syntax</h2> <pre>document.enableStyleSheetsForSet(name)
+</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>name</code></dt> <dd>The name of the style sheets to enable. All style sheets with a title that match this name will be enabled, while all others that have a title will be disabled. Specify an empty string for the <code>name</code> parameter to disable all alternate and preferred style sheets (but not the persistent style sheets; that is, those with no <code>title</code> attribute).</dd> </dl> <h2 id="Notes">Notes</h2> <ul> <li>Title matches are case-sensitive.</li> <li>Calling this method with a <code>null</code> <code>name</code> has no effect; if you want to disable all alternate and preferred style sheets, you <strong>must</strong> pass "", the empty string.</li> <li>Stylesheets that don't have a title are never affected by this method.</li> <li>This method never affects the values of <a href="laststylesheetset"><code>document.lastStyleSheetSet</code></a> or <a href="preferredstylesheetset"><code>document.preferredStyleSheetSet</code></a>.</li> </ul> <h2 name="Example" id="Example">Example</h2> <pre>document.enableStyleSheetsForSet("Some style sheet set name");
+</pre> <h2 name="Specification" id="Specification">Specification</h2> <ul> <li><a href="http://www.whatwg.org/specs/web-apps/current-work/#alternate-style-sheets">HTML5: Alternate Style Sheets</a></li> </ul> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../stylesheet"><code>Stylesheet</code></a></li> <li><a href="../documentorshadowroot/stylesheets"><code>document.styleSheets</code></a></li> <li><a href="laststylesheetset"><code>document.lastStyleSheetSet</code></a></li> <li><a href="preferredstylesheetset"><code>document.preferredStyleSheetSet</code></a></li> <li><a href="selectedstylesheetset"><code>document.selectedStyleSheetSet</code></a></li> <li><a href="enablestylesheetsforset"><code>document.enableStyleSheetsForSet()</code></a></li> <li><a href="https://developer.mozilla.org/en/Correctly_Using_Titles_With_External_Stylesheets">Correctly Using Titles With External Stylesheets</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/document/enableStyleSheetsForSet$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/document/enableStyleSheetsForSet" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/document/enableStyleSheetsForSet</a>
+  </p>
+</div>

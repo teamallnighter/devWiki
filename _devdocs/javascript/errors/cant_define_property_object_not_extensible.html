@@ -1,0 +1,33 @@
+<h1>Errors: Cant define property object not extensible</h1> <h2 id="Message">Message</h2> <pre class="syntaxbox">TypeError: Cannot create property for a non-extensible object (Edge)
+TypeError: can't define property "x": "obj" is not extensible (Firefox)
+TypeError: Cannot define property: "x", object is not extensible. (Chrome)
+</pre> <h2 id="Error_type">Error type</h2> <p><a href="../global_objects/typeerror"><code>TypeError</code></a></p> <h2 id="What_went_wrong">What went wrong?</h2> <p>Usually, an object is extensible and new properties can be added to it. However, in this case <a href="../global_objects/object/preventextensions"><code>Object.preventExtensions()</code></a> marked an object as no longer extensible, so that it will never have properties beyond the ones it had at the time it was marked as non-extensible.</p> <h2 id="Examples">Examples</h2> <p>In <a href="../strict_mode">strict mode</a>, attempting to add new properties to a non-extensible object throws a <code>TypeError</code>. In sloppy mode, the addition of the "x" property is silently ignored.</p> <pre data-language="js">'use strict';
+
+var obj = {};
+Object.preventExtensions(obj);
+
+obj.x = 'foo';
+// TypeError: can't define property "x": "obj" is not extensible
+</pre> <p>In both, <a href="../strict_mode">strict mode</a> and sloppy mode, a call to <a href="../global_objects/object/defineproperty"><code>Object.defineProperty()</code></a> throws when adding a new property to a non-extensible object.</p> <pre data-language="js">var obj = { }; 
+Object.preventExtensions(obj); 
+
+Object.defineProperty(obj, 
+  'x', { value: "foo" }
+);
+// TypeError: can't define property "x": "obj" is not extensible
+</pre> <p>To fix this error, you will either need to remove the call to <a href="../global_objects/object/preventextensions"><code>Object.preventExtensions()</code></a> entirely, or move it to a position so that the property is added earlier and only later the object is marked as non-extensible. Of course you can also remove the property that was attempted to be added, if you don't need it.</p> <pre data-language="js">'use strict'; 
+
+var obj = {}; 
+obj.x = 'foo'; // add property first and only then prevent extensions
+
+Object.preventExtensions(obj);</pre> <h2 id="See_also">See also</h2> <ul> <li><a href="../global_objects/object/preventextensions"><code>Object.preventExtensions()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cant_define_property_object_not_extensible$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cant_define_property_object_not_extensible" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cant_define_property_object_not_extensible</a>
+  </p>
+</div>

@@ -1,0 +1,278 @@
+<h1>&lt;source&gt;</h1><p>The <code>&lt;source&gt;</code> specifies multiple media resources for the <a href="picture"><code>&lt;picture&gt;</code></a>, the <a href="audio"><code>&lt;audio&gt;</code></a> element, or the <a href="video"><code>&lt;video&gt;</code></a> element. It is an empty element. It is commonly used to serve the same media content in <a href="https://developer.mozilla.org/en-US/docs/Media_formats_supported_by_the_audio_and_video_elements">multiple formats supported by different browsers</a>.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/source.html" frameborder="0" width="100%" class="interactive tabbed-standard" height="250"></iframe>  <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories">Content categories</a></th> <td>None.</td> </tr> <tr> <th scope="row">Permitted content</th> <td>None, it is an <a href="https://developer.mozilla.org/en-US/docs/Glossary/empty_element">empty element</a>.</td> </tr> <tr> <th scope="row">Tag omission</th> <td>It must have start tag, but must not have an end tag.</td> </tr> <tr> <th scope="row"><dfn>Permitted parents</dfn></th> <td> A media element—<a href="audio"><code>&lt;audio&gt;</code></a> or <a href="video"><code>&lt;video&gt;</code></a>—and it must be placed before any <a href="https://developer.mozilla.org/en-US/docs/HTML/Content_categories#Flow_content">flow content</a> or <a href="track"><code>&lt;track&gt;</code></a> element. A <a href="picture"><code>&lt;picture&gt;</code></a> element, and it must be placed before the <a href="img"><code>&lt;img&gt;</code></a> element. </td> </tr> <tr> <th scope="row">Permitted ARIA roles</th> <td>None</td> </tr> <tr> <th scope="row">DOM interface</th> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLSourceElement"><code>HTMLSourceElement</code></a></td> </tr> </tbody> </table></div> <h2 id="Attributes">Attributes</h2> <p>This element includes the <a href="../global_attributes">global attributes</a>.</p> <dl> <dt>
+<code>sizes</code> 
+</dt> <dd>Is a list of source sizes that describes the final rendered width of the image represented by the source. Each source size consists of a comma-separated list of media condition-length pairs. This information is used by the browser to determine, before laying the page out, which image defined in <code><a href="source#attr-srcset">srcset</a></code> to use.<br> The <code>sizes</code> attribute has an effect only when the <a href="source"><code>&lt;source&gt;</code></a> element is the direct child of a <a href="picture"><code>&lt;picture&gt;</code></a> element.</dd> <dt><code>src</code></dt> <dd>Required for <a href="audio"><code>&lt;audio&gt;</code></a> and <a href="video"><code>&lt;video&gt;</code></a>, address of the media resource. The value of this attribute is ignored when the <code>&lt;source&gt;</code> element is placed inside a <a href="picture"><code>&lt;picture&gt;</code></a> element.</dd> <dt>
+<code>srcset</code> 
+</dt> <dd>A list of one or more strings separated by commas indicating a set of possible images represented by the source for the browser to use. Each string is composed of: <ol> <li>one URL to an image,</li> <li>a width descriptor, that is a positive integer directly followed by <code>'w'</code>. The default value, if missing, is the infinity.</li> <li>a pixel density descriptor, that is a positive floating number directly followed by <code>'x'</code>. The default value, if missing, is <code>1x</code>.</li> </ol> <p>Each string in the list must have at least a width descriptor or a pixel density descriptor to be valid. Among the list, there must be only one string containing the same tuple of width descriptor and pixel density descriptor.<br> The browser chooses the most adequate image to display at a given point of time.<br> The <code>srcset</code> attribute has an effect only when the <a href="source"><code>&lt;source&gt;</code></a> element is the direct child of a <a href="picture"><code>&lt;picture&gt;</code></a> element.</p> </dd> <dt><code>type</code></dt> <dd>The MIME-type of the resource, optionally with a <code>codecs</code> parameter. See <a href="https://tools.ietf.org/html/rfc4281">RFC 4281</a> for information about how to specify codecs.</dd> <dt>
+<code>media</code> 
+</dt> <dd>
+<a href="https://developer.mozilla.org/en-US/docs/CSS/Media_queries" class="internal">Media query</a> of the resource's intended media; this should be used only in a <a href="picture"><code>&lt;picture&gt;</code></a> element.</dd> </dl> <p>If the <code>type</code> attribute isn't specified, the media's type is retrieved from the server and checked to see if the user agent can handle it; if it can't be rendered, the next <code>&lt;source&gt;</code> is checked. If the <code>type</code> attribute is specified, it's compared against the types the user agent can present, and if it's not recognized, the server doesn't even get queried; instead, the next <code>&lt;source&gt;</code> element is checked at once.</p> <h2 id="Examples">Examples</h2> <p>This example demonstrates how to offer a video in Ogg format for users whose browsers support Ogg format, and a QuickTime format video for users whose browsers support that. If the <code>audio</code> or <code>video</code> element is not supported by the browser, a notice is displayed instead. If the browser supports the element but does not support any of the specified formats, an <code>error</code> event is raised and the default media controls (if enabled) will indicate an error. See also the list of <a href="https://developer.mozilla.org/en-US/docs/Media_formats_supported_by_the_audio_and_video_elements">media formats supported by the audio and video elements</a> in various browsers.</p> <pre data-language="html">&lt;video controls&gt;
+  &lt;source src="foo.webm" type="video/webm"&gt;
+  &lt;source src="foo.ogg" type="video/ogg"&gt; 
+  &lt;source src="foo.mov" type="video/quicktime"&gt;
+  I'm sorry; your browser doesn't support HTML5 video.
+&lt;/video&gt;
+</pre> <p>For more examples, see <a href="https://developer.mozilla.org/en-US/docs/Using_HTML5_audio_and_video" class="internal">Using audio and video in Firefox</a>.</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-source-element" hreflang="en">HTML Living Standard<br><small>The definition of '&lt;source&gt;' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr>
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 3.5
+<dl>
+<dt class="bc-supports-yes bc-supports"> 3.5
+</dt>
+<dd> Until Firefox 15, Firefox picked the first source element that has a type matching the MIME-type of a supported media format; see <a href="https://bugzil.la/449363">bug 449363</a> for details.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">
+<code>media</code> 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">
+<code>sizes</code> 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 38
+<dl>
+<dt class="bc-supports-yes bc-supports"> 38
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 33<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 33: this feature is behind the <code>dom.image.picture.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 9
+<dl>
+<dt class="bc-supports-yes bc-supports"> 9
+</dt>
+
+<dt class="bc-supports-partial bc-supports">7
+</dt>
+
+</dl>
+</td>
+</tr>
+<tr>
+<th scope="row"><code>src</code></th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 3.5</td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">
+<code>srcset</code> 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 38
+<dl>
+<dt class="bc-supports-yes bc-supports"> 38
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 33<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 33: this feature is behind the <code>dom.image.picture.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 9
+<dl>
+<dt class="bc-supports-yes bc-supports"> 9
+</dt>
+
+<dt class="bc-supports-partial bc-supports">7
+</dt>
+
+</dl>
+</td>
+</tr>
+<tr>
+<th scope="row"><code>type</code></th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 3.5</td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr>
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 4
+<dl>
+<dt class="bc-supports-yes bc-supports"> 4
+</dt>
+<dd> Until Firefox 15, Firefox picked the first source element that has a type matching the MIME-type of a supported media format; see <a href="https://bugzil.la/449363">bug 449363</a> for details.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">
+<code>media</code> 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 15</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">
+<code>sizes</code> 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 38
+<dl>
+<dt class="bc-supports-yes bc-supports"> 38
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 33<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 33: this feature is behind the <code>dom.image.picture.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 9.2
+<dl>
+<dt class="bc-supports-yes bc-supports"> 9.2
+</dt>
+
+<dt class="bc-supports-partial bc-supports">8
+</dt>
+
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row"><code>src</code></th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">
+<code>srcset</code> 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 38
+<dl>
+<dt class="bc-supports-yes bc-supports"> 38
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 33<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 33: this feature is behind the <code>dom.image.picture.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 9.2
+<dl>
+<dt class="bc-supports-yes bc-supports"> 9.2
+</dt>
+
+<dt class="bc-supports-partial bc-supports">8
+</dt>
+
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row"><code>type</code></th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+</tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li>
+<a href="picture"><code>&lt;picture&gt;</code></a> element</li> <li>
+<a href="audio"><code>&lt;audio&gt;</code></a> element</li> <li>
+<a href="video"><code>&lt;video&gt;</code></a> element</li> </ul> <div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source</a>
+  </p>
+</div>

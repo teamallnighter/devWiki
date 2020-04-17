@@ -1,0 +1,98 @@
+<h1>pluralRules.select</h1> <p>The <code>Intl.PluralRules.prototype.select</code> method returns a String indicating which plural rule to use for locale-aware formatting.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><var>pluralRule</var>.select(<var>number</var>)</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>number</code></dt> <dd>The number to get a plural rule for.</dd> </dl> <h2 id="Description">Description</h2> <p>This function selects a plural rule according to the locale and formatting options of a <a href="../pluralrules"><code>PluralRules</code></a> object.</p> <h2 id="Examples">Examples</h2> <h3 id="Using_select">Using <code>select</code>
+</h3> <pre data-language="js"> new Intl.PluralRules('ar-EG').select(0); 
+// → 'zero' 
+
+new Intl.PluralRules('ar-EG').select(1); 
+// → 'one'
+
+new Intl.PluralRules('ar-EG').select(2); 
+// → 'two'
+
+new Intl.PluralRules('ar-EG').select(6); 
+// → 'few'
+
+new Intl.PluralRules('ar-EG').select(18); 
+// → 'many'
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://rawgit.com/caridy/intl-plural-rules-spec/master/index.html">Intl Plural Rules Draft</a></td> <td><span class="spec-Draft">Draft</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 63</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 58</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 50</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 63</td>
+<td class="bc-supports-yes"> 63</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 58</td>
+<td class="bc-supports-yes"> 50</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li><a href="../pluralrules"><code>Intl.PluralRules</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/PluralRules/select$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/PluralRules/select" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/PluralRules/select</a>
+  </p>
+</div>

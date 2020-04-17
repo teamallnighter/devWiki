@@ -1,0 +1,76 @@
+<h1>Range.createContextualFragment</h1><p>The <code>Range.createContextualFragment()</code> method returns a <a href="../documentfragment"><code>DocumentFragment</code></a> by invoking the HTML fragment parsing algorithm or the XML fragment parsing algorithm with the start of the range (the <em>parent</em> of the selected node) as the context node. The HTML fragment parsing algorithm is used if the range belongs to a <code>Document</code> whose HTMLness bit is set. In the HTML case, if the context node would be <code>html</code>, for historical reasons the fragment parsing algorithm is invoked with <code>body</code> as the context instead.</p> <h2 name="Syntax" id="Syntax">Syntax</h2> <pre class="syntaxbox"><em>documentFragment</em> = <em>range</em>.createContextualFragment( <em>tagString</em> )
+</pre> <h3 name="Parameters" id="Parameters">Parameters</h3> <dl> <dt><em>tagString</em></dt> <dd>Text that contains text and tags to be converted to a document fragment.</dd> </dl> <h2 name="Example" id="Example">Example</h2> <pre data-language="js">var tagString = "&lt;div&gt;I am a div node&lt;/div&gt;";
+var range = document.createRange();
+// make the parent of the first div in the document becomes the context node
+range.selectNode(document.getElementsByTagName("div").item(0));
+var documentFragment = range.createContextualFragment(tagString);
+document.body.appendChild(documentFragment);
+</pre> <h2 name="Specification" id="Specification">Specification</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://w3c.github.io/DOM-Parsing/#idl-def-range-createcontextualfragment(domstring)" hreflang="en">DOM Parsing and Serialization<br><small>The definition of 'Range.createContextualFragment()' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Initial specification.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 11</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes"> 9</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 15</td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/DOM/DOM_Reference">The DOM interfaces index</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Range/createContextualFragment$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Range/createContextualFragment" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/Range/createContextualFragment</a>
+  </p>
+</div>

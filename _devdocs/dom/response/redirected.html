@@ -1,0 +1,86 @@
+<h1>Response.redirected</h1> <p>The read-only <code>redirected</code> property of the <a href="../response"><code>Response</code></a> interface indicates whether or not the response is the result of a request you made which was redirected.</p> <div class="note"> <p>Relying on redirected to filter out redirects makes it easy for a forged redirect to prevent your content from working as expected. Instead, you should actually instead do the filtering when you call <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch"><code>fetch()</code></a>. See the example <a href="#Disallowing_redirects">Disallowing redirects</a>, which shows this being done.</p> </div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var <em>isRedirected</em> = <var>Response</var>.redirected;</pre> <h3 id="Value">Value</h3> <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/API/Boolean"><code>Boolean</code></a> which is <code>true</code> if the response indicates that your request was redirected.</p> <h2 id="Examples">Examples</h2> <h3 id="Detecting_redirects">Detecting redirects</h3> <p>Checking to see if the response comes from a redirected request is as simple as checking this flag on the <a href="../response"><code>Response</code></a> object. In the code below, a textual message is inserted into an element when a redirect occurred during the fetch operation. Note, however, that this isn't as safe as outright rejecting redirects if they're unexpected, as described under <a href="#Disallowing_redirects">Disallowing redirects</a> below.</p> <pre data-language="js">fetch("awesome-picture.jpg").then(function(response) {
+  let elem = document.getElementById("warning-message-box");
+  if (response.redirected) {
+    elem.innerHTML = "Unexpected redirect";
+  } else {
+    elem.innerHTML = "";
+  }
+  return response.blob();
+}).then(function(imageBlob) {
+  let imgObjectURL = URL.createObjectURL(imageBlob);
+  document.getElementById("img-element-id").src = imgObjectURL;
+});
+</pre> <h3 id="Disallowing_redirects">Disallowing redirects</h3> <p>Because using redirected to manually filter out redirects can allow forgery of redirects, you should instead set the redirect mode to <code>"error"</code> in the <code>init</code> parameter when calling <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch"><code>fetch()</code></a>, like this:</p> <pre data-language="js">fetch("awesome-picture.jpg", { redirect: "error" }).then(function(response) {
+  return response.blob();
+}).then(function(imageBlob) {
+  let imgObjectURL = URL.createObjectURL(imageBlob);
+  document.getElementById("img-element-id").src = imgObjectURL;
+});</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://fetch.spec.whatwg.org/#dom-response-redirected" hreflang="en">Fetch<br><small>The definition of 'redirected' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 60</td>
+<td class="bc-supports-yes"> 16</td>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 60</td>
+<td class="bc-supports-yes"> 60</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-yes"> 47</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../fetch_api">Fetch API</a></li> <li><a href="../service_worker_api">ServiceWorker API</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">HTTP access control (CORS)</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">HTTP</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/redirected$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/redirected" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/Response/redirected</a>
+  </p>
+</div>

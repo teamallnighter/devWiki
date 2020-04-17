@@ -1,0 +1,28 @@
+<h1>Errors: No variable name</h1> <h2 id="Message">Message</h2> <pre class="syntaxbox">SyntaxError: missing variable name (Firefox)
+SyntaxError: Unexpected token = (Chrome)</pre> <h2 id="Error_type">Error type</h2> <p><a href="../global_objects/syntaxerror"><code>SyntaxError</code></a></p> <h2 id="What_went_wrong">What went wrong?</h2> <p>A variable is missing a name. This is likely due to a syntax error in your code. Probably a comma is wrong somewhere or you struggled with coming up with a name. Totally understandable! Naming things is so hard.</p> <h2 id="Examples">Examples</h2> <h3 id="Missing_a_variable_name">Missing a variable name</h3> <pre data-language="js">var = "foo";
+</pre> <p>It's tough coming up with good variable names. We all have been there.</p> <pre data-language="js">var ohGodWhy = "foo";</pre> <h3 id="Reserved_keywords_can't_be_variable_names">Reserved keywords can't be variable names</h3> <p>There are a few variable names that are <a href="../lexical_grammar#Keywords">reserverd keywords</a>. You can't use these. Sorry :(</p> <pre data-language="js">var debugger = "whoop";
+// SyntaxError: missing variable name
+</pre> <h3 id="Declaring_multiple_variables">Declaring multiple variables</h3> <p>Pay special attention to commas when declaring multiple variables. Is there an excess comma? Did you accidentally add commas instead of semicolons?</p> <pre data-language="js">var x, y = "foo",
+var x, = "foo"
+
+var first = document.getElementById('one'),
+var second = document.getElementById('two'),
+
+// SyntaxError: missing variable name
+</pre> <p>The fixed version:</p> <pre data-language="js">var x, y = "foo";
+var x = "foo";
+
+var first = document.getElementById('one');
+var second = document.getElementById('two');</pre> <h3 id="Arrays">Arrays</h3> <p><a href="../global_objects/array"><code>Array</code></a> literals in JavaScript need square brackets around the values. This won't work:</p> <pre data-language="js">var arr = 1,2,3,4,5;
+// SyntaxError: missing variable name
+</pre> <p>This would be correct:</p> <pre data-language="js">var arr = [1,2,3,4,5];</pre> <h2 id="See_also">See also</h2> <ul> <li><a href="http://wiki.c2.com/?GoodVariableNames">Good variable names</a></li> <li><code><a href="../statements/var">var</a></code></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Declarations">Variable declarations in the JavaScript Guide</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/No_variable_name$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/No_variable_name" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/No_variable_name</a>
+  </p>
+</div>

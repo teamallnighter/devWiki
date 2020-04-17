@@ -1,0 +1,72 @@
+<h1>&lt;i&gt;</h1> <p>The <code>&lt;i&gt;</code> represents a range of text that is set off from the normal text for some reason. Some examples include technical terms, foreign language phrases, or fictional character thoughts. It is typically displayed in italic type.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/i.html" frameborder="0" width="100%" class="interactive tabbed-shorter" height="250"></iframe>  <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories">Content categories</a></th> <td>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#Flow_content">Flow content</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#Phrasing_content">phrasing content</a>, palpable content.</td> </tr> <tr> <th scope="row">Permitted content</th> <td>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#Phrasing_content">Phrasing content</a>.</td> </tr> <tr> <th scope="row">Tag omission</th> <td>None, both the starting and ending tag are mandatory.</td> </tr> <tr> <th scope="row">Permitted parents</th> <td>Any element that accepts <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#Phrasing_content">phrasing content</a>.</td> </tr> <tr> <th scope="row">Permitted ARIA roles</th> <td>Any</td> </tr> <tr> <th scope="row">DOM interface</th> <td>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> Up to Gecko 1.9.2 (Firefox 4) inclusive, Firefox implements the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLSpanElement"><code>HTMLSpanElement</code></a> interface for this element.</td> </tr> </tbody> </table></div> <h2 id="Attributes">Attributes</h2> <p>This element only includes the <a href="../global_attributes">global attributes</a>.</p> <h2 id="Usage_Notes">Usage Notes</h2> <ul> <li>Use the <code>&lt;i&gt;</code> element for text that is set off from the normal prose for readability reasons. This would be a range of text with different semantic meaning than the surrounding text.</li> <li>In earlier versions of the HTML specification, the <code>&lt;i&gt;</code> element was merely a presentational element used to display text in italics, much like the <code>&lt;b&gt;</code> element was used to display text in bold letters. This is no longer true, as these tags now define semantics rather than typographic appearance. A browser will typically still display the contents of the &lt;i&gt; element in italic type, but is, by definition, no longer required to.</li> <li>Typically this element is displayed in italic type. However, it should not be used simply to apply italic styling; use the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-style"><code>font-style</code></a> property for that purpose.</li> <li>Be sure the text in question is not actually more appropriate for another element. <ul> <li>Use <a href="em"><code>&lt;em&gt;</code></a> to indicate stress emphasis.</li> <li>Use <a href="strong"><code>&lt;strong&gt;</code></a> to indicate stronger importance.</li> <li>Use <a href="mark"><code>&lt;mark&gt;</code></a> to indicate relevance.</li> <li>Use <a href="cite"><code>&lt;cite&gt;</code></a> to mark the name of a work, such as a book, play, or song.</li> <li>Use <a href="dfn"><code>&lt;dfn&gt;</code></a> to mark the defining instance of a term.</li> </ul> </li> <li>It is a good idea to use the <strong>class</strong> attribute to identify why the element is being used, so that if the presentation needs to change at a later date, it can be done selectively with style sheets.</li> </ul> <h2 id="Example">Example</h2> <p>This example demonstrates using the <code>&lt;i&gt;</code> element to mark text that is in another language.</p> <pre data-language="html">&lt;p&gt;The Latin phrase &lt;i class="latin"&gt;Veni, vidi, vici&lt;/i&gt; is often
+mentioned in music, art, and literature.&lt;/p&gt;
+</pre> <h3 id="Result">Result</h3> <p>The Latin phrase <em>Veni, vidi, vici</em> is often mentioned in music, art, and literature.</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-i-element" hreflang="en">HTML Living Standard<br><small>The definition of '&lt;i&gt;' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.w3.org/TR/html50/text-level-semantics.html#the-i-element" hreflang="en">HTML5<br><small>The definition of '&lt;i&gt;' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td> </td> </tr> <tr> <td><a href="https://www.w3.org/TR/html401/present/graphics.html#h-15.2.1" hreflang="en">HTML 4.01 Specification<br><small>The definition of '&lt;b&gt;' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr>
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr>
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="em"><code>&lt;em&gt;</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i</a>
+  </p>
+</div>
