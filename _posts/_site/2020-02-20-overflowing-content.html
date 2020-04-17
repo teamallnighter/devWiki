@@ -1,0 +1,53 @@
+<h1 id="overflowing-content">Overflowing content</h1>
+
+<h2 id="what-is-overflow">What is overflow?</h2>
+
+<p>We already know that everything in CSS is a box, and that we can constrain the size of these boxes by giving them values of <code class="highlighter-rouge">[width](https://developer.mozilla.org/en-US/docs/Web/CSS/width)</code> and <code class="highlighter-rouge">[height](https://developer.mozilla.org/en-US/docs/Web/CSS/height)</code> (or <code class="highlighter-rouge">[inline-size](https://developer.mozilla.org/en-US/docs/Web/CSS/inline-size)</code> and <code class="highlighter-rouge">[block-size](https://developer.mozilla.org/en-US/docs/Web/CSS/block-size)</code>). Overflow is what happens when you have too much content in a box, so it won’t fit inside it comfortably. CSS gives you various tools to manage this overflow, and it is also a useful concept to understand at this early stage. You will come across overflow situations quite often when writing CSS, especially when you get deeper into CSS layout.</p>
+
+<h2 id="css-tries-to-avoid-data-loss">CSS tries to avoid “data loss”</h2>
+
+<p>Let’s start off by looking at two examples that demonstrate how CSS behaves by default when you have overflow.</p>
+
+<p>The first is a box that has been restricted in the block dimension by giving it a <code class="highlighter-rouge">height</code>. We have then added more content than there is space for in this box. The content is overflowing the box and laying itself rather messily over the paragraph below the box.</p>
+
+<p>The second is a word in a box that is restricted in the inline dimension. The box has been made too small for that word to fit and so it breaks out of the box.</p>
+
+<p>You might wonder why CSS has by default taken the rather untidy approach of causing the content to overflow messily? Why not hide the additional content, or cause the box to grow?</p>
+
+<p>Wherever possible CSS does not hide your content; to do so would cause data loss, which is usually a problem. In CSS terms, this means some content vanishing. The problem with content vanishing is that you might not notice it has vanished. Your visitors may not notice it has vanished. If it is the submit button on a form that disappears, and no-one can complete the form, that’s a big problem! So instead, CSS tends to overflow in a visible way. It is likely you will see the mess, or at worst a visitor to your site will let you know that some content is overlapping so it needs fixing.</p>
+
+<p>If you have restricted a box with a <code class="highlighter-rouge">width</code> or a <code class="highlighter-rouge">height</code>, CSS assumes you know what you are doing, and that you are managing the potential for overflow. In general, restricting the block dimension is problematic when text is going to be put in a box, as there may be more text than you expected when designing the site or the text may be bigger — for example if the user has increased their font size.</p>
+
+<p>In the next couple of lessons we will look at different ways to control sizing that might be less prone to overflow. However, if you need a fixed size you can also control how the overflow behaves. Let’s read on!</p>
+
+<h2 id="the-overflow-property">The overflow property</h2>
+
+<p>The <code class="highlighter-rouge">[overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)</code> property is how you take control of an element’s overflow and tell the browser how you want it to behave. The default value of overflow is <code class="highlighter-rouge">visible</code>, which is why by default we can see our content when it overflows.</p>
+
+<p>If you want to crop the content when it overflows you can set <code class="highlighter-rouge">overflow: hidden</code> on your box. This will do exactly what it says — hide the overflow. This may well cause things to vanish so you should only ever do this if hiding content is not going to cause a problem.</p>
+
+<p>Perhaps you would instead like to add scrollbars when content overflows? If you use <code class="highlighter-rouge">overflow: scroll</code> then your browser will always display scrollbars — even if there is not enough content to overflow. You may want this, as it prevents scrollbars appearing and disappearing depending on content.</p>
+
+<p><strong>If you remove some of the content from the box below, you’ll see that the scrollbars still remain even with nothing to scroll (or at least just the scrollbar tracks).</strong></p>
+
+<p>In the above example we only need to scroll on the <code class="highlighter-rouge">y</code> axis, however we get scrollbars in both axes. You could instead use the <code class="highlighter-rouge">[overflow-y](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y)</code> property, setting <code class="highlighter-rouge">overflow-y: scroll</code> to only scroll on the <code class="highlighter-rouge">y</code> axis.</p>
+
+<p>You could also scroll on the x axis using <code class="highlighter-rouge">[overflow-x](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x)</code>, although this is not a recommended way to deal with long words! If you do need to deal with a long word in a small box then you could look at the <code class="highlighter-rouge">[word-break](https://developer.mozilla.org/en-US/docs/Web/CSS/word-break)</code> or <code class="highlighter-rouge">[overflow-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap)</code> properties. In addition some of the methods discussed in the <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS">Sizing items in CSS</a> lesson may help you to create boxes that cope better with varying amounts of content.</p>
+
+<p>As with <code class="highlighter-rouge">scroll</code>, you will get a scrollbar in the scrolling dimension whether or not there is enough content to cause a scrollbar.</p>
+
+<p><strong>Note</strong>: that you can specify x and y scrolling using the <code class="highlighter-rouge">overflow</code> property and passing in two values. If two keywords are specified, the first applies to <code class="highlighter-rouge">overflow-x</code> and the second to <code class="highlighter-rouge">overflow-y</code>. Otherwise, both <code class="highlighter-rouge">overflow-x</code> and <code class="highlighter-rouge">overflow-y</code> are set to the same value. For example, <code class="highlighter-rouge">overflow: scroll hidden</code> would set <code class="highlighter-rouge">overflow-x</code> to <code class="highlighter-rouge">scroll</code>and <code class="highlighter-rouge">overflow-y</code> to <code class="highlighter-rouge">hidden</code>.</p>
+
+<p>If you only want scrollbars to appear if there is more content than can fit in the box, then use <code class="highlighter-rouge">overflow: auto</code>. In this case it is left up to the browser to decide whether to display scrollbars. Desktop browsers will typically only do so once there is enough content to cause overflow.</p>
+
+<p><strong>In the below example, remove some of the content until it fits into the box and you should see the scrollbars disappear.</strong></p>
+
+<h2 id="overflow-establishes-a-block-formatting-context">Overflow establishes a Block Formatting Context</h2>
+
+<p>There is a concept in CSS of the <strong>Block Formatting Context</strong> (BFC). This isn’t something you need to worry too much about right now, but it is useful to know that when you use a value of overflow such as <code class="highlighter-rouge">scroll</code> or <code class="highlighter-rouge">auto</code> you create a BFC. The result is that the content of the box you have changed the value of <code class="highlighter-rouge">overflow</code> for becomes a mini layout of its own. Things outside the container cannot poke into the container, and nothing can poke out of that box into the surrounding layout. This is to enable the scrolling behavior, as all content of your box will need to be contained and not overlap other items on the page, in order to create a consistent scrolling experience.</p>
+
+<h2 id="unwanted-overflow-in-web-design">Unwanted overflow in web design</h2>
+
+<p>Modern layout methods (as covered in the <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout">CSS layout</a> module) manage overflow very well. They have been designed to cope with the fact that we tend not to be able to predict how much content we have on the web. In the past however, developers would often use fixed heights to try to line up the bottoms of boxes that really had no relationship to each other. This was fragile, and in a legacy application you may occasionally come across a box where the content is overlaying other content on the page. If you see this you now know that what is happening is overflow; ideally you would refactor the layout to not rely on fixing the box size.</p>
+
+<p>When developing a site you should always keep overflow issues in mind. You should test designs with large and small amounts of content, increase the font size of text and ensure that your CSS can cope in a robust way. Changing the value of overflow to hide content or add scrollbars is likely to be something you reserve only for a few special cases — where you really do want a scrolling box for example.</p>

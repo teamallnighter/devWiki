@@ -1,0 +1,110 @@
+<h1 id="middle-man">Middle Man</h1>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<h3 id="installing-ruby-and-middle-man">Installing Ruby and Middle Man</h3>
+
+<p>macOS comes prepackaged with both Ruby and RubyGems, however, some of the Middleman’s dependencies need to be compiled during installation and on macOS that requires Xcode Command Line Tools. Xcode can be installed from the terminal:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select <span class="nt">--install</span>
+</code></pre></div></div>
+
+<p>Once you have Ruby and RubyGems up and running, execute the following from the command line:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nb">install </span>middleman
+</code></pre></div></div>
+
+<p>This will install Middleman, its dependencies and the command-line tools for using Middleman.</p>
+
+<p>The installation process will add one new command to your environment, with three useful features:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>middleman init
+<span class="nv">$ </span>middleman server
+middleman build
+</code></pre></div></div>
+
+<p>The uses of each of these commands will be covered in the next section, Start a New Site.</p>
+
+<h3 id="setting-up-a-new-file">Setting up a new file</h3>
+
+<p>To get started we will need to create a project folder for Middleman to work out of. You can do this using an existing folder or have Middleman create one for you using the middleman init command.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>middleman init
+</code></pre></div></div>
+
+<p>builds a Middleman skeleton project in your current folder.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>middleman init my_new_project
+</code></pre></div></div>
+
+<p>creates a subfolder my_new_project with the Middleman skeleton project.</p>
+
+<h4 id="the-skeleton">The Skeleton</h4>
+
+<p>Every new project creates a basic web development skeleton for you. This automates the construction of a standard hierarchy of folders and files that you can use in all of your projects.</p>
+
+<p>A brand-new project will contain a source folder and a config.rb file. The source folder is where you will build your website. The skeleton project contains folders for JavaScript, CSS and images, but you can change these to match your own personal preferences.</p>
+
+<p>The config.rb file contains settings for Middleman.</p>
+
+<h4 id="gemfile">Gemfile</h4>
+
+<p>Middleman will respect a Bundler Gemfile for specifying and controlling your gem dependencies. When creating a new project, Middleman will generate a Gemfile for you which specifies the same version of Middleman you are using. This will lock Middleman to this specific release series (the 4.0.x series, for example). All plugins and extra libraries you use in your project should be listed in your Gemfile, and Middleman will automatically require all of them when it starts.</p>
+
+<h4 id="configru">config.ru</h4>
+
+<p>A config.ru file describes how the site should be loaded by a Rack-enabled web server. If you’d like to host your Middleman site in development mode on a Rack-based host such as Heroku, you can add a config.ru file at the root of your project with the following contents:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require <span class="s1">'middleman/rack'</span>
+run Middleman.server
+</code></pre></div></div>
+
+<p>Remember that Middleman is built to generate static sites, though. This scenario is not a primary use-case.</p>
+
+<h3 id="directory-structure">Directory Structure</h3>
+
+<p>The default Middleman installation consists of a directory structure which looks like this:</p>
+
+<p>mymiddlemansite/
++– .gitignore
++– Gemfile
++– Gemfile.lock
++– config.rb
++– source
+    +– images
+    ¦   +– background.png
+    ¦   +– middleman.png
+    +– index.html.erb
+    +– javascripts
+    ¦   +– all.js
+    +– layouts
+    ¦   +– layout.erb
+    +– stylesheets
+        +– all.css
+        +– normalize.css</p>
+
+<h4 id="main-directories">Main Directories</h4>
+
+<p>Middleman makes use of the source, build, data and lib directories for specific purposes. Each of these directories are children of the main Middleman directory.</p>
+
+<h4 id="source-directory">source Directory</h4>
+
+<p>The source directory contains your main website source files to be built, including your templates JavaScript, CSS and images.</p>
+
+<h4 id="build-directory">build Directory</h4>
+
+<p>The build directory is where your static website files will be compiled and exported to.</p>
+
+<h4 id="data-directory">data Directory</h4>
+
+<p>Local Data allows you to create YAML or JSON files in a folder called data and makes this information available in your templates. The data folder should be placed in the root of your project (i.e. in the same folder as your project’s source folder). See the Data Files docs for more information.</p>
+
+<h4 id="lib-directory">lib Directory</h4>
+
+<p>The lib directory enables you to include external Ruby modules which contain helpers for building your application. If you use Rails then you will be familiar with this layout.</p>
+
+<p><img src="bible.chrisconnelly.dev/articles/020-04-06-getting-started-middleman/middleman.png" alt="Middle Man has started image" /></p>
+
+<p>For more information check out the <a href="">middle man cheatsheet</a></p>
+
+<p>Make sure you watch <a href="videos">THESE</a> if you want to master this super fun framework</p>

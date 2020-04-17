@@ -1,0 +1,83 @@
+<h1 id="handling-different-text-directions">Handling different text directions</h1>
+
+<h2 id="what-are-writing-modes">What are writing modes?</h2>
+
+<p>A writing mode in CSS refers to whether the text is running horizontally or vertically. The <code class="highlighter-rouge">[writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode)</code> property lets us switch from one writing mode to another. You don’t need to be working in a language which uses a vertical writing mode to want to do this — you could also change the writing mode of parts of your layout for creative purposes.</p>
+
+<p>In the example below we have a heading displayed using <code class="highlighter-rouge">writing-mode: vertical-rl</code>. The text now runs vertically. Vertical text is common in graphic design, and can be a way to add a more interesting look and feel to your web design.</p>
+
+<p>The three possible values for the <code class="highlighter-rouge">[writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode)</code> property are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">horizontal-tb</code>: Top-to-bottom block flow direction. Sentences run horizontally.</li>
+  <li><code class="highlighter-rouge">vertical-rl</code>: Right-to-left block flow direction. Sentences run vertically.</li>
+  <li><code class="highlighter-rouge">vertical-lr</code>: Left-to-right block flow direction. Sentences run vertically.</li>
+</ul>
+
+<p>So the <code class="highlighter-rouge">writing-mode</code> property is in reality setting the direction in which block-level elements are displayed on the page — either from top-to-bottom, right-to-left, or left-to-right. This then dictates the direction text flows in sentences.</p>
+
+<h2 id="writing-modes-and-block-and-inline-layout">Writing modes and block and inline layout</h2>
+
+<p>We have already discussed <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#Block_and_inline_boxes">block and inline layout</a>, and the fact that some things display as block elements and others as inline elements. As we have seen described above, block and inline is tied to the writing mode of the document, and not the physical screen. Blocks are only displayed from the top to the bottom of the page if you are using a writing mode that displays text horizontally, such as English.</p>
+
+<p>If we look at an example this will become clearer. In this next example I have two boxes that contain a heading and a paragraph. The first uses <code class="highlighter-rouge">writing-mode: horizontal-tb</code>, a writing mode that is written horizontally and from the top of the page to the bottom. The second uses <code class="highlighter-rouge">writing-mode: vertical-rl</code>; this is a writing mode that is written vertically and from right to left.</p>
+
+<p>When we switch the writing mode, we are changing which direction is block and which is inline. In a <code class="highlighter-rouge">horizontal-tb</code> writing mode the block direction runs from top to bottom; in a <code class="highlighter-rouge">vertical-rl</code> writing mode the block direction runs right-to-left horizontally. So the <strong>block dimension</strong> is always the direction blocks are displayed on the page in the writing mode in use. The <strong>inline dimension</strong> is always the direction a sentence flows.</p>
+
+<p>This figure shows the two dimensions when in a horizontal writing mode.</p>
+
+<p><img src="https://mdn.mozillademos.org/files/16574/horizontal-tb.png" alt="https://mdn.mozillademos.org/files/16574/horizontal-tb.png" /></p>
+
+<p>This figure shows the two dimensions in a vertical writing mode.</p>
+
+<p><img src="https://mdn.mozillademos.org/files/16575/vertical.png" alt="https://mdn.mozillademos.org/files/16575/vertical.png" /></p>
+
+<p>Once you start to look at CSS layout, and in particular the newer layout methods, this idea of block and inline becomes very important. We will revisit it later on.</p>
+
+<h3 id="direction">Direction</h3>
+
+<p>In addition to writing mode we also have text direction. As mentioned above, some languages such as Arabic are written horizontally, but right-to-left. This is not something you are likely to use in a creative sense — if you simply want to line something up on the right there are other ways to do so — however it is important to understand this as part of the nature of CSS. The web is not just for languages that are displayed left-to-right!</p>
+
+<p>Due to the fact that writing mode and direction of text can change, newer CSS layout methods do not refer to left and right, and top and bottom. Instead they will talk about <em>start</em> and <em>end</em>along with this idea of inline and block. Don’t worry too much about that right now, but keep these ideas in mind as you start to look at layout; you will find it really helpful in your understanding of CSS.</p>
+
+<h2 id="logical-properties-and-values">Logical properties and values</h2>
+
+<p>The reason to talk about writing modes and direction at this point in your learning however, is because of the fact we have already looked at a lot of properties which are tied to the physical dimensions of the screen, and make most sense when in a horizontal writing mode.</p>
+
+<p>Let’s take a look at our two boxes again — one with a <code class="highlighter-rouge">horizontal-tb</code> writing mode and one with <code class="highlighter-rouge">vertical-rl</code>. I have given both of these boxes a <code class="highlighter-rouge">[width](https://developer.mozilla.org/en-US/docs/Web/CSS/width)</code>. You can see that when the box is in the vertical writing mode, it still has a width, and this is causing the text to overflow.</p>
+
+<p>What we really want in this scenario, is to essentially swap height and width along with the writing mode. When we’re in a vertical writing mode we want the box to expand in the block dimension just like it does in the horizontal mode.</p>
+
+<p>To make this easier, CSS has recently developed a set of mapped properties. These essentially replace physical properties — things like <code class="highlighter-rouge">width</code> and <code class="highlighter-rouge">height</code> — with <strong>logical</strong>, or <strong>flow relative</strong>versions.</p>
+
+<p>The property mapped to <code class="highlighter-rouge">width</code> when in a horizontal writing mode is called <code class="highlighter-rouge">[inline-size](https://developer.mozilla.org/en-US/docs/Web/CSS/inline-size)</code> — it refers to the size in the inline dimension. The property for <code class="highlighter-rouge">height</code> is named <code class="highlighter-rouge">[block-size](https://developer.mozilla.org/en-US/docs/Web/CSS/block-size)</code>and is the size in the block dimension. You can see how this works in the example below where we have replaced <code class="highlighter-rouge">width</code> with <code class="highlighter-rouge">inline-size</code>.</p>
+
+<h3 id="logical-margin-border-and-padding-properties">Logical margin, border, and padding properties</h3>
+
+<p>In the last two lessons we have learned about the CSS box model, and CSS borders. In the margin, border, and padding properties you will find many instances of physical properties, for example <code class="highlighter-rouge">[margin-top](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top)</code>, <code class="highlighter-rouge">[padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left)</code>, and <code class="highlighter-rouge">[border-bottom](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom)</code>. In the same way that we have mappings for width and height there are mappings for these properties.</p>
+
+<p>The <code class="highlighter-rouge">margin-top</code> property is mapped to <code class="highlighter-rouge">[margin-block-start](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-block-start)</code> — this will always refer to the margin at the start of the block dimension.</p>
+
+<p>The <code class="highlighter-rouge">[padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left)</code> property maps to <code class="highlighter-rouge">[padding-inline-start](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-start)</code>, the padding that is applied to the start of the inline direction. This will be where sentences start in that writing mode. The <code class="highlighter-rouge">[border-bottom](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom)</code> property maps to <code class="highlighter-rouge">[border-block-end](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end)</code>, which is the border at the end of the block dimension.</p>
+
+<p>You can see a comparison between physical and logical properties below.</p>
+
+<p><strong>If you change the writing mode of the boxes by switching the <code class="highlighter-rouge">writing-mode</code> property on <code class="highlighter-rouge">.box</code> to <code class="highlighter-rouge">vertical-rl</code>, you will see how the physical properties stay tied to their physical direction, whereas the logical properties switch with the writing mode.</strong></p>
+
+<p><strong>You can also see that the <code class="highlighter-rouge">[&lt;h2&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2)</code> has a black <code class="highlighter-rouge">border-bottom</code>. Can you work out how to make that bottom border always go below the text in both writing modes?</strong></p>
+
+<p>There are a huge number of properties when you consider all of the individual border longhands, and you can see all of the mapped properties on the MDN page for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties">Logical Properties and Values</a>.</p>
+
+<h3 id="logical-values">Logical values</h3>
+
+<p>We have so far looked at logical property names. There are also some properties that take physical values of <code class="highlighter-rouge">top</code>, <code class="highlighter-rouge">right</code>, <code class="highlighter-rouge">bottom</code>, and <code class="highlighter-rouge">left</code>. These values also have mappings, to logical values — <code class="highlighter-rouge">block-start</code>, <code class="highlighter-rouge">inline-end</code>, <code class="highlighter-rouge">block-end</code>, and <code class="highlighter-rouge">inline-start</code>.</p>
+
+<p>For example, you can float an image left to cause text to wrap round the image. You could replace <code class="highlighter-rouge">left</code> with <code class="highlighter-rouge">inline-start</code> as shown in the example below.</p>
+
+<p><strong>Change the writing mode on this example to <code class="highlighter-rouge">vertical-rl</code> to see what happens to the image. Change <code class="highlighter-rouge">inline-start</code> to <code class="highlighter-rouge">inline-end</code> to change the float.</strong></p>
+
+<p>Here we are also using logical margin values to ensure the margin is in the correct place no matter what the writing mode is.</p>
+
+<h3 id="should-you-use-physical-or-logical-properties">Should you use physical or logical properties?</h3>
+
+<p>The logical properties and values are newer than their physical equivalents, and therefore have only recently been implemented in browsers. You can check any property page on MDN to see how far back the browser support goes. If you are not using multiple writing modes then for now you might prefer to use the physical versions. However, ultimately we expect that people will transition to the logical versions for most things, as they make a lot of sense once you start also dealing with layout methods such as flexbox and grid.</p>

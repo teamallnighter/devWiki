@@ -15,6 +15,7 @@
     {% include_cached masthead.html %}
 
     <div class="initial-content">
+      <div class="page-wrapper">
       {{ content }}
     </div>
 
@@ -23,7 +24,7 @@
         {% include_cached search/search_form.html %}
       </div>
     {% endif %}
-
+  </div>
     <div id="footer" class="page__footer">
       <footer>
         {% include footer/custom.html %}

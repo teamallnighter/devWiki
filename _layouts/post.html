@@ -10,7 +10,7 @@
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
-      
+    <div class="page-wrapper">
         {% include_cached skip-links.html %}
         {% include_cached browser-upgrade.html %}
         {% include_cached masthead.html %}
@@ -29,7 +29,7 @@
     {% endif %}
     {% include posts-tag.html %}
     {% include social-share.html %}
-
+    </div>
     <div id="footer" class="page__footer">
       <footer>
         {% include footer/custom.html %}
