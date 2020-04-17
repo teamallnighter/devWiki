@@ -5,6 +5,4 @@ main:
   - title: "News"
     url: news/
   - title: "Cheatsheets"
-    url: sheetsdotdevwiki.netlify.app
-  - title: "devDocs"
-    url: https://devwiki.io/devdocs.html
+    url: https://sheetsdotdevwiki.netlify.app
