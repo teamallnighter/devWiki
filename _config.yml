@@ -225,6 +225,9 @@ collections:
   resources:
     output: true
     permalink: /:collection/:path/
+  docs:
+    output: true
+    permalink: /:collection/:path/
 
 twitter_username: teamallnighter
 github_username:  teamallnighter

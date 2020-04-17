@@ -15,15 +15,16 @@ devWiki is a Jekyll powered knowledge base and API for web developers. I came up
 - A dedicated blog with notes from SAIT
 - Everything I've learned about web dev so far
 - Cheat sheets (care of [devhints.io](http://devhints.io)) An open source project providing extremely useful cheatsheets.
-- Development docs (care of [devdocs](https://devdocs.io)(An open source scraping platform that collects development docs)
+- Development docs 
 - Insanely fast live search
 - CSV Database of resources 
-- A rest api
-- A custom markdown editor 
+
 
 ## Coming Soon
 
 - A rest api testing playground 
+- A rest api
+- A custom markdown editor 
 
 ## Dependencies
 

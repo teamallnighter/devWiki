@@ -6,3 +6,7 @@ main:
     url: news/
   - title: "Cheatsheets"
     url: cheat-sheet-archive/
+  - title: "devDocs"
+    url: docs-archive/
+  - title: "Search"
+    url: search/
