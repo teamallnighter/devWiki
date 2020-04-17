@@ -43,12 +43,12 @@ atom_feed:
   path                   : feed.xml
 search                   : true # true, false (default)
 search_full_content      : true # true, false (default)
-search_provider          : "lunr"
+search_provider          : "algolia"
 algolia:
-  application_id         : "QB6HVGBSBA"
-  index_name             : "dev_minimal-mistakes"
-  search_only_api_key    : "9d5014e5bbc77372547bce778dfa5663"
-  powered_by             : true
+  application_id         : "C6JG9MDBGL"
+  index_name             : "devwiki"
+  search_only_api_key    : "0afcb329252e0c360d9ea80797cd3b20"
+  powered_by             : false
 
 # Site Author
 author:
