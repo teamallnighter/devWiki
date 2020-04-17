@@ -1,7 +1,7 @@
 ---
 title: React-router
 category: React
-layout: default
+layout: default-ad
 ---
 
 {% raw %}

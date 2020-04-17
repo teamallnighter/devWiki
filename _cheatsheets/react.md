@@ -1,6 +1,11 @@
 ---
 title: React.js
 category: React
+layout: 2017/sheet
+ads: true
+tags: [Featured]
+updated: 2018-10-04
+weight: -10
 keywords:
   - React.Component
   - render()
