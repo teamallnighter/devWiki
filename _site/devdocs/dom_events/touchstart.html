@@ -1,0 +1,53 @@
+<h1>touchstart</h1> <p>The <code>touchstart</code> event is fired when one or more touch points are placed on the touch surface.</p> <h2 id="General_info">General info</h2> <dl class="eventinfo"> <dt style="float: left; text-align: right; width: 120px;">Specification</dt> <dd style="margin: 0 0 0 120px;"><a href="http://w3c.github.io/touch-events/#event-touchstart">Touch Events</a></dd> <dt style="float: left; text-align: right; width: 120px;">Interface</dt> <dd style="margin: 0 0 0 120px;"><a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent"><code>TouchEvent</code></a></dd> <dt style="float: left; text-align: right; width: 120px;">Bubbles</dt> <dd style="margin: 0 0 0 120px;">Yes</dd> <dt style="float: left; text-align: right; width: 120px;">Cancelable</dt> <dd style="margin: 0 0 0 120px;">Yes</dd> <dt style="float: left; text-align: right; width: 120px;">Target</dt> <dd style="margin: 0 0 0 120px;">
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document"><code>Document</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element"><code>Element</code></a>
+</dd> <dt style="float: left; text-align: right; width: 120px;">Default Action</dt> <dd style="margin: 0 0 0 120px;">undefined</dd> </dl> <h2 id="Properties">Properties</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Property</th> <th scope="col">Type</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <td>
+<code>target</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget"><code>EventTarget</code></a></td> <td>The event target (the topmost target in the DOM tree).</td> </tr> <tr> <td>
+<code>type</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMString"><code>DOMString</code></a></td> <td>The type of event.</td> </tr> <tr> <td>
+<code>bubbles</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>Boolean</td> <td>Whether the event normally bubbles or not.</td> </tr> <tr> <td>
+<code>cancelable</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>Boolean</td> <td>Whether the event is cancelable or not.</td> </tr> <tr> <td>
+<code>view</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>WindowProxy</td> <td>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/defaultView"><code>Document.defaultView</code></a>, or the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window"><code>window</code></a> the document resides in.</td> </tr> <tr> <td>
+<code>detail</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>long (float)</td> <td>Unused by <code>touchstart</code> events; always 0.</td> </tr> <tr> <td>
+<code>touches</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchList"><code>TouchList</code></a></td> <td>A list of <a href="https://developer.mozilla.org/en/DOM/Touch"><code>Touch</code></a>es for every point of contact currently touching the surface.</td> </tr> <tr> <td>
+<code>targetTouches</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchList"><code>TouchList</code></a></td> <td>A list of <a href="https://developer.mozilla.org/en/DOM/Touch"><code>Touch</code></a>es for every point of contact that is touching the surface and started on the element that is the target of the current event.</td> </tr> <tr> <td>
+<code>changedTouches</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchList"><code>TouchList</code></a></td> <td>A list of <a href="https://developer.mozilla.org/en-US/docs/DOM/Touch"><code>Touch</code></a>es, one for each touch touch point that just became active with the current event.</td> </tr> <tr> <td>
+<code>ctrlKey</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>Boolean</td> <td>
+<code>true</code> if the control key was down when the event was fired. <code>false</code> otherwise.</td> </tr> <tr> <td>
+<code>shiftKey</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>Boolean</td> <td>
+<code>true</code> if the shift key was down when the event was fired. <code>false</code> otherwise.</td> </tr> <tr> <td>
+<code>altKey</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>Boolean</td> <td>
+<code>true</code> if the alt key was down when the event was fired. <code>false</code> otherwise.</td> </tr> <tr> <td>
+<code>metaKey</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>Boolean</td> <td>
+<code>true</code> if the meta key was down when the event was fired. <code>false</code> otherwise.</td> </tr> </tbody> </table></div> <h2 id="Examples">Examples</h2> <p>Code samples for those events are available on the dedicated page: <a href="https://developer.mozilla.org/en-US/DOM/Touch_events">Touch events</a>.</p> <h2 id="Browser_compatibility">Browser compatibility</h2> <div class="blockIndicator warning">
+<strong><a href="https://github.com/mdn/browser-compat-data">We're converting our compatibility data into a machine-readable JSON format</a></strong>. This compatibility table still uses the old format, because we haven't yet converted the data it contains. <strong><a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Structures/Compatibility_tables">Find out how you can help!</a></strong>
+</div>   <div class="_table"><table class="compat-table"> <tbody> <tr> <th>Feature</th> <th>Chrome</th> <th>Edge</th> <th>Firefox (Gecko)</th> <th>Internet Explorer</th> <th>Opera</th> <th>Safari (WebKit)</th> </tr> <tr> <td>Basic support</td> <td>22.0</td> <td><span style="color: #888;">(Yes)</span></td> <td>
+<a href="https://developer.mozilla.org/en-US/Firefox/Releases/18">18.0</a> (18.0)<sup>[1]</sup><br> <a href="https://developer.mozilla.org/en-US/Firefox/Releases/52">52.0</a> (52.0)<sup>[2]</sup>
+</td> <td><span style="color: #f00;">No support</span></td> <td><span style="color: #f00;">No support</span></td> <td><span style="color: #f00;">No support</span></td> </tr> <tr> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Improving_scrolling_performance_with_passive_listeners">Passive mode enabled by default</a></td> <td>56<sup>[3]</sup>
+</td> <td><span style="color: #f00;">No support</span></td> <td>
+<a href="https://developer.mozilla.org/en-US/Firefox/Releases/61">61</a> (61)<sup>[3]</sup>
+</td> <td><span style="color: #f00;">No support</span></td> <td><span style="color: #f00;">No support</span></td> <td><span style="color: #f00;">No support</span></td> </tr> </tbody> </table></div>   <div class="_table"><table class="compat-table"> <tbody> <tr> <th>Feature</th> <th>Android</th> <th>Android Webview</th> <th>Chrome for Android</th> <th>Edge</th> <th>Firefox Mobile (Gecko)</th> <th>IE Mobile</th> <th>Opera Mobile</th> <th>Safari Mobile</th> </tr> <tr> <td>Basic support</td> <td><span style="color: #888;">(Yes)</span></td> <td><span style="color: #888;">(Yes)</span></td> <td><span style="color: #888;">(Yes)</span></td> <td><span style="color: #888;">(Yes)</span></td> <td>6.0 (6.0)</td> <td>11</td> <td><span style="color: #888;">(Yes)</span></td> <td><span style="color: #888;">(Yes)</span></td> </tr> <tr> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Improving_scrolling_performance_with_passive_listeners">Passive mode enabled by default</a></td> <td><span style="color: rgb(255, 153, 0);">?</span></td> <td><span style="color: rgb(255, 153, 0);">?</span></td> <td>56<sup>[3]</sup>
+</td> <td><span style="color: #f00;">No support</span></td> <td>56.0 (56)<sup>[3]</sup>
+</td> <td><span style="color: #f00;">No support</span></td> <td><span style="color: #f00;">No support</span></td> <td><span style="color: #f00;">No support</span></td> </tr> </tbody> </table></div>  <p>[1] Touch events were implemented in Gecko 18.0, but removed again in 24.0 (Firefox 24.0 / Thunderbird 24.0 / SeaMonkey 2.21) on the desktop version of Firefox due to web compatibility issues (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=888304">bug 888304</a>).</p> <p>[2] As of Gecko 52.0, touch events support has been fixed and reenabled in Windows desktop platforms.</p> <p>[3] In order to prevent event handlers for <code><a href="touchstart">touchstart</a></code> from blocking rendering during the scrolling of the document or window, Chrome and Firefox <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Improving_scrolling_performance_with_passive_listeners">have changed the default</a> for the <code>passive</code> option for <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"><code>addEventListener()</code></a> on these events to <code>true</code>.</p> <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events">Touch events</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/ontouchstart"><code>ontouchstart</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/touchstart$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/touchstart" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/Events/touchstart</a>
+  </p>
+</div>

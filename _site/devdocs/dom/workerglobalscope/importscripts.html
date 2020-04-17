@@ -1,0 +1,68 @@
+<h1>WorkerGlobalScope.importScripts</h1> <p>The <code><strong>importScripts()</strong></code> method of the <a href="../workerglobalscope"><code>WorkerGlobalScope</code></a> interface synchronously imports one or more scripts into the worker's scope.</p> <h2 id="Syntax">Syntax</h2> <pre data-language="js">self.importScripts('foo.js');
+self.importScripts('foo.js', 'bar.js', ...);</pre> <h3 id="Parameters">Parameters</h3> <p>A comma-separated list of <a href="../domstring"><code>DOMString</code></a> objects representing the scripts to be imported.</p> <h3 id="Return_value">Return value</h3> <p><em>None.</em></p> <h3 id="Exceptions">Exceptions</h3> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Exception</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <td>NetworkError</td> <td>The MIME type of an imported script is not a valid <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#JavaScript_types">JavaScript MIME type</a>.</td> </tr> </tbody> </table></div> <h2 id="Example">Example</h2> <p>If you had some functionality written in a separate script called <code>foo.js</code> that you wanted to use inside worker.js, you could import it using the following line:</p> <pre data-language="js">importScripts('foo.js');</pre> <p><code>importScripts()</code> and <code>self.importScripts()</code> are effectively equivalent — both represent <code>importScripts()</code> being called from inside the worker's inner scope.</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://html.spec.whatwg.org/multipage/#dom-workerglobalscope-importscripts" hreflang="en">HTML Living Standard<br><small>The definition of 'importScripts()' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <p><a href="../workerglobalscope"><code>WorkerGlobalScope</code></a></p><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts</a>
+  </p>
+</div>

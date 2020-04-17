@@ -1,0 +1,82 @@
+<h1>max</h1> <p>The <code><strong>max</strong></code><code>()</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> function lets you set the largest (most positive) value from a list of comma-separated expressions as the value of a CSS property value. The <code>max()</code> function can be used anywhere a <a href="length"><code>&lt;length&gt;</code></a>, <a href="frequency"><code>&lt;frequency&gt;</code></a>, <a href="angle"><code>&lt;angle&gt;</code></a>, <a href="time"><code>&lt;time&gt;</code></a>, <a href="percentage"><code>&lt;percentage&gt;</code></a>,<a href="number"><code>&lt;number&gt;</code></a>, or <a href="integer"><code>&lt;integer&gt;</code></a> is allowed.</p> <pre data-language="css">/* property: max(expression [, expression]) */
+width: max(1vw, 4em, 80px);
+</pre> <p>In the above example, the width will be at least 80px, but will be wider if the the viewport is more than 800px wide, or an em is more than 20px wide. In other words, the min-width is 80px. Think of the max() value as providing the minimum value a property can have, realizing this, at first, sounds conter-intuitive.</p> <h2 id="Syntax">Syntax</h2> <p>The <code>max()</code> function takes one or more comma separated expressions as its parameter, with the largest (most positive) expression value used as the value of the property to which it is assigned.</p> <p>The expresstions can be math functions (see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc"><code>calc()</code></a> for more information), literal values, or other expressions, such as attr(), that evaluate to a valid argument type (like <a href="length"><code>&lt;length&gt;</code></a>), or nested <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min"><code>min()</code></a> and <code>max()</code> functions.</p> <p>You can use different units for each value in your expression. You may also use parentheses to establish computation order when needed.</p> <h3 id="Notes">Notes</h3> <ul> <li>Math expressions involving percentages for widths and heights on table columns, table column groups, table rows, table row groups, and table cells in both auto and fixed layout tables <em>may</em> be treated as if <code>auto</code> had been specified.</li> <li>It is permitted to nest <code>min()</code> and other <code>max()</code> functions as expression values. The expressions are full math expressions, so you can use direct addition, subtraction, multiplication and division without using the calc() function itself.</li> <li>The expression can be values combining the addition ( + ), subtraction ( - ), multiplication ( * ) and division ( / ) operators, using standard operator precedence rules. Make sure to put a space on each side of the + and - operands. The operands in the expression may be any &lt;length&gt; syntax value. You can use different units for each value in your expression. You may also use parentheses to establish computation order when needed.</li> <li>Oftentimes you will want to combine <code>min()</code> and <code>max()</code> values, or use <code>max()</code> within a <code>clamp()</code> or <code>calc()</code> function.</li> </ul> <h3 id="Formal_syntax">Formal syntax</h3> <pre class="syntaxbox">max( <a href="#calc-sum">&lt;calc-sum&gt;</a><a href="value_definition_syntax#Hash_mark_()">#</a> )<p>where <br><span id="calc-sum">&lt;calc-sum&gt;</span> = <a href="#calc-product">&lt;calc-product&gt;</a> <a href="value_definition_syntax#Brackets">[</a> <a href="value_definition_syntax#Brackets">[</a> '<a href="value_definition_syntax#Plus_()">+</a>' | '-' <a href="value_definition_syntax#Brackets">]</a> <a href="#calc-product">&lt;calc-product&gt;</a> <a href="value_definition_syntax#Brackets">]</a><a href="value_definition_syntax#Asterisk_(*)">*</a></p><p>where <br><span id="calc-product">&lt;calc-product&gt;</span> = <a href="#calc-value">&lt;calc-value&gt;</a> <a href="value_definition_syntax#Brackets">[</a> '<a href="value_definition_syntax#Asterisk_(*)">*</a>' <a href="#calc-value">&lt;calc-value&gt;</a> | '/' <a href="number">&lt;number&gt;</a> <a href="value_definition_syntax#Brackets">]</a><a href="value_definition_syntax#Asterisk_(*)">*</a></p><p>where <br><span id="calc-value">&lt;calc-value&gt;</span> = <a href="number">&lt;number&gt;</a> | &lt;dimension&gt; | <a href="percentage">&lt;percentage&gt;</a> | ( <a href="#calc-sum">&lt;calc-sum&gt;</a> )</p></pre> <h2 id="Examples">Examples</h2> <h3 id="Making_images_at_least_a_minimum_size">Making images at least a minimum size</h3> <p><code>max()</code> makes it easy to set a <strong>minimum</strong> width for an image. In this example, the CSS creates a logo that stretches half way across the window on larger devices, but does not not exceed 300px on wider devices, without the use of media queries:</p> <pre data-language="css">.logo {
+  width: max(50vw, 300px);
+}
+</pre> <pre data-language="html">&lt;img src="https://developer.mozilla.org/static/img/web-docs-sprite.svg" alt="MDN Web Docs" class="logo"&gt;</pre> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/max%24samples/Making_images_at_least_a_minimum_size?revision=1434427" height="60" id="frame_Making_images_at_least_a_minimum_size" width="100%" frameborder="0" class="live-sample-frame sample-code-frame"></iframe></p> <p>In this example, the logo will be at least 300px wide, but wider if the viewport grows above 600px, at which point it will grow as the viewport grows, always being 50% of the width of the viewport.</p> <h3 id="Setting_a_minimum_size_for_a_font">Setting a minimum size for a font</h3> <p>Another use case for CSS functions is allow a font size to grow while ensuring it is at least a mimum size, enabling responsive font sizes while ensuring legibility.</p> <p>Let's look at some CSS:</p> <pre data-language="css">h1 { 
+  font-size: 2rem; 
+}
+h1.responsive {
+  font-size: max(4vw, 2em, 2rem);
+}
+</pre> <p>The font-size will at minimum be 2rems, or twice the default size of font for the page. This ensure it is legible and ensures accessibility</p> <pre data-language="html">&lt;h1&gt;This text is always legible, but doesn't change size&lt;/h1&gt;
+&lt;h1 class="responsive"&gt;This text is always legible, and is responsive, to a point&lt;/h1&gt;
+</pre> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/max%24samples/Setting_a_minimum_size_for_a_font?revision=1434427" height="300" id="frame_Setting_a_minimum_size_for_a_font" width="100%" frameborder="0" class="live-sample-frame sample-code-frame"></iframe></p> <p>Think of the <code>max()</code> function as finding the minimum value allowed for a property.</p> <h2 id="Accessibility_concerns">Accessibility concerns</h2> <p>TBD</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://drafts.csswg.org/css-values-4/#calc-notation" hreflang="en">CSS Values and Units Module Level 4<br><small>The definition of 'max()' in that specification.</small></a></td> <td><span class="spec-ED">Editor's Draft</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc"><code>calc()</code></a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp"><code>clamp()</code></a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min"><code>min()</code></a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units">CSS Values</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/max</a>
+  </p>
+</div>

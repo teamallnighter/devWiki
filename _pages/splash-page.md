@@ -9,7 +9,7 @@ header:
   overlay_image: https://images.unsplash.com/photo-1554306274-f23873d9a26c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80
   actions:
     - label: "Enter"
-      url: "/terms/"
+      url: "https://devwiki.io/categories/"
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Everything I've learned about web development.... so far"
 intro: 
@@ -17,19 +17,19 @@ intro:
 feature_row:
   - image_path: https://images.unsplash.com/photo-1542831371-32f555c86880?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80
     image_caption: "Image courtesy of [RXspawn@Unsplash](https://unsplash.com/@rxspawn)"
-    alt: "placeholder image 1"
-    title: "Placeholder 1"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
+    alt: "Notes and Articles"
+    title: "Notes and Articles"
+    excerpt: "Notes from my classes, articles I have found and anything I may want to reference later"
   - image_path: https://images.unsplash.com/photo-1529101091764-c3526daf38fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2091&q=80
-    alt: "placeholder image 2"
-    title: "Placeholder 2"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
+    alt: "Cheatsheets"
+    title: "Cheat Sheets"
+    excerpt: "Quick references to just about anything you would need for webdev."
     url: "#test-link"
-    btn_label: "Read More"
+    btn_label: "Cheat Sheets"
     btn_class: "btn--primary"
   - image_path: https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80
-    title: "Placeholder 3"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
+    title: "DevDocs"
+    excerpt: "A scraper that goes to MDN and pulls data back to the site."
 feature_row2:
   - image_path: https://images.unsplash.com/photo-1554306274-f23873d9a26c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80
     alt: "placeholder image 2"

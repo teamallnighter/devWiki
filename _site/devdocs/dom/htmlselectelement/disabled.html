@@ -1,0 +1,89 @@
+<h1>HTMLSelectElement.disabled</h1> <p>The <code><strong>HTMLSelectElement.disabled</strong></code> Is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"><code>Boolean</code></a> that reflects the <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attr-disabled">disabled</a></code> HTML attribute, which indicates whether the control is disabled. If it is disabled, it does not accept clicks. A disabled element is unusable and un-clickable.</p> <h2 id="Syntax">Syntax</h2>  <pre id="comment_text_10" class="syntaxbox"><em>aSelectElement</em>.disabled = aBool;
+</pre>  <h2 id="Example">Example</h2> <h3 id="HTML">HTML</h3> <pre data-language="html">&lt;label&gt;
+  Allow drinks?
+  &lt;input id="allow-drinks" type="checkbox"/&gt;
+&lt;/label&gt;
+
+&lt;label for="drink-select"&gt;Drink selection:&lt;/label&gt;
+&lt;select id="drink-select" disabled&gt;
+  &lt;option value="1"&gt;Water&lt;/option&gt;
+  &lt;option value="2"&gt;Beer&lt;/option&gt;
+  &lt;option value="3"&gt;Pepsi&lt;/option&gt;
+  &lt;option value="4"&gt;Whisky&lt;/option&gt;
+&lt;/select&gt;
+</pre> <h3 id="JavaScript">JavaScript</h3> <pre data-language="js"><span class="kwd">var allowDrinksCheckbox = document.getElementById("allow-drinks");
+var drinkSelect = document.getElementById("drink-select");
+
+allowDrinksCheckbox.addEventListener("change", function(event) {
+  if (event.target.checked) {
+    drinkSelect.disabled = false;
+  } else {
+    drinkSelect.disabled = true;
+  }
+}, false);</span></pre> <h3 id="Result">Result</h3> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/API/HTMLSelectElement/disabled%24samples/Example?revision=1425358" frameborder="0" class="live-sample-frame sample-code-frame" id="frame_Example"></iframe></p>  <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://html.spec.whatwg.org/multipage/#dom-fe-disabled" hreflang="en">HTML Living Standard<br><small>The definition of 'disable' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.w3.org/TR/html50/forms.html#dom-select-disabled" hreflang="en">HTML5<br><small>The definition of 'HTMLSelectElement' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td>Initial definition, snapshot of <a href="https://html.spec.whatwg.org/multipage/" hreflang="en">HTML Living Standard</a>.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/disabled$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/disabled" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/disabled</a>
+  </p>
+</div>

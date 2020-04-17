@@ -1,0 +1,71 @@
+<h1>Expect-CT</h1> <p>The <code>Expect-CT</code> header allows sites to opt in to reporting and/or enforcement of Certificate Transparency requirements, which prevents the use of misissued certificates for that site from going unnoticed.</p> <div class="note"> <p>When a site enables the <code>Expect-CT</code> header, they are requesting that the browser check that any certificate for that site appears in <strong><a href="https://www.certificate-transparency.org/known-logs">public CT logs</a></strong>.</p> </div>  <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row">Header type</th> <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name">Forbidden header name</a></th> <td>yes</td> </tr> </tbody> </table></div>  <h2 id="Syntax">Syntax</h2> <pre>Expect-CT: report-uri="&lt;uri&gt;",
+           enforce,
+           max-age=&lt;age&gt;</pre> <h2 id="Directives"> Directives</h2> <dl> <dt>max-age</dt> <dd> <p>Specifies the number of seconds after reception of the <code>Expect-CT</code> header field during which the user agent should regard the host from whom the message was received as a known Expect-CT host.</p> <p>If a cache receives a value greater than it can represent, or if any of its subsequent calculations overflows, the cache will consider the value to be either 2147483648 (2^31) or the greatest positive integer it can conveniently represent.</p> </dd> <dt>report-uri="&lt;uri&gt;" <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd> <p>Specifies the URI to which the user agent should report Expect-CT failures.</p> When both the <code>enforce</code> directive and the <code>report-uri</code> directive are present, the configuration is referred to as an "enforce-and-report" configuration, signalling to the user agent both that compliance to the Certificate Transparency policy should be enforced and that violations should be reported.  </dd> <dt>enforce <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd> <p>Signals to the user agent that compliance with the Certificate Transparency policy should be enforced (rather than only reporting compliance) and that the user agent should refuse future connections that violate its Certificate Transparency policy.</p> <p>When both the <code>enforce</code> directive and the <code>report-uri</code> directive are present, the configuration is referred to as an "enforce-and-report" configuration, signalling to the user agent both that compliance to the Certificate Transparency policy should be enforced and that violations should be reported.</p> </dd> </dl> <h2 id="Example">Example</h2> <p>The following example specifies enforcement of Certificate Transparency for 24 hours and reports violations to foo.example.</p> <pre>Expect-CT: max-age=86400, enforce, report-uri="https://foo.example/report"</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Title</th> </tr> <tr> <td><a href="https://tools.ietf.org/html/draft-ietf-httpbis-expect-ct-07">Internet Draft</a></td> <td>Expect-CT Extension for HTTP</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 61</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 48</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 61</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 48</td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect-CT$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect-CT" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect-CT</a>
+  </p>
+</div>

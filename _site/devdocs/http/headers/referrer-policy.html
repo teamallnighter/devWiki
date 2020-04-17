@@ -1,0 +1,146 @@
+<h1>Referrer-Policy</h1> <p>The <code>Referrer-Policy</code> HTTP header governs which referrer information, sent in the <a href="referer"><code>Referer</code></a> header, should be included with requests made.</p> <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row">Header type</th> <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name">Forbidden header name</a></th> <td>no</td> </tr> </tbody> </table></div> <h2 id="Syntax">Syntax</h2> <p>Note that <a href="referer"><code>Referer</code></a> is actually a misspelling of the word "referrer". The <code>Referrer-Policy</code> header does not share this misspelling.</p> <pre class="syntaxbox">Referrer-Policy: no-referrer
+Referrer-Policy: no-referrer-when-downgrade
+Referrer-Policy: origin
+Referrer-Policy: origin-when-cross-origin
+Referrer-Policy: same-origin
+Referrer-Policy: strict-origin
+Referrer-Policy: strict-origin-when-cross-origin
+Referrer-Policy: unsafe-url
+</pre> <h2 id="Directives">Directives</h2> <dl> <dt>no-referrer</dt> <dd>The <a href="referer"><code>Referer</code></a> header will be omitted entirely. No referrer information is sent along with requests.</dd> <dt>no-referrer-when-downgrade (default)</dt> <dd>This is the user agent's default behavior if no policy is specified. The URL is sent as a referrer when the protocol security level stays the same (HTTP→HTTP, HTTPS→HTTPS), but isn't sent to a less secure destination (HTTPS→HTTP).</dd> <dt>origin</dt> <dd>Only send the origin of the document as the referrer in all cases.<br> The document <code>https://example.com/page.html</code> will send the referrer <code>https://example.com/</code>.</dd> <dt>origin-when-cross-origin</dt> <dd>Send a full URL when performing a same-origin request, but only send the origin of the document for other cases.</dd> <dt>same-origin</dt> <dd>A referrer will be sent for <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">same-site origins</a>, but cross-origin requests will contain no referrer information.</dd> <dt>strict-origin</dt> <dd>Only send the origin of the document as the referrer when the protocol security level stays the same (HTTPS→HTTPS), but don't send it to a less secure destination (HTTPS→HTTP).</dd> <dt>strict-origin-when-cross-origin</dt> <dd>Send a full URL when performing a same-origin request, only send the origin when the protocol security level stays the same (HTTPS→HTTPS), and send no header to a less secure destination (HTTPS→HTTP).</dd> <dt>unsafe-url</dt> <dd>Send a full URL when performing a same-origin or cross-origin request. <div class="note">This policy will leak origins and paths from TLS-protected resources to insecure origins. Carefully consider the impact of this setting.</div> </dd> </dl> <h2 id="Integration_with_HTML">Integration with HTML</h2> <p>You can also set referrer policies in HTML documents. For example, by using a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta"><code>&lt;meta&gt;</code></a> element with a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-name">name of <code>referrer</code></a>:</p> <pre data-language="html">&lt;meta name="referrer" content="origin"&gt;</pre> <p>Or by using the <code>referrerpolicy</code> attribute on <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe"><code>&lt;iframe&gt;</code></a>, or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link"><code>&lt;link&gt;</code></a> elements:</p> <pre data-language="html">&lt;a href="http://example.com" referrerpolicy="origin"&gt;</pre> <p>Alternatively, a <code>noreferrer</code> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types">link relation</a> on an a, area, or link element can be set:</p> <pre data-language="html">&lt;a href="http://example.com" rel="noreferrer"&gt;</pre> <h2 id="Integration_with_CSS">Integration with CSS</h2> <p>CSS can fetch resources referenced from stylesheets. These resources are following a referrer policy as well.</p> <p>External CSS stylesheets use the default policy (<code>no-referrer-when-downgrade</code>) unless it's overwritten via an HTTP header that is set for a CSS stylesheet specifically.</p> <p>For inline styles or styles created from APIs like <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style"><code>HTMLElement.style</code></a>, the owner document's referrer policy is used.</p> <h2 id="Examples">Examples</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Policy</th> <th scope="col">Document</th> <th scope="col">Navigation to</th> <th scope="col">Referrer</th> </tr> </thead> <tbody> <tr> <td><code><strong>no-referrer</strong></code></td> <td>https://example.com/page.html</td> <td>any domain or path</td> <td>no referrer</td> </tr> <tr> <td><code>no-referrer-when-downgrade</code></td> <td>https://example.com/page.html</td> <td>https://example.com/otherpage.html</td> <td>https://example.com/page.html</td> </tr> <tr> <td><code>no-referrer-when-downgrade</code></td> <td>https://example.com/page.html</td> <td>https://mozilla.org</td> <td>https://example.com/page.html</td> </tr> <tr> <td><code>no-referrer-when-downgrade</code></td> <td>https://example.com/page.html</td> <td>
+<strong>http</strong>://example.org</td> <td>no referrer</td> </tr> <tr> <td><code>origin</code></td> <td>https://example.com/page.html</td> <td>any domain or path</td> <td>https://example.com/</td> </tr> <tr> <td><code><strong>origin-when-cross-origin</strong></code></td> <td>https://example.com/page.html</td> <td>https://example.com/otherpage.html</td> <td>https://example.com/page.html</td> </tr> <tr> <td><code><strong>origin-when-cross-origin</strong></code></td> <td>https://example.com/page.html</td> <td>https://mozilla.org</td> <td>https://example.com/</td> </tr> <tr> <td><code><strong>origin-when-cross-origin</strong></code></td> <td>https://example.com/page.html</td> <td>
+<strong>http</strong>://example.com/page.html</td> <td>https://example.com/</td> </tr> <tr> <td><code>same-origin</code></td> <td>https://example.com/page.html</td> <td>https://example.com/otherpage.html</td> <td>https://example.com/page.html</td> </tr> <tr> <td><code>same-origin</code></td> <td>https://example.com/page.html</td> <td>https://mozilla.org</td> <td>no referrer</td> </tr> <tr> <td><code>strict-origin</code></td> <td>https://example.com/page.html</td> <td>https://mozilla.org</td> <td>https://example.com/</td> </tr> <tr> <td><code>strict-origin</code></td> <td>https://example.com/page.html</td> <td>
+<strong>http</strong>://example.org</td> <td>no referrer</td> </tr> <tr> <td><code>strict-origin</code></td> <td>
+<strong>http</strong>://example.com/page.html</td> <td>any domain or path</td> <td>http://example.com/</td> </tr> <tr> <td><code>strict-origin-when-cross-origin</code></td> <td>https://example.com/page.html</td> <td>https://example.com/otherpage.html</td> <td>https://example.com/page.html</td> </tr> <tr> <td><code>strict-origin-when-cross-origin</code></td> <td>https://example.com/page.html</td> <td>https://mozilla.org</td> <td>https://example.com/</td> </tr> <tr> <td><code>strict-origin-when-cross-origin</code></td> <td>https://example.com/page.html</td> <td>
+<strong>http</strong>://example.org</td> <td>no referrer</td> </tr> <tr> <td><code>unsafe-url</code></td> <td>https://example.com/page.html?q=123</td> <td>any domain or path</td> <td>https://example.com/page.html?q=123</td> </tr> </tbody> </table></div> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> </tr> </thead> <tbody> <tr> <td><a href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-header">Referrer Policy </a></td> <td>Editor's draft</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 56</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 50</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 43</td>
+<td class="bc-supports-yes"> 11.1</td>
+</tr>
+<tr>
+<th scope="row">same-origin</th>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 52</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 48</td>
+<td class="bc-supports-yes"> 11.1</td>
+</tr>
+<tr>
+<th scope="row">strict-origin</th>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 52</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 48</td>
+<td class="bc-supports-yes"> 11.1</td>
+</tr>
+<tr>
+<th scope="row">strict-origin-when-cross-origin</th>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 52</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 48</td>
+<td class="bc-supports-yes"> 11.1</td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 56</td>
+<td class="bc-supports-yes"> 56</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 50</td>
+<td class="bc-supports-yes"> 43</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 7.2</td>
+</tr>
+<tr>
+<th scope="row">same-origin</th>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 52</td>
+<td class="bc-supports-yes"> 48</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 7.2</td>
+</tr>
+<tr>
+<th scope="row">strict-origin</th>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 52</td>
+<td class="bc-supports-yes"> 48</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 7.2</td>
+</tr>
+<tr>
+<th scope="row">strict-origin-when-cross-origin</th>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-yes"> 61</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 52</td>
+<td class="bc-supports-yes"> 48</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 7.2</td>
+</tr>
+</tbody>
+</table>
+</div> <div class="note"> <p><strong>Note</strong>:</p> <ul> <li>From version 53 onwards, Gecko has a pref available in <code>about:config</code> to allow users to set their default <code>Referrer-Policy</code>— <span class="quote"> <code>network.http.referer.userControlPolicy</code>.</span>
+</li> <li>From version 59 onwards (See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=587523">#587523</a>), this has been replaced by <code>network.http.referer.defaultPolicy</code> and <code>network.http.referer.defaultPolicy.pbmode</code>.</li> </ul> <p>Possible values are:</p> <ul> <li>0 — <code>no-referrer</code>
+</li> <li>1 — <code>same-origin</code>
+</li> <li>2 — <code>strict-origin-when-cross-origin</code>
+</li> <li>3 — <code>no-referrer-when-downgrade</code> (the default)</li> </ul> </div> <h2 id="See_also">See also</h2> <ul> <li><a href="https://en.wikipedia.org/wiki/HTTP_referer">HTTP referer on Wikipedia</a></li> <li>When using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a>: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/referrerPolicy"><code>Request.referrerPolicy</code></a>
+</li> <li>The obsolete <span style="white-space: nowrap;"><a href="content-security-policy"><code>Content-Security-Policy</code></a></span> <a href="content-security-policy/referrer"><code>referrer</code></a>  directive.</li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">Same-origin policy</a></li> <li> <p><a href="https://blog.mozilla.org/security/2015/01/21/meta-referrer/">Tighter Control Over Your Referrers – Mozilla Security Blog</a></p> </li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy</a>
+  </p>
+</div>

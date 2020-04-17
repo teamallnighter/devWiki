@@ -1,0 +1,68 @@
+<h1>Access-Control-Max-Age</h1> <p>The <code>Access-Control-Max-Age</code> response header indicates how long the results of a <a href="https://developer.mozilla.org/en-US/docs/Glossary/preflight_request">preflight request</a> (that is the information contained in the <a href="access-control-allow-methods"><code>Access-Control-Allow-Methods</code></a> and <a href="access-control-allow-headers"><code>Access-Control-Allow-Headers</code></a> headers) can be cached.</p> <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row">Header type</th> <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name">Forbidden header name</a></th> <td>no</td> </tr> </tbody> </table></div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">Access-Control-Max-Age: &lt;delta-seconds&gt;
+</pre> <h2 id="Directives">Directives</h2> <dl> <dt>&lt;delta-seconds&gt;</dt> <dd>Maximum number of seconds the results can be cached.<br> Firefox <a href="https://dxr.mozilla.org/mozilla-central/rev/7ae377917236b7e6111146aa9fb4c073c0efc7f4/netwerk/protocol/http/nsCORSListenerProxy.cpp#1131">caps this at 24 hours</a> (86400 seconds) and Chromium at <a href="https://cs.chromium.org/chromium/src/services/network/public/cpp/cors/preflight_result.cc?l=36&amp;rcl=52002151773d8cd9ffc5f557cd7cc880fddcae3e">10 minutes</a> (600 seconds). Chromium also specifies a default value of 5 seconds.<br> A value of <strong>-1</strong> will disable caching, requiring a preflight OPTIONS check for all calls.</dd> </dl> <h2 id="Examples">Examples</h2> <p>Cache results of a preflight request for 10 minutes:</p> <pre>Access-Control-Max-Age: 600 </pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://fetch.spec.whatwg.org/#http-access-control-max-age" hreflang="en">Fetch<br><small>The definition of 'Access-Control-Max-Age' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 3.5</td>
+<td class="bc-supports-yes"> 10</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 4</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 2</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 3.2</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="access-control-allow-headers"><code>Access-Control-Allow-Headers</code></a></li> <li><a href="access-control-allow-methods"><code>Access-Control-Allow-Methods</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age</a>
+  </p>
+</div>

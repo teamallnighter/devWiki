@@ -1,0 +1,32 @@
+<h1>compositionupdate</h1> <p>The <code>compositionupdate</code> event is fired when a character is added to a passage of text being composed (fires with special characters that require a sequence of keys and other inputs such as speech recognition or word suggestion on mobile).</p> <div class="_table"><table class="properties"> <tbody> <tr> <td>Bubbles</td> <td>Yes</td> </tr> <tr> <td>Cancelable</td> <td>No</td> </tr> <tr> <td>Target objects</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element"><code>Element</code></a></td> </tr> <tr> <td>Interface</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/CompositionEvent"><code>CompositionEvent</code></a></td> </tr> </tbody> </table></div> <h2 id="Properties">Properties</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Property</th> <th scope="col">Type</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <td>
+<code>target</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget"><code>EventTarget</code></a></td> <td>Focused element processing the composition, null if not accessible.</td> </tr> <tr> <td>
+<code>type</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMString"><code>DOMString</code></a></td> <td>The type of event.</td> </tr> <tr> <td>
+<code>bubbles</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><code>boolean</code></td> <td>Does the event normally bubble?</td> </tr> <tr> <td>
+<code>cancelable</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><code>boolean</code></td> <td>Is it possible to cancel the event?</td> </tr> <tr> <td>
+<code>view</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowProxy"><code>WindowProxy</code></a></td> <td>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/defaultView"><code>Document.defaultView</code></a> (the <code>window</code> of the document).</td> </tr> <tr> <td>
+<code>detail</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>
+<code>long</code> (<code>float</code>)</td> <td>0.</td> </tr> <tr> <td><code>data</code></td> <td>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMString"><code>DOMString</code></a> (string)</td> <td>The original string being edited, otherwise the empty string. Read only.</td> </tr> <tr> <td><code>locale</code></td> <td>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMString"><code>DOMString</code></a> (string)</td> <td>The language code for the composition event, if available; otherwise, the empty string. Read only.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility</h2> <p class="warning"><strong><a href="https://github.com/mdn/browser-compat-data">We're converting our compatibility data into a machine-readable JSON format</a></strong>. This compatibility table still uses the old format, because we haven't yet converted the data it contains. <strong><a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Structures/Compatibility_tables">Find out how you can help!</a></strong></p>   <div class="_table"><table class="compat-table"> <tbody> <tr> <th>Feature</th> <th>Chrome</th> <th>Edge</th> <th>Firefox (Gecko)</th> <th>Internet Explorer</th> <th>Opera</th> <th>Safari</th> </tr> <tr> <td>Basic support</td> <td>
+<span style="color: #888;">(Yes)</span><sup>[1]</sup>
+</td> <td><span style="color: #888;">(Yes)</span></td> <td>
+<a href="https://developer.mozilla.org/en-US/Firefox/Releases/9">9.0</a> (9.0)<sup>[2]</sup>
+</td> <td><span style="color: #888;">(Yes)</span></td> <td><span style="color: #f00;">No support</span></td> <td><span style="color: rgb(255, 153, 0);">?</span></td> </tr> </tbody> </table></div>   <div class="_table"><table class="compat-table"> <tbody> <tr> <th>Feature</th> <th>Android</th> <th>Edge</th> <th>Firefox Mobile (Gecko)</th> <th>IE Mobile</th> <th>Opera Mobile</th> <th>Safari Mobile</th> </tr> <tr> <td>Basic support</td> <td><span style="color: #888;">(Yes)</span></td> <td><span style="color: #888;">(Yes)</span></td> <td><span style="color: #888;">(Yes)</span></td> <td>9.0 (9.0)<sup>[2]</sup>
+</td> <td><span style="color: rgb(255, 153, 0);">?</span></td> <td><span style="color: #f00;">No support</span></td> </tr> </tbody> </table></div>  <p>[1] Not dispatched immediately after <code><a href="https://developer.mozilla.org/en-US/docs/DOM/DOM_event_reference/compositionstart">compositionstart</a></code> event.</p> <p>[2] <code>compositionupdate</code> events are fired before editor contents are actually changed; that is, the value of an editable element has not yet been changed when <code>compositionupdate</code> event handlers are called. Starting in Gecko 12.0 (Firefox 12.0 / Thunderbird 12.0 / SeaMonkey 2.9), <code><a href="https://developer.mozilla.org/en-US/docs/DOM/DOM_event_reference/input">input</a></code> events are fired while editing is underway, after the contents of the element are changed. This lets you get the updated contents while editing is underway.</p> <p>Gecko also doesn't support the <code>locale</code> attribute for trusted events yet. However, web developers can set this value via <code>initCompositionEvent()</code> when creating untrusted events.</p> <h2 id="See_also">See also</h2> <ul> <li><code><a href="compositionstart">compositionstart</a></code></li> <li><code><a href="compositionupdate">compositionupdate</a></code></li> <li><code><a href="compositionend">compositionend</a></code></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/compositionupdate$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/compositionupdate" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/Events/compositionupdate</a>
+  </p>
+</div>

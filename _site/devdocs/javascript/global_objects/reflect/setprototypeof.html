@@ -1,0 +1,97 @@
+<h1>Reflect.setPrototypeOf</h1> <p>The static <code><strong>Reflect</strong></code><code>.setPrototypeOf()</code> method is the same method as <a href="../object/setprototypeof"><code>Object.setPrototypeOf()</code></a>. It sets the prototype (i.e., the internal <code>[[Prototype]]</code> property) of a specified object to another object or to <a href="../null"><code>null</code></a>.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/reflect-setprototypeof.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">Reflect.setPrototypeOf(target, prototype)
+</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>target</code></dt> <dd>The target object of which to set the prototype.</dd> <dt><code>prototype</code></dt> <dd>The object's new prototype (an object or <a href="../null"><code>null</code></a>).</dd> </dl> <h3 id="Return_value">Return value</h3> <p>A <a href="../boolean"><code>Boolean</code></a> indicating whether or not the prototype was successfully set.</p> <h3 id="Exceptions">Exceptions</h3> <p>A <a href="../typeerror"><code>TypeError</code></a>, if <code>target</code> is not an <a href="../object"><code>Object</code></a> or if <code>prototype</code> is neither an object nor <a href="../null"><code>null</code></a>.</p> <h2 id="Description">Description</h2> <p>The <code>Reflect.setPrototypeOf</code> method changes the prototype (i.e. the value of the internal <code>[[Prototype]]</code> property) of the specified object.</p> <h2 id="Examples">Examples</h2> <h3 id="Using_Reflect.setPrototypeOf()">Using <code>Reflect.setPrototypeOf()</code>
+</h3> <pre data-language="js">Reflect.setPrototypeOf({}, Object.prototype); // true
+
+// It can change an object's [[Prototype]] to null.
+Reflect.setPrototypeOf({}, null); // true
+
+// Returns false if target is not extensible.
+Reflect.setPrototypeOf(Object.freeze({}), null); // false
+
+// Returns false if it cause a prototype chain cycle.
+var target = {};
+var proto = Object.create(target);
+Reflect.setPrototypeOf(target, proto); // false
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-reflect.setprototypeof" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'Reflect.setPrototypeOf' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition.</td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-reflect.setprototypeof" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'Reflect.setPrototypeOf' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 42</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 36</td>
+<td class="bc-supports-yes"> 10</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 42</td>
+<td class="bc-supports-yes"> 36</td>
+<td class="bc-supports-yes"> 10</td>
+<td class="bc-supports-yes"> 5.0</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 6.0.0</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../reflect"><code>Reflect</code></a></li> <li><a href="../object/setprototypeof"><code>Object.setPrototypeOf()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/setPrototypeOf$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/setPrototypeOf" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/setPrototypeOf</a>
+  </p>
+</div>

@@ -1,0 +1,60 @@
+<h1>paste</h1> <div class="warning"> <p>This page needs to be updated to match the currently specified behaviour. In the meantime please refer to the specification: <a href="https://www.w3.org/TR/clipboard-apis/#the-paste-action">https://www.w3.org/TR/clipboard-apis/#the-paste-action</a></p> </div> <p>The paste event is fired when a selection has been pasted from the clipboard to the document.</p> <div class="_table"><table class="properties"> <tbody> <tr> <td>Bubbles</td> <td>Yes</td> </tr> <tr> <td>Cancelable</td> <td>Yes</td> </tr> <tr> <td>Target objects</td> <td>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/DefaultView"><code>DefaultView</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document"><code>Document</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element"><code>Element</code></a>
+</td> </tr> <tr> <td>Interface</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/ClipboardEvent"><code>ClipboardEvent</code></a></td> </tr> </tbody> </table></div> <h2 id="Properties">Properties</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Property</th> <th scope="col">Type</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <td>
+<code>target</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget"><code>EventTarget</code></a></td> <td>The event target (the topmost target in the DOM tree).</td> </tr> <tr> <td>
+<code>type</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMString"><code>DOMString</code></a></td> <td>The type of event.</td> </tr> <tr> <td>
+<code>bubbles</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><code>boolean</code></td> <td>Does the event normally bubble?</td> </tr> <tr> <td>
+<code>cancelable</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><code>boolean</code></td> <td>Is it possible to cancel the event?</td> </tr> <tr> <td>
+<code>clipboardData</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer"><code>DataTransfer</code></a></td> <td>The contents of the clipboard. Not only text, but also files and images.</td> </tr> </tbody> </table></div> <h2 name="Example_usage" id="Example_usage">Example usage</h2> <h3 id="HTML">HTML</h3> <pre data-language="html">&lt;textarea&gt;&lt;/textarea&gt;
+
+&lt;div contenteditable="true"&gt;&lt;/div&gt;</pre> <h3 id="JavaScript">JavaScript</h3> <pre data-language="js">document.querySelector('textarea').addEventListener('paste', (e) =&gt; {
+  console.log(e);
+  window.setTimeout(() =&gt; {
+    // Do something immediately after the paste event
+  });
+});
+
+document.querySelector('div').addEventListener('paste', (e) =&gt; {
+  console.log(e);
+  window.setTimeout(() =&gt; {
+    // Do something immediately after the paste event
+  });
+});
+</pre> <h2 id="Modify_the_clipboard_content_before_pasting">Modify the clipboard content before pasting</h2> <h3 id="HTML_2">HTML</h3> <pre data-language="html">&lt;div contenteditable="true"&gt;&lt;/div&gt;</pre> <h3 id="JavaScript_2">JavaScript</h3> <pre data-language="js">document.querySelector('div').addEventListener('paste', (e) =&gt; {
+  // Prevent the default pasting event and stop bubbling
+  e.preventDefault();
+  e.stopPropagation();
+
+  // Get the clipboard data
+  let paste = (e.clipboardData || window.clipboardData).getData('text');
+  
+  // Do something with paste like remove non-UTF-8 characters
+  paste = paste.replace(/[^\x20-\xFF]/gi, '');
+
+  // Find the cursor location or highlighted area
+  const selection = window.getSelection();
+
+  // Cancel the paste operation if the cursor or highlighted area isn't found
+  if (!selection.rangeCount) return false;
+
+  // Paste the modified clipboard content where it was intended to go
+  selection.getRangeAt(0).insertNode(document.createTextNode(paste));
+});
+</pre> <h2 name="Specifications" id="Specifications">Specifications</h2> <div class="_table"><table> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td>W3C Working Draft, 29 September 2017</td> <td>Working Draft</td> <td>https://www.w3.org/TR/clipboard-apis/#clipboard-event-paste</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility</h2> <p class="warning"><strong><a href="https://github.com/mdn/browser-compat-data">We're converting our compatibility data into a machine-readable JSON format</a></strong>. This compatibility table still uses the old format, because we haven't yet converted the data it contains. <strong><a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Structures/Compatibility_tables">Find out how you can help!</a></strong></p>   <div class="_table"><table class="compat-table"> <tbody> <tr> <th>Feature</th> <th>Chrome</th> <th>Edge</th> <th>Firefox (Gecko)</th> <th>Internet Explorer</th> <th>Opera</th> <th>Safari (WebKit)</th> </tr> <tr> <td>Basic support</td> <td>58</td> <td><span style="color: #888;">(Yes)</span></td> <td><span style="color: #888;">(Yes)</span></td> <td>11</td> <td>45</td> <td><span style="color: #888;">(Yes)</span></td> </tr> <tr> <td><code>clipboardData</code></td> <td>58</td> <td><span style="color: #888;">(Yes)</span></td> <td>
+<a href="https://developer.mozilla.org/en-US/Firefox/Releases/22">22</a> (22)</td> <td>
+<span style="color: #f00;">No support</span> (use window.clipboardData instead)</td> <td>45</td> <td><span style="color: #888;">(Yes)</span></td> </tr> </tbody> </table></div>   <div class="_table"><table class="compat-table"> <tbody> <tr> <th>Feature</th> <th>Android Webview</th> <th>Chrome for Android</th> <th>Edge</th> <th>Firefox Mobile (Gecko)</th> <th>IE Phone</th> <th>Opera Mobile</th> <th>Safari Mobile</th> </tr> <tr> <td>Basic support</td> <td>58</td> <td>58</td> <td><span style="color: #888;">(Yes)</span></td> <td><span style="color: rgb(255, 153, 0);">?</span></td> <td><span style="color: rgb(255, 153, 0);">?</span></td> <td>45</td> <td><span style="color: rgb(255, 153, 0);">?</span></td> </tr> <tr> <td><code>clipboardData</code></td> <td>58</td> <td>58</td> <td><span style="color: #888;">(Yes)</span></td> <td><span style="color: rgb(255, 153, 0);">?</span></td> <td><span style="color: rgb(255, 153, 0);">?</span></td> <td>45</td> <td><span style="color: rgb(255, 153, 0);">?</span></td> </tr> </tbody> </table></div>  <h2 id="Related_events">Related events</h2> <ul> <li><code><a href="copy">copy</a></code></li> <li><code><a href="cut">cut</a></code></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/paste$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/paste" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/Events/paste</a>
+  </p>
+</div>

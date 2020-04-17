@@ -1,0 +1,14 @@
+<h1>DOMSubtreeModified</h1> <h2 name="Example" id="Example">Example</h2> <p>The following code will display the time of last DOM Change on the title bar of the page.</p> <div class="warning"> <p>This event has been deprecated in favor of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">Mutation Observer API</a></p> </div> <div class="warning">This event can cause infinite loops if you decide to change the DOM inside the event handler, hence it has been disabled in a number of browsers (see<br> <a href="https://www.fxsitecompat.com/en-CA/docs/2018/domattrmodified-and-domsubtreemodified-events-are-no-longer-fired-when-style-attribute-is-changed-via-cssom/">DOMAttrModified and DOMSubtreeModified events are no longer fired when style attribute is changed via CSSOM</a> for example).</div> <pre data-language="js">document.body.addEventListener('DOMSubtreeModified', function () {
+  document.title = 'DOM Changed at ' + new Date();
+}, false);
+</pre><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/DOMSubtreeModified$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/DOMSubtreeModified" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/Events/DOMSubtreeModified</a>
+  </p>
+</div>

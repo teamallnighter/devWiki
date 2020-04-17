@@ -1,0 +1,80 @@
+<h1>Accept-Charset</h1> <p>The <code>Accept-Charset</code> request HTTP header advertises which character set the client is able to understand. Using <a href="../content_negotiation">content negotiation</a>, the server then selects one of the proposals, uses it and informs the client of its choice within the <a href="content-type"><code>Content-Type</code></a> response header. Browsers usually don't set this header as the default value for each content type is usually correct and transmitting it would allow easier fingerprinting.</p> <p>If the server cannot serve any matching character set, it can theoretically send back a <a href="../status/406"><code>406</code></a> (Not Acceptable) error code. But, for a better user experience, this is rarely done and the more common way is to ignore the <code>Accept-Charset</code> header in this case.</p> <div class="note"> <p>In early versions of HTTP/1.1, a default charset (<code>ISO-8859-1</code>) was defined. This is no more the case and now each content type may have its own default.</p> </div> <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row">Header type</th> <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">Request header</a></td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name">Forbidden header name</a></th> <td>yes</td> </tr> </tbody> </table></div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">Accept-Charset: &lt;charset&gt;
+
+// Multiple types, weighted with the <a href="https://developer.mozilla.org/en-US/docs/Glossary/quality_values">quality value</a> syntax:
+Accept-Charset: utf-8, iso-8859-1;q=0.5</pre> <h2 id="Directives">Directives</h2> <dl> <dt><code>&lt;charset&gt;</code></dt> <dd>A character set like <code>utf-8</code> or <code>iso-8859-15.</code>
+</dd> <dt><code>*</code></dt> <dd>Any charset not mentioned elsewhere in the header; <code>'*'</code> being used as a wildcard.</dd> <dt>
+<code>;q=</code> (q-factor weighting)</dt> <dd>Any value is placed in an order of preference expressed using a relative <a href="https://developer.mozilla.org/en-US/docs/Glossary/Quality_values">quality value</a> called the <em>weight</em>.</dd> </dl> <h2 id="Examples">Examples</h2> <pre>Accept-Charset: iso-8859-1
+
+Accept-Charset: utf-8, iso-8859-1;q=0.5
+
+Accept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Title</th> </tr> <tr> <td><a href="https://tools.ietf.org/html/rfc7231#section-5.3.3">RFC 7231, section 5.3.3: Accept-Charset</a></td> <td>Hypertext Transfer Protocol (HTTP/1.1): Semantics and Context</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li>HTTP <a href="../content_negotiation">content negotiation</a>
+</li> <li>Header with the result of the content negotiation: <a href="content-type"><code>Content-Type</code></a>
+</li> <li>Other similar headers: <a href="te"><code>TE</code></a>, <a href="accept-encoding"><code>Accept-Encoding</code></a>, <a href="accept-language"><code>Accept-Language</code></a>, <a href="accept"><code>Accept</code></a>
+</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Charset$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Charset" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Charset</a>
+  </p>
+</div>

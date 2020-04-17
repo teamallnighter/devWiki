@@ -1,0 +1,84 @@
+<h1>@media.display-mode</h1> <p>The <code>display-mode</code> <a href="https://developer.mozilla.org/en-US/docs/CSS">CSS</a> <a href="../media_queries/using_media_queries#Media_features">media feature</a> can be used to test the display mode of an application. You can use it to provide a consistent user experience between launching a site from a URL and launching it from a desktop icon.</p> <p>This feature corresponds to the Web app manifest's <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest#display"><code>display</code></a> member. Both apply to the top-level browsing context and any child browsing contexts. The feature query applies regardless of whether a web app manifest is present.</p> <h2 id="Syntax">Syntax</h2> <p>The <code>display-mode</code> feature is specified as a keyword value chosen from the list below.</p> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Display mode</th> <th scope="col">Description</th> <th scope="col">Fallback display mode</th> </tr> </thead> <tbody> <tr> <td><code>fullscreen</code></td> <td>All of the available display area is used and no user agent <a href="https://developer.mozilla.org/en-US/docs/Glossary/chrome">chrome</a> is shown.</td> <td><code>standalone</code></td> </tr> <tr> <td><code>standalone</code></td> <td>The application will look and feel like a standalone application. This can include the application having a different window, its own icon in the application launcher, etc. In this mode, the user agent will exclude UI elements for controlling navigation, but can include other UI elements such as a status bar.</td> <td><code>minimal-ui</code></td> </tr> <tr> <td><code>minimal-ui</code></td> <td>The application will look and feel like a standalone application, but will have a minimal set of UI elements for controlling navigation. The elements will vary by browser.</td> <td><code>browser</code></td> </tr> <tr> <td><code>browser</code></td> <td>The application opens in a conventional browser tab or new window, depending on the browser and platform.</td> <td>(none)</td> </tr> </tbody> </table></div> <h2 id="Example">Example</h2> <pre data-language="css">@media all and (display-mode: fullscreen) {
+  body {
+    margin: 0;
+    border: 5px solid black;
+  }
+}</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://w3c.github.io/manifest/#the-display-mode-media-feature" hreflang="en">Web App Manifest<br><small>The definition of 'display-mode' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 46</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes bc-has-history"> 47
+<section class="bc-history" id="sect1"><dl>
+<dt class="bc-supports-yes bc-supports"> 47
+</dt>
+<dd> Firefox 47 and later support <code>display-mode</code> values <code>fullscreen</code> and <code>browser</code>. Firefox 57 added support for <code>minimal-ui</code> and <code>standalone</code> values.</dd>
+</dl></section>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td> ? </td>
+<td class="bc-supports-yes"> 46</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes bc-has-history"> 47
+<section class="bc-history" id="sect2"><dl>
+<dt class="bc-supports-yes bc-supports"> 47
+</dt>
+<dd> Firefox 47 and later support <code>display-mode</code> values <code>fullscreen</code> and <code>browser</code>. Firefox 57 added support for <code>minimal-ui</code> and <code>standalone</code> values.</dd>
+</dl></section>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode</a>
+  </p>
+</div>

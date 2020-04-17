@@ -1,0 +1,141 @@
+<h1>constructor</h1> <p>The <code>constructor</code> method is a special method for creating and initializing an object created within a <code><a href="../statements/class">class</a></code>.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/classes-constructor.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">constructor([<em>arguments</em>]) { ... }</pre> <h2 id="Description">Description</h2> <p>There can be only one special method with the name "constructor" in a class. Having more than one occurrence of a <code>constructor</code> method in a class will throw a <a href="../global_objects/syntaxerror"><code>SyntaxError</code></a> error.</p> <p>A constructor can use the <code>super</code> keyword to call the constructor of a parent class.</p> <p>If you do not specify a constructor method, a default constructor is used.</p> <h2 id="Examples">Examples</h2> <h3 id="Using_the_constructor_method">Using the <code>constructor</code> method</h3> <p>This code snippet is taken from the <a href="https://github.com/GoogleChrome/samples/blob/gh-pages/classes-es6/index.html">classes sample</a> (<a href="https://googlechrome.github.io/samples/classes-es6/index.html">live demo</a>).</p> <pre data-language="js">class Square extends Polygon {
+  constructor(length) {
+    // Here, it calls the parent class' constructor with lengths
+    // provided for the Polygon's width and height
+    super(length, length);
+    // Note: In derived classes, super() must be called before you
+    // can use 'this'. Leaving this out will cause a reference error.
+    this.name = 'Square';
+  }
+
+  get area() {
+    return this.height * this.width;
+  }
+
+  set area(value) {
+    this.area = value;
+  } 
+}</pre> <h3 id="Another_example">Another example</h3> <p>Take a look at this code snippet</p> <pre data-language="js">class Polygon {
+    constructor() {
+        this.name = "Polygon";
+    }
+}
+
+class Square extends Polygon {
+    constructor() {
+        super();
+    }
+}
+
+class Rectangle {}
+
+Object.setPrototypeOf(Square.prototype, Rectangle.prototype);
+
+console.log(Object.getPrototypeOf(Square.prototype) === Polygon.prototype); //false
+console.log(Object.getPrototypeOf(Square.prototype) === Rectangle.prototype); //true
+
+let newInstance = new Square();
+console.log(newInstance.name); //Polygon</pre> <p>Here the prototype of <strong>Square</strong> class is changed but still the constructor of the previous base class <strong>Polygon </strong>is called when a new instance of a square is being created.</p> <h3 id="Default_constructors">Default constructors</h3> <p>As stated, if you do not specify a constructor method a default constructor is used. For base classes the default constructor is:</p> <pre data-language="js">constructor() {}
+</pre> <p>For derived classes, the default constructor is:</p> <pre data-language="js">constructor(...args) {
+  super(...args);
+}</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-static-semantics-constructormethod" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'Constructor Method' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition.</td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-static-semantics-constructormethod" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'Constructor Method' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes bc-has-history"> 49
+<section class="bc-history" id="sect1"><dl>
+<dt class="bc-supports-yes bc-supports"> 49
+</dt>
+<dd> From Chrome 42 to 48 strict mode is required. Non-strict mode support can be enabled using the flag "Enable Experimental JavaScript".</dd>
+</dl></section>
+</td>
+<td class="bc-supports-yes"> 13</td>
+<td class="bc-supports-yes"> 45</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 36</td>
+<td class="bc-supports-yes"> 9</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 13</td>
+<td class="bc-supports-yes"> 45</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes bc-has-history"> 6.0.0
+<section class="bc-history" id="sect2"><dl>
+<dt class="bc-supports-yes bc-supports"> 6.0.0
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 4.0.0<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 4.0.0: this feature is behind the <code>--use_strict</code> runtime flag.</dd>
+<dt class="bc-supports-yes bc-supports"> 5.0.0<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 5.0.0: this feature is behind the <code>--harmony</code> runtime flag.</dd>
+</dl></section>
+</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../operators/super">super()</a></li> <li><a href="../operators/class"><code>class</code> expression</a></li> <li><a href="../statements/class"><code>class</code> declaration</a></li> <li><a href="../classes">Classes</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor</a>
+  </p>
+</div>

@@ -1,0 +1,14 @@
+<h1>saturate()</h1> <p>The <code>saturate()</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> function super-saturates or desaturates the input image. Its result is a <a href="../filter-function"><code>&lt;filter-function&gt;</code></a>.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/css/function-saturate.html" frameborder="0" width="100%" class="interactive" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">saturate(<em>amount</em>)</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>amount</code></dt> <dd>The amount of the conversion, specified as a <a href="../number"><code>&lt;number&gt;</code></a> or a <a href="../percentage"><code>&lt;percentage&gt;</code></a>. A value under <code>100%</code> desaturates the image, while a value over <code>100%</code> super-saturates it. A value of <code>0%</code> is completely unsaturated, while a value of <code>100%</code> leaves the input unchanged. The lacuna value for interpolation is <code>1</code>.</dd> </dl> <h2 id="Examples">Examples</h2> <pre data-language="css">saturate(0)     /* Completely unsaturated */
+saturate(.4)    /* 40% unsaturated */
+saturate(100%)  /* No effect */
+saturate(200%)  /* Double saturation */</pre> <h2 id="See_also">See also</h2> <ul> <li><a href="../filter-function"><code>&lt;filter-function&gt;</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/saturate$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/saturate" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/saturate</a>
+  </p>
+</div>

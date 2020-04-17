@@ -1,0 +1,106 @@
+<h1>AudioTrackList.getTrackById</h1> <p>The <strong><a href="../audiotracklist"><code>AudioTrackList</code></a></strong> method <code>getTrackById()</code> returns the first <a href="../audiotrack"><code>AudioTrack</code></a> object from the track list whose <a href="../audiotrack/id"><code>id</code></a> matches the specified string. This lets you find a specified track if you know its ID string.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var <em>theTrack</em> = <em>AudioTrackList</em>.getTrackById(<em>id</em>);</pre> <h3 id="Paramters">Paramters</h3> <dl> <dt><code>id</code></dt> <dd>A <a href="../domstring"><code>DOMString</code></a> indicating the ID of the track to locate within the track list.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>An <a href="../audiotrack"><code>AudioTrack</code></a> object indicating the first track found within the <code>AudioTrackList</code> whose <code>id</code> matches the specified string. If no match is found, this method returns <code>null</code>.</p> <p>The tracks are searched in their natural order; that is, in the order defined by the media resource itself, or, if the resource doesn't define an order, the relative order in which the tracks are declared by the media resource.</p> <h2 id="Example">Example</h2> <p>This example suggests a hypothetical game in which movies are used as cut-scenes or other key set pieces within the game. Each movie has one audio track for each character, as well as one for the music, sound effects, and so forth. This function allows the game to disable a specific character's audio in order to adjust the movie's performance based on occurrences within the game; if the character's dialog isn't relevant, it gets left out. Obviously that would require some clever graphic design to make work, but... it's a hypothetical game.</p> <pre data-language="js">function disableCharacter(videoElem, characterName) {
+  videoElem.audioTracks.getTrackById(characterName).enabled = false;
+}
+</pre> <p>This short function gets the <a href="../audiotracklist"><code>AudioTrackList</code></a> containing the video's audio tracks using <a href="../htmlmediaelement/audiotracks"><code>HTMLMediaElement.audioTracks</code></a>, then calls <code>getTrackById()</code> on it, specifying the character's name. The resulting track's audio is then disabled by setting its <a href="../audiotrack/enabled"><code>enabled</code></a> flag to <code>false</code>.</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://html.spec.whatwg.org/multipage/#dom-audiotracklist-gettrackbyid" hreflang="en">HTML Living Standard<br><small>The definition of 'AudioTrackList.getTrackById()' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.w3.org/TR/html50/embedded-content-0.html#dom-audiotracklist-getTrackById" hreflang="en">HTML5<br><small>The definition of 'AudioTrackList.getTrackById()' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes bc-has-history"> 45<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 45<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 45: this feature is behind the <code>enable-experimental-web-platform-features</code> preference (needs to be set to <code>enabled</code>). To change preferences in Chrome, visit chrome://flags.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes bc-has-history"> 33<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 33<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 33: this feature is behind the <code>media.track.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 10</td>
+<td class="bc-supports-yes bc-has-history"> 32<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 32<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 32: this feature is behind the <code>enable-experimental-web-platform-features</code> preference (needs to be set to <code>enabled</code>).</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 6.1</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 45</td>
+<td class="bc-supports-yes bc-has-history"> 45<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 45<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 45: this feature is behind the <code>enable-experimental-web-platform-features</code> preference (needs to be set to <code>enabled</code>). To change preferences in Chrome, visit chrome://flags.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 33<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 33<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 33: this feature is behind the <code>media.track.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> 32<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 32<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 32: this feature is behind the <code>enable-experimental-web-platform-features</code> preference (needs to be set to <code>enabled</code>).</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 7.1</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioTrackList/getTrackById$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioTrackList/getTrackById" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/AudioTrackList/getTrackById</a>
+  </p>
+</div>

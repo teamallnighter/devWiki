@@ -1,0 +1,86 @@
+<h1>:first</h1> <p>The <code>:first</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> <a href="pseudo-classes">pseudo-class</a>, used with the <a href="@page"><code>@page</code></a> <a href="at-rule">at-rule</a>, represents the first page of a printed document.</p> <pre data-language="css">/* Selects the first page when printing */
+@page :first {
+  margin-left: 50%;
+  margin-top: 50%;
+}</pre> <div class="note"> <p><strong>Note:</strong> You can't change all CSS properties with this pseudo-class. You can only change the margins, <a href="orphans"><code>orphans</code></a>, <a href="widows"><code>widows</code></a>, and page breaks of the document. Furthermore, you may only use <a href="length#Absolute_length_units">absolute-length</a> units when defining the margins. All other properties will be ignored.</p> </div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">:first</pre> <h2 name="Example" id="Example">Example</h2> <h3 id="HTML">HTML</h3> <pre data-language="html">&lt;p&gt;First Page.&lt;/p&gt;
+&lt;p&gt;Second Page.&lt;/p&gt;
+&lt;button&gt;Print!&lt;/button&gt;
+</pre> <h3 id="CSS">CSS</h3> <pre data-language="css">@page :first {
+  margin-left: 50%;
+  margin-top: 50%;
+}
+
+p {
+  page-break-after: always;
+}
+</pre> <h3 id="JavaScript">JavaScript</h3> <pre data-language="js">document.querySelector("button").onclick = function () {
+  window.print();
+}
+</pre> <h3 id="Result">Result</h3> <p>Press the "Print!" button to print the example. The words on the first page should be somewhere around the center, while other pages will have their contents at the default position.</p> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/:first%24samples/Example?revision=1338265" height="150px" id="frame_Example" width="80%" frameborder="0" class="live-sample-frame sample-code-frame"></iframe></p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://drafts.csswg.org/css-page-3/#left-right-first" hreflang="en">CSS Paged Media Module Level 3<br><small>The definition of ':first' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>No change.</td> </tr> <tr> <td><a href="https://www.w3.org/TR/CSS2/page.html#page-selectors" hreflang="en">CSS Level 2 (Revision 1)<br><small>The definition of ':first' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 8</td>
+<td class="bc-supports-yes"> 9.2</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li><a href="@page"><code>@page</code></a></li> <li>Other page-related pseudo-classes: <a href=":left"><code>:left</code></a>, <a href=":right"><code>:right</code></a>
+</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:first$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:first" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/:first</a>
+  </p>
+</div>

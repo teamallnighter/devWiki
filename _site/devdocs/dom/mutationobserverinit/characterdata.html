@@ -1,0 +1,120 @@
+<h1>MutationObserverInit.characterData</h1> <p>The <strong><a href="../mutationobserverinit"><code>MutationObserverInit</code></a></strong> dictionary's optional <code>characterData</code> property is used to specify whether or not to monitor the node or nodes being observed for changes to their textual contents.</p> <p>Character data changes are detectable on any text node, including nodes based on the <a href="../text"><code>Text</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/ProcessingInstruction"><code>ProcessingInstruction</code></a>, and <a href="../comment"><code>Comment</code></a> interfaces.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var <em>options</em> = {
+  <em>characterData</em>: true | false
+}
+</pre> <h3 id="Value">Value</h3> <p>A Boolean value indicating whether or not to call the observer's callback function when textual nodes' values change.</p> <p>If <code>true</code>, the callback specified when <a href="../mutationobserver/observe"><code>observe()</code></a> was used to start observing the node or subtree is called any time the contents of a text node are changed.</p> <p>You can expand the capabilities of attribute mutation monitoring using other options:</p> <ul> <li>
+<a href="characterdataoldvalue"><code>characterDataOldValue</code></a> lets you specify whether or not you want the previous value of changed text nodes to be provided using the <a href="../mutationrecord"><code>MutationRecord</code></a>'s <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord/oldValue"><code>oldValue</code></a> property.</li> <li>
+<a href="subtree"><code>subtree</code></a> lets you specify whether to watch the target node and all of its descendants (<code>true</code>), or just the target node (<code>false</code>).</li> </ul> <p>If you set <code>characterDataOldValue</code> to <code>true</code>, <code>characterData</code> is automatically assumed to be <code>true</code>, even if you don't expressly set it as such.</p> <h2 id="Example">Example</h2> <h2 name="Specifications" id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://dom.spec.whatwg.org/#dom-mutationobserverinit-characterdata" hreflang="en">DOM<br><small>The definition of 'MutationObserverInit.characterData' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes bc-has-history"> 26
+<dl>
+<dt class="bc-supports-yes bc-supports"> 26
+</dt>
+
+<dt class="bc-supports-no bc-supports">18 — 26<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: webkit</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 14
+<dl>
+<dt class="bc-supports-yes bc-supports"> 14
+</dt>
+<dd> Starting in Firefox 36, <code>characterData</code> has no default value; previously, its default value was <code>false</code>.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 11</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes bc-has-history"> 7
+<dl>
+<dt class="bc-supports-yes bc-supports"> 7
+</dt>
+
+<dt class="bc-supports-no bc-supports">6 — 7<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: webkit</dd>
+</dl>
+</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 26
+<dl>
+<dt class="bc-supports-yes bc-supports"> 26
+</dt>
+
+<dt class="bc-supports-no bc-supports">18 — 26<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: webkit</dd>
+</dl>
+</td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 14
+<dl>
+<dt class="bc-supports-yes bc-supports"> 14
+</dt>
+<dd> Starting in Firefox 36, <code>characterData</code> has no default value; previously, its default value was <code>false</code>.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes bc-has-history"> 7
+<dl>
+<dt class="bc-supports-yes bc-supports"> 7
+</dt>
+
+<dt class="bc-supports-no bc-supports">6 — 7<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: webkit</dd>
+</dl>
+</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div>  <div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/characterData$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/characterData" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/characterData</a>
+  </p>
+</div>

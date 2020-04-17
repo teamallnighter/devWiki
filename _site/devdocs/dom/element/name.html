@@ -1,0 +1,88 @@
+<h1>element.name</h1> <p><code><strong>name</strong></code> gets or sets the <code>name</code> property of an element in the DOM. It only applies to the following elements: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/applet"><code>&lt;applet&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/frame"><code>&lt;frame&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe"><code>&lt;iframe&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map"><code>&lt;map&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta"><code>&lt;meta&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object"><code>&lt;object&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/param"><code>&lt;param&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea"><code>&lt;textarea&gt;</code></a>.</p> <div class="note"> <p><strong>Note:</strong> The <code>name</code> property doesn't exist for other elements; unlike <a href="tagname"><code>tagName</code></a> and <a href="../node/nodename"><code>nodeName</code></a>, it is not a property of the <a href="../node"><code>Node</code></a>, <a href="../element"><code>Element</code></a> or <a href="../htmlelement"><code>HTMLElement</code></a> interfaces.</p> </div> <p><code>name</code> can be used in the <a href="../document/getelementsbyname"><code>document.getElementsByName()</code></a> method, a <a href="../htmlformelement">form</a> and with the form <a href="../htmlformelement/elements">elements</a> collection. When used with a form or elements collection, it may return a single element or a collection.</p> <h2 name="Syntax" id="Syntax">Syntax</h2> <pre>HTMLElement.name = string;
+var elName = HTMLElement.name;
+
+var fControl = HTMLFormElement.elementName;
+var controlCollection = HTMLFormElement.elements.elementName;
+</pre> <h2 name="Example" id="Example">Example</h2> <pre>&lt;form action="" name="formA"&gt;
+  &lt;input type="text" value="foo"&gt;
+&lt;/form&gt;
+
+&lt;script type="text/javascript"&gt;
+
+  // Get a reference to the first element in the form
+  var formElement = document.forms['formA'].elements[0];
+
+  // Give it a name
+  formElement.name = 'inputA';
+
+  // Show the value of the input
+  alert(document.forms['formA'].elements['inputA'].value);
+ 
+&lt;/script&gt;
+</pre> <h2 name="Notes" id="Notes">Notes</h2> <p>In Internet Explorer (IE), the <code>name</code> property of DOM objects created using <a href="../document/createelement"><code>document.createElement()</code></a> can't be set or modified.</p> <h2 name="Specification" id="Specification">Specification</h2> <p>W3C DOM 2 HTML Specification:</p> <ul> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-32783304">Anchor</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-39843695">Applet</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-34812697">Button</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-22051454">Form</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-91128709">Frame</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-96819659">iFrame</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-47534097">Image</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-89658498">Input</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-52696514">Map</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-31037081">Meta</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-20110362">Object</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-59871447">Param</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-41636323">Select</a></li> <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-70715578">Textarea</a></li> </ul> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/element/name$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/element/name" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/element/name</a>
+  </p>
+</div>

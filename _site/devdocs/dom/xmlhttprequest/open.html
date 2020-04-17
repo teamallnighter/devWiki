@@ -1,0 +1,102 @@
+<h1>XMLHttpRequest.open</h1> <p>The <a href="../xmlhttprequest"><code>XMLHttpRequest</code></a> method <code><strong>open()</strong></code> initializes a newly-created request, or re-initializes an existing one.</p> <div class="note">
+<strong>Note:</strong> Calling this method for an already active request (one for which <code>open()</code> has already been called) is the equivalent of calling <a href="abort"><code>abort()</code></a>.</div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><em>XMLHttpRequest</em>.open(<var>method</var>,<var> url</var>)
+<em>XMLHttpRequest</em>.open(<var>method</var>,<var> url</var>,<var> async)</var>
+<em>XMLHttpRequest</em>.open(<var>method</var>,<var> url</var>,<var> async</var>,<var> user</var>)
+<em>XMLHttpRequest</em>.open(<var>method</var>,<var> url</var>,<var> async</var>,<var> user</var>,<var> password</var>)
+</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>method</code></dt> <dd>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP request method</a> to use, such as <code>"GET"</code>, <code>"POST"</code>, <code>"PUT"</code>, <code>"DELETE"</code>, etc. Ignored for non-HTTP(S) URLs.</dd> <dt><code>url</code></dt> <dd>A <a href="../domstring"><code>DOMString</code></a> representing the URL to send the request to.</dd> <dt>
+<code>async</code> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>An optional Boolean parameter, defaulting to <code>true</code>, indicating whether or not to perform the operation asynchronously. If this value is <code>false</code>, the <code>send()</code> method does not return until the response is received. If <code>true</code>, notification of a completed transaction is provided using event listeners. This <em>must</em> be true if the <code>multipart</code> attribute is <code>true</code>, or an exception will be thrown. <div class="note">
+<strong>Note:</strong> Synchronous requests on the main thread can be easily disruptive to the user experience and should be avoided; in fact, many browsers have deprecated synchronous XHR support on the main thread entirely. Synchronous requests are permitted in <a href="../worker"><code>Worker</code></a>s.</div> </dd> <dt>
+<code>user</code> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>The optional user name to use for authentication purposes; by default, this is the <code>null</code> value.</dd> <dt>
+<code>password</code> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>The optional password to use for authentication purposes; by default, this is the <code>null</code> value.</dd> </dl> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://xhr.spec.whatwg.org#the-open()-method" hreflang="en">XMLHttpRequest<br><small>The definition of 'open()' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>WHATWG living standard</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Starting in Firefox 30, synchronous requests on the main thread have been deprecated due to their negative impact on performance and the user experience. Therefore, the <code>async</code> parameter may not be <code>false</code> except in a <code>Worker</code>.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> 7
+<dl>
+<dt class="bc-supports-yes bc-supports"> 7
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 5
+</dt>
+<dd> Implemented via <code>ActiveXObject</code>
+</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1.2</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 18</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> Yes
+<dl>
+<dt class="bc-supports-yes bc-supports"> Yes
+</dt>
+<dd> Starting in Firefox 30, synchronous requests on the main thread have been deprecated due to their negative impact on performance and the user experience. Therefore, the <code>async</code> parameter may not be <code>false</code> except in a <code>Worker</code>.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="using_xmlhttprequest">Using XMLHttpRequest</a></li> <li>Related <a href="../xmlhttprequest"><code>XMLHttpRequest</code></a> methods: <a href="setrequestheader"><code>setRequestHeader()</code></a>,<a href="send"><code>send()</code></a>, and <a href="abort"><code>abort()</code></a>
+</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open</a>
+  </p>
+</div>

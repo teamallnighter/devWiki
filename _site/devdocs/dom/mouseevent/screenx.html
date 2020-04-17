@@ -1,0 +1,120 @@
+<h1>MouseEvent.screenX</h1> <p>The <code>screenX</code> read-only property of the <a href="../mouseevent"><code>MouseEvent</code></a> property provides the horizontal coordinate (offset) of the mouse pointer in global (screen) coordinates.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var <em>pixelNumber</em> = <em>instanceOfMouseEvent</em>.screenX
+</pre> <h3 id="Return_value">Return value</h3> <p>A <code>double</code> floating point value. Early versions of the spec defined this as an integer referring to the number of pixels. See the Browser compatibility section for details.</p> <h2 id="Example">Example</h2> <pre data-language="html">&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;screenX\screenY example&lt;/title&gt;
+
+&lt;script type="text/javascript"&gt;
+
+function showCoords(evt){
+  alert(
+    "screenX value: " + evt.screenX + "\n"
+    + "screenY value: " + evt.screenY + "\n"
+  );
+}
+
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body onmousedown="showCoords(event)"&gt;
+&lt;p&gt;To display the mouse coordinates click anywhere on the page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>When you trap events on the window, document, or other roomy elements, you can get the coordinates of that event (e.g., a click) and route it properly, as the following example demonstrates:</p> <pre data-language="js">function checkClickMap(e) {
+  if (e.screenX &lt; 50) doRedButton();
+  if (50 &lt;= e.screenX &amp;&amp; e.screenX &lt; 100) doYellowButton();
+  if (e.screenX &gt;= 100) doRedButton();
+}
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://drafts.csswg.org/cssom-view/#dom-mouseevent-screenx" hreflang="en">CSS Object Model (CSSOM) View Module<br><small>The definition of 'screenX' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Redefines <a href="../mouseevent"><code>MouseEvent</code></a> from long to double. </td> </tr> <tr> <td><a href="https://www.w3.org/TR/2014/WD-DOM-Level-3-Events-20140925/#widl-MouseEvent-screenX" hreflang="en">Document Object Model (DOM) Level 3 Events Specification<br><small>The definition of 'MouseEvent.screenX' in that specification.</small></a></td> <td><span class="spec-Obsolete">Obsolete</span></td> <td>No change from <a href="https://www.w3.org/TR/DOM-Level-2-Events/events.html" hreflang="en">Document Object Model (DOM) Level 2 Events Specification</a>.</td> </tr> <tr> <td><a href="https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-MouseEvent" hreflang="en">Document Object Model (DOM) Level 2 Events Specification<br><small>The definition of 'MouseEvent.sceenX' in that specification.</small></a></td> <td><span class="spec-Obsolete">Obsolete</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 6</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">Value type changed from <code>long</code> to <code>double</code>
+</th>
+<td class="bc-supports-yes"> 56</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">Value type changed from <code>long</code> to <code>double</code>
+</th>
+<td class="bc-supports-yes"> 56</td>
+<td class="bc-supports-yes"> 56</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+</tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../mouseevent"><code>MouseEvent</code></a></li> <li><a href="screeny"><code>screenY</code></a></li> <li>
+<a href="clientx"><code>clientX</code></a> / <a href="clienty"><code>clientY</code></a>
+</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/screenX$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/screenX" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/screenX</a>
+  </p>
+</div>

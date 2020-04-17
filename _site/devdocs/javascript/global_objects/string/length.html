@@ -1,0 +1,96 @@
+<h1>string.length</h1> <p>The <code>length</code> property of a <a href="../string"><code>String</code></a> object indicates the length of a string, in UTF-16 code units.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/string-length.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><var>str</var>.length</pre> <h2 id="Description">Description</h2> <p>This property returns the number of code units in the string. <a href="https://en.wikipedia.org/wiki/UTF-16">UTF-16</a>, the string format used by JavaScript, uses a single 16-bit code unit to represent the most common characters, but needs to use two code units for less commonly-used characters, so it's possible for the value returned by <code>length</code> to not match the actual number of characters in the string.</p> <p>ECMASCript 2016 (ed. 7) established a maximum length of <code>2^53 - 1</code> elements. Previously, no maximum length was specified. </p> <p>For an empty string, <code>length</code> is 0.</p> <p>The static property <code>String.length</code> returns the value 1.</p> <h2 id="Examples">Examples</h2> <h3 id="Basic_usage">Basic usage</h3> <pre data-language="js">var x = 'Mozilla';
+var empty = '';
+
+console.log('Mozilla is ' + x.length + ' code units long');
+/* "Mozilla is 7 code units long" */
+
+console.log('The empty string has a length of ' + empty.length);
+/* "The empty string has a length of 0" */</pre> <h3 id="Assigning_to_length">Assigning to length</h3> <pre data-language="js">var myString = "bluebells";
+
+// Attempting to assign a value to a string's .length property has no observable effect. 
+myString.length = 4;
+console.log(myString);
+/* "bluebells" */
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%201st%20edition,%20June%201997.pdf" hreflang="en">ECMAScript 1st Edition (ECMA-262)</a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition. Implemented in JavaScript 1.0.</td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/5.1/#sec-15.5.5.1" hreflang="en">ECMAScript 5.1 (ECMA-262)<br><small>The definition of 'String.prototype.length' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-properties-of-string-instances-length" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'String.prototype.length' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-properties-of-string-instances-length" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'String.prototype.length' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="http://developer.teradata.com/blog/jasonstrimpel/2011/11/javascript-string-length-and-internationalizing-web-applications">JavaScript <code>String.length</code> and Internationalizing Web Applications</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length</a>
+  </p>
+</div>

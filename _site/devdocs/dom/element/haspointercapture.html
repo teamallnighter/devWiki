@@ -1,0 +1,38 @@
+<h1>element.hasPointerCapture</h1> <p>The <code>hasPointerCapture()</code> method of the <a href="../element"><code>Element</code></a> interface indicates whether the element on which it is invoked has pointer capture for the pointer identified by the given pointer ID.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">targetElement.<em>hasPointerCapture</em>(<em>pointerId</em>);</pre> <h3 id="Arguments">Arguments</h3> <dl> <dt><em>pointerId</em></dt> <dd>The <a href="../pointerevent/pointerid"><code>identifier</code></a> for a <a href="../pointerevent"><code>pointer event</code></a>.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>A boolean value — <code>true</code> if the element does have ponter capture, <code>false</code> if it doesn't.</p> <h2 id="Examples">Examples</h2> <pre data-language="html">&lt;html&gt;
+  &lt;script&gt;
+    function downHandler(ev) {
+      const el = document.getElementById("target");
+      // Element 'target' will receive/capture further events
+      el.setPointerCapture(ev.pointerId);
+
+      ...
+
+      // Check whether element still has pointer capture
+      let pointerCap = el.hasPointerCapture(ev.pointerId);
+      if(pointerCap) {
+        // We've still got pointer capture 
+      } else {
+        // oops, we've lost pointer capture!
+      }
+    }
+
+    function init() {
+      const el = document.getElementById("target");
+      el.onpointerdown = downHandler;
+    }
+  &lt;/script&gt;
+  &lt;body onload="init();"&gt;
+    &lt;div id="target"&gt; Touch me ... &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://w3c.github.io/pointerevents/#dom-element-haspointercapture" hreflang="en">Pointer Events – Level 2<br><small>The definition of 'hasPointerCapture()' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility</h2> <p>The compatibility table on this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</p> <p>No compatibility data found. Please contribute data for "api.Element.hasPointerCapture" (depth: 1) to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.</p> <h2 id="See_also">See also</h2> <ul> <li><a href="setpointercapture"><code>Element.setPointerCapture()</code></a></li> <li><a href="releasepointercapture"><code>Element.releasePointerCapture()</code></a></li> <li><a href="../pointer_events"><code>Pointer Events</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/element/hasPointerCapture$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/element/hasPointerCapture" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/element/hasPointerCapture</a>
+  </p>
+</div>

@@ -1,0 +1,135 @@
+<h1>column-fill</h1> <p>The <code>column-fill</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property controls how an element's contents are balanced when broken into columns.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/css/column-fill.html" frameborder="0" width="100%" class="interactive" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre data-language="css">/* Keyword values */
+column-fill: auto;
+column-fill: balance;
+column-fill: balance-all;
+
+/* Global values */
+column-fill: inherit;
+column-fill: initial;
+column-fill: unset;
+</pre> <p>The <code>column-fill</code> property is specified as one of the keyword values listed below.</p> <h3 id="Values">Values</h3> <dl> <dt><code>auto</code></dt> <dd>Columns are filled sequentially. Content takes up only the room it needs.</dd> <dt><code>balance</code></dt> <dd>Content is equally divided between columns. In <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Paged_Media">paged media</a>, only the last page is balanced.</dd> <dt><code>balance-all</code></dt> <dd>Content is equally divided between columns. In <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Paged_Media">paged media</a>, all pages are balanced.</dd> </dl> <h3 id="Formal_syntax">Formal syntax</h3> <pre class="syntaxbox">auto | balance | balance-all</pre> <h2 id="Example">Example</h2> <h3 id="HTML">HTML</h3> <pre data-language="html">&lt;p class="content-box"&gt;
+  This is a bunch of text split into multiple
+  columns. The CSS `column-fill` property is
+  used to spread the contents evenly across
+  all the columns.
+&lt;/p&gt;
+</pre> <h3 id="CSS">CSS</h3> <pre data-language="css">.content-box {
+  column-count: 4;
+  column-rule: 1px solid black;
+  column-fill: balance;
+}
+</pre> <h3 id="Result">Result</h3> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/column-fill%24samples/Example?revision=1407139" height="120" id="frame_Example" width="auto" frameborder="0" class="live-sample-frame sample-code-frame"></iframe></p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://drafts.csswg.org/css-multicol-1/#cf" hreflang="en">CSS Multi-column Layout Module<br><small>The definition of 'column-fill' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <div class="_table"><table class="properties"><tbody>
+<tr>
+<th scope="row"><a href="initial_value">Initial value</a></th>
+<td><code>balance</code></td>
+</tr>
+<tr>
+<th scope="row">Applies to</th>
+<td>multicol elements</td>
+</tr>
+<tr>
+<th scope="row"><a href="inheritance">Inherited</a></th>
+<td>no</td>
+</tr>
+<tr>
+<th scope="row">Media</th>
+<td>
+<code>visual</code>, but, in continuous media, has no effect in overflow columns</td>
+</tr>
+<tr>
+<th scope="row"><a href="computed_value">Computed value</a></th>
+<td>as specified</td>
+</tr>
+<tr>
+<th scope="row">Animation type</th>
+<td>discrete</td>
+</tr>
+<tr>
+<th scope="row">Canonical order</th>
+<td>per grammar</td>
+</tr>
+</tbody></table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes bc-has-history"> 52
+<section class="bc-history" id="sect1"><dl>
+<dt class="bc-supports-yes bc-supports"> 52
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 13<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: -moz-</dd>
+</dl></section>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 52
+<section class="bc-history" id="sect2"><dl>
+<dt class="bc-supports-yes bc-supports"> 52
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 14<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: -moz-</dd>
+</dl></section>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill</a>
+  </p>
+</div>

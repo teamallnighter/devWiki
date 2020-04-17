@@ -1,0 +1,24 @@
+<h1>orientationchange</h1><p>The <code>orientationchange</code> event is fired when the orientation of the device has changed.</p> <h2 id="General_info">General info</h2> <dl class="eventinfo"> <dt style="float: left; text-align: right; width: 120px;">Specification</dt> <dd style="margin: 0 0 0 120px;"><a href="https://compat.spec.whatwg.org/#event-orientationchange">Compatibility Living Standard</a></dd> <dt style="float: left; text-align: right; width: 120px;">Interface</dt> <dd style="margin: 0 0 0 120px;">Event</dd> <dt style="float: left; text-align: right; width: 120px;">Bubbles</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Cancelable</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Target</dt> <dd style="margin: 0 0 0 120px;">Screen</dd> <dt style="float: left; text-align: right; width: 120px;">Default Action</dt> <dd style="margin: 0 0 0 120px;">None</dd> </dl> <h2 id="Properties">Properties</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Property</th> <th scope="col">Type</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <td>
+<code>target</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget"><code>EventTarget</code></a></td> <td>The event target (the topmost target in the DOM tree).</td> </tr> <tr> <td>
+<code>type</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMString"><code>DOMString</code></a></td> <td>The type of event.</td> </tr> <tr> <td>
+<code>bubbles</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"><code>Boolean</code></a></td> <td>Whether the event normally bubbles or not.</td> </tr> <tr> <td>
+<code>cancelable</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"><code>Boolean</code></a></td> <td>Whether the event is cancellable or not.</td> </tr> </tbody> </table></div> <h2 id="Example">Example</h2> <pre data-language="js">// Note that "orientationchange" and screen.orientation are unpre fixed in the following
+// code although this API is still vendor-prefixed browsers implementing it.
+window.addEventListener("orientationchange", function() {
+    alert("the orientation of the device is now " + screen.orientation.angle);
+});
+</pre><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/orientationchange$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/orientationchange" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/Events/orientationchange</a>
+  </p>
+</div>

@@ -1,0 +1,70 @@
+<h1>&lt;rp&gt;</h1> <p>The <code>&lt;rp&gt;</code> is used to provide fall-back parentheses for browsers that do not support display of ruby annotations using the <a href="ruby"><code>&lt;ruby&gt;</code></a> element. One <code>&lt;rp&gt;</code> element should enclose each of the opening and closing parentheses that wrap the <a href="rt"><code>&lt;rt&gt;</code></a> element that contains the annotation's text.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/rp.html" frameborder="0" width="100%" class="interactive tabbed-shorter" height="250"></iframe>  <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories">Content categories</a></th> <td>None.</td> </tr> <tr> <th scope="row">Permitted content</th> <td>Text</td> </tr> <tr> <th scope="row">Tag omission</th> <td>The end tag can be omitted if the element is immediately followed by an <a href="rt"><code>&lt;rt&gt;</code></a> or another <code>&lt;rp&gt;</code> element, or if there is no more content in the parent element.</td> </tr> <tr> <th scope="row">Permitted parents</th> <td>A <a href="ruby"><code>&lt;ruby&gt;</code></a> element. <code>&lt;rp&gt;</code> must be positioned immediately before or after an <a href="rt"><code>&lt;rt&gt;</code></a> element.</td> </tr> <tr> <th scope="row">Permitted ARIA roles</th> <td>Any</td> </tr> <tr> <th scope="row">DOM interface</th> <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a></td> </tr> </tbody> </table></div> <h2 id="Attributes">Attributes</h2> <p>This element only includes the <a href="../global_attributes">global attributes</a>.</p> <h2 id="Usage_notes">Usage notes</h2> <ul> <li>Ruby annotations are for showing pronunciation of East Asian characters, like using Japanese furigana or Taiwanese bopomofo characters. The <code>&lt;rp&gt;</code> element is used in the case of lack of <a href="ruby"><code>&lt;ruby&gt;</code></a> element support; the <code>&lt;rp&gt;</code> content provides what should be displayed in order to indicate the presence of a ruby annotation, usually parentheses.</li> </ul> <h2 id="Example">Example</h2> <p>This example uses ruby annotations to display the <a href="https://en.wikipedia.org/wiki/Romaji">Romaji</a> equivalents for each character.</p>  <pre data-language="html">&lt;ruby&gt;
+  漢 &lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;Kan&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;
+  字 &lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;ji&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;
+&lt;/ruby&gt;</pre>   <p>The result looks like this in your browser:</p> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/HTML/Element/rp%24samples/with-ruby?revision=1433820" height="60" id="frame_with-ruby" width="600" frameborder="0" class="live-sample-frame sample-code-frame"></iframe></p> <p>The HTML above rendered by a browser <em>without</em> ruby support might look like this:</p>    <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/HTML/Element/rp%24samples/without-ruby?revision=1433820" height="60" id="frame_without-ruby" width="600" frameborder="0" class="live-sample-frame sample-code-frame"></iframe></p> <p>See the article about the <a href="ruby"><code>&lt;ruby&gt;</code></a> element for further examples.</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-rp-element" hreflang="en">HTML Living Standard<br><small>The definition of '&lt;rp&gt;' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.w3.org/TR/html50/text-level-semantics.html#the-rp-element" hreflang="en">HTML5<br><small>The definition of '&lt;rp&gt;' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr>
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 5</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 38</td>
+<td class="bc-supports-yes"> 5</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes"> 5</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr>
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr>
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 38</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="ruby"><code>&lt;ruby&gt;</code></a></li> <li><a href="rt"><code>&lt;rt&gt;</code></a></li> <li><a href="rb"><code>&lt;rb&gt;</code></a></li> <li> <p><a href="rtc"><code>&lt;rtc&gt;</code></a></p> </li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp</a>
+  </p>
+</div>

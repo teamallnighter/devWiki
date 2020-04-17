@@ -1,0 +1,72 @@
+<h1>WorkerGlobalScope.performance</h1> <p>The <code><strong>performance</strong></code> read-only property of the <a href="../workerglobalscope"><code>WorkerGlobalScope</code></a> interface returns a <a href="../performance"><code>Performance</code></a> object to be used on the worker.</p> <div class="note"> <p>Not all <a href="../performance"><code>Performance</code></a> properties and methods are available to Web workers.</p> </div> <p>This property is <span class="inlineIndicator readOnly readOnlyInline">Read only </span>.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var perfObj = <em>self</em>.performance;
+</pre> <h3 name="Return_value" id="Return_value">Return Value</h3> <p>A <a href="../performance"><code>Performance</code></a> object.</p> <h2 id="Example">Example</h2> <p>If you called</p> <pre data-language="js">console.log(performance);</pre> <p>inside a worker (which would basically be the equivalent of <code>self.console.log(self.performance);</code>, as these are being called on the worker scope, which can be referenced with <a href="self"><code>WorkerGlobalScope.self</code></a>), you will get a <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerPerformance"><code>WorkerPerformance</code></a> object written to the console — something like the following:</p> <pre data-language="js">WorkerPerformance {now: function}
+  __proto__: WorkerPerformance
+    constructor: function WorkerPerformance() { [native code] }
+    now: function now() { [native code] }
+    __proto__: Object</pre> <p>You could use this performance object to return performance data, as you might do with a normal <a href="../performance"><code>Performance</code></a> object.</p> <div class="note"> <p><strong>Note</strong>: Firefox has a bug with using <code>console.log</code> inside shared/service workers (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1058644">bug 1058644</a>), which may return strange results, but this should be fixed soon.</p> </div> <h2 name="Specifications" id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://www.w3.org/TR/hr-time-2/#the-performance-attribute" hreflang="en">High Resolution Time Level 2<br><small>The definition of 'performance' in that specification.</small></a></td> <td><span class="spec-CR">Candidate Recommendation</span></td> <td>Defines WorkerGlobalScope.performance.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 34</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 34</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../performance"><code>Performance</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/performance$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/performance" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/performance</a>
+  </p>
+</div>

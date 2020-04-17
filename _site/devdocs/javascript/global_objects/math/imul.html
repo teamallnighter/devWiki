@@ -1,0 +1,109 @@
+<h1>Math.imul</h1> <p>The <code>Math.imul()</code> function returns the result of the C-like 32-bit multiplication of the two parameters.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/math-imul.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var <em>product</em> = Math.imul(<em>a</em>, <em>b</em>);</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>a</code></dt> <dd>First number.</dd> <dt><code>b</code></dt> <dd>Second number.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>The result of the C-like 32-bit multiplication of the given arguments.</p> <h2 id="Description">Description</h2> <p><code>Math.imul()</code> allows for 32-bit integer multiplication with C-like semantics. This feature is useful for projects like <a href="http://en.wikipedia.org/wiki/Emscripten">Emscripten</a>. Because <code>imul()</code> is a static method of <code>Math</code>, you always use it as <code>Math.imul()</code>, rather than as a method of a <code>Math</code> object you created (<code>Math</code> is not a constructor). If you use normal JavaScript floating point numbers in imul, you will experience a degrade in performance. This is because of the costly conversion from a floating point to an integer for multiplication, and then converting the multiplied integer back into a floating point. The reason imul exists is because it is faster in only one (so far) circumstance: AsmJS. AsmJS allows for JIST-optimizers to more easily implement internal integers in JavaScript. Multiplying two numbers stored internally as integers (which is only possible with AsmJS) with imul is the only potential circumstance where Math.imul may prove performant in current browsers.</p> <h2 id="Examples">Examples</h2> <h3 id="Using_Math.imul()">Using <code>Math.imul()</code>
+</h3> <pre data-language="js">Math.imul(2, 4);          // 8
+Math.imul(-1, 8);         // -8
+Math.imul(-2, -2);        // 4
+Math.imul(0xffffffff, 5); // -5
+Math.imul(0xfffffffe, 5); // -10
+</pre> <h2 id="Polyfill">Polyfill</h2> <p>This can be emulated with the following function:</p> <pre data-language="js">if (!Math.imul) Math.imul = function(a, b) {
+  var aHi = (a &gt;&gt;&gt; 16) &amp; 0xffff;
+  var aLo = a &amp; 0xffff;
+  var bHi = (b &gt;&gt;&gt; 16) &amp; 0xffff;
+  var bLo = b &amp; 0xffff;
+  // the shift by 0 fixes the sign on the high part
+  // the final |0 converts the unsigned value into a signed value
+  return ((aLo * bLo) + (((aHi * bLo + aLo * bHi) &lt;&lt; 16) &gt;&gt;&gt; 0) | 0);
+};</pre> <p>However, the following function is more performant because it is likely that browsers in which this polyfill would be used do not optimize with an internal integer type in javascript, instead using floating points for all numbers.</p> <pre data-language="js">if (!Math.imul) Math.imul = function(opA, opB) {
+  opB |= 0; // ensure that opB is an integer. opA will automatically be coerced.
+  // floating points give us 53 bits of precision to work with plus 1 sign bit
+  // automatically handled for our convienence:
+  // 1. 0x003fffff /*opA &amp; 0x000fffff*/ * 0x7fffffff /*opB*/ = 0x1fffff7fc00001
+  //    0x1fffff7fc00001 &lt; Number.MAX_SAFE_INTEGER /*0x1fffffffffffff*/
+  var result = (opA &amp; 0x001fffff) * opB;
+  // 2. We can remove an integer coersion from the statement above because:
+  //    0x1fffff7fc00001 + 0xffc00000 = 0x1fffffff800001
+  //    0x1fffffff800001 &lt; Number.MAX_SAFE_INTEGER /*0x1fffffffffffff*/
+  if (opA &amp; 0xffc00000 /*!== 0*/) result += (opA &amp; 0xffc00000) * opB |0;
+  return result |0;
+};</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-math.imul" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'Math.imul' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition.</td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-math.imul" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'Math.imul' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 28</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 20</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 16</td>
+<td class="bc-supports-yes"> 7</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 20</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 7</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 0.12</td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul</a>
+  </p>
+</div>

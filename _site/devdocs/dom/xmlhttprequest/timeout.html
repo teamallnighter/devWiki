@@ -1,0 +1,91 @@
+<h1>XMLHttpRequest.timeout</h1> <p>The <code><strong>XMLHttpRequest.timeout</strong></code> property is an <code>unsigned long</code> representing the number of milliseconds a request can take before automatically being terminated. The default value is 0, which means there is no timeout. Timeout shouldn't be used for synchronous XMLHttpRequests requests used in a <a href="https://developer.mozilla.org/en-US/docs/Glossary/document_environment">document environment</a> or it will throw an <code>InvalidAccessError</code> exception. When a timeout happens, a <a href="https://developer.mozilla.org/en-US/docs/Web/Events/timeout">timeout</a> event is fired. </p> <dl> <dd> <div class="note">
+<strong>Note:</strong> You may not use a timeout for synchronous requests with an owning window.</div> </dd> <dd>
+<a href="synchronous_and_asynchronous_requests#Example_using_a_timeout">Using a timeout with an asynchronous request</a> </dd> </dl> <p>In Internet Explorer, the timeout property may be set only after calling the <a href="open">open()</a> method and before calling the <a href="send">send()</a> method.</p> <h2 id="Example">Example</h2> <pre data-language="js">var xhr = new XMLHttpRequest();
+xhr.open('GET', '/server', true);
+
+xhr.timeout = 2000; // time in milliseconds
+
+xhr.onload = function () {
+  // Request finished. Do processing here.
+};
+
+xhr.ontimeout = function (e) {
+  // XMLHttpRequest timed out. Do something here.
+};
+
+xhr.send(null);</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://xhr.spec.whatwg.org#the-timeout-attribute" hreflang="en">XMLHttpRequest</a></td> <td><span class="spec-Living">Living Standard</span></td> <td>WHATWG living standard</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 29</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 8</td>
+<td class="bc-supports-yes bc-has-history"> 17
+<dl>
+<dt class="bc-supports-yes bc-supports"> 17
+</dt>
+
+<dt class="bc-supports-no bc-supports">12 — 16
+</dt>
+
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/timeout$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/timeout" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/timeout</a>
+  </p>
+</div>

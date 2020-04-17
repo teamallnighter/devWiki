@@ -1,0 +1,44 @@
+<h1>Navigation timing API: Using Navigation Timing</h1> <p>The Navigation Timing API lets you easily obtain detailed and highly accurate timing information to help isolate performance problems with your site's code or resources. Unlike other tools or libraries, the <a href="../navigation_timing_api">Navigation Timing API</a> lets you gather information that only the browser can provide at a level of accuracy much improved over other techniques. It also offers the advantage of being able to provide timing information as perceived by the user rather than data that has no correlation to what the user experiences.</p> <h2 id="Collecting_timing_information">Collecting timing information</h2> <p>Using the API is as simple as obtaining the <a href="../performance"><code>Performance</code></a> object using <a href="../window/performance"><code>window.performance</code></a> and looking up what you need within the object returned. For example, to measure the perceived loading time for a page:</p> <pre data-language="js">window.addEventListener("load", function() {
+  let now = new Date().getTime();
+  let loadingTime = now - performance.timing.navigationStart;
+ 
+  document.querySelector(".output").innerText =
+        loadingTime + " ms";
+}, false);</pre> <p>This code, executed when the <code><a href="https://developer.mozilla.org/en-US/docs/Web/Events/load">load</a></code> event occurs, subtracts from the current time the time at which the navigation whose timing was recorded began (<a href="../performancetiming/navigationstart"><code>performance.timing.navigationStart</code></a>), and outputs that information to the screen by inserting it into an element.</p>  <p>In tandem with appropriate HTML and CSS, the result is:</p> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/API/Navigation_timing_API/Using_Navigation_Timing%24samples/Collecting_timing_information?revision=1288397" height="80" id="frame_Collecting_timing_information" width="500" frameborder="0" class="live-sample-frame sample-code-frame"></iframe></p> <p>The values listed are for the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe"><code>&lt;iframe&gt;</code></a> in which the sample is presented above.</p> <p>For a list of the available timing values you can look for in <a href="../performancetiming"><code>PerformanceTiming</code></a>, see the <a href="../performancetiming"><code>PerformanceTiming</code></a> interface's <a href="../performancetiming#Properties">Properties</a> section.</p> <h2 id="Determining_navigation_type">Determining navigation type</h2> <p>To put the timing information obtained from <a href="../performancetiming"><code>PerformanceTiming</code></a> into the correct perspective, you need to know more about what sort of load operation occurred. In particular, you need to know:</p> <ul> <li>Was this a load or a reload?</li> <li>Was this a navigation or a move forward or backward through history?</li> <li>How many (if any) redirects were required in order to complete the navigation?</li> </ul> <p>This information is provided by the <a href="../performance/navigation"><code>Performance.navigation</code></a> property, which returns a <a href="../performancenavigation"><code>PerformanceNavigation</code></a> object that includes the needed information.</p> <p>Let's add this information to the example above. The new code looks like this:</p> <pre data-language="js">window.addEventListener("load", function() {
+  let now = new Date().getTime();
+  let loadingTime = now - performance.timing.navigationStart;
+   
+  output = "Load time: " + loadingTime + " ms&lt;br/&gt;";
+  output += "Navigation type: ";
+ 
+  switch(performance.navigation.type) {
+      case PerformanceNavigation.TYPE_NAVIGATE:
+        output += "Navigation";
+      break;
+    case PerformanceNavigation.TYPE_RELOAD:
+        output += "Reload";
+      break;
+    case PerformanceNavigation.TYPE_BACK_FORWARD:
+        output += "History";
+      break;
+    default:
+        output += "Unknown";
+      break;
+  }
+ 
+  output += "&lt;br/&gt;Redirects: " + 
+      performance.navigation.redirectCount;
+  document.querySelector(".output").innerHTML = output;
+}, false);</pre> <p>This amends the previous example by looking at the contents of the <code>performance.navigation</code> object. <a href="../performancenavigation/type"><code>performance.navigation.type</code></a> indicates what kind of load operation took place: a navigation, a reload, or a shift through the browser's history. We also obtain the number of redirects that were incurred during the navigation from <a href="../performancenavigation/redirectcount"><code>performance.navigation.redirectCount</code></a>. This information is output to the screen just like the page load time was previously: by inserting it into the element with class <code>"output"</code>.</p>  <p>With this code in place, the result looks like this:</p> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/API/Navigation_timing_API/Using_Navigation_Timing%24samples/Determining_navigation_type?revision=1288397" height="120" id="frame_Determining_navigation_type" width="500" frameborder="0" class="live-sample-frame sample-code-frame"></iframe></p> <p>The values listed are for the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe"><code>&lt;iframe&gt;</code></a> in which the sample is presented.</p> <h2 id="See_also">See also</h2> <ul> <li><a href="../navigation_timing_api">Navigation Timing API</a></li> <li><a href="../window/performance"><code>window.performance</code></a></li> <li>
+<a href="../performance"><code>Performance</code></a>, <a href="../performancetiming"><code>PerformanceTiming</code></a>, and <a href="../performancenavigation"><code>PerformanceNavigation</code></a>
+</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API/Using_Navigation_Timing$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API/Using_Navigation_Timing" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API/Using_Navigation_Timing</a>
+  </p>
+</div>

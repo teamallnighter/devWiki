@@ -1,0 +1,110 @@
+<h1>Selection.setBaseAndExtent</h1><div class="blockIndicator experimental indicator-warning"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p>The <code>setBaseAndExtent()</code> method of the <a href="../selection"><code>Selection</code></a> interface sets the selection to be a range including all or parts of two specified DOM nodes, and any content located between them.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><em>sel</em>.setBaseAndExtent(<em>anchorNode</em>,<em>anchorOffset</em>,<em>focusNode</em>,<em>focusOffset</em>)
+</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><em><code>anchorNode</code></em></dt> <dd>The node at the start of the selection.</dd> <dt><em><code>anchorOffset</code></em></dt> <dd>The number of child nodes from the start of the anchor node that should be excluded from the selection. So for example, if the value is 0 the whole node is included. If the value is 1, the whole node minus the first child node is included. And so on.</dd> <dt><em><code>focusNode</code></em></dt> <dd>The node at the end of the selection.</dd> <dt><code><em>focusOffset</em></code></dt> <dd>The number of child nodes from the start of the focus node that should be included in the selection. So for example, if the value is 0 the whole node is excluded. If the value is 1, the first child node is included. And so on.</dd> </dl> <div class="note"> <p><strong>Note</strong>: If the <code>focusNode</code> appears before the <code>anchorNode</code> in the source, the two effectively swap roles, so anchor becomes focus and focus becomes anchor. In addition, the direction is reversed in such cases — the caret is placed at the beginning of the text rather the end, which matters for any keyboard command that might follow. For example, <kbd>Shift</kbd> + <kbd>➡︎</kbd> would cause the selection to narrow from the beginning rather than grow at the end.</p> </div> <h3 id="Return_Value">Return Value</h3> <p>Void.</p> <h3 id="Exceptions">Exceptions</h3> <p>If <code>anchorOffset</code> is larger than the number of child nodes inside <code>anchorNode</code>, or if <code>focusOffset</code> is larger than the number of child nodes inside <code>focusNode</code>, an <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexSizeError"><code>IndexSizeError</code></a> exception is thrown.</p> <h2 id="Examples">Examples</h2> <p>In this example, we have two paragraphs containing spans, each one containing a single word. The first one is set as the <code>anchorNode</code> and the second is set as the <code>focusNode</code>. We also have an additional paragraph that sits in between the two nodes.</p> <p>Next, we have two form inputs that allow you to set the <code>anchorOffset</code> and <code>focusOffset</code> — they both have a default value of 0.</p> <p>We also have a button that when pressed invokes a function that runs the <code>setBaseAndExtent()</code> method with the specified offsets, and copies the selection into the output paragraph at the very bottom of the HTML.</p> <pre data-language="html">&lt;h1&gt;setBaseAndExtent example&lt;/h1&gt;
+&lt;div&gt;
+  &lt;p class="one"&gt;&lt;span&gt;Fish&lt;/span&gt;&lt;span&gt;Dog&lt;/span&gt;&lt;span&gt;Cat&lt;/span&gt;&lt;span&gt;Bird&lt;/span&gt;&lt;/p&gt;
+  &lt;p&gt;MIDDLE&lt;/p&gt;
+  &lt;p class="two"&gt;&lt;span&gt;Car&lt;/span&gt;&lt;span&gt;Bike&lt;/span&gt;&lt;span&gt;Boat&lt;/span&gt;&lt;span&gt;Plane&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;p&gt;
+    &lt;label for="aOffset"&gt;Anchor offset&lt;/label&gt;
+    &lt;input id="aOffset" name="aOffset" type="number" value="0"&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for="fOffset"&gt;Focus offset&lt;/label&gt;
+    &lt;input id="fOffset" name="fOffset" type="number" value="0"&gt;
+  &lt;/p&gt;
+  &lt;p&gt;&lt;button&gt;Capture selection&lt;/button&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;: &lt;span class="output"&gt;&lt;/span&gt;&lt;/p&gt;</pre> <p>The JavaScript looks like so:</p> <pre data-language="js">var one = document.querySelector('.one');
+var two = document.querySelector('.two');
+
+var aOffset = document.getElementById('aOffset');
+var fOffset = document.getElementById('fOffset');
+
+var button = document.querySelector('button');
+
+var output = document.querySelector('.output');
+
+var selection;
+
+button.onclick = function() {
+  try {
+    selection = document.getSelection();
+    selection.setBaseAndExtent(one, aOffset.value, two, fOffset.value);
+    var text = selection.toString();
+    output.textContent = text;
+  } catch(e) {
+    output.textContent = e.message;
+  }
+}</pre> <p>Play with the live example below, setting different offset values to see how this affects the selection.</p> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/API/Selection/setBaseAndExtent%24samples/Examples?revision=1401713" height="370" id="frame_Examples" width="100%" frameborder="0" class="live-sample-frame sample-code-frame"></iframe></p> <div class="note"> <p><strong>Note</strong>: You can find this <a href="https://github.com/chrisdavidmills/selection-api-examples/blob/master/setBaseAndExtent.html">example on GitHub</a> (<a href="https://chrisdavidmills.github.io/selection-api-examples/setBaseAndExtent.html">see it live also</a>.)</p> </div> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://w3c.github.io/selection-api/#dom-selection-setbaseandextent" hreflang="en">Selection API<br><small>The definition of 'Selection.setBaseAndExtent()' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 53</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 53</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../selection"><code>Selection</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Selection/setBaseAndExtent$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Selection/setBaseAndExtent" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/Selection/setBaseAndExtent</a>
+  </p>
+</div>

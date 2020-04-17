@@ -1,0 +1,15 @@
+<h1>HTMLElement.innerText</h1> <p>The <code><strong>innerText</strong></code> property of the <a href="../htmlelement"><code>HTMLElement</code></a> interface represents the "rendered" text content of a node and its descendants. As a getter, it approximates the text the user would get if they highlighted the contents of the element with the cursor and then copied it to the clipboard.</p> <p>This feature was originally introduced by Internet Explorer, and was formally specified in the HTML standard in 2016 after being adopted by all major browser vendors.</p> <p><a href="../node/textcontent"><code>Node.textContent</code></a> is a somewhat similar alternative, although there are important differences between the two.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">elemInstance.innerText;
+elemInstance.innerText = string;</pre> <h3 id="Returns">Returns</h3> <p>A string representing the rendered text content of an element.</p> <h2 id="Examples">Examples</h2> <pre data-language="js">let string = 'Hello, I am pleased to see you';
+const para = document.querySelector('p');
+
+para.innerText = string;</pre> <h2 id="Specification">Specification</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://html.spec.whatwg.org/multipage/dom.html#the-innertext-idl-attribute" hreflang="en">HTML Living Standard<br><small>The definition of 'innerText' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Introduced, based on the <a href="https://github.com/rocallahan/innerText-spec">draft of the innerText specification</a>. See <a href="https://github.com/whatwg/html/issues/465">whatwg/html#465</a> and <a href="https://github.com/whatwg/compat/issues/5">whatwg/compat#5</a> for history.</td> </tr> </tbody> </table></div> <h2 name="Browser_Compatibility" id="Browser_Compatibility">Browser compatibility</h2>  <p>No compatibility data found. Please contribute data for "api.HTMLElement.innerText" (depth: 1) to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.</p> <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/outerText"><code>HTMLElement.outerText</code></a></li> <li><a href="../element/innerhtml"><code>Element.innerHTML</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText</a>
+  </p>
+</div>

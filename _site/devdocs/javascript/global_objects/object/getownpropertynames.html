@@ -1,0 +1,151 @@
+<h1>Object.getOwnPropertyNames</h1> <p>The <code>Object.getOwnPropertyNames()</code> method returns an array of all properties (including <em>non-</em>enumerable properties except for those which use Symbol) found directly upon a given object.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/object-getownpropertynames.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">Object.getOwnPropertyNames(<var>obj</var>)</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>obj</code></dt> <dd>The object whose enumerable <em>and non-enumerable</em> own properties are to be returned.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>An array of strings that correspond to the properties found directly upon the given object.</p> <h2 id="Description">Description</h2> <p><code>Object.getOwnPropertyNames()</code> returns an array whose elements are strings corresponding to the enumerable <em>and non-enumerable</em> properties found directly upon <code>obj</code>. The ordering of the enumerable properties in the array is consistent with the ordering exposed by a <a href="../../statements/for...in"><code>for...in</code></a> loop (or by <a href="keys"><code>Object.keys()</code></a>) over the properties of the object. The ordering of the non-enumerable properties in the array, and among the enumerable properties, is not defined.</p> <h2 id="Examples">Examples</h2> <h3 id="Using_Object.getOwnPropertyNames()">Using <code>Object.getOwnPropertyNames()</code>
+</h3> <pre data-language="js">var arr = ['a', 'b', 'c'];
+console.log(Object.getOwnPropertyNames(arr).sort()); 
+// logs ["0", "1", "2", "length"]
+
+// Array-like object
+var obj = { 0: 'a', 1: 'b', 2: 'c' };
+console.log(Object.getOwnPropertyNames(obj).sort()); 
+// logs ["0", "1", "2"]
+
+// Logging property names and values using Array.forEach
+Object.getOwnPropertyNames(obj).forEach(
+  function (val, idx, array) {
+    console.log(val + ' -&gt; ' + obj[val]);
+  }
+);
+// logs
+// 0 -&gt; a
+// 1 -&gt; b
+// 2 -&gt; c
+
+// non-enumerable property
+var my_obj = Object.create({}, {
+  getFoo: {
+    value: function() { return this.foo; },
+    enumerable: false
+  }
+});
+my_obj.foo = 1;
+
+console.log(Object.getOwnPropertyNames(my_obj).sort()); 
+// logs ["foo", "getFoo"]
+</pre> <p>If you want only the enumerable properties, see <a href="keys"><code>Object.keys()</code></a> or use a <a href="../../statements/for...in"><code>for...in</code></a> loop (although note that this will return enumerable properties not only found directly upon that object but also along the prototype chain for the object unless the latter is filtered with <a href="hasownproperty"><code>hasOwnProperty()</code></a>).</p> <p>Items on the prototype chain are not listed:</p> <pre data-language="js">function ParentClass() {}
+ParentClass.prototype.inheritedMethod = function() {};
+
+function ChildClass() {
+  this.prop = 5;
+  this.method = function() {};
+}
+ChildClass.prototype = new ParentClass;
+ChildClass.prototype.prototypeMethod = function() {};
+
+console.log(
+  Object.getOwnPropertyNames(
+    new ChildClass() // ["prop", "method"]
+  )
+);
+</pre> <h3 id="Get_Non-Enumerable_Only">Get Non-Enumerable Only</h3> <p>This uses the <a href="../array/filter"><code>Array.prototype.filter()</code></a> function to remove the enumerable keys (obtained with <a href="keys"><code>Object.keys()</code></a>) from a list of all keys (obtained with <code>Object.getOwnPropertyNames()</code>) leaving only the non-enumerable keys.</p> <pre data-language="js">var target = myObject;
+var enum_and_nonenum = Object.getOwnPropertyNames(target);
+var enum_only = Object.keys(target);
+var nonenum_only = enum_and_nonenum.filter(function(key) {
+  var indexInEnum = enum_only.indexOf(key);
+  if (indexInEnum == -1) {
+    // Not found in enum_only keys,
+    // meaning that the key is non-enumerable,
+    // so return true so we keep this in the filter
+    return true;
+  } else {
+    return false;
+  }
+});
+
+console.log(nonenum_only);
+</pre> <h2 id="Notes">Notes</h2> <p>In ES5, if the argument to this method is not an object (a primitive), then it will cause a <a href="../typeerror"><code>TypeError</code></a>. In ES2015, a non-object argument will be coerced to an object.</p> <pre data-language="js">Object.getOwnPropertyNames('foo');
+// TypeError: "foo" is not an object (ES5 code)
+
+Object.getOwnPropertyNames('foo');
+// ["0", "1", "2", "length"]  (ES2015 code)
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/5.1/#sec-15.2.3.4" hreflang="en">ECMAScript 5.1 (ECMA-262)<br><small>The definition of 'Object.getOwnPropertyNames' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition. Implemented in JavaScript 1.8.5.</td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-object.getownpropertynames" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'Object.getOwnPropertyNames' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-object.getownpropertynames" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'Object.getOwnPropertyNames' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 5</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 5</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div>  <h2 id="Firefox-specific_notes">Firefox-specific notes</h2> <p>Prior to Firefox 28, <code>Object.getOwnPropertyNames</code> did not see unresolved properties of <a href="../error"><code>Error</code></a> objects. This has been fixed in later versions (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=724768">bug 724768</a>).</p> <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en-US/docs/Enumerability_and_ownership_of_properties">Enumerability and ownership of properties</a></li> <li><a href="hasownproperty"><code>Object.prototype.hasOwnProperty()</code></a></li> <li><a href="propertyisenumerable"><code>Object.prototype.propertyIsEnumerable()</code></a></li> <li><a href="create"><code>Object.create()</code></a></li> <li><a href="keys"><code>Object.keys()</code></a></li> <li><a href="../array/foreach"><code>Array.forEach()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames</a>
+  </p>
+</div>

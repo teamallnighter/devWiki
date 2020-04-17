@@ -1,0 +1,230 @@
+<h1>ReadableStreamDefaultController</h1><div class="notice overheadIndicator experimental"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p>The <code>ReadableStreamDefaultController</code> interface of the <a href="streams_api">Streams API</a> represents a controller allowing control of a <a href="readablestream"><code>ReadableStream</code></a>'s state and internal queue. Default controllers are for streams that are not byte streams. </p> <h2 id="Constructor">Constructor</h2> <dl> <dt><a href="readablestreamdefaultcontroller/readablestreamdefaultcontroller"><code>ReadableStreamDefaultController()</code></a></dt> <dd>Creates and returns a <code>ReadableStreamDefaultController()</code> object instance.</dd> </dl> <h2 id="Properties">Properties</h2> <dl> <dt><a href="readablestreamdefaultcontroller/desiredsize"><code>ReadableStreamDefaultController.desiredSize</code></a></dt> <dd>Returns the desired size required to fill the stream's internal queue.</dd> </dl> <h2 id="Methods">Methods</h2> <dl> <dt><a href="readablestreamdefaultcontroller/close"><code>ReadableStreamDefaultController.close()</code></a></dt> <dd>Closes the associated stream.</dd> <dt><a href="readablestreamdefaultcontroller/enqueue"><code>ReadableStreamDefaultController.enqueue()</code></a></dt> <dd>Enqueues a given chunk in the associated stream.</dd> <dt><a href="readablestreamdefaultcontroller/error"><code>ReadableStreamDefaultController.error()</code></a></dt> <dd>Causes any future interactions with the associated stream to error.</dd> </dl> <h2 id="Examples">Examples</h2> <p>In the following simple example, a custom <code>ReadableStream</code> is created using a constructor (see our <a href="https://mdn.github.io/dom-examples/streams/simple-random-stream/">Simple random stream example</a> for the full code). The <code>start()</code> function generates a random string of text every second and enqueues it into the stream. A <code>cancel()</code> function is also provided to stop the generation if <a href="readablestream/cancel"><code>ReadableStream.cancel()</code></a> is called for any reason.</p> <p>Note that a <a href="readablestreamdefaultcontroller"><code>ReadableStreamDefaultController</code></a> object is provided as the parameter of the <code>start()</code> and <code>pull()</code> functions.</p> <p>When a button is pressed, the generation is stopped, the stream is closed using <a href="readablestreamdefaultcontroller/close"><code>ReadableStreamDefaultController.close()</code></a>, and another function is run, which reads the data back out of the stream.</p> <pre data-language="js">const stream = new ReadableStream({
+  start(controller) {
+    interval = setInterval(() =&gt; {
+      let string = randomChars();
+
+      // Add the string to the stream
+      controller.enqueue(string);
+
+      // show it on the screen
+      let listItem = document.createElement('li');
+      listItem.textContent = string;
+      list1.appendChild(listItem);
+    }, 1000);
+
+    button.addEventListener('click', function() {
+      clearInterval(interval);
+      fetchStream();
+      controller.close();
+    })
+  },
+  pull(controller) {
+    // We don't really need a pull in this example
+  },
+  cancel() {
+    // This is called if the reader cancels,
+    // so we should stop generating strings
+    clearInterval(interval);
+  }
+});</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://streams.spec.whatwg.org/#rs-default-controller-class" hreflang="en">Streams<br><small>The definition of 'ReadableStreamDefaultController' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 52</td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 57<div class="bc-icons"> Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 57<div class="bc-icons"> Disabled </div>
+</dt>
+<dd> Not yet enabled by default. See <a href="https://bugzil.la/1389628">bug 1389628</a>.</dd>
+<dd>Disabled From version 57: this feature is behind the <code>dom.streams.enabled</code> preference (needs to be set to <code>true</code>) and the <code>javascript.options.streams</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 39</td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultController/ReadableStreamDefaultController"><code>ReadableStreamDefaultController()</code> constructor</a> 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultController/close"><code>close</code></a> 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultController/desiredSize"><code>desiredSize</code></a> 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultController/enqueue"><code>enqueue</code></a> 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultController/error"><code>error</code></a> 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 52</td>
+<td class="bc-supports-yes"> 52</td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 57<div class="bc-icons"> Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 57<div class="bc-icons"> Disabled </div>
+</dt>
+<dd> Not yet enabled by default. See <a href="https://bugzil.la/1389628">bug 1389628</a>.</dd>
+<dd>Disabled From version 57: this feature is behind the <code>dom.streams.enabled</code> preference (needs to be set to <code>true</code>) and the <code>javascript.options.streams</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 39</td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultController/ReadableStreamDefaultController"><code>ReadableStreamDefaultController()</code> constructor</a> 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultController/close"><code>close</code></a> 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultController/desiredSize"><code>desiredSize</code></a> 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultController/enqueue"><code>enqueue</code></a> 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">
+<a href="https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultController/error"><code>error</code></a> 
+</th>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+</tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultController$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultController" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultController</a>
+  </p>
+</div>

@@ -1,0 +1,178 @@
+<h1>Response.constructor</h1> <p>The <code><strong>Response()</strong></code> constructor creates a new <a href="../response"><code>Response</code></a> object.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var <var>myResponse</var> = new Response(<var>body</var>, <var>init</var>);</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt>
+<em>body</em> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>An object defining a body for the response. This can be <code>null</code>, or one of: <ul> <li><a href="../blob"><code>Blob</code></a></li> <li><a href="../buffersource"><code>BufferSource</code></a></li> <li><a href="../formdata"><code>FormData</code></a></li> <li><a href="../readablestream"><code>ReadableStream</code></a></li> <li><a href="../urlsearchparams"><code>URLSearchParams</code></a></li> <li><a href="../usvstring"><code>USVString</code></a></li> </ul> </dd> <dt>
+<em>init</em> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>An options object containing any custom settings that you want to apply to the response. The possible options are: <ul> <li>
+<code>status</code>: The status code for the reponse, e.g., <code>200</code>.</li> <li>
+<code>statusText</code>: The status message associated with the status code, e.g., <code>OK</code>.</li> <li>
+<code>headers</code>: Any headers you want to add to your response, contained within a <a href="../headers"><code>Headers</code></a> object or object literal of <a href="../bytestring"><code>ByteString</code></a> key/value pairs (see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">HTTP headers</a> for a reference).</li> </ul> </dd> </dl> <h2 id="Examples">Examples</h2> <p>In our <a href="https://github.com/mdn/fetch-examples/tree/master/fetch-response">Fetch Response example</a> (see <a href="http://mdn.github.io/fetch-examples/fetch-response/">Fetch Response live</a>) we create a new <code>Response</code> object using the constructor, passing it a new <a href="../blob"><code>Blob</code></a> as a body, and an init object containing a custom <code>status</code> and <code>statusText</code>:</p> <pre data-language="js">var myBlob = new Blob();
+var init = { "status" : 200 , "statusText" : "SuperSmashingGreat!" };
+var myResponse = new Response(myBlob,init);</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://fetch.spec.whatwg.org/#dom-response" hreflang="en">Fetch<br><small>The definition of 'Response()' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes bc-has-history"> 42
+<dl>
+<dt class="bc-supports-yes bc-supports"> 42
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 41<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 41: this feature is behind the <code>Experimental Web Platform Features</code> preference. To change preferences in Chrome, visit chrome://flags.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes bc-has-history"> 39
+<dl>
+<dt class="bc-supports-yes bc-supports"> 39
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 34<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 34: this feature is behind the <code>dom.fetch.enabled</code> preference. To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes bc-has-history"> 29
+<dl>
+<dt class="bc-supports-yes bc-supports"> 29
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 28<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 28: this feature is behind the <code>Experimental Web Platform Features</code> preference.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 10.1</td>
+</tr>
+<tr>
+<th scope="row">body parameter accepts ReadableByteStream 
+</th>
+<td class="bc-supports-yes"> 52</td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 39</td>
+<td class="bc-supports-no"> No</td>
+</tr>
+<tr>
+<th scope="row">body parameter can be <code>null</code> 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 59</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes bc-has-history"> 42
+<dl>
+<dt class="bc-supports-yes bc-supports"> 42
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 41<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 41: this feature is behind the <code>Experimental Web Platform Features</code> preference.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> 42
+<dl>
+<dt class="bc-supports-yes bc-supports"> 42
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 41<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 41: this feature is behind the <code>Experimental Web Platform Features</code> preference. To change preferences in Chrome, visit chrome://flags.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 29
+<dl>
+<dt class="bc-supports-yes bc-supports"> 29
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 28<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 28: this feature is behind the <code>Experimental Web Platform Features</code> preference.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 10.3</td>
+<td class="bc-supports-yes"> 4.0</td>
+</tr>
+<tr>
+<th scope="row">body parameter accepts ReadableByteStream 
+</th>
+<td class="bc-supports-yes"> 52</td>
+<td class="bc-supports-yes"> 52</td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 29</td>
+<td class="bc-supports-yes"> 10.3</td>
+<td class="bc-supports-yes"> 6.0</td>
+</tr>
+<tr>
+<th scope="row">body parameter can be <code>null</code> 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+</tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../service_worker_api">ServiceWorker API</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">HTTP access control (CORS)</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">HTTP</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/Response$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/Response" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/Response/Response</a>
+  </p>
+</div>

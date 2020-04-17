@@ -1,0 +1,89 @@
+<h1>typedArray.copyWithin</h1> <p>The <code><strong>copyWithin()</strong></code> method copies the sequence of array elements within the array to the position starting at <code>target</code>. The copy is taken from the index positions of the second and third arguments <code>start</code> and <code>end</code>. The <code>end</code> argument is optional and defaults to the length of the array. This method has the same algorithm as <a href="../array/copywithin"><code>Array.prototype.copyWithin</code></a><em>.</em> <em>TypedArray</em> is one of the <a href="../typedarray#TypedArray_objects">typed array types</a> here.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/typedarray-copywithin.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><var>typedarray</var>.copyWithin(<var>target</var>, <var>start</var>[, <var>end</var> = this.length])</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>target</code></dt> <dd>Target start index position where to copy the elements to.</dd> <dt><code>start</code></dt> <dd>Source start index position where to start copying elements from.</dd> <dt><code>end <span class="inlineIndicator optional optionalInline">Optional</span></code></dt> <dd>Optional. Source end index position where to end copying elements from.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>The modified array.</p> <h2 id="Description">Description</h2> <p>See <a href="../array/copywithin"><code>Array.prototype.copyWithin</code></a> for more details.</p> <p>This method replaces the experimental <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/move"><code>TypedArray.prototype.move()</code></a>.</p> <h2 id="Examples">Examples</h2> <pre data-language="js">var buffer = new ArrayBuffer(8);
+var uint8 = new Uint8Array(buffer);
+uint8.set([1,2,3]);
+console.log(uint8); // Uint8Array [ 1, 2, 3, 0, 0, 0, 0, 0 ]
+uint8.copyWithin(3,0,3);
+console.log(uint8); // Uint8Array [ 1, 2, 3, 1, 2, 3, 0, 0 ]
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="#" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'TypedArray.prototype.copyWithin' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition.</td> </tr> <tr> <td><a href="#" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'TypedArray.prototype.copyWithin' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 45</td>
+<td class="bc-supports-yes"> 14</td>
+<td class="bc-supports-yes"> 34</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 36</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 34</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 4.0.0</td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li><a href="../typedarray"><code>TypedArray</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/copyWithin$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/copyWithin" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/copyWithin</a>
+  </p>
+</div>

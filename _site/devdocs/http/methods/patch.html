@@ -1,0 +1,24 @@
+<h1>PATCH</h1> <p>The <strong>HTTP PATCH request method</strong> applies partial modifications to a resource.</p> <p>The HTTP <a href="put"><code>PUT</code></a> method only allows complete replacement of a document. Unlike <code>PUT</code>, <code>PATCH</code> is not idempotent, meaning successive identical patch requests <em>may </em>have different effects. However, it is possible to issue <code>PATCH</code> requests in such a way as to be idempotent.</p> <p><code>PATCH</code> (like <code>PUT</code>) <em>may </em>have side-effects on other resources.</p> <p>To find out whether a server supports <code>PATCH</code>, a server can advertise its support by adding it to the list in the <a href="../headers/allow"><code>Allow</code></a> or <a href="../headers/access-control-allow-methods"><code>Access-Control-Allow-Methods</code></a> (for CORS) response headers.</p> <p>Another (implicit) indication that PATCH is allowed, is the presence of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Patch"><code>Accept-Patch</code></a> header, which specifies the patch document formats accepted by the server.</p> <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row">Request has body</th> <td>Yes</td> </tr> <tr> <th scope="row">Successful response has body</th> <td>Yes</td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Safe">Safe</a></th> <td>No</td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Idempotent">Idempotent</a></th> <td>No</td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Cacheable">Cacheable</a></th> <td>No</td> </tr> <tr> <th scope="row">Allowed in <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms">HTML forms</a>
+</th> <td>No</td> </tr> </tbody> </table></div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">PATCH /file.txt HTTP/1.1 
+</pre> <h2 id="Example">Example</h2> <h3 id="Request">Request</h3> <pre class="line-numbers  language-html">PATCH /file.txt HTTP/1.1 
+Host: www.example.com
+Content-Type: application/example
+If-Match: "e0023aa4e"
+Content-Length: 100
+
+[description of changes]</pre> <h3 id="Response">Response</h3> <p>A successful response is indicated with a <a href="../status/204"><code>204</code></a> response code, because the response in the example does not carry a message body. (which a response with the 200 code would have). Note that other success codes could be used as well.</p>  <pre class="newpage">HTTP/1.1 204 No Content
+Content-Location: /file.txt
+ETag: "e0023aa4f"</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Title</th> </tr> <tr> <td><a href="https://tools.ietf.org/html/rfc5789">RFC 5789: PATCH</a></td> <td>PATCH Method for HTTP</td> </tr> </tbody> </table></div> <h2 id="See_also">See also</h2> <ul> <li><a href="../status/204"><code>204</code></a></li> <li>
+<a href="../headers/allow"><code>Allow</code></a>, <a href="../headers/access-control-allow-methods"><code>Access-Control-Allow-Methods</code></a>
+</li> <li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Patch"><code>Accept-Patch</code></a> – specifies the patch document formats accepted by the server.</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH</a>
+  </p>
+</div>

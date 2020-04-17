@@ -1,0 +1,33 @@
+<h1>MediaCapabilitiesInfo</h1> <p>The <code><strong>MediaCapabilitiesInfo</strong></code> interface of the <a href="media_capabilities_api">Media Capabilities API</a> is made available when the promise returned by the <a href="mediacapabilities/encodinginfo"><code>MediaCapabilities.encodingInfo()</code></a> or <a href="mediacapabilities/decodinginfo"><code>MediaCapabilities.decodingInfo()</code></a> methods of the <a href="mediacapabilities"><code>MediaCapabilities</code></a> interface fulfills, providing information as to whether the media type is supported, and whether encoding or decoding such media would be smooth and power efficient.</p> <h2 id="Properties">Properties</h2> <p>The <code>MediaCapabilitiesInfo</code> interface contains three Boolean attribues:</p> <ul> <li>
+<code>supported</code>: Given the properties defined in the <a href="mediaconfiguration"><code>MediaConfiguration</code></a>, can the specified piece of media content be encoded (if <a href="mediaencodingconfiguration"><code>MediaEncodingConfiguration</code></a> is set) or decode (if <a href="mediadecodingconfiguration"><code>MediaDecodingConfiguration</code></a> is set) at all? If yes, <code>supported</code> is <em>true</em>. Otherwise, it is <em>false</em>.</li> <li>
+<code>smooth</code>: Given the properties defined in the <a href="mediaconfiguration"><code>MediaConfiguration</code></a>, will the playback of the specified piece of media be high quality? Will it be smooth? If <code>supported</code> is <code>true</code>, and playback will be smooth, <code>smooth</code> is <em>true</em>, Otherwise, is it <em>false.</em>
+</li> <li>
+<code>powerEfficient</code>: Given the properties defined in the <a href="mediaconfiguration"><code>MediaConfiguration</code></a>, will the playback of the specified piece of media be power efficient? If <code>supported</code> is <code>true</code>, and playback will be power efficient, <code>powerEfficient</code> is <em>true</em>, Otherwise, is it <em>false.</em>
+</li> </ul> <p>Browsers will report a supported media configuration as <code>smooth</code> and <code>powerEfficient</code> until stats on this device have been recorded. All supported audio codecs are reported to be power efficient.</p> <h2 id="Example">Example</h2> <pre data-language="js">// <a href="mediaconfiguration">MediaConfiguration</a> to be tested
+const mediaConfig = {
+    type : 'file', 
+    audio : {
+        contentType <span class="punctuation token">:</span> <span class="string token">"audio/ogg"</span><span class="punctuation token">,</span>
+        channels <span class="punctuation token">:</span> <span class="number token">2</span><span class="punctuation token">,</span>   
+        bitrate <span class="punctuation token">:</span> <span class="number token">132700</span><span class="punctuation token">,</span> 
+        samplerate <span class="punctuation token">:</span> <span class="number token">5200</span> 
+     }, 
+}; 
+
+// check support and performance 
+navigator.mediaCapabilities.decodingInfo(mediaConfig).then(result =&gt; { // result contains the media capabilities information
+    console.log('This configuration is ' +                     
+        (result.supported ? '' : 'not ') + 'supported, ' +             // Can the media, as configured, be decoded by the user agent
+        (result.smooth ? '' : 'not ') + 'smooth, and ' +               // is it smooth?
+        (result.powerEfficient ? '' : 'not ') + 'power efficient.').   // is it power efficient?
+});</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://wicg.github.io/media-capabilities#media-capabilities-info" hreflang="en">Media Capabilities<br><small>The definition of 'MediaCapabilitiesInfo' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility</h2>  <p>No compatibility data found. Please contribute data for "api.MediaCapabilitiesInfo" (depth: 1) to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.</p> <h2 id="See_also">See also</h2> <ul> <li><a href="mediaconfiguration"><code>MediaConfiguration</code></a></li> <li><a href="mediacapabilities/encodinginfo"><code>MediaCapabilities.encodingInfo()</code></a></li> <li><a href="mediacapabilities/decodinginfo"><code>MediaCapabilities.decodingInfo()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaCapabilitiesInfo$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaCapabilitiesInfo" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/MediaCapabilitiesInfo</a>
+  </p>
+</div>

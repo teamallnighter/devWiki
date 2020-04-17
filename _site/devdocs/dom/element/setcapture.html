@@ -1,0 +1,116 @@
+<h1>element.setCapture</h1> <p>Call this method during the handling of a mousedown event to retarget all mouse events to this element until the mouse button is released or <a href="../document/releasecapture"><code>document.releaseCapture()</code></a> is called.</p> <div class="warning">
+<strong>Warning:</strong> This interface never had much cross-browser support and you probably looking for <a href="setpointercapture"><code>element.setPointerCapture</code></a> instead, from the Pointer Events API.</div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">element.setCapture(<em>retargetToElement</em>);
+</pre> <dl> <dt><code>retargetToElement</code></dt> <dd>If <code>true</code>, all events are targeted directly to this element; if <code>false</code>, events can also fire at descendants of this element.</dd> </dl> <h2 id="Example">Example</h2> <p>In this example, the current mouse coordinates are drawn while you mouse around after clicking and holding down on an element.</p> <pre data-language="html">&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Mouse Capture Example&lt;/title&gt;
+  &lt;style type="text/css"&gt;
+    #myButton {
+      border: solid black 1px;
+      color: black;
+      padding: 2px;
+      box-shadow: black 2px 2px;
+    }
+  &lt;/style&gt;
+  
+  &lt;script type="text/javascript"&gt;
+    function init() {
+      var btn = document.getElementById("myButton");
+      if (btn.setCapture) {
+        btn.addEventListener("mousedown", mouseDown, false);
+        btn.addEventListener("mouseup", mouseUp, false);
+      } else {
+        document.getElementById("output").innerHTML
+          = "Sorry, there appears to be no setCapture support on this browser";
+      }
+    }
+    
+    function mouseDown(e) {
+      e.target.setCapture();
+      e.target.addEventListener("mousemove", mouseMoved, false);
+    }
+    
+    function mouseUp(e) {
+      e.target.removeEventListener("mousemove", mouseMoved, false);
+    }
+    
+    function mouseMoved(e) {
+      var output = document.getElementById("output");
+      output.innerHTML = "Position: " + e.clientX + ", " + e.clientY;
+    }
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload="init()"&gt;
+  &lt;p&gt;This is an example of how to use mouse capture on elements in Gecko 2.0.&lt;/p&gt;
+  &lt;p&gt;&lt;a id="myButton" href="#"&gt;Test Me&lt;/a&gt;&lt;/p&gt;
+  &lt;div id="output"&gt;No events yet&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="https://developer.mozilla.org/samples/domref/mousecapture.html">View Live Examples</a></p> <h2 id="Notes">Notes</h2> <p>The element may not be scrolled completely to the top or bottom, depending on the layout of other elements.</p> <h2 id="Specification">Specification</h2> <p>Based on Internet Explorer's implementation.</p> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../document/releasecapture"><code>document.releaseCapture()</code></a></li> <li><a href="setpointercapture"><code>element.setPointerCapture</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/element/setCapture$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/element/setCapture" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/element/setCapture</a>
+  </p>
+</div>

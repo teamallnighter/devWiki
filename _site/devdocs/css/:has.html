@@ -1,0 +1,87 @@
+<h1>:has</h1><div class="blockIndicator experimental indicator-warning"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p>The <code>:has()</code> CSS <a href="pseudo-classes">pseudo-class</a> represents an element if any of the selectors passed as parameters (relative to the <a href=":scope"><code>:scope</code></a> of the given element), match at least one element.</p> <p>The <code>:has()</code> pseudo-class takes a selector list as an argument. In the current specification <code>:has</code> is not marked as part of the <a href="https://drafts.csswg.org/selectors/#live-profile">live selector profile</a>, which means it can not be used within stylesheets; only with functions like <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"><code>document.querySelector()</code></a>.</p> <pre data-language="css">/* Selects any &lt;a&gt;, as long as it has an &lt;img&gt; element directly inside it  */
+/* Note that this is not supported in any browser yet */
+/* It also isn't intended to work in stylesheets */
+var test = document.querySelector('a:has(&gt; img)');</pre> <h2 name="Syntax" id="Syntax">Syntax</h2> <pre class="syntaxbox">:has( <a href="#relative-selector-list">&lt;relative-selector-list&gt;</a> )<p>where <br><span id="relative-selector-list">&lt;relative-selector-list&gt;</span> = <a href="#relative-selector">&lt;relative-selector&gt;</a><a href="value_definition_syntax#Hash_mark_()">#</a></p><p>where <br><span id="relative-selector">&lt;relative-selector&gt;</span> = <a href="#combinator">&lt;combinator&gt;</a><a href="value_definition_syntax#Question_mark_()">?</a> <a href="#complex-selector">&lt;complex-selector&gt;</a></p><p>where <br><span id="combinator">&lt;combinator&gt;</span> = '&gt;' | '<a href="value_definition_syntax#Plus_()">+</a>' | '~' | <a href="value_definition_syntax#Brackets">[</a> '||' <a href="value_definition_syntax#Brackets">]</a><br><span id="complex-selector">&lt;complex-selector&gt;</span> = <a href="#compound-selector">&lt;compound-selector&gt;</a> <a href="value_definition_syntax#Brackets">[</a> <a href="#combinator">&lt;combinator&gt;</a><a href="value_definition_syntax#Question_mark_()">?</a> <a href="#compound-selector">&lt;compound-selector&gt;</a> <a href="value_definition_syntax#Brackets">]</a><a href="value_definition_syntax#Asterisk_(*)">*</a></p><p>where <br><span id="compound-selector">&lt;compound-selector&gt;</span> = <a href="value_definition_syntax#Brackets">[</a> <a href="#type-selector">&lt;type-selector&gt;</a><a href="value_definition_syntax#Question_mark_()">?</a> <a href="#subclass-selector">&lt;subclass-selector&gt;</a><a href="value_definition_syntax#Asterisk_(*)">*</a> <a href="value_definition_syntax#Brackets">[</a> <a href="#pseudo-element-selector">&lt;pseudo-element-selector&gt;</a> <a href="#pseudo-class-selector">&lt;pseudo-class-selector&gt;</a><a href="value_definition_syntax#Asterisk_(*)">*</a> <a href="value_definition_syntax#Brackets">]</a><a href="value_definition_syntax#Asterisk_(*)">*</a> <a href="value_definition_syntax#Brackets">]</a><a href="#">!</a><br></p><p>where <br><span id="type-selector">&lt;type-selector&gt;</span> = <a href="#wq-name">&lt;wq-name&gt;</a> | <a href="#ns-prefix">&lt;ns-prefix&gt;</a><a href="value_definition_syntax#Question_mark_()">?</a> '<a href="value_definition_syntax#Asterisk_(*)">*</a>'<br><span id="subclass-selector">&lt;subclass-selector&gt;</span> = <a href="#id-selector">&lt;id-selector&gt;</a> | <a href="#class-selector">&lt;class-selector&gt;</a> | <a href="#attribute-selector">&lt;attribute-selector&gt;</a> | <a href="#pseudo-class-selector">&lt;pseudo-class-selector&gt;</a><br><span id="pseudo-element-selector">&lt;pseudo-element-selector&gt;</span> = ':' <a href="#pseudo-class-selector">&lt;pseudo-class-selector&gt;</a><br><span id="pseudo-class-selector">&lt;pseudo-class-selector&gt;</span> = ':' &lt;ident-token&gt; | ':' &lt;function-token&gt; &lt;any-value&gt; ')'</p><p>where <br><span id="wq-name">&lt;wq-name&gt;</span> = <a href="#ns-prefix">&lt;ns-prefix&gt;</a><a href="value_definition_syntax#Question_mark_()">?</a> &lt;ident-token&gt;<br><span id="ns-prefix">&lt;ns-prefix&gt;</span> = <a href="value_definition_syntax#Brackets">[</a> &lt;ident-token&gt; | '<a href="value_definition_syntax#Asterisk_(*)">*</a>' <a href="value_definition_syntax#Brackets">]</a><a href="value_definition_syntax#Question_mark_()">?</a>  | <br><span id="id-selector">&lt;id-selector&gt;</span> = &lt;hash-token&gt;<br><span id="class-selector">&lt;class-selector&gt;</span> = '.' &lt;ident-token&gt;<br><span id="attribute-selector">&lt;attribute-selector&gt;</span> = '<a href="value_definition_syntax#Brackets">[</a>' <a href="#wq-name">&lt;wq-name&gt;</a> '<a href="value_definition_syntax#Brackets">]</a>' | '<a href="value_definition_syntax#Brackets">[</a>' <a href="#wq-name">&lt;wq-name&gt;</a> <a href="#attr-matcher">&lt;attr-matcher&gt;</a> <a href="value_definition_syntax#Brackets">[</a> &lt;string-token&gt; | &lt;ident-token&gt; <a href="value_definition_syntax#Brackets">]</a> <a href="#attr-modifier">&lt;attr-modifier&gt;</a><a href="value_definition_syntax#Question_mark_()">?</a> '<a href="value_definition_syntax#Brackets">]</a>'<br></p><p>where <br><span id="attr-matcher">&lt;attr-matcher&gt;</span> = <a href="value_definition_syntax#Brackets">[</a> '~' |  |  | '^' | '$' | '<a href="value_definition_syntax#Asterisk_(*)">*</a>' <a href="value_definition_syntax#Brackets">]</a><a href="value_definition_syntax#Question_mark_()">?</a> '='<br><span id="attr-modifier">&lt;attr-modifier&gt;</span> = i</p></pre> <h2 name="Examples" id="Examples">Examples</h2> <p>The following selector matches only <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> elements that directly contain an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a> child:</p> <pre>a:has(&gt; img)
+</pre> <p>The following selector matches <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1"><code>&lt;h1&gt;</code></a> elements only if they have a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a> element directly following them:</p> <pre>h1:has(+ p)</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://drafts.csswg.org/selectors-4/#relational" hreflang="en">Selectors Level 4<br><small>The definition of ':has()' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 name="Browser_compatibility" id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no bc-has-history"> No
+<section class="bc-history" id="sect1"><dl>
+<dt class="bc-supports-no bc-supports"> No
+</dt>
+<dd> See <a href="https://bugzil.la/418039">bug 418039</a>
+</dd>
+</dl></section>
+</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no bc-has-history"> No
+<section class="bc-history" id="sect2"><dl>
+<dt class="bc-supports-no bc-supports"> No
+</dt>
+<dd> See <a href="https://bugzil.la/418039">bug 418039</a>
+</dd>
+</dl></section>
+</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/:has</a>
+  </p>
+</div>

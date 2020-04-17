@@ -1,0 +1,98 @@
+<h1>Blob.slice</h1> <p>The <code>Blob.slice()</code> method is used to create a new <a href="../blob"><code>Blob</code></a> object containing the data in the specified range of bytes of the source <a href="../blob"><code>Blob</code></a>.</p> <div class="note">
+<strong>Note:</strong> Be aware that the <code>slice()</code> method has vendor prefixes on some browsers and versions: <code>blob.mozSlice()</code> for Firefox 12 and earlier and <code>blob.webkitSlice()</code> in Safari. An old version of the <code>slice()</code> method, without vendor prefixes, had different semantics, and is obsolete.</div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var blob = instanceOfBlob.slice([start [, end [, contentType]]]);</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt>
+<code>start</code> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>An index into the <a href="../blob"><code>Blob</code></a> indicating the first byte to include in the new <a href="../blob"><code>Blob</code></a>. If you specify a negative value, it's treated as an offset from the end of the string toward the beginning. For example, -10 would be the 10th from last byte in the <a href="../blob"><code>Blob</code></a>. The default value is 0. If you specify a value for <code>start</code> that is larger than the size of the source <a href="../blob"><code>Blob</code></a>, the returned <a href="../blob"><code>Blob</code></a> has size 0 and contains no data.</dd> <dt>
+<code>end</code> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>An index into the <a href="../blob"><code>Blob</code></a> indicating the first byte that will *not* be included in the new <a href="../blob"><code>Blob</code></a> (i.e. the byte exactly at this index is not included). If you specify a negative value, it's treated as an offset from the end of the string toward the beginning. For example, -10 would be the 10th from last byte in the <a href="../blob"><code>Blob</code></a>. The default value is <code>size</code>.</dd> <dt>
+<code>contentType</code> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>The content type to assign to the new <a href="../blob"><code>Blob</code></a>; this will be the value of its <code>type</code> property. The default value is an empty string.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>A new <a href="../blob"><code>Blob</code></a> object containing the specified data from the source <a href="../blob"><code>Blob</code></a>.</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th>Specification</th> <th>Status</th> <th>Comment</th> </tr> <tr> <td><a href="https://w3c.github.io/FileAPI/#dfn-slice" hreflang="en">File API<br><small>The definition of 'Blob.slice()' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes bc-has-history"> 21
+<dl>
+<dt class="bc-supports-yes bc-supports"> 21
+</dt>
+
+<dt class="bc-supports-no bc-supports">5 — 21<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: webkit</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes bc-has-history"> 13
+<dl>
+<dt class="bc-supports-yes bc-supports"> 13
+</dt>
+<dd> Prior to Gecko 12.0 (Firefox 12.0 / Thunderbird 12.0 / SeaMonkey 2.9), there was a bug that affected the behavior of <code>Blob.slice()</code>; it did not work for <code>start</code> and end positions outside the range of signed 64-bit values; it has now been fixed to support unsigned 64-bit values.</dd>
+<dt class="bc-supports-no bc-supports">5 — 13<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: moz</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 10</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes bc-has-history"> 5.1<div class="bc-icons">Prefixed </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 5.1<div class="bc-icons">Prefixed </div>
+</dt>
+<dd>Prefixed Requires the vendor prefix: webkit</dd>
+</dl>
+</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 14</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="../blob"><code>Blob</code></a></li> <li><a href="../blobbuilder"><code>BlobBuilder</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice</a>
+  </p>
+</div>

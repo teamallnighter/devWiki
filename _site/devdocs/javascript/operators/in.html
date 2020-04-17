@@ -1,0 +1,119 @@
+<h1>in</h1> <p>The <code>in</code> returns <code>true</code> if the specified property is in the specified object or its prototype chain.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/expressions-inoperator.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><em>prop</em> in <em>object</em></pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>prop</code></dt> <dd>A string or symbol representing a property name or array index (non-symbols will be coerced to strings).</dd> </dl> <dl> <dt><code>object</code></dt> <dd>Object to check if it (or its prototype chain) <span id="result_box" class="short_text"><span>contains</span></span> the property with specified name.</dd> </dl> <h2 id="Description">Description</h2> <p>The following examples show some uses of the <code>in</code> operator.</p> <pre data-language="js">// Arrays
+var trees = ['redwood', 'bay', 'cedar', 'oak', 'maple'];
+0 in trees        // returns true
+3 in trees        // returns true
+6 in trees        // returns false
+'bay' in trees    // returns false (you must specify the index number, not the value at that index)
+'length' in trees // returns true (length is an Array property)
+Symbol.iterator in trees // returns true (arrays are iterable, works only in ES2015+)
+
+// Predefined objects
+'PI' in Math          // returns true
+
+// Custom objects
+var mycar = {make: 'Honda', model: 'Accord', year: 1998};
+'make' in mycar  // returns true
+'model' in mycar // returns true
+</pre> <p>You must specify an object on the right side of the <code>in</code> operator. For example, you can specify a string created with the <code>String</code> constructor, but you cannot specify a string literal.</p> <pre data-language="js">var color1 = new String('green');
+'length' in color1 // returns true
+
+var color2 = 'coral';
+// generates an error (color2 is not a String object)
+'length' in color2
+</pre> <h3 id="Using_in_with_deleted_or_undefined_properties">Using <code>in</code> with deleted or undefined properties</h3> <p>If you delete a property with the <code><a href="delete">delete</a></code> operator, the <code>in</code> operator returns <code>false</code> for that property.</p> <pre data-language="js">var mycar = {make: 'Honda', model: 'Accord', year: 1998};
+delete mycar.make;
+'make' in mycar;  // returns false
+
+var trees = new Array('redwood', 'bay', 'cedar', 'oak', 'maple');
+delete trees[3];
+3 in trees; // returns false
+</pre> <p>If you set a property to <a href="../global_objects/undefined"><code>undefined</code></a> but do not delete it, the <code>in</code> operator returns true for that property.</p> <pre data-language="js">var mycar = {make: 'Honda', model: 'Accord', year: 1998};
+mycar.make = undefined;
+'make' in mycar;  // returns true
+</pre> <pre data-language="js">var trees = new Array('redwood', 'bay', 'cedar', 'oak', 'maple');
+trees[3] = undefined;
+3 in trees; // returns true
+</pre> <h3 id="Inherited_properties">Inherited properties</h3> <p>The <code>in</code> operator returns <code>true</code> for properties in the prototype chain.</p> <pre data-language="js">'toString' in {}; // returns true
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-relational-operators" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'Relational Operators' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-relational-operators" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'Relational Operators' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/5.1/#sec-11.8.7" hreflang="en">ECMAScript 5.1 (ECMA-262)<br><small>The definition of 'The in Operator' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%203rd%20edition,%20December%201999.pdf#sec-11.8.7" hreflang="en">ECMAScript 3rd Edition (ECMA-262)<br><small>The definition of 'The in Operator' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition. Implemented in JavaScript 1.4.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><code><a href="../statements/for...in">for...in</a></code></li> <li><code><a href="delete">delete</a></code></li> <li><a href="../global_objects/object/hasownproperty"><code>Object.prototype.hasOwnProperty()</code></a></li> <li><a href="../global_objects/reflect/has"><code>Reflect.has()</code></a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Enumerability_and_ownership_of_properties">Enumerability and ownership of properties</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in</a>
+  </p>
+</div>

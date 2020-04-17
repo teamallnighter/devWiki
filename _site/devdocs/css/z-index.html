@@ -1,0 +1,168 @@
+<h1>z-index</h1> <p>The <code>z-index</code> CSS property sets the z-order of a <a href="position">positioned</a> element and its descendants or flex items. Overlapping elements with a larger z-index cover those with a smaller one.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/css/z-index.html" frameborder="0" width="100%" class="interactive" height="250"></iframe>  <p>For a positioned box (that is, one with any <code>position</code> other than <code>static</code>), the <code>z-index</code> property specifies:</p> <ol> <li>The stack level of the box in the current <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context">stacking context</a>.</li> <li>Whether the box establishes a local stacking context.</li> </ol> <h2 id="Syntax">Syntax</h2> <pre data-language="css">/* Keyword value */
+z-index: auto;
+
+/* &lt;integer&gt; values */
+z-index: 0;
+z-index: 3;
+z-index: 289;
+z-index: -1; /* Negative values to lower the priority */
+
+/* Global values */
+z-index: inherit;
+z-index: initial;
+z-index: unset;
+</pre> <p>The <code>z-index</code> property is specified as either the keyword <code><a href="#auto">auto</a></code> or an <code><a href="#&lt;integer&gt;">&lt;integer&gt;</a></code>.</p> <h3 id="Values">Values</h3> <dl> <dt id="auto"><code>auto</code></dt> <dd>The box does not establish a new local stacking context. The stack level of the generated box in the current stacking context is the same as its parent's box.</dd> <dt id="&lt;integer&gt;"><code>&lt;integer&gt;</code></dt> <dd>This <a href="integer"><code>&lt;integer&gt;</code></a> is the stack level of the generated box in the current stacking context. The box also establishes a local stacking context in which its stack level is <code>0</code>. This means that the z-indexes of descendants are not compared to the z-indexes of elements outside this element.</dd> </dl> <h3 id="Formal_syntax">Formal syntax</h3> <pre class="syntaxbox">auto | <a href="integer">&lt;integer&gt;</a></pre> <h2 id="Examples">Examples</h2> <h3 id="HTML">HTML</h3> <pre data-language="html">&lt;div class="dashed-box"&gt;Dashed box
+  &lt;span class="gold-box"&gt;Gold box&lt;/span&gt;
+  &lt;span class="green-box"&gt;Green box&lt;/span&gt;
+&lt;/div&gt;
+</pre> <h3 id="CSS">CSS</h3> <pre data-language="css">.dashed-box { 
+  position: relative;
+  z-index: 1;
+  border: dashed;
+  height: 8em;
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
+.gold-box { 
+  position: absolute;
+  z-index: 3; /* put .gold-box above .green-box and .dashed-box */
+  background: gold;
+  width: 80%;
+  left: 60px;
+  top: 3em;
+}
+.green-box { 
+  position: absolute;
+  z-index: 2; /* put .green-box above .dashed-box */
+  background: lightgreen;
+  width: 20%;
+  left: 65%;
+  top: -25px;
+  height: 7em;
+  opacity: 0.9;
+}
+</pre> <h3 id="Result"><strong>Result</strong></h3> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/z-index%24samples/Examples?revision=1429128" height="200" class="live-sample-frame sample-code-frame" width="550" frameborder="0" id="frame_Examples"></iframe></p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://drafts.csswg.org/css-transitions/#animatable-css" hreflang="en">CSS Transitions<br><small>The definition of 'animation behavior for z-index' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Defines <code>z-index</code> as animatable.</td> </tr> <tr> <td><a href="https://www.w3.org/TR/CSS2/visuren.html#z-index" hreflang="en">CSS Level 2 (Revision 1)<br><small>The definition of 'z-index' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <div class="_table"><table class="properties"><tbody>
+<tr>
+<th scope="row"><a href="initial_value">Initial value</a></th>
+<td><code>auto</code></td>
+</tr>
+<tr>
+<th scope="row">Applies to</th>
+<td>positioned elements</td>
+</tr>
+<tr>
+<th scope="row"><a href="inheritance">Inherited</a></th>
+<td>no</td>
+</tr>
+<tr>
+<th scope="row">Media</th>
+<td>visual</td>
+</tr>
+<tr>
+<th scope="row"><a href="computed_value">Computed value</a></th>
+<td>as specified</td>
+</tr>
+<tr>
+<th scope="row">Animation type</th>
+<td>an <a href="integer#Interpolation">integer</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Canonical order</th>
+<td>the unique non-ambiguous order defined by the formal grammar</td>
+</tr>
+<tr>
+<th scope="row">Creates <a href="css_positioning/understanding_z_index/the_stacking_context">stacking context</a>
+</th>
+<td>yes</td>
+</tr>
+</tbody></table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> 1</td>
+</tr>
+<tr>
+<th scope="row">Negative values</th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 3</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> 1</td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+<tr>
+<th scope="row">Negative values</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr>
+</tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li>CSS <a href="position"><code>position</code></a> property</li> <li><a href="understanding_z-index">Understanding CSS z-indexes</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/z-index$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/z-index" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/z-index</a>
+  </p>
+</div>

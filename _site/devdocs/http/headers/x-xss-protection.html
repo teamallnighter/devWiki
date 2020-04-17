@@ -1,0 +1,75 @@
+<h1>X-XSS-Protection</h1> <p>The HTTP <code>X-XSS-Protection</code> response header is a feature of Internet Explorer, Chrome and Safari that stops pages from loading when they detect reflected cross-site scripting (<a href="https://developer.mozilla.org/en-US/docs/Glossary/XSS">XSS</a>) attacks. Although these protections are largely unnecessary in modern browsers when sites implement a strong <a href="content-security-policy"><code>Content-Security-Policy</code></a> that disables the use of inline JavaScript (<code>'unsafe-inline'</code>), they can still provide protections for users of older web browsers that don't yet support <a href="https://developer.mozilla.org/en-US/docs/Glossary/CSP">CSP</a>.</p> <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row">Header type</th> <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name">Forbidden header name</a></th> <td>no</td> </tr> </tbody> </table></div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">X-XSS-Protection: 0
+X-XSS-Protection: 1
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=&lt;reporting-uri&gt;
+</pre> <dl> <dt>0</dt> <dd>Disables XSS filtering.</dd> <dt>1</dt> <dd>Enables XSS filtering (usually default in browsers). If a cross-site scripting attack is detected, the browser will sanitize the page (remove the unsafe parts).</dd> <dt>1; mode=block</dt> <dd>Enables XSS filtering. Rather than sanitizing the page, the browser will prevent rendering of the page if an attack is detected.</dd> <dt>1; report=&lt;reporting-URI&gt; (Chromium only)</dt> <dd>Enables XSS filtering. If a cross-site scripting attack is detected, the browser will sanitize the page and report the violation. This uses the functionality of the CSP <a href="content-security-policy/report-uri"><code>report-uri</code></a> directive to send a report.</dd> </dl> <h2 id="Example">Example</h2> <p>Block pages from loading when they detect reflected XSS attacks:</p> <pre data-language="bash">X-XSS-Protection: 1; mode=block</pre> <p>PHP</p> <pre data-language="php">header("X-XSS-Protection: 1; mode=block");</pre> <p>Apache (.htaccess)</p> <pre data-language="bash">&lt;IfModule mod_headers.c&gt; 
+  Header set X-XSS-Protection "1; mode=block" 
+&lt;/IfModule&gt;</pre> <p>Nginx</p> <pre data-language="bash">add_header "X-XSS-Protection" "1; mode=block";</pre> <h2 id="Specifications">Specifications</h2> <p>Not part of any specifications or drafts.</p> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 8</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="content-security-policy"><code>Content-Security-Policy</code></a></li> <li><a href="https://blogs.msdn.microsoft.com/ieinternals/2011/01/31/controlling-the-xss-filter/">Controlling the XSS Filter – Microsoft</a></li> <li><a href="https://www.virtuesecurity.com/blog/understanding-xss-auditor/">Understanding XSS Auditor – Virtue Security</a></li> <li> <p><a href="http://blog.innerht.ml/the-misunderstood-x-xss-protection/">The misunderstood X-XSS-Protection – blog.innerht.ml</a></p> </li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection</a>
+  </p>
+</div>

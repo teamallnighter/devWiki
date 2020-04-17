@@ -1,0 +1,115 @@
+<h1>string.padStart</h1> <p>The <code>padStart()</code> method pads the current string with another string (multiple times, if needed) until the resulting string reaches the given length. The padding is applied from the start (left) of the current string.</p>  <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/string-padstart.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>   <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><var>str</var>.padStart(<var>targetLength</var> [, <var>padString</var>])</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>targetLength</code></dt> <dd>The length of the resulting string once the current string has been padded. If the value is less than the current string's length, the current string is returned as is.</dd> <dt>
+<code>padString</code> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>The string to pad the current string with. If this padding string is too long to stay within the <code>targetLength</code>, it will be truncated from the right. The default value is <code>" "</code> (U+0020 'SPACE').</dd> </dl> <h3 id="Return_value">Return value</h3> <p>A <a href="../string"><code>String</code></a> of the specified length with the pad string applied from the start.</p> <h2 id="Examples">Examples</h2> <pre data-language="js">'abc'.padStart(10);         // "       abc"
+'abc'.padStart(10, "foo");  // "foofoofabc"
+'abc'.padStart(6,"123465"); // "123abc"
+'abc'.padStart(8, "0");     // "00000abc"
+'abc'.padStart(1);          // "abc"</pre> <h2 id="Polyfill">Polyfill</h2> <p>Running the following code before any other code will create <code>String.prototype.padStart()</code> if it's not natively available.</p> <pre data-language="js">// https://github.com/uxitten/polyfill/blob/master/string.polyfill.js
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+if (!String.prototype.padStart) {
+    String.prototype.padStart = function padStart(targetLength, padString) {
+        targetLength = targetLength &gt;&gt; 0; //truncate if number, or convert non-number to 0;
+        padString = String(typeof padString !== 'undefined' ? padString : ' ');
+        if (this.length &gt;= targetLength) {
+            return String(this);
+        } else {
+            targetLength = targetLength - this.length;
+            if (targetLength &gt; padString.length) {
+                padString += padString.repeat(targetLength / padString.length); //append to original to ensure we are longer than needed
+            }
+            return padString.slice(0, targetLength) + String(this);
+        }
+    };
+}
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-string.prototype.padstart" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'String.prototype.padStart' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td>Initial definition in ECMAScript 2017.</td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/8.0/#sec-string.prototype.padstart" hreflang="en">ECMAScript 2017 (ECMA-262)<br><small>The definition of 'String.prototype.padStart' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 57</td>
+<td class="bc-supports-yes"> 15</td>
+<td class="bc-supports-yes"> 48</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 44</td>
+<td class="bc-supports-yes"> 10</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 57</td>
+<td class="bc-supports-yes"> 57</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 48</td>
+<td class="bc-supports-yes"> 44</td>
+<td class="bc-supports-yes"> 10</td>
+<td class="bc-supports-yes"> 7.0</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes bc-has-history"> 8.0.0
+<section class="bc-history" id="sect1"><dl>
+<dt class="bc-supports-yes bc-supports"> 8.0.0
+</dt>
+
+<dt class="bc-supports-yes bc-supports"> 7.0.0<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 7.0.0: this feature is behind the <code>--harmony</code> runtime flag.</dd>
+</dl></section>
+</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="padend"><code>String.prototype.padEnd()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart</a>
+  </p>
+</div>

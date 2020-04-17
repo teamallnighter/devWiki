@@ -1,0 +1,114 @@
+<h1>parseFloat</h1>     <p>The <code><strong>parseFloat()</strong></code> function parses an argument and returns a floating point number.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/globalprops-parsefloat.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">parseFloat(<em>value</em>)</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>value</code></dt> <dd>The value you want to parse.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>A floating point number parsed from the given value. If the value cannot be converted to a number, <a href="nan"><code>NaN</code></a> is returned.</p> <h2 id="Description">Description</h2> <p><code>parseFloat</code> is a top-level function and is not associated with any object.</p> <p><code>parseFloat</code> parses its argument, and returns a floating point number. If it encounters a character other than a sign (+ or -), numeral (0-9), a decimal point, or an exponent, it returns the value up to that point and ignores that character and all succeeding characters. Leading and trailing spaces are allowed.</p> <p>If the value is a string and first character cannot be converted to a number, <code>parseFloat</code> returns <a href="nan"><code>NaN</code></a>.</p> <p>For arithmetic purposes, the <code>NaN</code> value is not a number in any radix. You can call the <a href="isnan"><code>isNaN</code></a> function to determine if the result of <code>parseFloat</code> is <code>NaN</code>. If <code>NaN</code> is passed on to arithmetic operations, the operation results will also be <code>NaN</code>.</p> <p><code>parseFloat</code> can also parse and return the value <code>Infinity</code>. You can use the <a href="isfinite"><code>isFinite</code></a> function to determine if the result is a finite number (not <code>Infinity</code>, <code>-Infinity</code>, or <code>NaN</code>).</p> <p><code>parseFloat</code> is also able to parse an object if it has a <code>toString</code> or <code>valueOf</code> method defined. The returned value is the same as if <code>parseFloat</code> had been called on the result of calling that method.</p> <h2 id="Examples">Examples</h2> <h3 id="parseFloat_returning_a_number">
+<code>parseFloat</code> returning a number</h3> <p>The following examples all return <strong>3.14</strong></p> <pre data-language="js">parseFloat(3.14);
+parseFloat('3.14');
+parseFloat('314e-2');
+parseFloat('0.0314E+2');
+parseFloat('3.14more non-digit characters');
+
+var foo = Object.create(null);
+foo.toString = function () { return "3.14"; };
+parseFloat(foo);
+
+var foo = Object.create(null);
+foo.valueOf = function () { return "3.14"; }; 
+parseFloat(foo);​​​​​</pre>  <h3 id="parseFloat_returning_NaN">
+<code>parseFloat</code> returning NaN</h3> <p>The following example returns <code>NaN</code></p> <pre data-language="js">parseFloat('FF2');
+</pre> <h3 id="A_stricter_parse_function">A stricter parse function</h3> <p>It is sometime useful to have a stricter way to parse float values, regular expressions can help :</p> <pre data-language="js">var filterFloat = function(value) {
+    if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/
+      .test(value))
+      return Number(value);
+  return NaN;
+}
+
+console.log(filterFloat('421'));               // 421
+console.log(filterFloat('-421'));              // -421
+console.log(filterFloat('+421'));              // 421
+console.log(filterFloat('Infinity'));          // Infinity
+console.log(filterFloat('1.61803398875'));     // 1.61803398875
+console.log(filterFloat('421e+0'));            // NaN
+console.log(filterFloat('421hop'));            // NaN
+console.log(filterFloat('hop1.61803398875'));  // NaN
+
+</pre> <p>Note that this code is an example only; it does not accept valid numbers such as <code>1.</code> or <code>.5</code>.</p> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%201st%20edition,%20June%201997.pdf" hreflang="en">ECMAScript 1st Edition (ECMA-262)</a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition.</td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/5.1/#sec-15.1.2.3" hreflang="en">ECMAScript 5.1 (ECMA-262)<br><small>The definition of 'parseFloat' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-parsefloat-string" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'parseFloat' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-parsefloat-string" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'parseFloat' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="parseint"><code>parseInt()</code></a></li> <li><a href="number/parsefloat"><code>Number.parseFloat()</code></a></li> <li><a href="number/parseint"><code>Number.parseInt()</code></a></li> <li><a href="number/tofixed"><code>Number.toFixed()</code></a></li> <li><a href="isnan"><code>isNaN()</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat</a>
+  </p>
+</div>

@@ -1,0 +1,85 @@
+<h1>PresentationConnection.state</h1> <p>The <dfn><code>state</code></dfn> attribute reflects the <a href="https://www.w3.org/TR/presentation-api/#dfn-presentation-connection" class="internalDFN">presentation connection</a>'s current state. Depending on the current <a href="https://www.w3.org/TR/presentation-api/#idl-def-presentationconnectionstate" class="internalDFN"><code>PresentationConnectionState</code></a>, the <dfn><code>state</code></dfn> attribute can hold one of the following values.</p> <ul> <li>
+<strong><dfn><code>connecting</code></dfn></strong>: The user agent is attempting to <a href="https://www.w3.org/TR/presentation-api/#dfn-establish-a-presentation-connection" class="internalDFN">establish a presentation connection</a> with the <a href="https://www.w3.org/TR/presentation-api/#dfn-destination-browsing-context" class="internalDFN">destination browsing context</a>. This is the initial state when a <a href="https://www.w3.org/TR/presentation-api/#idl-def-presentationconnection" class="internalDFN"><code>PresentationConnection</code></a> object is created.</li> <li>
+<strong><dfn><code>connected</code></dfn></strong>: The <a href="https://www.w3.org/TR/presentation-api/#dfn-presentation-connection" class="internalDFN">presentation connection</a> is established and communication is possible.</li> <li>
+<strong><dfn><code>closed</code></dfn></strong>: The <a href="https://www.w3.org/TR/presentation-api/#dfn-presentation-connection" class="internalDFN">presentation connection</a> has been closed or could not be opened. The connection may be reopened by calling <code><a href="https://www.w3.org/TR/presentation-api/#dom-presentationrequest-reconnect" class="internalDFN"><code>reconnect</code></a>()</code>. No communication is possible in this state.</li> <li>
+<strong><dfn><code>terminated</code></dfn></strong>: The <a href="https://www.w3.org/TR/presentation-api/#dfn-receiving-browsing-context" class="internalDFN">receiving browsing context</a> has terminated. Any <a href="https://www.w3.org/TR/presentation-api/#dfn-presentation-connection" class="internalDFN">presentation connection</a> to that <a href="https://www.w3.org/TR/presentation-api/#dfn-presentation" class="internalDFN">presentation</a> has also terminated and cannot be reopened. No communication is possible.</li> </ul> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 48</td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 51<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 51<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 51: this feature is behind the <code>dom.presentation.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 48</td>
+<td> ? </td>
+<td class="bc-supports-yes bc-has-history"> 51<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 51<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 51: this feature is behind the <code>dom.presentation.enabled</code> preference (needs to be set to <code>true</code>). To change preferences in Firefox, visit about:config.</dd>
+</dl>
+</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/PresentationConnection/state$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/PresentationConnection/state" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/PresentationConnection/state</a>
+  </p>
+</div>

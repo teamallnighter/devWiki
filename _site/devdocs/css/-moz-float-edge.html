@@ -1,0 +1,58 @@
+<h1>-moz-float-edge</h1><div class="blockIndicator nonStandard nonStandardHeader"> <p><strong> Non-standard</strong><br> This feature is non-standard and is not on a standards track. Do not use it on production sites facing the Web: it will not work for every user. There may also be large incompatibilities between implementations and the behavior may change in the future.</p> </div> <p>The non-standard <code>-moz-float-edge</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> property specifies whether the height and width properties of the element include the margin, border, or padding thickness.</p> <pre data-language="css">/* Keyword values */
+-moz-float-edge: border-box;
+-moz-float-edge: content-box;
+-moz-float-edge: margin-box;
+-moz-float-edge: padding-box;
+
+/* Global values */
+-moz-float-edge: inherit;
+-moz-float-edge: initial;
+-moz-float-edge: unset;
+</pre> <div class="_table"><table class="properties"><tbody>
+<tr>
+<th scope="row"><a href="initial_value">Initial value</a></th>
+<td><code>content-box</code></td>
+</tr>
+<tr>
+<th scope="row">Applies to</th>
+<td>all elements</td>
+</tr>
+<tr>
+<th scope="row"><a href="inheritance">Inherited</a></th>
+<td>no</td>
+</tr>
+<tr>
+<th scope="row">Media</th>
+<td>visual</td>
+</tr>
+<tr>
+<th scope="row"><a href="computed_value">Computed value</a></th>
+<td>as specified</td>
+</tr>
+<tr>
+<th scope="row">Animation type</th>
+<td>discrete</td>
+</tr>
+<tr>
+<th scope="row">Canonical order</th>
+<td>the unique non-ambiguous order defined by the formal grammar</td>
+</tr>
+</tbody></table></div> <h2 id="Syntax">Syntax</h2> <h3 id="Values">Values</h3> <dl> <dt><code>border-box</code></dt> <dd>The height and width properties include the content, padding and border but not the margin.</dd> <dt><code>content-box</code></dt> <dd>The height and width properties include the content, but not the padding, border or margin.</dd> <dt><code>margin-box</code></dt> <dd>The height and width properties include the content, padding, border and margin.</dd> <dt><code>padding-box</code></dt> <dd>The height and width properties include the content and padding but not the border or margin.</dd> </dl> <h3 id="Formal_syntax">Formal syntax</h3> <pre class="syntaxbox">border-box | content-box | margin-box | padding-box</pre> <h2 name="Example" id="Example">Example</h2> <h3 id="HTML_Content">HTML Content</h3> <pre class="html prettyprint"><span class="tag">&lt;div</span><span class="atn">class</span><span class="pun">=</span><span class="atv">"box"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;p&gt;</span><span class="pln">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span><span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/div&gt;</span></pre> <h3 id="CSS_Content">CSS Content</h3> <pre data-language="css">.box {
+  display: <span class="highVAL">block</span>;
+  height: 5px;
+  margin: 0.5em auto 0.5em auto;
+  color: gray;
+  -moz-float-edge: margin-box;
+  box-sizing: border-box;
+} </pre> <h3 id="Result">Result</h3> <p><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/-moz-float-edge%24samples/Example?revision=1299463" frameborder="0" class="live-sample-frame sample-code-frame" id="frame_Example"></iframe></p> <h2 id="See_also">See also</h2> <ul> <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=432891">bug 432891</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-float-edge$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-float-edge" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-float-edge</a>
+  </p>
+</div>

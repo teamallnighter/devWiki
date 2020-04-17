@@ -1,0 +1,211 @@
+<h1>break-before</h1> <p>The<code>break-before</code> <a href="https://developer.mozilla.org/en-US/docs/CSS">CSS</a> property sets how page, column, or region breaks should behave before a generated box. If there is no generated box, the property is ignored.</p> <pre data-language="css">/* Generic break values */
+break-before: auto;
+break-before: avoid;
+
+/* Page break values */
+break-before: avoid-page;
+break-before: page;
+break-before: always;
+break-before: left;
+break-before: right;
+break-before: recto;
+break-before: verso;
+
+/* Column break values */
+break-before: avoid-column;
+break-before: column;
+
+/* Region break values */
+break-before: avoid-region;
+break-before: region;
+
+/* Global values */
+break-before: inherit;
+break-before: initial;
+break-before: unset;
+</pre> <p>Each possible break point (in other words, each element boundary) is affected by three properties: the <a href="break-after"><code>break-after</code></a> value of the previous element, the <code>break-before</code> value of the next element, and the <a href="break-inside"><code>break-inside</code></a> value of the containing element.</p> <p>To determine if a break must be done, the following rules are applied:</p> <ol> <li>If any of the three concerned values is a <em>forced break value</em> (<code>always</code>, <code>left</code>, <code>right</code>, <code>page</code>, <code>column</code>, or <code>region</code>), it has precedence. If more than one of them are such a break, the one of the element that appears the latest in the flow is taken (i.e., the <code>break-before</code> value has precedence over the <code>break-after</code> value, which itself has precedence over the <code>break-inside</code> value).</li> <li>If any of the three concerned values is an <em>avoid break value</em> (<code>avoid</code>, <code>avoid-page</code>, <code>avoid-region</code>, or <code>avoid-column</code>), no such break will be applied at that point.</li> </ol> <p>Once forced breaks have been applied, soft breaks may be added if needed, but not on element boundaries that resolve in a corresponding <code>avoid</code> value.</p> <div class="_table"><table class="properties"><tbody>
+<tr>
+<th scope="row"><a href="initial_value">Initial value</a></th>
+<td><code>auto</code></td>
+</tr>
+<tr>
+<th scope="row">Applies to</th>
+<td>block-level elements</td>
+</tr>
+<tr>
+<th scope="row"><a href="inheritance">Inherited</a></th>
+<td>no</td>
+</tr>
+<tr>
+<th scope="row">Media</th>
+<td>paged</td>
+</tr>
+<tr>
+<th scope="row"><a href="computed_value">Computed value</a></th>
+<td>as specified</td>
+</tr>
+<tr>
+<th scope="row">Animation type</th>
+<td>discrete</td>
+</tr>
+<tr>
+<th scope="row">Canonical order</th>
+<td>the unique non-ambiguous order defined by the formal grammar</td>
+</tr>
+</tbody></table></div> <h2 name="Syntax" id="Syntax">Syntax</h2> <p>The <code>break-before</code> property is specified as one of the keyword values from the list below.</p> <h3 id="Values">Values</h3> <h4 id="Generic_break_values">Generic break values</h4> <dl> <dt><code>auto</code></dt> <dd>Allows, but does not force, any break (page, column, or region) to be inserted right before the principal box.</dd> <dt><code>avoid</code></dt> <dd>Avoids any break (page, column, or region) from being inserted right before the principal box.</dd> </dl> <h4 id="Page_break_values">Page break values</h4> <dl> <dt><code>avoid-page</code></dt> <dd>Avoids any page break right before the principal box.</dd> <dt><code>page</code></dt> <dd>Forces a page break right before the principal box.</dd> <dt><code>always</code></dt> <dd>Forces a page break right before the principal box. (This is an alias of <code>page</code>, and has been kept to facilitate the transition from <a href="page-break-after"><code>page-break-after</code></a>, which is a subset of this property.)</dd> <dt><code>left</code></dt> <dd>Forces one or two page breaks right before the principal box, whichever will make the next page into a left page.</dd> <dt><code>right</code></dt> <dd>Forces one or two page breaks right before the principal box, whichever will make the next page into a right page.</dd> <dt>
+<code>recto</code> 
+</dt> <dd>Forces one or two page breaks right before the principal box, whichever will make the next page into a recto page. (A recto page is a right page in a left-to-right spread or a left page in a right-to-left spread.)</dd> <dt>
+<code>verso</code> 
+</dt> <dd>Forces one or two page breaks right before the principal box, whichever will make the next page into a verso page. (A verso page is a left page in a left-to-right spread or a left right in a right-to-left spread.)</dd> </dl> <h4 id="Column_break_values">Column break values</h4> <dl> <dt><code>avoid-column</code></dt> <dd>Avoids any column break right before the principal box.</dd> <dt><code>column</code></dt> <dd>Forces a column break right before the principal box.</dd> </dl> <h4 id="Region_break_values">Region break values</h4> <dl> <dt>
+<code>avoid-region</code> 
+</dt> <dd>Avoids any region break right before the principal box.</dd> <dt>
+<code>region</code> 
+</dt> <dd>Forces a region break right before the principal box.</dd> </dl> <h3 id="Formal_syntax">Formal syntax</h3> <pre class="syntaxbox">auto | avoid | avoid-page | page | left | right | recto | verso | avoid-column | column | avoid-region | region</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://drafts.csswg.org/css-break-3/#break-between" hreflang="en">CSS Fragmentation Module Level 3<br><small>The definition of 'break-before' in that specification.</small></a></td> <td><span class="spec-CR">Candidate Recommendation</span></td> <td>Adds the <code>recto</code> and <code>verso</code> keywords. Changes the media type of this property from <code>paged</code> to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media/Visual"><code>visual</code></a>. Defines the breaking algorithm with different kinds of breaks.</td> </tr> <tr> <td><a href="https://drafts.csswg.org/css-regions-1/#region-flow-break" hreflang="en">CSS Regions Module Level 1<br><small>The definition of 'break-before' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Extends the property to handle region breaks. Adds the <code>avoid-region</code> and <code>region</code> keywords.</td> </tr> <tr> <td><a href="https://drafts.csswg.org/css-multicol-1/#break-before-break-after-break-inside" hreflang="en">CSS Multi-column Layout Module<br><small>The definition of 'break-before' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Initial definition. Extends the CSS 2.1 <a href="page-break-before"><code>page-break-before</code></a> property to handle both page and column breaks.</td> </tr> </tbody> </table></div> <h2 name="Browser_compatibility" id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 50</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 10</td>
+<td class="bc-supports-yes bc-has-history"> 37
+<section class="bc-history" id="sect1"><dl>
+<dt class="bc-supports-yes bc-supports"> 37
+</dt>
+
+<dt class="bc-supports-no bc-supports">11.1 — 12.1
+</dt>
+
+</dl></section>
+</td>
+<td class="bc-supports-yes"> 10</td>
+</tr>
+<tr>
+<th scope="row">
+<code>column</code> and <code>avoid-column</code>
+</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 10</td>
+<td class="bc-supports-no">11.1 — 12.1</td>
+<td class="bc-supports-no"> No</td>
+</tr>
+<tr>
+<th scope="row">
+<code>recto</code> and <code>verso</code> 
+</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr>
+<tr>
+<th scope="row">
+<code>region</code> and <code>avoid-region</code> 
+</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 50</td>
+<td class="bc-supports-yes"> 50</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 10</td>
+<td class="bc-supports-yes"> 5.0</td>
+</tr>
+<tr>
+<th scope="row">
+<code>column</code> and <code>avoid-column</code>
+</th>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr>
+<tr>
+<th scope="row">
+<code>recto</code> and <code>verso</code> 
+</th>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr>
+<tr>
+<th scope="row">
+<code>region</code> and <code>avoid-region</code> 
+</th>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-no"> No</td>
+</tr>
+</tbody>
+</table>
+</div>  <div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/break-before$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/break-before" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/break-before</a>
+  </p>
+</div>

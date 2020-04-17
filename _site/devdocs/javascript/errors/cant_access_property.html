@@ -1,0 +1,29 @@
+<h1>Errors: Cant access property</h1> <h2 id="Message">Message</h2> <pre class="syntaxbox">TypeError: Unable to get property {x} of undefined or null reference (Edge)
+TypeError: can't access property {x} of {y} (Firefox)
+TypeError: {y} is undefined, can't access property {x} of it (Firefox)
+TypeError: {y} is null, can't access property {x} of it (Firefox)
+
+Examples:
+TypeError: x is undefined, can't access property "prop" of it
+TypeError: x is null, can't access property "prop" of it
+TypeError: can't access property "prop" of undefined
+TypeError: can't access property "prop" of null
+</pre> <h2 id="Error_type">Error type</h2> <p><a href="../global_objects/typeerror"><code>TypeError</code></a>.</p> <h2 id="What_went_wrong">What went wrong?</h2> <p>The property access was operated on <a href="../global_objects/undefined"><code>undefined</code></a> or <a href="../global_objects/null"><code>null</code></a> value.</p> <h2 id="Examples">Examples</h2> <h3 id="Invalid_cases">Invalid cases</h3> <pre data-language="js">// undefined and null cases on which the substring method won't work
+var foo = undefined;
+foo.substring(1); // TypeError: x is undefined, can't access property "substring" of it
+
+var foo = null;
+foo.substring(1); // TypeError: x is null, can't access property "substring" of it
+</pre> <h3 id="Fixing_the_issue">Fixing the issue</h3> <p>To fix null pointer to <code>undefined</code> or <code>null</code> values, you can use the <a href="../operators/typeof">typeof</a> operator, for example.</p> <pre data-language="js">if (typeof foo !== 'undefined') {
+  // Now we know that foo is defined, we are good to go.
+}</pre> <h2 id="See_also">See also</h2> <ul> <li><a href="../global_objects/undefined"><code>undefined</code></a></li> <li><a href="../global_objects/null"><code>null</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cant_access_property$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cant_access_property" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cant_access_property</a>
+  </p>
+</div>

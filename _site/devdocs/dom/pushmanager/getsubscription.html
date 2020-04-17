@@ -1,0 +1,120 @@
+<h1>PushManager.getSubscription</h1><div class="notice overheadIndicator experimental"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p>The <code>PushManager.getSubscription()</code> method of the <a href="../pushmanager"><code>PushManager</code></a> interface retrieves an existing push subscription.</p> <p>It returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"><code>Promise</code></a> that resolves to a <a href="../pushsubscription"><code>PushSubscription</code></a> object containing details of an existing subscription. If no existing subscription exists, this resolves to a <code>null</code> value.</p> <h2 id="Syntax">Syntax</h2> <pre data-language="js">​PushManager.getSubscription().then(function(pushSubscription) { ... } );</pre> <h3 id="Parameters">Parameters</h3> <p>None.</p> <h3 id="Returns">Returns</h3> <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"><code>Promise</code></a> that resolves to a <a href="../pushsubscription"><code>PushSubscription</code></a> object or <code>null</code>.</p> <h2 id="Example">Example</h2> <p>This code snippet is taken from a <a href="https://github.com/GoogleChrome/samples/blob/gh-pages/push-messaging-and-notifications">push messaging and notification sample</a>. (No live demo is available.)</p> <pre data-language="js">// We need the service worker registration to check for a subscription
+  navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
+    // Do we already have a push message subscription?
+    serviceWorkerRegistration.pushManager.getSubscription()
+      .then(function(subscription) {
+        // Enable any UI which subscribes / unsubscribes from
+        // push messages.
+        var pushButton = document.querySelector('.js-push-button');
+        pushButton.disabled = false;
+
+        if (!subscription) {
+          // We aren’t subscribed to push, so set UI
+          // to allow the user to enable push
+          return;
+        }
+
+        // Keep your server in sync with the latest subscriptionId
+        sendSubscriptionToServer(subscription);
+        
+        showCurlCommand(subscription);
+
+        // Set your UI to show they have subscribed for
+        // push messages
+        pushButton.textContent = 'Disable Push Messages';
+        isPushEnabled = true;
+      })
+      .catch(function(err) {
+        window.Demo.debug.log('Error during getSubscription()', err);
+      });
+  });
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://w3c.github.io/push-api/#widl-PushManager-getSubscription-Promise-PushSubscription" hreflang="en">Push API<br><small>The definition of 'getSubscription()' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>    <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 42</td>
+<td class="bc-supports-yes bc-has-history"> 16<div class="bc-icons">Disabled </div>
+<dl>
+<dt class="bc-supports-yes bc-supports"> 16<div class="bc-icons">Disabled </div>
+</dt>
+<dd>Disabled From version 16: this feature is behind the <code>Enable service workers</code> preference.</dd>
+<dt class="bc-supports-yes bc-supports"> 17
+</dt>
+
+</dl>
+</td>
+<td class="bc-supports-yes bc-has-history"> 44
+<dl>
+<dt class="bc-supports-yes bc-supports"> 44
+</dt>
+<dd> Service workers (and <a href="https://developer.mozilla.org/docs/Web/API/Push_API">Push</a>) have been disabled in the <a href="https://www.mozilla.org/en-US/firefox/organizations/">Firefox 45 and 52 Extended Support Releases</a> (ESR.)</dd>
+</dl>
+</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 29</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 42</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes bc-has-history"> 48
+<dl>
+<dt class="bc-supports-yes bc-supports"> 48
+</dt>
+<dd> Push enabled by default.</dd>
+</dl>
+</td>
+<td class="bc-supports-yes"> 29</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> 4.0</td>
+</tr></tbody>
+</table>
+</div><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/PushManager/getSubscription$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/PushManager/getSubscription" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/PushManager/getSubscription</a>
+  </p>
+</div>

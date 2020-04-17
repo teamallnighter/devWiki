@@ -1,0 +1,38 @@
+<h1>load</h1> <p>The <code>load</code> event is fired when a resource and its dependent resources have finished loading.</p>  <h2 id="Examples">Examples</h2> <h3 id="Window" class="brush: html">Window</h3> <pre data-language="html">&lt;script&gt;
+  window.addEventListener("load", function(event) {
+    console.log("All resources finished loading!");
+  });
+&lt;/script&gt;</pre> <h3 id="script_element" class="brush: html">
+<code>script</code> element</h3> <pre data-language="html">&lt;script&gt;
+  var script = document.createElement("script");
+  script.addEventListener("load", function(event) {
+    console.log("Script finished loading and executing");
+  });
+  script.src = "http://example.com/example.js";
+  script.async = true;
+  document.getElementsByTagName("script")[0].parentNode.appendChild(script);
+&lt;/script&gt;</pre> <h2 id="General_info">General info</h2> <dl class="eventinfo"> <dt style="float: left; text-align: right; width: 120px;">Specification</dt> <dd style="margin: 0 0 0 120px;"><a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-load">DOM L3</a></dd> <dt style="float: left; text-align: right; width: 120px;">Interface</dt> <dd style="margin: 0 0 0 120px;">UIEvent</dd> <dt style="float: left; text-align: right; width: 120px;">Bubbles</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Cancelable</dt> <dd style="margin: 0 0 0 120px;">No</dd> <dt style="float: left; text-align: right; width: 120px;">Target</dt> <dd style="margin: 0 0 0 120px;">Window,Document,Element</dd> <dt style="float: left; text-align: right; width: 120px;">Default Action</dt> <dd style="margin: 0 0 0 120px;">None.</dd> </dl> <h2 id="Properties">Properties</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Property</th> <th scope="col">Type</th> <th scope="col">Description</th> </tr> </thead> <tbody> <tr> <td>
+<code>target</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><code><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget"><code>EventTarget</code></a></code></td> <td>The event target (the topmost target in the DOM tree).</td> </tr> <tr> <td>
+<code>type</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><code><a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMString"><code>DOMString</code></a></code></td> <td>The type of event.</td> </tr> <tr> <td>
+<code>bubbles</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Boolean"><code>Boolean</code></a></code></td> <td>Whether the event normally bubbles or not.</td> </tr> <tr> <td>
+<code>cancelable</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Boolean"><code>Boolean</code></a></code></td> <td>Whether the event is cancellable or not.</td> </tr> <tr> <td>
+<code>view</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td><code><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowProxy"><code>WindowProxy</code></a></code></td> <td>
+<code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/defaultView"><code>document.defaultView</code></a></code> (<code>window</code> of the document)</td> </tr> <tr> <td>
+<code>detail</code> <span class="inlineIndicator readOnly readOnlyInline">Read only </span>
+</td> <td>
+<code>long</code> (<code>float</code>)</td> <td>0.</td> </tr> </tbody> </table></div> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://w3c.github.io/uievents/#event-type-load" hreflang="en">UI Events<br><small>The definition of 'load' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td> </td> </tr> <tr> <td><a href="https://html.spec.whatwg.org/multipage/parsing.html#the-end:event-load" hreflang="en">HTML Living Standard<br><small>The definition of 'Load event' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>This links to the section in the steps that are carried out at the end of loading a document. 'load' events are fired at many elements too. And note there are many places in the specification that refer to things that can "<a href="https://html.spec.whatwg.org/multipage/parsing.html#delay-the-load-event">delays the load event</a>".</td> </tr> </tbody> </table></div> <h2 id="Related_Events">Related Events</h2> <ul> <li><code><a href="domcontentloaded">DOMContentLoaded</a></code></li> <li><code><a href="readystatechange">readystatechange</a></code></li> <li><code><a href="beforeunload">beforeunload</a></code></li> <li><code><a href="unload">unload</a></code></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/load$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Events/load" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/Events/load</a>
+  </p>
+</div>

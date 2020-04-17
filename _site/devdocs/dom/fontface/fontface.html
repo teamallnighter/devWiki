@@ -1,0 +1,86 @@
+<h1>FontFace.constructor</h1><div class="blockIndicator draft"> <p><strong>Draft</strong><br> This page is not complete.</p> </div><div class="blockIndicator experimental indicator-warning"> <p> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental">experimental technology</a></strong><br>Check the <a href="#Browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p> </div> <p>The <code><strong>FontFace()</strong></code> constructor creates a new <a href="../fontface"><code>FontFace</code></a> object.</p> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var fontFace = new FontFace(family, source, descriptors);</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><em>family</em></dt> <dd>Specifies a name that will be used as the font face value for font properties. Takes the same type of values as the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-family"><code>font-family</code></a> descriptor of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face"><code>@font-face</code></a> .</dd> <dt><em>source</em></dt> <dd>The font source. This can be either: <ul> <li>A URL</li> <li>Binary font data</li> </ul> </dd> <dt>descriptors <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>A set of optional descriptors passed as an object. It can have the following keys: <ul> <li>
+<code>family</code>: Family</li> <li>
+<code>style</code>: Style</li> <li>
+<code>weight</code>: Weight</li> <li>
+<code>stretch</code>: Stretch</li> <li>
+<code>unicodeRange</code>: Unicode range</li> <li>
+<code>variant</code>: variant</li> <li>
+<code>featureSettings</code>: Feature settings</li> </ul> </dd> </dl> <h2 id="Example">Example</h2> <pre data-language="js">async function loadFonts() {
+    const font = new FontFace('myfont', 'url(myfont.woff)');
+    // wait for font to be loaded
+    await font.load();
+    // add font to document
+    document.fonts.add(font);
+    // enable font with CSS class
+    document.body.classList.add('fonts-loaded');
+}
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://drafts.csswg.org/css-font-loading/#font-face-constructor" hreflang="en">CSS Font Loading Module Level 3<br><small>The definition of 'FontFace Constructor' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 35</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 41</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 37</td>
+<td class="bc-supports-yes"> 35</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 41</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/FontFace/FontFace$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/FontFace/FontFace" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/FontFace/FontFace</a>
+  </p>
+</div>

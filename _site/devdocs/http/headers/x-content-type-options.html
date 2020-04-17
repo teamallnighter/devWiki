@@ -1,0 +1,70 @@
+<h1>X-Content-Type-Options</h1> <p>The <code><strong>X-Content-Type-Options</strong></code> response HTTP header is a marker used by the server to indicate that the <a href="../basics_of_http/mime_types">MIME types</a> advertised in the <a href="content-type"><code>Content-Type</code></a> headers should not be changed and be followed. This allows to opt-out of <a href="../basics_of_http/mime_types#MIME_sniffing">MIME type sniffing</a>, or, in other words, it is a way to say that the webmasters knew what they were doing.</p> <p>This header was introduced by Microsoft in IE 8 as a way for webmasters to block content sniffing that was happening and could transform non-executable MIME types into executable MIME types. Since then, other browsers have introduced it, even if their MIME sniffing algorithms were less aggressive.</p> <p>Site security testers usually expect this header to be set.</p> <p class="blockIndicator note">Note: <code>nosniff</code> only applies to "<code>script</code>" and "<code>style</code>" types. Also applying <code>nosniff</code> to images turned out to be <a href="https://github.com/whatwg/fetch/issues/395">incompatible with existing web sites</a>.</p> <div class="_table"><table class="properties"> <tbody> <tr> <th scope="row">Header type</th> <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td> </tr> <tr> <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name">Forbidden header name</a></th> <td>no</td> </tr> </tbody> </table></div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">X-Content-Type-Options: nosniff
+</pre> <h2 id="Directives">Directives</h2> <dl> <dt><code>nosniff</code></dt> <dd>Blocks a request if the requested type is <ul> <li>"<code>style</code>" and the MIME type is not "<code>text/css</code>", or</li> <li>"<code>script</code>" and the MIME type is not a <a href="https://html.spec.whatwg.org/multipage/scripting.html#javascript-mime-type">JavaScript MIME type</a>.</li> </ul> </dd> </dl> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://fetch.spec.whatwg.org/#x-content-type-options-header" hreflang="en">Fetch<br><small>The definition of 'X-Content-Type-Options definition' in that specification.</small></a></td> <td><span class="spec-Living">Living Standard</span></td> <td>Initial definition</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 50</td>
+<td class="bc-supports-yes"> 8</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support 
+</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 50</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-no"> No</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="content-type"><code>Content-Type</code></a></li> <li>The <a href="https://blogs.msdn.microsoft.com/ie/2008/09/02/ie8-security-part-vi-beta-2-update/">original definition</a> of X-Content-Type-Options by Microsoft.</li> <li>The <a href="https://observatory.mozilla.org/">Mozilla Observatory</a> tool testing the configuration (including this header) of Web sites for safety and security</li> <li> <a href="https://blog.mozilla.org/security/2016/08/26/mitigating-mime-confusion-attacks-in-firefox/">Mitigating MIME Confusion Attacks in Firefox</a> </li> <li> <a href="https://fetch.spec.whatwg.org/#corb">Cross-Origin Read Blocking (CORB)</a> </li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options</a>
+  </p>
+</div>

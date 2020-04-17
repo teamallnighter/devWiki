@@ -1,0 +1,166 @@
+<h1>padding</h1> <p>The <code>padding</code> <a href="https://developer.mozilla.org/en/CSS">CSS</a> property sets the <a href="https://developer.mozilla.org/en/CSS/box_model#padding-area">padding area</a> on all four sides of an element. It is a <a href="shorthand_properties">shorthand</a> for <a href="padding-top"><code>padding-top</code></a>, <a href="padding-right"><code>padding-right</code></a>, <a href="padding-bottom"><code>padding-bottom</code></a>, and <a href="padding-left"><code>padding-left</code></a>.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/css/padding.html" frameborder="0" width="100%" class="interactive" height="250"></iframe>  <p>An element's padding area is the space between its content and its border.</p> <div class="note"> <p><strong>Note:</strong> Padding creates extra space within an element. In contrast, <a href="margin"><code>margin</code></a> creates extra space <em>around</em> an element.</p> </div> <h2 id="Syntax">Syntax</h2> <pre data-language="css">/* Apply to all four sides */
+padding: 1em;
+
+/* vertical | horizontal */
+padding: 5% 10%;
+
+/* top | horizontal | bottom */
+padding: 1em 2em 2em;
+
+/* top | right | bottom | left */
+padding: 5px 1em 0 2em;
+
+/* Global values */
+padding: inherit;
+padding: initial;
+padding: unset;
+</pre> <p>The <code>padding</code> property may be specified using one, two, three, or four values. Each value is a <code><a href="#&lt;length&gt;">&lt;length&gt;</a></code> or a <code><a href="#&lt;percentage&gt;">&lt;percentage&gt;</a></code>. Negative values are invalid.</p> <ul> <li>When <strong>one</strong> value is specified, it applies the same padding to <strong>all four sides</strong>.</li> <li>When <strong>two</strong> values are specified, the first padding applies to the <strong>top and bottom</strong>, the second to the <strong>left and right</strong>.</li> <li>When <strong>three</strong> values are specified, the first padding applies to the <strong>top</strong>, the second to the <strong>left and right</strong>, the third to the <strong>bottom</strong>.</li> <li>When <strong>four</strong> values are specified, the paddings apply to the <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong>, and <strong>left</strong> in that order (clockwise).</li> </ul> <h3 id="Values">Values</h3> <dl> <dt><strong><a href="length"><code>&lt;length&gt;</code></a></strong></dt> <dd>The size of the padding as a fixed value.</dd> <dt><a href="percentage"><code>&lt;percentage&gt;</code></a></dt> <dd>The size of the padding as a percentage, relative to the <em>width</em> of the containing block.</dd> </dl> <h3 id="Formal_syntax">Formal syntax</h3> <pre class="syntaxbox"><a href="value_definition_syntax#Brackets">[</a> <a href="length">&lt;length&gt;</a> | <a href="percentage">&lt;percentage&gt;</a> <a href="value_definition_syntax#Brackets">]</a><a href="value_definition_syntax#Curly_braces_(_)">{</a>1,4<a href="value_definition_syntax#Curly_braces_(_)">}</a></pre> <h2 id="Examples">Examples</h2> <h3 id="Simple_example">Simple example</h3> <h4 id="HTML">HTML</h4> <pre data-language="html">&lt;h4&gt;This element has moderate padding.&lt;/h4&gt;
+&lt;h3&gt;The padding is huge in this element!&lt;/h3&gt;
+</pre> <h4 id="CSS">CSS</h4> <pre data-language="css">h4 {
+  background-color: lime;
+  padding: 20px 50px;
+}
+
+h3 {
+  background-color: cyan;
+  padding: 110px 50px 50px 110px;
+}
+</pre> <p><span><iframe src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/padding%24samples/Simple_example?revision=1427306" height="300" class="live-sample-frame sample-code-frame" width="100%" frameborder="0" id="frame_Simple_example"></iframe></span></p> <h3 id="More_examples"><span>More examples</span></h3> <pre data-language="css">padding: 5%;                /* All sides: 5% padding */
+
+padding: 10px;              /* All sides: 10px padding */
+
+padding: 10px 20px;         /* top and bottom: 10px padding */
+                            /* left and right: 20px padding */
+
+padding: 10px 3% 20px;      /* top:            10px padding */
+                            /* left and right: 3% padding   */
+                            /* bottom:         20px padding */
+
+padding: 1em 3px 30px 5px;  /* top:    1em padding  */
+                            /* right:  3px padding  */
+                            /* bottom: 30px padding */
+                            /* left:   5px padding  */ </pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <thead> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> </thead> <tbody> <tr> <td><a href="https://drafts.csswg.org/css-box-3/#the-padding" hreflang="en">CSS Basic Box Model<br><small>The definition of 'padding' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>No change.</td> </tr> <tr> <td><a href="https://drafts.csswg.org/css-transitions/#animatable-css" hreflang="en">CSS Transitions<br><small>The definition of 'padding' in that specification.</small></a></td> <td><span class="spec-WD">Working Draft</span></td> <td>Defines <code>padding</code> as animatable.</td> </tr> <tr> <td><a href="https://www.w3.org/TR/CSS2/box.html#propdef-padding" hreflang="en">CSS Level 2 (Revision 1)<br><small>The definition of 'padding' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td>No change.</td> </tr> <tr> <td><a href="https://www.w3.org/TR/CSS1/#padding" hreflang="en">CSS Level 1<br><small>The definition of 'padding' in that specification.</small></a></td> <td><span class="spec-REC">Recommendation</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <div class="_table"><table class="properties"><tbody>
+<tr>
+<th scope="row"><a href="initial_value">Initial value</a></th>
+<td>as each of the properties of the shorthand:<br><ul>
+<li>
+<a href="padding-bottom"><code>padding-bottom</code></a>: <code>0</code>
+</li>
+<li>
+<a href="padding-left"><code>padding-left</code></a>: <code>0</code>
+</li>
+<li>
+<a href="padding-right"><code>padding-right</code></a>: <code>0</code>
+</li>
+<li>
+<a href="padding-top"><code>padding-top</code></a>: <code>0</code>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th scope="row">Applies to</th>
+<td>all elements, except <code>table-row-group</code>, <code>table-header-group</code>, <code>table-footer-group</code>, <code>table-row</code>, <code>table-column-group</code> and <code>table-column</code>. It also applies to <a href="::first-letter"><code>::first-letter</code></a>.</td>
+</tr>
+<tr>
+<th scope="row"><a href="inheritance">Inherited</a></th>
+<td>no</td>
+</tr>
+<tr>
+<th scope="row">Percentages</th>
+<td>refer to the width of the containing block</td>
+</tr>
+<tr>
+<th scope="row">Media</th>
+<td>visual</td>
+</tr>
+<tr>
+<th scope="row"><a href="computed_value">Computed value</a></th>
+<td>as each of the properties of the shorthand:<br><ul>
+<li>
+<a href="padding-bottom"><code>padding-bottom</code></a>: the percentage as specified or the absolute length</li>
+<li>
+<a href="padding-left"><code>padding-left</code></a>: the percentage as specified or the absolute length</li>
+<li>
+<a href="padding-right"><code>padding-right</code></a>: the percentage as specified or the absolute length</li>
+<li>
+<a href="padding-top"><code>padding-top</code></a>: the percentage as specified or the absolute length</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th scope="row">Animation type</th>
+<td>a <a href="length#Interpolation">length</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Canonical order</th>
+<td>the unique non-ambiguous order defined by the formal grammar</td>
+</tr>
+</tbody></table></div> <h2 name="Browser_Compatibility" id="Browser_Compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 12</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> 3.5</td>
+<td class="bc-supports-yes"> 1</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="https://developer.mozilla.org/en/CSS/box_model" class="internal">CSS basic box model</a></li> <li>The <code>padding</code> shorthand property sets paddings on all four sides of an element: <a href="padding-top"><code>padding-top</code></a>, <a href="padding-right"><code>padding-right</code></a>, <a href="padding-bottom"><code>padding-bottom</code></a>, and <a href="padding-left"><code>padding-left</code></a>.</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/CSS/padding</a>
+  </p>
+</div>

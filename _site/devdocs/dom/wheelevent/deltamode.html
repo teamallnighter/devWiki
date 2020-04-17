@@ -1,0 +1,70 @@
+<h1>WheelEvent.deltaMode</h1> <p>The <code><strong>WheelEvent.deltaMode</strong></code> read-only property returns an <code>unsigned long</code> representing the unit of the delta values scroll amount. Permitted values are:</p> <div class="_table"><table class="standard-table"> <tbody> <tr> <th class="header">Constant</th> <th class="header">Value</th> <th class="header">Description</th> </tr> <tr> <td><code>DOM_DELTA_PIXEL</code></td> <td><code>0x00</code></td> <td>The delta values are specified in pixels.</td> </tr> <tr> <td><code>DOM_DELTA_LINE</code></td> <td><code>0x01</code></td> <td>The delta values are specified in lines.</td> </tr> <tr> <td><code>DOM_DELTA_PAGE</code></td> <td><code>0x02</code></td> <td>The delta values are specified in pages.</td> </tr> </tbody> </table></div> <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox">var <em>unit</em> = <em>event</em>.deltaMode;</pre> <h2 id="Example">Example</h2> <pre data-language="js">var syntheticEvent = new WheelEvent("syntheticWheel", {"deltaX": 4, "deltaMode": 0});
+
+console.log(syntheticEvent.deltaMode);
+</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.w3.org/TR/2014/WD-DOM-Level-3-Events-20140925/#widl-WheelEvent-deltaMode" hreflang="en">Document Object Model (DOM) Level 3 Events Specification<br><small>The definition of 'WheelEvent.deltaMode' in that specification.</small></a></td> <td><span class="spec-Obsolete">Obsolete</span></td> <td>Initial definition.</td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 31</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 17</td>
+<td class="bc-supports-yes"> 9</td>
+<td class="bc-supports-yes"> 18</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-web">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 17</td>
+<td class="bc-supports-yes"> Yes</td>
+<td> ? </td>
+<td> ? </td>
+</tr></tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/Events/wheel">wheel</a></code></li> <li><a href="../wheelevent"><code>WheelEvent</code></a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/WheelEvent/deltaMode$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/WheelEvent/deltaMode" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/API/WheelEvent/deltaMode</a>
+  </p>
+</div>

@@ -1,0 +1,121 @@
+<h1>array.splice</h1> <p>The <code>splice()</code> method changes the contents of an array by removing existing elements and/or adding new elements.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/array-splice.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <h2 id="Syntax">Syntax</h2> <pre class="syntaxbox"><var>array</var>.splice(<var>start[</var>, <var>deleteCount[</var>, <var>item1[</var>, <var>item2[</var>, <em>...]]]]</em>)
+</pre> <h3 id="Parameters">Parameters</h3> <dl> <dt><code>start</code></dt> <dd>Index at which to start changing the array (with origin 0). If greater than the length of the array, actual starting index will be set to the length of the array. If negative, will begin that many elements from the end of the array (with origin -1) and will be set to 0 if absolute value is greater than the length of the array.</dd> <dt>
+<code>deleteCount</code> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>An integer indicating the number of old array elements to remove.</dd> <dd>If <code>deleteCount</code> is omitted, or if its value is larger than <code>array.length - start</code> (that is, if it is greater than the number of elements left in the array, starting at <code>start</code>), then all of the elements from <code>start</code> through the end of the array will be deleted.</dd> <dd>If <code>deleteCount</code> is 0 or negative, no elements are removed. In this case, you should specify at least one new element (see below).</dd> <dt>
+<code>item1, item2, <em>...</em></code> <span class="inlineIndicator optional optionalInline">Optional</span>
+</dt> <dd>The elements to add to the array, beginning at the <code>start</code> index. If you don't specify any elements, <code>splice()</code> will only remove elements from the array.</dd> </dl> <h3 id="Return_value">Return value</h3> <p>An array containing the deleted elements. If only one element is removed, an array of one element is returned. If no elements are removed, an empty array is returned.</p> <h2 id="Description">Description</h2> <p>If you specify a different number of elements to insert than the number you're removing, the array will have a different length at the end of the call.</p> <h2 id="Examples">Examples</h2> <h3 id="Remove_0_(zero)_elements_from_index_2_and_insert_drum">Remove 0 (zero) elements from index 2, and insert "drum"</h3> <pre data-language="js">var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+var removed = myFish.splice(2, 0, 'drum');
+
+// myFish is ["angel", "clown", "drum", "mandarin", "sturgeon"] 
+// removed is [], no elements removed
+</pre> <h3 id="Remove_1_element_from_index_3">Remove 1 element from index 3</h3> <pre data-language="js">var myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+var removed = myFish.splice(3, 1);
+
+// removed is ["mandarin"]
+// myFish is ["angel", "clown", "drum", "sturgeon"] 
+</pre> <h3 id="Remove_1_element_from_index_2_and_insert_trumpet">Remove 1 element from index 2, and insert "trumpet"</h3> <pre data-language="js">var myFish = ['angel', 'clown', 'drum', 'sturgeon'];
+var removed = myFish.splice(2, 1, 'trumpet');
+
+// myFish is ["angel", "clown", "trumpet", "sturgeon"]
+// removed is ["drum"]</pre> <h3 id="Remove_2_elements_from_index_0_and_insert_parrot_anemone_and_blue">Remove 2 elements from index 0, and insert "parrot", "anemone" and "blue"</h3> <pre data-language="js">var myFish = ['angel', 'clown', 'trumpet', 'sturgeon'];
+var removed = myFish.splice(0, 2, 'parrot', 'anemone', 'blue');
+
+// myFish is ["parrot", "anemone", "blue", "trumpet", "sturgeon"] 
+// removed is ["angel", "clown"]</pre> <h3 id="Remove_2_elements_from_index_2">Remove 2 elements from index 2</h3> <pre data-language="js">var myFish = ['parrot', 'anemone', 'blue', 'trumpet', 'sturgeon'];
+var removed = myFish.splice(myFish.length - 3, 2);
+
+// myFish is ["parrot", "anemone", "sturgeon"] 
+// removed is ["blue", "trumpet"]</pre> <h3 id="Remove_1_element_from_index_-2">Remove 1 element from index -2</h3> <pre data-language="js">var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+var removed = myFish.splice(-2, 1);
+
+// myFish is ["angel", "clown", "sturgeon"] 
+// removed is ["mandarin"]</pre> <h3 id="Remove_all_elements_after_index_2_(incl.)">Remove all elements after index 2 (incl.)</h3> <pre data-language="js">var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+var removed = myFish.splice(2);
+
+// myFish is ["angel", "clown"] 
+// removed is ["mandarin", "sturgeon"]</pre> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%203rd%20edition,%20December%201999.pdf" hreflang="en">ECMAScript 3rd Edition (ECMA-262)</a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition. Implemented in JavaScript 1.2.</td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.12" hreflang="en">ECMAScript 5.1 (ECMA-262)<br><small>The definition of 'Array.prototype.splice' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.splice" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'Array.prototype.splice' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-array.prototype.splice" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'Array.prototype.splice' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>   <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 1</td>
+<td class="bc-supports-yes"> 5.5</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 4</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> Yes</td>
+</tr></tbody>
+</table>
+</div>  <h2 id="See_also">See also</h2> <ul> <li>
+<a href="push"><code>push()</code></a> / <a href="pop"><code>pop()</code></a> — add/remove elements from the end of the array</li> <li>
+<a href="unshift"><code>unshift()</code></a> / <a href="shift"><code>shift()</code></a> — add/remove elements from the beginning of the array</li> <li>
+<a href="concat"><code>concat()</code></a> — returns a new array comprised of this array joined with other array(s) and/or value(s)</li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice</a>
+  </p>
+</div>

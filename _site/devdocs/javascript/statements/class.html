@@ -1,0 +1,156 @@
+<h1>class</h1> <p>The <strong>class declaration</strong> creates a new class with a given name using prototype-based inheritance.</p> <iframe src="https://interactive-examples.mdn.mozilla.net/pages/js/statement-class.html" frameborder="0" width="100%" class="interactive interactive-js" height="250"></iframe>  <div class="noinclude"> <p>You can also define a class using a <a href="../operators/class">class expression</a>. But unlike the class expression, the class declaration doesn't allow an existing class to be declared again and will throw a type error if attempted. </p> </div> <h2 id="Syntax">Syntax</h2> <pre data-language="js">class <em>name</em> [extends] {
+  // class body
+}
+</pre> <h2 id="Description">Description</h2> <p>The class body of a class declaration is executed in <a href="../strict_mode">strict mode</a>. The constructor property is optional.</p> <p>Class declarations are not <a href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting">hoisted</a> (unlike <a href="function">function declarations</a>).</p> <h2 id="Examples">Examples</h2> <h3 id="A_simple_class_declaration">A simple class declaration</h3> <p>In the following example, we first define a class named Polygon, then extend it to create a class named Square. Note that super(), used in the constructor, can only be used in constructors and must be called before the <code>this</code> keyword can be used.</p> <pre data-language="js">class Polygon {
+  constructor(height, width) {
+    this.name = 'Polygon';
+    this.height = height;
+    this.width = width;
+  }
+}
+
+class Square extends Polygon {
+  constructor(length) {
+    super(length, length);
+    this.name = 'Square';
+  }
+}</pre> <div class="warning"> <h3 id="Attempting_to_declare_a_class_twice">Attempting to declare a class twice</h3> <p>Re-declaring a class using the class declaration throws a type error.</p> <pre data-language="js">class Foo {};
+class Foo {}; // Uncaught TypeError: Identifier 'Foo' has already been declared
+</pre> <p>The same error is thrown when a class has been defined before using the class expression.</p> <pre data-language="js">var Foo = class {};
+class Foo {}; // Uncaught TypeError: Identifier 'Foo' has already been declared
+
+</pre> </div> <h2 id="Specifications">Specifications</h2> <div class="_table"><table class="standard-table"> <tbody> <tr> <th scope="col">Specification</th> <th scope="col">Status</th> <th scope="col">Comment</th> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-class-definitions" hreflang="en">ECMAScript 2015 (6th Edition, ECMA-262)<br><small>The definition of 'Class definitions' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td>Initial definition.</td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/7.0/#sec-class-definitions" hreflang="en">ECMAScript 2016 (ECMA-262)<br><small>The definition of 'Class definitions' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://www.ecma-international.org/ecma-262/8.0/#sec-class-definitions" hreflang="en">ECMAScript 2017 (ECMA-262)<br><small>The definition of 'Class definitions' in that specification.</small></a></td> <td><span class="spec-Standard">Standard</span></td> <td> </td> </tr> <tr> <td><a href="https://tc39.github.io/ecma262/#sec-class-definitions" hreflang="en">ECMAScript Latest Draft (ECMA-262)<br><small>The definition of 'Class definitions' in that specification.</small></a></td> <td><span class="spec-Draft">Draft</span></td> <td> </td> </tr> </tbody> </table></div> <h2 id="Browser_compatibility">Browser compatibility<a href="https://github.com/mdn/browser-compat-data" class="bc-github-link">Update compatibility data on GitHub</a>
+</h2>  <div class="_table">
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="6">Desktop</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 42</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 45</td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 10.1</td>
+</tr>
+<tr>
+<th scope="row">Array subclassing</th>
+<td class="bc-supports-yes"> 43</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">Allowed in sloppy mode</th>
+<td class="bc-supports-yes"> 49</td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-no"> No</td>
+<td> ? </td>
+<td> ? </td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="7">Mobile</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Android webview</th>
+<th>Chrome for Android</th>
+<th>Edge Mobile</th>
+<th>Firefox for Android</th>
+<th>Opera for Android</th>
+<th>iOS Safari</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 42</td>
+<td class="bc-supports-yes"> 42</td>
+<td class="bc-supports-yes"> Yes</td>
+<td class="bc-supports-yes"> 45</td>
+<td> ? </td>
+<td class="bc-supports-yes"> 10.1</td>
+<td class="bc-supports-yes"> 4.0</td>
+</tr>
+<tr>
+<th scope="row">Array subclassing</th>
+<td class="bc-supports-yes"> 43</td>
+<td class="bc-supports-yes"> 43</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 4.0</td>
+</tr>
+<tr>
+<th scope="row">Allowed in sloppy mode</th>
+<td class="bc-supports-yes"> 49</td>
+<td class="bc-supports-yes"> 49</td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td> ? </td>
+<td class="bc-supports-yes"> 5.0</td>
+</tr>
+</tbody>
+</table>
+<table class="bc-table bc-table-js">
+<thead>
+<tr class="bc-platforms">
+<th></th>
+<th colspan="1">Server</th>
+</tr>
+<tr class="bc-browsers">
+<th></th>
+<th>Node.js</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Basic support</th>
+<td class="bc-supports-yes"> 6.0.0</td>
+</tr>
+<tr>
+<th scope="row">Array subclassing</th>
+<td> ? </td>
+</tr>
+<tr>
+<th scope="row">Allowed in sloppy mode</th>
+<td> ? </td>
+</tr>
+</tbody>
+</table>
+</div> <h2 id="See_also">See also</h2> <ul> <li><a href="function"><code>function</code> declaration</a></li> <li><a href="../operators/class"><code>class</code> expression</a></li> <li><a href="../classes">Classes</a></li> </ul><div class="_attribution">
+  <p class="_attribution-p">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class$edit" class="_attribution-link">Edit this page on MDN</a>
+  </p>
+</div>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; 2005&ndash;2018 Mozilla Developer Network and individual contributors.<br>Licensed under the Creative Commons Attribution-ShareAlike License v2.5 or later.<br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class" class="_attribution-link">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class</a>
+  </p>
+</div>
