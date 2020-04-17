@@ -13,6 +13,6 @@ gem 'jekyll-contentful-data-import', '~> 1.8', '>= 1.8.1'
 gem 'jekyll-scholar'
 gem 'jekyll-tagging-related_posts', '~> 1.1'
 gem "jekyll-get-json", "~> 0.0.1"
-
+gem 'jekyll_pages_api_search'
 
 

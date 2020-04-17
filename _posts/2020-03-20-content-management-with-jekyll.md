@@ -2,8 +2,7 @@
 layout: default
 title:  "Content Management with Jekyll"
 date:   2020-03-20 08:00:00 -0600
-categories: categories:
-200 jekyll
+categories: jekyll
 ---
 # {{page.title}}
 ## Assignment 1
