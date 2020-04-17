@@ -8,5 +8,3 @@ main:
     url: https://sheets.devwiki.io
   - title: "devDocs"
     url: docs-archive/
-  - title: "Search"
-    url: search/
