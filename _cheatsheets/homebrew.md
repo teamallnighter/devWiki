@@ -1,6 +1,6 @@
 ---
 title: Homebrew
-layout: 2017/sheet
+layout: post
 weight: -3
 category: CLI
 ---

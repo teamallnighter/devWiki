@@ -1,7 +1,7 @@
 ---
 title: npm
 category: JavaScript
-layout: 2017/sheet
+layout: post
 weight: -1
 updated: 2017-10-27
 ---

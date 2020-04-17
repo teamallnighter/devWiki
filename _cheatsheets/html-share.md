@@ -1,6 +1,6 @@
 ---
 title: Share links
-layout: 2017/sheet
+layout: post
 category: HTML
 updated: 2017-09-04
 ---

@@ -1,6 +1,6 @@
 ---
 title: Spacemacs
-layout: 2017/sheet
+layout: post
 category: Apps
 updated: 2018-02-15
 tags: [WIP]

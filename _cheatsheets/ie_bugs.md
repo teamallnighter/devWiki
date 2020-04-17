@@ -1,7 +1,7 @@
 ---
 title: Legacy IE bugs
 category: HTML
-layout: 2017/sheet
+layout: post
 updated: 2017-10-29
 intro: |
   A bunch of bugs to take care of if you're going to target legacy IE browsers.

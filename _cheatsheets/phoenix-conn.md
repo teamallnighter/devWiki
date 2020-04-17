@@ -1,7 +1,7 @@
 ---
 title: "Phoenix: Plug.Conn"
 category: Elixir
-layout: 2017/sheet
+layout: post
 updated: 2017-08-29
 weight: -5
 ---

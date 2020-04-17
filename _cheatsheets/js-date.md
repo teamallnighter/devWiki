@@ -1,7 +1,7 @@
 ---
 title: JavaScript Date
 category: JavaScript
-layout: 2017/sheet
+layout: post
 weight: -3
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: ExUnit
 category: Elixir
-layout: 2017/sheet
+layout: post
 updated: 2017-08-26
 ---
 

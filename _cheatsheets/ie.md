@@ -1,7 +1,7 @@
 ---
 title: Internet Explorer
 category: HTML
-layout: 2017/sheet
+layout: post
 updated: 2017-09-20
 ---
 

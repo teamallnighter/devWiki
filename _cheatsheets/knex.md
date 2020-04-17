@@ -1,6 +1,6 @@
 ---
 title: Knex
-layout: 2017/sheet
+layout: post
 updated: 2017-09-23
 category: Databases
 intro: |

@@ -1,7 +1,7 @@
 ---
 title: Rdoc
 category: Markup
-layout: 2017/sheet
+layout: post
 ---
 
 ### Basic RDoc format

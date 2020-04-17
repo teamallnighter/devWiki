@@ -1,6 +1,6 @@
 ---
 title: Mouse Acceleration
-layout: 2017/sheet
+layout: post
 category: macOS
 updated: 2018-03-20
 weight: -1

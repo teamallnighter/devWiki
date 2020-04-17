@@ -1,7 +1,7 @@
 ---
 title: Factory Bot
 category: Ruby libraries
-layout: 2017/sheet
+layout: post
 weight: -3
 updated: 2017-10-31
 keywords:

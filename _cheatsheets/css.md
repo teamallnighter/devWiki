@@ -1,7 +1,7 @@
 ---
 title: CSS
 category: CSS
-layout: 2017/sheet
+layout: post
 weight: -1
 keywords:
   - "margin, padding, border"

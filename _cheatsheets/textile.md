@@ -1,7 +1,7 @@
 ---
 title: Textile
 category: Markup
-layout: 2017/sheet
+layout: post
 updated: 2017-09-20
 weight: -1
 ---

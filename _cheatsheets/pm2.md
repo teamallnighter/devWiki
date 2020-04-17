@@ -1,7 +1,7 @@
 ---
 title: pm2
 category: CLI
-layout: 2017/sheet
+layout: post
 authors: { github: "Dr-Dino" }
 updated: 2018-03-15
 ---

@@ -1,7 +1,7 @@
 ---
 title: Animated GIFs
 category: CLI
-layout: 2017/sheet
+layout: post
 ---
 
 ## Animated GIFs

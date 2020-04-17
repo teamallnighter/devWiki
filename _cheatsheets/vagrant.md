@@ -1,7 +1,7 @@
 ---
 title: Vagrant
 category: Devops
-layout: 2017/sheet
+layout: post
 intro: |
  [Vagrant](http://vagrantup.com) lets you build isolated virtual environments for your apps.
 ---

@@ -1,6 +1,6 @@
 ---
 title: Goby
-layout: 2017/sheet
+layout: post
 prism_languages: [ruby]
 weight: -3
 updated: 2018-04-07

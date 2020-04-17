@@ -1,7 +1,7 @@
 ---
 title: Jsdoc
 category: JavaScript
-layout: 2017/sheet
+layout: post
 updated: 2019-01-10
 weight: -1
 ---

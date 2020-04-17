@@ -1,7 +1,7 @@
 ---
 title: "CSS system fonts"
 category: CSS
-layout: 2017/sheet
+layout: post
 weight: -3
 tags: [Featurable]
 ---

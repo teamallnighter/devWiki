@@ -1,7 +1,7 @@
 ---
 title: React.js
 category: React
-layout: 2017/sheet
+layout: post
 ads: true
 tags: [Featured]
 updated: 2018-10-04

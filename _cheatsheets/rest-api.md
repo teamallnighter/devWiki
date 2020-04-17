@@ -1,7 +1,7 @@
 ---
 title: RESTful API
 updated: 2018-12-25
-layout: 2017/sheet
+layout: post
 category: API
 ---
 

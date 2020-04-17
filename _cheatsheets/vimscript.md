@@ -2,7 +2,7 @@
 title: Vim scripting
 category: Vim
 prism_languages: [vim]
-layout: 2017/sheet
+layout: post
 updated: 2017-08-30
 weight: -10
 tags: [Featurable]

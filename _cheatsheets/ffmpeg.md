@@ -1,7 +1,7 @@
 ---
 title: ffmpeg
 category: CLI
-layout: 2017/sheet
+layout: post
 ---
 
 ### Common switches

@@ -1,7 +1,7 @@
 ---
 title: Sass
 category: CSS
-layout: 2017/sheet
+layout: post
 tags: [Featured]
 updated: 2017-08-26
 weight: -5

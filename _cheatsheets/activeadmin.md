@@ -1,7 +1,7 @@
 ---
 title: ActiveAdmin
 category: Ruby
-layout: 2017/sheet
+layout: post
 ---
 
 ### Listing scopes

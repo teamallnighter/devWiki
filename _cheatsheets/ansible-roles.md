@@ -1,7 +1,7 @@
 ---
 title: Ansible roles
 category: Ansible
-layout: 2017/sheet
+layout: post
 ---
 
 ### Structure

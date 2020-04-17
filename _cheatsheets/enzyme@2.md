@@ -1,7 +1,7 @@
 ---
 title: Enzyme v2
 category: React
-layout: 2017/sheet
+layout: post
 updated: 2017-09-14
 weight: -1
 deprecated_by: /enzyme

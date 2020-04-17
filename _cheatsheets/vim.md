@@ -1,7 +1,7 @@
 ---
 title: Vim
 category: Vim
-layout: 2017/sheet
+layout: post
 tags: [Featured]
 updated: 2018-09-11
 weight: -10

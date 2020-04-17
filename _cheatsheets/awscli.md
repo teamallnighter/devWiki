@@ -1,7 +1,7 @@
 ---
 title: AWS CLI
 category: Devops
-layout: 2017/sheet
+layout: post
 ---
 
 ### EC2

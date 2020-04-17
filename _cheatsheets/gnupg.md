@@ -1,7 +1,7 @@
 ---
 title: GnuPG
 category: CLI
-layout: 2017/sheet
+layout: post
 tags: []
 updated: 2017-10-18
 weight: 0

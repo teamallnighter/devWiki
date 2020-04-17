@@ -1,7 +1,7 @@
 ---
 title: composer
 category: CLI
-layout: 2017/sheet
+layout: post
 weight: -1
 authors:
   - github: benolot

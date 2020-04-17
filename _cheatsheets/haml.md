@@ -1,7 +1,7 @@
 ---
 title: Haml
 category: Markup
-layout: 2017/sheet
+layout: post
 prism_languages: [haml]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: editorconfig
-layout: 2017/sheet
+layout: post
 prism_languages: [ini]
 weight: -1
 updated: 2017-09-04

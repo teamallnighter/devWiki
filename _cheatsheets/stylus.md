@@ -1,7 +1,7 @@
 ---
 title: Stylus
 category: CSS
-layout: 2017/sheet
+layout: post
 prism_languages: [stylus]
 weight: -3
 updated: 2017-09-20

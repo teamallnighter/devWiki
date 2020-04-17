@@ -1,6 +1,6 @@
 ---
 title: strftime format
-layout: 2017/sheet
+layout: post
 weight: -5
 updated: 2017-09-04
 tags: [Featurable]

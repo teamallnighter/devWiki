@@ -1,7 +1,7 @@
 ---
 title: expect.js
 category: JavaScript libraries
-layout: 2017/sheet
+layout: post
 updated: 2017-09-02
 weight: -1
 ---

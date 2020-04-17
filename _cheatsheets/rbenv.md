@@ -1,7 +1,7 @@
 ---
 title: rbenv
 category: Ruby
-layout: 2017/sheet
+layout: post
 updated: 2017-10-11
 weight: -1
 description: |

@@ -1,7 +1,7 @@
 ---
 title: Elixir
 category: Elixir
-layout: 2017/sheet
+layout: post
 tags: [New]
 updated: 2017-08-26
 weight: -10

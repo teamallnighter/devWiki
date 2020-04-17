@@ -1,7 +1,7 @@
 ---
 title: Frequency separation retouching
 category: Others
-layout: 2017/sheet
+layout: post
 ---
 
 ### Frequency separation retouching in Photoshop

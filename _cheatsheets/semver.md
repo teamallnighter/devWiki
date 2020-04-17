@@ -1,6 +1,6 @@
 ---
 title: Semver
-layout: 2017/sheet
+layout: post
 updated: 2018-08-23
 weight: -3
 ---

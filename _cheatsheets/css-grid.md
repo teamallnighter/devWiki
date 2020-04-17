@@ -2,7 +2,7 @@
 title: CSS Grid
 category: CSS
 updated: 2018-12-06
-layout: 2017/sheet
+layout: post
 prism_languages: [css]
 ---
 

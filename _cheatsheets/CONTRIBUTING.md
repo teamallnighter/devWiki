@@ -75,7 +75,7 @@ Each sheet supports these metadata:
 ```yml
 ---
 title: React.js
-layout: 2017/sheet   # 'default' | '2017/sheet'
+layout: post   # 'default' | 'post'
 
 # Optional:
 category: React

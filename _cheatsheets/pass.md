@@ -1,6 +1,6 @@
 ---
 title: Pass
-layout: 2017/sheet
+layout: post
 category: CLI
 ---
 

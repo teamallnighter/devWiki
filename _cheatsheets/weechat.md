@@ -1,7 +1,7 @@
 ---
 title: Weechat
 category: Apps
-layout: 2017/sheet
+layout: post
 ---
 
 ## Keys

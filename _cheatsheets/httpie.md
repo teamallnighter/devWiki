@@ -1,7 +1,7 @@
 ---
 title: httpie
 category: CLI
-layout: 2017/sheet
+layout: post
 weight: -3
 updated: 2017-09-04
 description: |

@@ -1,6 +1,6 @@
 ---
 title: Figlet
-layout: 2017/sheet
+layout: post
 updated: 2017-10-08
 introduction: |
   [Figlet] renders text as ASCII art. Here's a list of Figlet fonts for Figlet 2.2.5.

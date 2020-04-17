@@ -1,7 +1,7 @@
 ---
 title: Phoenix 1.2
 category: Elixir
-layout: 2017/sheet
+layout: post
 weight: -1
 updated: 2018-01-15
 ---

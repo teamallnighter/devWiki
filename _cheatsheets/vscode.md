@@ -1,7 +1,7 @@
 ---
 title: Visual Studio Code
 category: Apps
-layout: 2017/sheet
+layout: post
 updated: 2018-02-03
 weight: -5
 keywords:
