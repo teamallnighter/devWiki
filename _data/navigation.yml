@@ -5,7 +5,7 @@ main:
   - title: "News"
     url: news/
   - title: "Cheatsheets"
-    url: cheat-sheet-archive/
+    url: https://sheets.devwiki.io
   - title: "devDocs"
     url: docs-archive/
   - title: "Search"
