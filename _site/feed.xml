@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-17T07:34:07-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">devWiki</title><subtitle>Everything you need to know about web dev</subtitle><author><name>Chris Connelly</name></author><entry><title type="html">Intro to web componants</title><link href="http://localhost:4000/html/intro-to-web-componants/" rel="alternate" type="text/html" title="Intro to web componants" /><published>2020-04-14T00:00:00-06:00</published><updated>2020-04-14T00:00:00-06:00</updated><id>http://localhost:4000/html/intro-to-web-componants</id><content type="html" xml:base="http://localhost:4000/html/intro-to-web-componants/">&lt;h2 id=&quot;tldr&quot;&gt;TL;DR&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-17T08:14:04-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">devWiki</title><subtitle>Everything you need to know about web dev</subtitle><author><name>Chris Connelly</name></author><entry><title type="html">Intro to web componants</title><link href="http://localhost:4000/html/intro-to-web-componants/" rel="alternate" type="text/html" title="Intro to web componants" /><published>2020-04-14T00:00:00-06:00</published><updated>2020-04-14T00:00:00-06:00</updated><id>http://localhost:4000/html/intro-to-web-componants</id><content type="html" xml:base="http://localhost:4000/html/intro-to-web-componants/">&lt;h2 id=&quot;tldr&quot;&gt;TL;DR&lt;/h2&gt;
 
 &lt;p&gt;With Custom Elements, web developers can create new HTML tags, beef-up existing HTML tags, or extend the components other developers have authored. The API is the foundation of web components. It brings a web standards-based way to create reusable components using nothing more than vanilla JS/HTML/CSS. The result is less code, modular code, and more reuse in our apps.&lt;/p&gt;
 
@@ -273,7 +273,10 @@ If you encounter any errors during this process, see the troubleshooting page. A
 
 &lt;h3 id=&quot;installation&quot;&gt;Installation&lt;/h3&gt;
 
-&lt;p&gt;This App is still in development&lt;/p&gt;</content><author><name>Chris Connelly</name></author><summary type="html">The Dev Bible</summary></entry><entry><title type="html">Jekyll from Scratch</title><link href="http://localhost:4000/cpnt200/jekyll/jekyll-from-scratch/" rel="alternate" type="text/html" title="Jekyll from Scratch" /><published>2020-03-23T08:00:00-06:00</published><updated>2020-03-23T08:00:00-06:00</updated><id>http://localhost:4000/cpnt200/jekyll/jekyll-from-scratch</id><content type="html" xml:base="http://localhost:4000/cpnt200/jekyll/jekyll-from-scratch/">&lt;h1 id=&quot;jekyll-from-scratch&quot;&gt;Jekyll from Scratch&lt;/h1&gt;
+&lt;p&gt;This App is still in development&lt;/p&gt;</content><author><name>Chris Connelly</name></author><summary type="html">The Dev Bible</summary></entry><entry><title type="html">Jekyll from Scratch</title><link href="http://localhost:4000/categories:
+200/jekyll/jekyll-from-scratch/" rel="alternate" type="text/html" title="Jekyll from Scratch" /><published>2020-03-23T08:00:00-06:00</published><updated>2020-03-23T08:00:00-06:00</updated><id>http://localhost:4000/categories:
+200/jekyll/jekyll-from-scratch</id><content type="html" xml:base="http://localhost:4000/categories:
+200/jekyll/jekyll-from-scratch/">&lt;h1 id=&quot;jekyll-from-scratch&quot;&gt;Jekyll from Scratch&lt;/h1&gt;
 &lt;h2 id=&quot;morning-live-stream-agenda&quot;&gt;Morning Live Stream Agenda&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Reminders for Tony
@@ -736,7 +739,10 @@ it. You must have:&lt;/p&gt;
       &lt;li&gt;Six months in U.S., 3 months in Canada&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Chris Connelly</name></author><summary type="html">Relevant Resources</summary></entry><entry><title type="html">Content Management with Jekyll</title><link href="http://localhost:4000/cpnt200/jekyll/content-management-with-jekyll/" rel="alternate" type="text/html" title="Content Management with Jekyll" /><published>2020-03-20T08:00:00-06:00</published><updated>2020-03-20T08:00:00-06:00</updated><id>http://localhost:4000/cpnt200/jekyll/content-management-with-jekyll</id><content type="html" xml:base="http://localhost:4000/cpnt200/jekyll/content-management-with-jekyll/">&lt;h1 id=&quot;content-management-with-jekyll&quot;&gt;Content Management with Jekyll&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name>Chris Connelly</name></author><summary type="html">Relevant Resources</summary></entry><entry><title type="html">Content Management with Jekyll</title><link href="http://localhost:4000/categories:
+200/jekyll/content-management-with-jekyll/" rel="alternate" type="text/html" title="Content Management with Jekyll" /><published>2020-03-20T08:00:00-06:00</published><updated>2020-03-20T08:00:00-06:00</updated><id>http://localhost:4000/categories:
+200/jekyll/content-management-with-jekyll</id><content type="html" xml:base="http://localhost:4000/categories:
+200/jekyll/content-management-with-jekyll/">&lt;h1 id=&quot;content-management-with-jekyll&quot;&gt;Content Management with Jekyll&lt;/h1&gt;
 &lt;h2 id=&quot;assignment-1&quot;&gt;Assignment 1&lt;/h2&gt;
 &lt;p&gt;See &lt;a href=&quot;../../assignments/README.md&quot;&gt;Winter 2020 Assignments&lt;/a&gt;&lt;/p&gt;
 
@@ -933,7 +939,10 @@ A:&lt;/li&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://help.github.com/en/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser#adding-a-theme-with-the-theme-chooser&quot;&gt;Theme Chooser Step-by-Step&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/pages-themes&quot;&gt;List of all default GH Jekyll Themes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Chris Connelly</name></author><summary type="html">Content Management with Jekyll Assignment 1 See Winter 2020 Assignments</summary></entry><entry><title type="html">Content Management with Jekyll</title><link href="http://localhost:4000/cpnt200/jekyll/intro-to-dev-biz/" rel="alternate" type="text/html" title="Content Management with Jekyll" /><published>2020-03-20T08:00:00-06:00</published><updated>2020-03-20T08:00:00-06:00</updated><id>http://localhost:4000/cpnt200/jekyll/intro-to-dev-biz</id><content type="html" xml:base="http://localhost:4000/cpnt200/jekyll/intro-to-dev-biz/">&lt;h2 id=&quot;assigned-prep&quot;&gt;Assigned Prep&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>Chris Connelly</name></author><summary type="html">Content Management with Jekyll Assignment 1 See Winter 2020 Assignments</summary></entry><entry><title type="html">Content Management with Jekyll</title><link href="http://localhost:4000/categories:
+200/jekyll/intro-to-dev-biz/" rel="alternate" type="text/html" title="Content Management with Jekyll" /><published>2020-03-20T08:00:00-06:00</published><updated>2020-03-20T08:00:00-06:00</updated><id>http://localhost:4000/categories:
+200/jekyll/intro-to-dev-biz</id><content type="html" xml:base="http://localhost:4000/categories:
+200/jekyll/intro-to-dev-biz/">&lt;h2 id=&quot;assigned-prep&quot;&gt;Assigned Prep&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Cheatsheet: &lt;a href=&quot;https://www.markdownguide.org/basic-syntax/&quot;&gt;Markdown Basic Syntax&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Article: &lt;a href=&quot;https://blog.tbhcreative.com/2015/12/what-to-expect-website-design-workflow.html&quot;&gt;Web design workflow: What to expect when starting a website project&lt;/a&gt;&lt;/li&gt;

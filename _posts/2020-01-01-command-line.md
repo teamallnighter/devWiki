@@ -1,4 +1,5 @@
-# CPNT 260: Day 0
+# categories:
+ 260: Day 0
 
 ## Command Line: Navigating the file system
 

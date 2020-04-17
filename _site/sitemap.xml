@@ -89,11 +89,13 @@
 <lastmod>2020-03-05T00:00:00-07:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/cpnt200/jekyll/intro-to-dev-biz/</loc>
+<loc>http://localhost:4000/categories:
+200/jekyll/intro-to-dev-biz/</loc>
 <lastmod>2020-03-20T08:00:00-06:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/cpnt200/jekyll/content-management-with-jekyll/</loc>
+<loc>http://localhost:4000/categories:
+200/jekyll/content-management-with-jekyll/</loc>
 <lastmod>2020-03-20T08:00:00-06:00</lastmod>
 </url>
 <url>
@@ -101,7 +103,8 @@
 <lastmod>2020-03-20T08:00:00-06:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/cpnt200/jekyll/jekyll-from-scratch/</loc>
+<loc>http://localhost:4000/categories:
+200/jekyll/jekyll-from-scratch/</loc>
 <lastmod>2020-03-23T08:00:00-06:00</lastmod>
 </url>
 <url>
