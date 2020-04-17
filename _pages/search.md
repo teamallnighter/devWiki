@@ -4,4 +4,4 @@ layout: search
 permalink: /search/
 author_profile: false
 ---
-{% include search/searchform.html %}
+{% include search/search_form.html %}
