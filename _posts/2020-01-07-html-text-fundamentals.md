@@ -7,7 +7,7 @@ related: true
 header:
   image: /assets/img/languages/html@3x.png
 categories:
-  - html
+  - HTML
 tags:
   - html
   - beginner

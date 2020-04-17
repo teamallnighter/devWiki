@@ -6,7 +6,7 @@ share: true
 header:
   image: /assets/img/languages/html@3x.png
 categories:
-  - css
+  - CSS
   - javaScript
 tags:
   - css
