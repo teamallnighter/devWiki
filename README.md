@@ -1,6 +1,8 @@
 
 # devWiki
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3cec1781-706d-4988-91ee-ef812acdad22/deploy-status)](https://app.netlify.com/sites/hungry-swanson-efd6ad/deploys) [![time tracker](https://wakatime.com/badge/github/teamallnighter/devWiki.svg)](https://wakatime.com/badge/github/teamallnighter/devWiki) [![Requirements Status](https://requires.io/github/teamallnighter/devWiki/requirements.svg?branch=master)](https://requires.io/github/teamallnighter/devWiki/requirements/?branch=master) 
+
 devWiki is a Jekyll powered knowledge base and API for web developers. I came up with the idea when learning web dev and trying to find resources all over the internet. I started by creating my own database in [notion](https://notion.io). This soon became my idea for my final project while taking the Web Developer prgoram at [SAIT](https://sait.ca)
 
 ## Goals of the project
